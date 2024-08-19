@@ -1,4 +1,4 @@
-# openapi.model.OptInEmployeeLogEntryCreate
+# openapi.model.OptInEmployeeLogEntryBase
 
 ## Load the model package
 ```dart

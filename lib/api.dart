@@ -42,38 +42,26 @@ part 'api/reports_api.dart';
 
 part 'model/authentication_token.dart';
 part 'model/clinic.dart';
-part 'model/clinic_create.dart';
 part 'model/clinic_invoice.dart';
-part 'model/clinic_update.dart';
 part 'model/consultant.dart';
-part 'model/consultant_create.dart';
 part 'model/consultant_pay.dart';
-part 'model/consultant_update.dart';
 part 'model/employee.dart';
-part 'model/employee_create.dart';
-part 'model/employee_update.dart';
 part 'model/http_validation_error.dart';
 part 'model/opt_in_employee_log_entry.dart';
-part 'model/opt_in_employee_log_entry_create.dart';
+part 'model/opt_in_employee_log_entry_base.dart';
 part 'model/patient.dart';
-part 'model/patient_create.dart';
 part 'model/patient_payment_entry.dart';
-part 'model/patient_update.dart';
 part 'model/payment_detail.dart';
-part 'model/payment_detail_create.dart';
 part 'model/processed_patient_entry.dart';
 part 'model/processed_patient_entry_for_front_end.dart';
 part 'model/processed_patient_entry_from_front_end.dart';
 part 'model/provider.dart';
-part 'model/provider_create.dart';
-part 'model/provider_update.dart';
 part 'model/response_get_unpaid_patients_api_v1_payments_unpaid_patients_clinic_id_invoice_number_get.dart';
 part 'model/response_read_all_invoices_api_v1_clinic_invoice_get.dart';
 part 'model/response_read_patients_api_v1_patients_get.dart';
 part 'model/token.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
-
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
@@ -87,4 +75,5 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) =>
+    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

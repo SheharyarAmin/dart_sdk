@@ -19,7 +19,7 @@ void main() {
   group('tests for PatientsApi', () {
     // Create Patient
     //
-    //Future<Patient> createPatientApiV1PatientsPost(PatientCreate patientCreate) async
+    //Future<Patient> createPatientApiV1PatientsPost(Patient patient) async
     test('test createPatientApiV1PatientsPost', () async {
       // TODO
     });
@@ -89,7 +89,7 @@ void main() {
 
     // Update Patient
     //
-    //Future<Patient> updatePatientApiV1PatientsPatientIdPut(String patientId, PatientUpdate patientUpdate) async
+    //Future<Patient> updatePatientApiV1PatientsPatientIdPut(String patientId, Patient patient) async
     test('test updatePatientApiV1PatientsPatientIdPut', () async {
       // TODO
     });

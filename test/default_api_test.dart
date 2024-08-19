@@ -21,8 +21,8 @@ void main() {
     //
     // Endpoint to login and get an access token.  Args:     request (AuthenticationToken): The request body containing the ID token.  Returns:     Token: The access token and token type.
     //
-    //Future<Token> loginForAccessTokenTokenPost(AuthenticationToken authenticationToken) async
-    test('test loginForAccessTokenTokenPost', () async {
+    //Future<Token> loginForAccessTokenAuthTokenPost(AuthenticationToken authenticationToken) async
+    test('test loginForAccessTokenAuthTokenPost', () async {
       // TODO
     });
 
@@ -30,8 +30,8 @@ void main() {
     //
     // Endpoint to check if the server is running.  Returns:     dict: A message indicating that the server is running.
     //
-    //Future<Object> pingPingGet() async
-    test('test pingPingGet', () async {
+    //Future<Object> pingAuthPingGet() async
+    test('test pingAuthPingGet', () async {
       // TODO
     });
 

@@ -22,23 +22,24 @@ class Token {
   String tokenType;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Token &&
-    other.accessToken == accessToken &&
-    other.tokenType == tokenType;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Token &&
+          other.accessToken == accessToken &&
+          other.tokenType == tokenType;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (accessToken.hashCode) +
-    (tokenType.hashCode);
+      // ignore: unnecessary_parenthesis
+      (accessToken.hashCode) + (tokenType.hashCode);
 
   @override
   String toString() => 'Token[accessToken=$accessToken, tokenType=$tokenType]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'access_token'] = this.accessToken;
-      json[r'token_type'] = this.tokenType;
+    json[r'access_token'] = this.accessToken;
+    json[r'token_type'] = this.tokenType;
     return json;
   }
 
@@ -54,8 +55,10 @@ class Token {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Token[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Token[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Token[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Token[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -68,7 +71,10 @@ class Token {
     return null;
   }
 
-  static List<Token> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Token> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Token>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -96,13 +102,19 @@ class Token {
   }
 
   // maps a json object with a list of Token-objects as value to a dart map
-  static Map<String, List<Token>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Token>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Token>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Token.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Token.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -114,4 +126,3 @@ class Token {
     'token_type',
   };
 }
-

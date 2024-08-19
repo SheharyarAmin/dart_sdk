@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class OptInEmployeeLogEntryCreate {
-  /// Returns a new [OptInEmployeeLogEntryCreate] instance.
-  OptInEmployeeLogEntryCreate({
+class OptInEmployeeLogEntryBase {
+  /// Returns a new [OptInEmployeeLogEntryBase] instance.
+  OptInEmployeeLogEntryBase({
     required this.empid,
     required this.clinicid,
     required this.yearMonth,
@@ -49,7 +49,7 @@ class OptInEmployeeLogEntryCreate {
   String? remarks;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is OptInEmployeeLogEntryCreate &&
+  bool operator ==(Object other) => identical(this, other) || other is OptInEmployeeLogEntryBase &&
     other.empid == empid &&
     other.clinicid == clinicid &&
     other.yearMonth == yearMonth &&
@@ -78,7 +78,7 @@ class OptInEmployeeLogEntryCreate {
     (remarks == null ? 0 : remarks!.hashCode);
 
   @override
-  String toString() => 'OptInEmployeeLogEntryCreate[empid=$empid, clinicid=$clinicid, yearMonth=$yearMonth, day=$day, startTime=$startTime, patientName=$patientName, DOB=$DOB, clinicName=$clinicName, mrnNumber=$mrnNumber, status=$status, remarks=$remarks]';
+  String toString() => 'OptInEmployeeLogEntryBase[empid=$empid, clinicid=$clinicid, yearMonth=$yearMonth, day=$day, startTime=$startTime, patientName=$patientName, DOB=$DOB, clinicName=$clinicName, mrnNumber=$mrnNumber, status=$status, remarks=$remarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -124,10 +124,10 @@ class OptInEmployeeLogEntryCreate {
     return json;
   }
 
-  /// Returns a new [OptInEmployeeLogEntryCreate] instance and imports its values from
+  /// Returns a new [OptInEmployeeLogEntryBase] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static OptInEmployeeLogEntryCreate? fromJson(dynamic value) {
+  static OptInEmployeeLogEntryBase? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -136,13 +136,13 @@ class OptInEmployeeLogEntryCreate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "OptInEmployeeLogEntryCreate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "OptInEmployeeLogEntryCreate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "OptInEmployeeLogEntryBase[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "OptInEmployeeLogEntryBase[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return OptInEmployeeLogEntryCreate(
+      return OptInEmployeeLogEntryBase(
         empid: mapValueOfType<String>(json, r'empid')!,
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         yearMonth: mapValueOfType<String>(json, r'yearMonth')!,
@@ -159,11 +159,11 @@ class OptInEmployeeLogEntryCreate {
     return null;
   }
 
-  static List<OptInEmployeeLogEntryCreate> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <OptInEmployeeLogEntryCreate>[];
+  static List<OptInEmployeeLogEntryBase> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <OptInEmployeeLogEntryBase>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = OptInEmployeeLogEntryCreate.fromJson(row);
+        final value = OptInEmployeeLogEntryBase.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -172,12 +172,12 @@ class OptInEmployeeLogEntryCreate {
     return result.toList(growable: growable);
   }
 
-  static Map<String, OptInEmployeeLogEntryCreate> mapFromJson(dynamic json) {
-    final map = <String, OptInEmployeeLogEntryCreate>{};
+  static Map<String, OptInEmployeeLogEntryBase> mapFromJson(dynamic json) {
+    final map = <String, OptInEmployeeLogEntryBase>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = OptInEmployeeLogEntryCreate.fromJson(entry.value);
+        final value = OptInEmployeeLogEntryBase.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -186,14 +186,14 @@ class OptInEmployeeLogEntryCreate {
     return map;
   }
 
-  // maps a json object with a list of OptInEmployeeLogEntryCreate-objects as value to a dart map
-  static Map<String, List<OptInEmployeeLogEntryCreate>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<OptInEmployeeLogEntryCreate>>{};
+  // maps a json object with a list of OptInEmployeeLogEntryBase-objects as value to a dart map
+  static Map<String, List<OptInEmployeeLogEntryBase>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<OptInEmployeeLogEntryBase>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = OptInEmployeeLogEntryCreate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = OptInEmployeeLogEntryBase.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

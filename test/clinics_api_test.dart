@@ -33,7 +33,7 @@ void main() {
 
     // Create New Clinic
     //
-    //Future<Clinic> createNewClinicApiV1ClinicsPost(ClinicCreate clinicCreate) async
+    //Future<Clinic> createNewClinicApiV1ClinicsPost(Clinic clinic) async
     test('test createNewClinicApiV1ClinicsPost', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
 
     // Update Existing Clinic
     //
-    //Future<Clinic> updateExistingClinicApiV1ClinicsClinicIdPut(String clinicId, ClinicUpdate clinicUpdate) async
+    //Future<Clinic> updateExistingClinicApiV1ClinicsClinicIdPut(String clinicId, Clinic clinic) async
     test('test updateExistingClinicApiV1ClinicsClinicIdPut', () async {
       // TODO
     });

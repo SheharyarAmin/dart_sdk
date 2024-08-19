@@ -11,11 +11,11 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for OptInEmployeeLogEntryCreate
+// tests for OptInEmployeeLogEntryBase
 void main() {
-  // final instance = OptInEmployeeLogEntryCreate();
+  // final instance = OptInEmployeeLogEntryBase();
 
-  group('test OptInEmployeeLogEntryCreate', () {
+  group('test OptInEmployeeLogEntryBase', () {
     // String empid
     test('to test the property `empid`', () async {
       // TODO

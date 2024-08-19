@@ -33,7 +33,7 @@ void main() {
 
     // Create New Provider
     //
-    //Future<Provider> createNewProviderApiV1ProvidersPost(ProviderCreate providerCreate) async
+    //Future<Provider> createNewProviderApiV1ProvidersPost(Provider provider) async
     test('test createNewProviderApiV1ProvidersPost', () async {
       // TODO
     });
@@ -61,7 +61,7 @@ void main() {
 
     // Update Existing Provider
     //
-    //Future<Map<String, Provider>> updateExistingProviderApiV1ProvidersProviderIdPut(String providerId, ProviderUpdate providerUpdate) async
+    //Future<Map<String, Provider>> updateExistingProviderApiV1ProvidersProviderIdPut(String providerId, Provider provider) async
     test('test updateExistingProviderApiV1ProvidersProviderIdPut', () async {
       // TODO
     });

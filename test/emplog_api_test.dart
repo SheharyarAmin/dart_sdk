@@ -19,7 +19,7 @@ void main() {
   group('tests for EmplogApi', () {
     // Create Optin Log
     //
-    //Future<OptInEmployeeLogEntry> createOptinLogApiV1EmplogOptinPost(OptInEmployeeLogEntryCreate optInEmployeeLogEntryCreate) async
+    //Future<OptInEmployeeLogEntry> createOptinLogApiV1EmplogOptinPost(OptInEmployeeLogEntryBase optInEmployeeLogEntryBase) async
     test('test createOptinLogApiV1EmplogOptinPost', () async {
       // TODO
     });

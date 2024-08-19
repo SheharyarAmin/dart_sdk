@@ -27,6 +27,8 @@ Change Active Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
 final consultantId = consultantId_example; // String | 
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -68,6 +70,8 @@ Change Deleted Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
 final consultantId = consultantId_example; // String | 
@@ -92,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -102,19 +106,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createNewConsultantApiV1ConsultantsPost**
-> Consultant createNewConsultantApiV1ConsultantsPost(consultantCreate)
+> Consultant createNewConsultantApiV1ConsultantsPost(consultant)
 
 Create New Consultant
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
-final consultantCreate = ConsultantCreate(); // ConsultantCreate | 
+final consultant = Consultant(); // Consultant | 
 
 try {
-    final result = api_instance.createNewConsultantApiV1ConsultantsPost(consultantCreate);
+    final result = api_instance.createNewConsultantApiV1ConsultantsPost(consultant);
     print(result);
 } catch (e) {
     print('Exception when calling ConsultantsApi->createNewConsultantApiV1ConsultantsPost: $e\n');
@@ -125,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **consultantCreate** | [**ConsultantCreate**](ConsultantCreate.md)|  | 
+ **consultant** | [**Consultant**](Consultant.md)|  | 
 
 ### Return type
 
@@ -133,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -150,6 +156,8 @@ Delete Existing Consultant
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
 final consultantId = consultantId_example; // String | 
@@ -174,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -191,6 +199,8 @@ Get Consultant Invoice
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
 final requestBody = Map<String, String>(); // Map<String, String> | 
@@ -214,7 +224,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -231,6 +241,8 @@ Read Consultant
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
 final consultantId = consultantId_example; // String | 
@@ -255,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -272,6 +284,8 @@ Read Consultants
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
 
@@ -292,7 +306,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -302,20 +316,22 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateExistingConsultantApiV1ConsultantsConsultantIdPut**
-> Consultant updateExistingConsultantApiV1ConsultantsConsultantIdPut(consultantId, consultantUpdate)
+> Consultant updateExistingConsultantApiV1ConsultantsConsultantIdPut(consultantId, consultant)
 
 Update Existing Consultant
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ConsultantsApi();
 final consultantId = consultantId_example; // String | 
-final consultantUpdate = ConsultantUpdate(); // ConsultantUpdate | 
+final consultant = Consultant(); // Consultant | 
 
 try {
-    final result = api_instance.updateExistingConsultantApiV1ConsultantsConsultantIdPut(consultantId, consultantUpdate);
+    final result = api_instance.updateExistingConsultantApiV1ConsultantsConsultantIdPut(consultantId, consultant);
     print(result);
 } catch (e) {
     print('Exception when calling ConsultantsApi->updateExistingConsultantApiV1ConsultantsConsultantIdPut: $e\n');
@@ -327,7 +343,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **consultantId** | **String**|  | 
- **consultantUpdate** | [**ConsultantUpdate**](ConsultantUpdate.md)|  | 
+ **consultant** | [**Consultant**](Consultant.md)|  | 
 
 ### Return type
 
@@ -335,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

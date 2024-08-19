@@ -22,13 +22,13 @@ class PatientsApi {
   ///
   /// Parameters:
   ///
-  /// * [PatientCreate] patientCreate (required):
-  Future<Response> createPatientApiV1PatientsPostWithHttpInfo(PatientCreate patientCreate,) async {
+  /// * [Patient] patient (required):
+  Future<Response> createPatientApiV1PatientsPostWithHttpInfo(Patient patient,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/';
 
     // ignore: prefer_final_locals
-    Object? postBody = patientCreate;
+    Object? postBody = patient;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,9 +52,9 @@ class PatientsApi {
   ///
   /// Parameters:
   ///
-  /// * [PatientCreate] patientCreate (required):
-  Future<Patient?> createPatientApiV1PatientsPost(PatientCreate patientCreate,) async {
-    final response = await createPatientApiV1PatientsPostWithHttpInfo(patientCreate,);
+  /// * [Patient] patient (required):
+  Future<Patient?> createPatientApiV1PatientsPost(Patient patient,) async {
+    final response = await createPatientApiV1PatientsPostWithHttpInfo(patient,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -659,14 +659,14 @@ class PatientsApi {
   ///
   /// * [String] patientId (required):
   ///
-  /// * [PatientUpdate] patientUpdate (required):
-  Future<Response> updatePatientApiV1PatientsPatientIdPutWithHttpInfo(String patientId, PatientUpdate patientUpdate,) async {
+  /// * [Patient] patient (required):
+  Future<Response> updatePatientApiV1PatientsPatientIdPutWithHttpInfo(String patientId, Patient patient,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/{patient_id}'
       .replaceAll('{patient_id}', patientId);
 
     // ignore: prefer_final_locals
-    Object? postBody = patientUpdate;
+    Object? postBody = patient;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -692,9 +692,9 @@ class PatientsApi {
   ///
   /// * [String] patientId (required):
   ///
-  /// * [PatientUpdate] patientUpdate (required):
-  Future<Patient?> updatePatientApiV1PatientsPatientIdPut(String patientId, PatientUpdate patientUpdate,) async {
-    final response = await updatePatientApiV1PatientsPatientIdPutWithHttpInfo(patientId, patientUpdate,);
+  /// * [Patient] patient (required):
+  Future<Patient?> updatePatientApiV1PatientsPatientIdPut(String patientId, Patient patient,) async {
+    final response = await updatePatientApiV1PatientsPatientIdPutWithHttpInfo(patientId, patient,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

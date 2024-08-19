@@ -26,6 +26,8 @@ Change Active Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
@@ -50,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -67,6 +69,8 @@ Change Deleted Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
@@ -91,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -101,19 +105,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createNewProviderApiV1ProvidersPost**
-> Provider createNewProviderApiV1ProvidersPost(providerCreate)
+> Provider createNewProviderApiV1ProvidersPost(provider)
 
 Create New Provider
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
-final providerCreate = ProviderCreate(); // ProviderCreate | 
+final provider = Provider(); // Provider | 
 
 try {
-    final result = api_instance.createNewProviderApiV1ProvidersPost(providerCreate);
+    final result = api_instance.createNewProviderApiV1ProvidersPost(provider);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->createNewProviderApiV1ProvidersPost: $e\n');
@@ -124,7 +130,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerCreate** | [**ProviderCreate**](ProviderCreate.md)|  | 
+ **provider** | [**Provider**](Provider.md)|  | 
 
 ### Return type
 
@@ -132,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -149,6 +155,8 @@ Delete Existing Provider
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
@@ -173,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -190,6 +198,8 @@ Read Provider
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
@@ -214,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -231,6 +241,8 @@ Read Providers
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 
@@ -251,7 +263,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -261,20 +273,22 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateExistingProviderApiV1ProvidersProviderIdPut**
-> Map<String, Provider> updateExistingProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate)
+> Map<String, Provider> updateExistingProviderApiV1ProvidersProviderIdPut(providerId, provider)
 
 Update Existing Provider
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
-final providerUpdate = ProviderUpdate(); // ProviderUpdate | 
+final provider = Provider(); // Provider | 
 
 try {
-    final result = api_instance.updateExistingProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate);
+    final result = api_instance.updateExistingProviderApiV1ProvidersProviderIdPut(providerId, provider);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->updateExistingProviderApiV1ProvidersProviderIdPut: $e\n');
@@ -286,7 +300,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerId** | **String**|  | 
- **providerUpdate** | [**ProviderUpdate**](ProviderUpdate.md)|  | 
+ **provider** | [**Provider**](Provider.md)|  | 
 
 ### Return type
 
@@ -294,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

@@ -40,6 +40,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:openapi/api.dart';
 
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicInvoiceApi();
 final clinicid = clinicid_example; // String | 
@@ -84,8 +86,8 @@ Class | Method | HTTP request | Description
 *ConsultantsApi* | [**readConsultantApiV1ConsultantsConsultantIdGet**](doc//ConsultantsApi.md#readconsultantapiv1consultantsconsultantidget) | **GET** /api/v1/consultants/{consultant_id} | Read Consultant
 *ConsultantsApi* | [**readConsultantsApiV1ConsultantsGet**](doc//ConsultantsApi.md#readconsultantsapiv1consultantsget) | **GET** /api/v1/consultants/ | Read Consultants
 *ConsultantsApi* | [**updateExistingConsultantApiV1ConsultantsConsultantIdPut**](doc//ConsultantsApi.md#updateexistingconsultantapiv1consultantsconsultantidput) | **PUT** /api/v1/consultants/{consultant_id} | Update Existing Consultant
-*DefaultApi* | [**loginForAccessTokenTokenPost**](doc//DefaultApi.md#loginforaccesstokentokenpost) | **POST** /token | Login For Access Token
-*DefaultApi* | [**pingPingGet**](doc//DefaultApi.md#pingpingget) | **GET** /ping | Ping
+*DefaultApi* | [**loginForAccessTokenAuthTokenPost**](doc//DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
+*DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 *EmplogApi* | [**createOptinLogApiV1EmplogOptinPost**](doc//EmplogApi.md#createoptinlogapiv1emplogoptinpost) | **POST** /api/v1/emplog/optin | Create Optin Log
 *EmplogApi* | [**readOptinLogsApiV1EmplogOptinEmpidYearMonthGet**](doc//EmplogApi.md#readoptinlogsapiv1emplogoptinempidyearmonthget) | **GET** /api/v1/emplog/optin/{empid}/{yearMonth} | Read Optin Logs
 *EmployeesApi* | [**changeActiveStatusApiV1EmployeesEmployeeIdChangeActiveStatusPut**](doc//EmployeesApi.md#changeactivestatusapiv1employeesemployeeidchangeactivestatusput) | **PUT** /api/v1/employees/{employee_id}/change-active-status | Change Active Status
@@ -130,31 +132,20 @@ Class | Method | HTTP request | Description
 
  - [AuthenticationToken](doc//AuthenticationToken.md)
  - [Clinic](doc//Clinic.md)
- - [ClinicCreate](doc//ClinicCreate.md)
  - [ClinicInvoice](doc//ClinicInvoice.md)
- - [ClinicUpdate](doc//ClinicUpdate.md)
  - [Consultant](doc//Consultant.md)
- - [ConsultantCreate](doc//ConsultantCreate.md)
  - [ConsultantPay](doc//ConsultantPay.md)
- - [ConsultantUpdate](doc//ConsultantUpdate.md)
  - [Employee](doc//Employee.md)
- - [EmployeeCreate](doc//EmployeeCreate.md)
- - [EmployeeUpdate](doc//EmployeeUpdate.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
- - [OptInEmployeeLogEntryCreate](doc//OptInEmployeeLogEntryCreate.md)
+ - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
  - [Patient](doc//Patient.md)
- - [PatientCreate](doc//PatientCreate.md)
  - [PatientPaymentEntry](doc//PatientPaymentEntry.md)
- - [PatientUpdate](doc//PatientUpdate.md)
  - [PaymentDetail](doc//PaymentDetail.md)
- - [PaymentDetailCreate](doc//PaymentDetailCreate.md)
  - [ProcessedPatientEntry](doc//ProcessedPatientEntry.md)
  - [ProcessedPatientEntryForFrontEnd](doc//ProcessedPatientEntryForFrontEnd.md)
  - [ProcessedPatientEntryFromFrontEnd](doc//ProcessedPatientEntryFromFrontEnd.md)
  - [Provider](doc//Provider.md)
- - [ProviderCreate](doc//ProviderCreate.md)
- - [ProviderUpdate](doc//ProviderUpdate.md)
  - [ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet](doc//ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet.md)
  - [ResponseReadAllInvoicesApiV1ClinicInvoiceGet](doc//ResponseReadAllInvoicesApiV1ClinicInvoiceGet.md)
  - [ResponseReadPatientsApiV1PatientsGet](doc//ResponseReadPatientsApiV1PatientsGet.md)
@@ -165,7 +156,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-Endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+### OAuth2PasswordBearer
+
+- **Type**: OAuth
+- **Flow**: password
+- **Authorization URL**: 
+- **Scopes**: N/A
 
 
 ## Author

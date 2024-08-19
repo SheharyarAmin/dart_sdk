@@ -128,13 +128,13 @@ class ConsultantsApi {
   ///
   /// Parameters:
   ///
-  /// * [ConsultantCreate] consultantCreate (required):
-  Future<Response> createNewConsultantApiV1ConsultantsPostWithHttpInfo(ConsultantCreate consultantCreate,) async {
+  /// * [Consultant] consultant (required):
+  Future<Response> createNewConsultantApiV1ConsultantsPostWithHttpInfo(Consultant consultant,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/';
 
     // ignore: prefer_final_locals
-    Object? postBody = consultantCreate;
+    Object? postBody = consultant;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -158,9 +158,9 @@ class ConsultantsApi {
   ///
   /// Parameters:
   ///
-  /// * [ConsultantCreate] consultantCreate (required):
-  Future<Consultant?> createNewConsultantApiV1ConsultantsPost(ConsultantCreate consultantCreate,) async {
-    final response = await createNewConsultantApiV1ConsultantsPostWithHttpInfo(consultantCreate,);
+  /// * [Consultant] consultant (required):
+  Future<Consultant?> createNewConsultantApiV1ConsultantsPost(Consultant consultant,) async {
+    final response = await createNewConsultantApiV1ConsultantsPostWithHttpInfo(consultant,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -376,14 +376,14 @@ class ConsultantsApi {
   ///
   /// * [String] consultantId (required):
   ///
-  /// * [ConsultantUpdate] consultantUpdate (required):
-  Future<Response> updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(String consultantId, ConsultantUpdate consultantUpdate,) async {
+  /// * [Consultant] consultant (required):
+  Future<Response> updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(String consultantId, Consultant consultant,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}'
       .replaceAll('{consultant_id}', consultantId);
 
     // ignore: prefer_final_locals
-    Object? postBody = consultantUpdate;
+    Object? postBody = consultant;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -409,9 +409,9 @@ class ConsultantsApi {
   ///
   /// * [String] consultantId (required):
   ///
-  /// * [ConsultantUpdate] consultantUpdate (required):
-  Future<Consultant?> updateExistingConsultantApiV1ConsultantsConsultantIdPut(String consultantId, ConsultantUpdate consultantUpdate,) async {
-    final response = await updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(consultantId, consultantUpdate,);
+  /// * [Consultant] consultant (required):
+  Future<Consultant?> updateExistingConsultantApiV1ConsultantsConsultantIdPut(String consultantId, Consultant consultant,) async {
+    final response = await updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(consultantId, consultant,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

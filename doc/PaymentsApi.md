@@ -16,21 +16,23 @@ Method | HTTP request | Description
 
 
 # **createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost**
-> PaymentDetail createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost(clinicId, invoiceNumber, paymentDetailCreate)
+> PaymentDetail createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost(clinicId, invoiceNumber, paymentDetail)
 
 Create Payment Detail
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PaymentsApi();
 final clinicId = clinicId_example; // String | 
 final invoiceNumber = invoiceNumber_example; // String | 
-final paymentDetailCreate = PaymentDetailCreate(); // PaymentDetailCreate | 
+final paymentDetail = PaymentDetail(); // PaymentDetail | 
 
 try {
-    final result = api_instance.createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost(clinicId, invoiceNumber, paymentDetailCreate);
+    final result = api_instance.createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost(clinicId, invoiceNumber, paymentDetail);
     print(result);
 } catch (e) {
     print('Exception when calling PaymentsApi->createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost: $e\n');
@@ -43,7 +45,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
  **invoiceNumber** | **String**|  | 
- **paymentDetailCreate** | [**PaymentDetailCreate**](PaymentDetailCreate.md)|  | 
+ **paymentDetail** | [**PaymentDetail**](PaymentDetail.md)|  | 
 
 ### Return type
 
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -68,6 +70,8 @@ Delete Payment Detail
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PaymentsApi();
 final clinicId = clinicId_example; // String | 
@@ -96,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -113,6 +117,8 @@ Get Unpaid Patients
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PaymentsApi();
 final clinicId = clinicId_example; // String | 
@@ -143,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -160,6 +166,8 @@ Read Payment Details
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PaymentsApi();
 final clinicId = clinicId_example; // String | 
@@ -186,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

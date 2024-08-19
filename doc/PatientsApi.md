@@ -23,19 +23,21 @@ Method | HTTP request | Description
 
 
 # **createPatientApiV1PatientsPost**
-> Patient createPatientApiV1PatientsPost(patientCreate)
+> Patient createPatientApiV1PatientsPost(patient)
 
 Create Patient
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
-final patientCreate = PatientCreate(); // PatientCreate | 
+final patient = Patient(); // Patient | 
 
 try {
-    final result = api_instance.createPatientApiV1PatientsPost(patientCreate);
+    final result = api_instance.createPatientApiV1PatientsPost(patient);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->createPatientApiV1PatientsPost: $e\n');
@@ -46,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patientCreate** | [**PatientCreate**](PatientCreate.md)|  | 
+ **patient** | [**Patient**](Patient.md)|  | 
 
 ### Return type
 
@@ -54,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -71,6 +73,8 @@ Delete Patient
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientId = patientId_example; // String | 
@@ -95,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -112,6 +116,8 @@ Read Patient
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientId = patientId_example; // String | 
@@ -136,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -153,6 +159,8 @@ Read Patients
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientName = patientName_example; // String | 
@@ -199,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -216,6 +224,8 @@ Read Patients By Clinic Id
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final clinicId = clinicId_example; // String | 
@@ -240,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -257,6 +267,8 @@ Read Patients By Employee Id
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final employeeId = employeeId_example; // String | 
@@ -281,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -298,6 +310,8 @@ Read Patients By Provider Id
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final providerId = providerId_example; // String | 
@@ -322,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -339,6 +353,8 @@ Read Total Patients By Employee Id
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final employeeId = employeeId_example; // String | 
@@ -363,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -380,6 +396,8 @@ Remove Field
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final queryField = queryField_example; // String | 
@@ -408,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -425,6 +443,8 @@ Update Field
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final fieldName = fieldName_example; // String | 
@@ -455,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -465,20 +485,22 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updatePatientApiV1PatientsPatientIdPut**
-> Patient updatePatientApiV1PatientsPatientIdPut(patientId, patientUpdate)
+> Patient updatePatientApiV1PatientsPatientIdPut(patientId, patient)
 
 Update Patient
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientId = patientId_example; // String | 
-final patientUpdate = PatientUpdate(); // PatientUpdate | 
+final patient = Patient(); // Patient | 
 
 try {
-    final result = api_instance.updatePatientApiV1PatientsPatientIdPut(patientId, patientUpdate);
+    final result = api_instance.updatePatientApiV1PatientsPatientIdPut(patientId, patient);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->updatePatientApiV1PatientsPatientIdPut: $e\n');
@@ -490,7 +512,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **patientId** | **String**|  | 
- **patientUpdate** | [**PatientUpdate**](PatientUpdate.md)|  | 
+ **patient** | [**Patient**](Patient.md)|  | 
 
 ### Return type
 
@@ -498,7 +520,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

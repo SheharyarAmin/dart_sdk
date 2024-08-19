@@ -128,13 +128,13 @@ class ProvidersApi {
   ///
   /// Parameters:
   ///
-  /// * [ProviderCreate] providerCreate (required):
-  Future<Response> createNewProviderApiV1ProvidersPostWithHttpInfo(ProviderCreate providerCreate,) async {
+  /// * [Provider] provider (required):
+  Future<Response> createNewProviderApiV1ProvidersPostWithHttpInfo(Provider provider,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/';
 
     // ignore: prefer_final_locals
-    Object? postBody = providerCreate;
+    Object? postBody = provider;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -158,9 +158,9 @@ class ProvidersApi {
   ///
   /// Parameters:
   ///
-  /// * [ProviderCreate] providerCreate (required):
-  Future<Provider?> createNewProviderApiV1ProvidersPost(ProviderCreate providerCreate,) async {
-    final response = await createNewProviderApiV1ProvidersPostWithHttpInfo(providerCreate,);
+  /// * [Provider] provider (required):
+  Future<Provider?> createNewProviderApiV1ProvidersPost(Provider provider,) async {
+    final response = await createNewProviderApiV1ProvidersPostWithHttpInfo(provider,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -332,14 +332,14 @@ class ProvidersApi {
   ///
   /// * [String] providerId (required):
   ///
-  /// * [ProviderUpdate] providerUpdate (required):
-  Future<Response> updateExistingProviderApiV1ProvidersProviderIdPutWithHttpInfo(String providerId, ProviderUpdate providerUpdate,) async {
+  /// * [Provider] provider (required):
+  Future<Response> updateExistingProviderApiV1ProvidersProviderIdPutWithHttpInfo(String providerId, Provider provider,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}'
       .replaceAll('{provider_id}', providerId);
 
     // ignore: prefer_final_locals
-    Object? postBody = providerUpdate;
+    Object? postBody = provider;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -365,9 +365,9 @@ class ProvidersApi {
   ///
   /// * [String] providerId (required):
   ///
-  /// * [ProviderUpdate] providerUpdate (required):
-  Future<Map<String, Provider>?> updateExistingProviderApiV1ProvidersProviderIdPut(String providerId, ProviderUpdate providerUpdate,) async {
-    final response = await updateExistingProviderApiV1ProvidersProviderIdPutWithHttpInfo(providerId, providerUpdate,);
+  /// * [Provider] provider (required):
+  Future<Map<String, Provider>?> updateExistingProviderApiV1ProvidersProviderIdPut(String providerId, Provider provider,) async {
+    final response = await updateExistingProviderApiV1ProvidersProviderIdPutWithHttpInfo(providerId, provider,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

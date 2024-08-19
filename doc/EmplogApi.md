@@ -14,19 +14,21 @@ Method | HTTP request | Description
 
 
 # **createOptinLogApiV1EmplogOptinPost**
-> OptInEmployeeLogEntry createOptinLogApiV1EmplogOptinPost(optInEmployeeLogEntryCreate)
+> OptInEmployeeLogEntry createOptinLogApiV1EmplogOptinPost(optInEmployeeLogEntryBase)
 
 Create Optin Log
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmplogApi();
-final optInEmployeeLogEntryCreate = OptInEmployeeLogEntryCreate(); // OptInEmployeeLogEntryCreate | 
+final optInEmployeeLogEntryBase = OptInEmployeeLogEntryBase(); // OptInEmployeeLogEntryBase | 
 
 try {
-    final result = api_instance.createOptinLogApiV1EmplogOptinPost(optInEmployeeLogEntryCreate);
+    final result = api_instance.createOptinLogApiV1EmplogOptinPost(optInEmployeeLogEntryBase);
     print(result);
 } catch (e) {
     print('Exception when calling EmplogApi->createOptinLogApiV1EmplogOptinPost: $e\n');
@@ -37,7 +39,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **optInEmployeeLogEntryCreate** | [**OptInEmployeeLogEntryCreate**](OptInEmployeeLogEntryCreate.md)|  | 
+ **optInEmployeeLogEntryBase** | [**OptInEmployeeLogEntryBase**](OptInEmployeeLogEntryBase.md)|  | 
 
 ### Return type
 
@@ -45,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -62,6 +64,8 @@ Read Optin Logs
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmplogApi();
 final empid = empid_example; // String | 
@@ -88,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

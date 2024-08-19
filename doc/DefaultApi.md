@@ -9,12 +9,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**loginForAccessTokenTokenPost**](DefaultApi.md#loginforaccesstokentokenpost) | **POST** /token | Login For Access Token
-[**pingPingGet**](DefaultApi.md#pingpingget) | **GET** /ping | Ping
+[**loginForAccessTokenAuthTokenPost**](DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
+[**pingAuthPingGet**](DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 
 
-# **loginForAccessTokenTokenPost**
-> Token loginForAccessTokenTokenPost(authenticationToken)
+# **loginForAccessTokenAuthTokenPost**
+> Token loginForAccessTokenAuthTokenPost(authenticationToken)
 
 Login For Access Token
 
@@ -28,10 +28,10 @@ final api_instance = DefaultApi();
 final authenticationToken = AuthenticationToken(); // AuthenticationToken | 
 
 try {
-    final result = api_instance.loginForAccessTokenTokenPost(authenticationToken);
+    final result = api_instance.loginForAccessTokenAuthTokenPost(authenticationToken);
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->loginForAccessTokenTokenPost: $e\n');
+    print('Exception when calling DefaultApi->loginForAccessTokenAuthTokenPost: $e\n');
 }
 ```
 
@@ -56,8 +56,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **pingPingGet**
-> Object pingPingGet()
+# **pingAuthPingGet**
+> Object pingAuthPingGet()
 
 Ping
 
@@ -70,10 +70,10 @@ import 'package:openapi/api.dart';
 final api_instance = DefaultApi();
 
 try {
-    final result = api_instance.pingPingGet();
+    final result = api_instance.pingAuthPingGet();
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->pingPingGet: $e\n');
+    print('Exception when calling DefaultApi->pingAuthPingGet: $e\n');
 }
 ```
 

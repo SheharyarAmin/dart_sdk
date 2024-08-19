@@ -22,13 +22,13 @@ class EmplogApi {
   ///
   /// Parameters:
   ///
-  /// * [OptInEmployeeLogEntryCreate] optInEmployeeLogEntryCreate (required):
-  Future<Response> createOptinLogApiV1EmplogOptinPostWithHttpInfo(OptInEmployeeLogEntryCreate optInEmployeeLogEntryCreate,) async {
+  /// * [OptInEmployeeLogEntryBase] optInEmployeeLogEntryBase (required):
+  Future<Response> createOptinLogApiV1EmplogOptinPostWithHttpInfo(OptInEmployeeLogEntryBase optInEmployeeLogEntryBase,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/emplog/optin';
 
     // ignore: prefer_final_locals
-    Object? postBody = optInEmployeeLogEntryCreate;
+    Object? postBody = optInEmployeeLogEntryBase;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,9 +52,9 @@ class EmplogApi {
   ///
   /// Parameters:
   ///
-  /// * [OptInEmployeeLogEntryCreate] optInEmployeeLogEntryCreate (required):
-  Future<OptInEmployeeLogEntry?> createOptinLogApiV1EmplogOptinPost(OptInEmployeeLogEntryCreate optInEmployeeLogEntryCreate,) async {
-    final response = await createOptinLogApiV1EmplogOptinPostWithHttpInfo(optInEmployeeLogEntryCreate,);
+  /// * [OptInEmployeeLogEntryBase] optInEmployeeLogEntryBase (required):
+  Future<OptInEmployeeLogEntry?> createOptinLogApiV1EmplogOptinPost(OptInEmployeeLogEntryBase optInEmployeeLogEntryBase,) async {
+    final response = await createOptinLogApiV1EmplogOptinPostWithHttpInfo(optInEmployeeLogEntryBase,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -28,6 +28,8 @@ Change Active Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
@@ -52,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -69,6 +71,8 @@ Change Cannot Delete Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
@@ -93,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -103,19 +107,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createNewClinicApiV1ClinicsPost**
-> Clinic createNewClinicApiV1ClinicsPost(clinicCreate)
+> Clinic createNewClinicApiV1ClinicsPost(clinic)
 
 Create New Clinic
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
-final clinicCreate = ClinicCreate(); // ClinicCreate | 
+final clinic = Clinic(); // Clinic | 
 
 try {
-    final result = api_instance.createNewClinicApiV1ClinicsPost(clinicCreate);
+    final result = api_instance.createNewClinicApiV1ClinicsPost(clinic);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->createNewClinicApiV1ClinicsPost: $e\n');
@@ -126,7 +132,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clinicCreate** | [**ClinicCreate**](ClinicCreate.md)|  | 
+ **clinic** | [**Clinic**](Clinic.md)|  | 
 
 ### Return type
 
@@ -134,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -151,6 +157,8 @@ Delete Existing Clinic
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
@@ -175,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -192,6 +200,8 @@ Get Clinic Statement
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 final requestBody = Map<String, String>(); // Map<String, String> | 
@@ -215,7 +225,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -232,6 +242,8 @@ Read Clinic
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
@@ -256,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -273,6 +285,8 @@ Read Clinics
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 
@@ -293,7 +307,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -310,6 +324,8 @@ Remove Consultant
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 final consultantId = consultantId_example; // String | 
@@ -334,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -344,20 +360,22 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateExistingClinicApiV1ClinicsClinicIdPut**
-> Clinic updateExistingClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate)
+> Clinic updateExistingClinicApiV1ClinicsClinicIdPut(clinicId, clinic)
 
 Update Existing Clinic
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
-final clinicUpdate = ClinicUpdate(); // ClinicUpdate | 
+final clinic = Clinic(); // Clinic | 
 
 try {
-    final result = api_instance.updateExistingClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate);
+    final result = api_instance.updateExistingClinicApiV1ClinicsClinicIdPut(clinicId, clinic);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->updateExistingClinicApiV1ClinicsClinicIdPut: $e\n');
@@ -369,7 +387,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
- **clinicUpdate** | [**ClinicUpdate**](ClinicUpdate.md)|  | 
+ **clinic** | [**Clinic**](Clinic.md)|  | 
 
 ### Return type
 
@@ -377,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

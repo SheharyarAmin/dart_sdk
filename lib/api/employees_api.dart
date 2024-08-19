@@ -128,13 +128,13 @@ class EmployeesApi {
   ///
   /// Parameters:
   ///
-  /// * [EmployeeCreate] employeeCreate (required):
-  Future<Response> createEmployeeApiV1EmployeesPostWithHttpInfo(EmployeeCreate employeeCreate,) async {
+  /// * [Employee] employee (required):
+  Future<Response> createEmployeeApiV1EmployeesPostWithHttpInfo(Employee employee,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/employees/';
 
     // ignore: prefer_final_locals
-    Object? postBody = employeeCreate;
+    Object? postBody = employee;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -158,9 +158,9 @@ class EmployeesApi {
   ///
   /// Parameters:
   ///
-  /// * [EmployeeCreate] employeeCreate (required):
-  Future<Employee?> createEmployeeApiV1EmployeesPost(EmployeeCreate employeeCreate,) async {
-    final response = await createEmployeeApiV1EmployeesPostWithHttpInfo(employeeCreate,);
+  /// * [Employee] employee (required):
+  Future<Employee?> createEmployeeApiV1EmployeesPost(Employee employee,) async {
+    final response = await createEmployeeApiV1EmployeesPostWithHttpInfo(employee,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -385,14 +385,14 @@ class EmployeesApi {
   ///
   /// * [String] employeeId (required):
   ///
-  /// * [EmployeeUpdate] employeeUpdate (required):
-  Future<Response> updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(String employeeId, EmployeeUpdate employeeUpdate,) async {
+  /// * [Employee] employee (required):
+  Future<Response> updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(String employeeId, Employee employee,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/employees/{employee_id}'
       .replaceAll('{employee_id}', employeeId);
 
     // ignore: prefer_final_locals
-    Object? postBody = employeeUpdate;
+    Object? postBody = employee;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -418,9 +418,9 @@ class EmployeesApi {
   ///
   /// * [String] employeeId (required):
   ///
-  /// * [EmployeeUpdate] employeeUpdate (required):
-  Future<Employee?> updateEmployeeApiV1EmployeesEmployeeIdPut(String employeeId, EmployeeUpdate employeeUpdate,) async {
-    final response = await updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(employeeId, employeeUpdate,);
+  /// * [Employee] employee (required):
+  Future<Employee?> updateEmployeeApiV1EmployeesEmployeeIdPut(String employeeId, Employee employee,) async {
+    final response = await updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(employeeId, employee,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

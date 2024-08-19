@@ -33,7 +33,7 @@ void main() {
 
     // Create New Consultant
     //
-    //Future<Consultant> createNewConsultantApiV1ConsultantsPost(ConsultantCreate consultantCreate) async
+    //Future<Consultant> createNewConsultantApiV1ConsultantsPost(Consultant consultant) async
     test('test createNewConsultantApiV1ConsultantsPost', () async {
       // TODO
     });
@@ -68,7 +68,7 @@ void main() {
 
     // Update Existing Consultant
     //
-    //Future<Consultant> updateExistingConsultantApiV1ConsultantsConsultantIdPut(String consultantId, ConsultantUpdate consultantUpdate) async
+    //Future<Consultant> updateExistingConsultantApiV1ConsultantsConsultantIdPut(String consultantId, Consultant consultant) async
     test('test updateExistingConsultantApiV1ConsultantsConsultantIdPut', () async {
       // TODO
     });

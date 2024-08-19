@@ -19,7 +19,7 @@ void main() {
   group('tests for PaymentsApi', () {
     // Create Payment Detail
     //
-    //Future<PaymentDetail> createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost(String clinicId, String invoiceNumber, PaymentDetailCreate paymentDetailCreate) async
+    //Future<PaymentDetail> createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost(String clinicId, String invoiceNumber, PaymentDetail paymentDetail) async
     test('test createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost', () async {
       // TODO
     });

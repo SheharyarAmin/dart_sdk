@@ -27,6 +27,8 @@ Change Active Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 final employeeId = employeeId_example; // String | 
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -68,6 +70,8 @@ Change Deleted Status
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 final employeeId = employeeId_example; // String | 
@@ -92,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -102,19 +106,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createEmployeeApiV1EmployeesPost**
-> Employee createEmployeeApiV1EmployeesPost(employeeCreate)
+> Employee createEmployeeApiV1EmployeesPost(employee)
 
 Create Employee
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
-final employeeCreate = EmployeeCreate(); // EmployeeCreate | 
+final employee = Employee(); // Employee | 
 
 try {
-    final result = api_instance.createEmployeeApiV1EmployeesPost(employeeCreate);
+    final result = api_instance.createEmployeeApiV1EmployeesPost(employee);
     print(result);
 } catch (e) {
     print('Exception when calling EmployeesApi->createEmployeeApiV1EmployeesPost: $e\n');
@@ -125,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **employeeCreate** | [**EmployeeCreate**](EmployeeCreate.md)|  | 
+ **employee** | [**Employee**](Employee.md)|  | 
 
 ### Return type
 
@@ -133,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -150,6 +156,8 @@ Delete Employee
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 final employeeId = employeeId_example; // String | 
@@ -174,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -191,6 +199,8 @@ Get Employee Role
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 final email = email_example; // String | 
@@ -215,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -232,6 +242,8 @@ Read Employee
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 final employeeId = employeeId_example; // String | 
@@ -256,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -273,6 +285,8 @@ Read Employees
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 
@@ -293,7 +307,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -303,20 +317,22 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateEmployeeApiV1EmployeesEmployeeIdPut**
-> Employee updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employeeUpdate)
+> Employee updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employee)
 
 Update Employee
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 final employeeId = employeeId_example; // String | 
-final employeeUpdate = EmployeeUpdate(); // EmployeeUpdate | 
+final employee = Employee(); // Employee | 
 
 try {
-    final result = api_instance.updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employeeUpdate);
+    final result = api_instance.updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employee);
     print(result);
 } catch (e) {
     print('Exception when calling EmployeesApi->updateEmployeeApiV1EmployeesEmployeeIdPut: $e\n');
@@ -328,7 +344,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **employeeId** | **String**|  | 
- **employeeUpdate** | [**EmployeeUpdate**](EmployeeUpdate.md)|  | 
+ **employee** | [**Employee**](Employee.md)|  | 
 
 ### Return type
 
@@ -336,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
