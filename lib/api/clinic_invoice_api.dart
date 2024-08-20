@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-
 class ClinicInvoiceApi {
-  ClinicInvoiceApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  ClinicInvoiceApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -27,10 +27,15 @@ class ClinicInvoiceApi {
   /// * [String] date:
   ///
   /// * [num] taxrate:
-  Future<Response> createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(String clinicid, { String? date, num? taxrate, }) async {
+  Future<Response>
+      createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(
+    String clinicid, {
+    String? date,
+    num? taxrate,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/{clinicid}/'
-      .replaceAll('{clinicid}', clinicid);
+        .replaceAll('{clinicid}', clinicid);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -47,7 +52,6 @@ class ClinicInvoiceApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -69,17 +73,29 @@ class ClinicInvoiceApi {
   /// * [String] date:
   ///
   /// * [num] taxrate:
-  Future<ClinicInvoice?> createClinicInvoiceApiV1ClinicInvoiceClinicidPost(String clinicid, { String? date, num? taxrate, }) async {
-    final response = await createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(clinicid,  date: date, taxrate: taxrate, );
+  Future<ClinicInvoice?> createClinicInvoiceApiV1ClinicInvoiceClinicidPost(
+    String clinicid, {
+    String? date,
+    num? taxrate,
+  }) async {
+    final response =
+        await createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(
+      clinicid,
+      date: date,
+      taxrate: taxrate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClinicInvoice',) as ClinicInvoice;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ClinicInvoice',
+      ) as ClinicInvoice;
     }
     return null;
   }
@@ -93,11 +109,15 @@ class ClinicInvoiceApi {
   /// * [String] clinicid (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<Response> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(String clinicid, String invoiceNumber,) async {
+  Future<Response>
+      deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(
+    String clinicid,
+    String invoiceNumber,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/{clinicid}/{invoice_number}'
-      .replaceAll('{clinicid}', clinicid)
-      .replaceAll('{invoice_number}', invoiceNumber);
+        .replaceAll('{clinicid}', clinicid)
+        .replaceAll('{invoice_number}', invoiceNumber);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -107,7 +127,6 @@ class ClinicInvoiceApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -127,17 +146,28 @@ class ClinicInvoiceApi {
   /// * [String] clinicid (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<Map<String, String>?> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(String clinicid, String invoiceNumber,) async {
-    final response = await deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(clinicid, invoiceNumber,);
+  Future<Map<String, String>?>
+      deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(
+    String clinicid,
+    String invoiceNumber,
+  ) async {
+    final response =
+        await deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(
+      clinicid,
+      invoiceNumber,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
-
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return Map<String, String>.from(
+        await apiClient.deserializeAsync(
+            await _decodeBodyBytes(response), 'Map<String, String>'),
+      );
     }
     return null;
   }
@@ -153,12 +183,17 @@ class ClinicInvoiceApi {
   /// * [String] month (required):
   ///
   /// * [String] year (required):
-  Future<Response> getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGetWithHttpInfo(String clinicid, String month, String year,) async {
+  Future<Response>
+      getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGetWithHttpInfo(
+    String clinicid,
+    String month,
+    String year,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/{clinicid}/month/{month}/year/{year}'
-      .replaceAll('{clinicid}', clinicid)
-      .replaceAll('{month}', month)
-      .replaceAll('{year}', year);
+        .replaceAll('{clinicid}', clinicid)
+        .replaceAll('{month}', month)
+        .replaceAll('{year}', year);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -168,7 +203,6 @@ class ClinicInvoiceApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -190,17 +224,30 @@ class ClinicInvoiceApi {
   /// * [String] month (required):
   ///
   /// * [String] year (required):
-  Future<ClinicInvoice?> getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet(String clinicid, String month, String year,) async {
-    final response = await getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGetWithHttpInfo(clinicid, month, year,);
+  Future<ClinicInvoice?>
+      getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet(
+    String clinicid,
+    String month,
+    String year,
+  ) async {
+    final response =
+        await getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGetWithHttpInfo(
+      clinicid,
+      month,
+      year,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClinicInvoice',) as ClinicInvoice;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ClinicInvoice',
+      ) as ClinicInvoice;
     }
     return null;
   }
@@ -238,7 +285,22 @@ class ClinicInvoiceApi {
   /// * [String] sortBy:
   ///
   /// * [bool] ascending:
-  Future<Response> readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo({ int? pageSize, String? pageToken, String? clinicid, int? invoiceNumber, num? grandTotal, num? amountPaid, int? patientsCount, num? amountLeft, String? dueDateTo, String? dueDateFrom, String? monthYearFrom, String? monthYearTo, String? sortBy, bool? ascending, }) async {
+  Future<Response> readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo({
+    int? pageSize,
+    String? pageToken,
+    String? clinicid,
+    int? invoiceNumber,
+    num? grandTotal,
+    num? amountPaid,
+    int? patientsCount,
+    num? amountLeft,
+    String? dueDateTo,
+    String? dueDateFrom,
+    String? monthYearFrom,
+    String? monthYearTo,
+    String? sortBy,
+    bool? ascending,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/';
 
@@ -294,7 +356,6 @@ class ClinicInvoiceApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -337,17 +398,50 @@ class ClinicInvoiceApi {
   /// * [String] sortBy:
   ///
   /// * [bool] ascending:
-  Future<Map<String, ResponseReadAllInvoicesApiV1ClinicInvoiceGet>?> readAllInvoicesApiV1ClinicInvoiceGet({ int? pageSize, String? pageToken, String? clinicid, int? invoiceNumber, num? grandTotal, num? amountPaid, int? patientsCount, num? amountLeft, String? dueDateTo, String? dueDateFrom, String? monthYearFrom, String? monthYearTo, String? sortBy, bool? ascending, }) async {
-    final response = await readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo( pageSize: pageSize, pageToken: pageToken, clinicid: clinicid, invoiceNumber: invoiceNumber, grandTotal: grandTotal, amountPaid: amountPaid, patientsCount: patientsCount, amountLeft: amountLeft, dueDateTo: dueDateTo, dueDateFrom: dueDateFrom, monthYearFrom: monthYearFrom, monthYearTo: monthYearTo, sortBy: sortBy, ascending: ascending, );
+  Future<Map<dynamic, dynamic>?> readAllInvoicesApiV1ClinicInvoiceGet({
+    int? pageSize,
+    String? pageToken,
+    String? clinicid,
+    int? invoiceNumber,
+    num? grandTotal,
+    num? amountPaid,
+    int? patientsCount,
+    num? amountLeft,
+    String? dueDateTo,
+    String? dueDateFrom,
+    String? monthYearFrom,
+    String? monthYearTo,
+    String? sortBy,
+    bool? ascending,
+  }) async {
+    final response = await readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo(
+      pageSize: pageSize,
+      pageToken: pageToken,
+      clinicid: clinicid,
+      invoiceNumber: invoiceNumber,
+      grandTotal: grandTotal,
+      amountPaid: amountPaid,
+      patientsCount: patientsCount,
+      amountLeft: amountLeft,
+      dueDateTo: dueDateTo,
+      dueDateFrom: dueDateFrom,
+      monthYearFrom: monthYearFrom,
+      monthYearTo: monthYearTo,
+      sortBy: sortBy,
+      ascending: ascending,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, ResponseReadAllInvoicesApiV1ClinicInvoiceGet>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ResponseReadAllInvoicesApiV1ClinicInvoiceGet>'),);
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      // print("response: ${response.body}");
+      // var data = await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ResponseReadAllInvoicesApiV1ClinicInvoiceGet>');
 
+      return jsonDecode(response.body);
     }
     return null;
   }
@@ -361,11 +455,15 @@ class ClinicInvoiceApi {
   /// * [String] clinicid (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<Response> readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGetWithHttpInfo(String clinicid, String invoiceNumber,) async {
+  Future<Response>
+      readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGetWithHttpInfo(
+    String clinicid,
+    String invoiceNumber,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/{clinicid}/{invoice_number}'
-      .replaceAll('{clinicid}', clinicid)
-      .replaceAll('{invoice_number}', invoiceNumber);
+        .replaceAll('{clinicid}', clinicid)
+        .replaceAll('{invoice_number}', invoiceNumber);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -375,7 +473,6 @@ class ClinicInvoiceApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -395,17 +492,28 @@ class ClinicInvoiceApi {
   /// * [String] clinicid (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<ClinicInvoice?> readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet(String clinicid, String invoiceNumber,) async {
-    final response = await readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGetWithHttpInfo(clinicid, invoiceNumber,);
+  Future<ClinicInvoice?>
+      readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet(
+    String clinicid,
+    String invoiceNumber,
+  ) async {
+    final response =
+        await readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGetWithHttpInfo(
+      clinicid,
+      invoiceNumber,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClinicInvoice',) as ClinicInvoice;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ClinicInvoice',
+      ) as ClinicInvoice;
     }
     return null;
   }
@@ -417,10 +525,12 @@ class ClinicInvoiceApi {
   /// Parameters:
   ///
   /// * [String] clinicid (required):
-  Future<Response> readClinicInvoicesApiV1ClinicInvoiceClinicidGetWithHttpInfo(String clinicid,) async {
+  Future<Response> readClinicInvoicesApiV1ClinicInvoiceClinicidGetWithHttpInfo(
+    String clinicid,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/{clinicid}/'
-      .replaceAll('{clinicid}', clinicid);
+        .replaceAll('{clinicid}', clinicid);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -430,7 +540,6 @@ class ClinicInvoiceApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -448,20 +557,26 @@ class ClinicInvoiceApi {
   /// Parameters:
   ///
   /// * [String] clinicid (required):
-  Future<List<ClinicInvoice>?> readClinicInvoicesApiV1ClinicInvoiceClinicidGet(String clinicid,) async {
-    final response = await readClinicInvoicesApiV1ClinicInvoiceClinicidGetWithHttpInfo(clinicid,);
+  Future<List<ClinicInvoice>?> readClinicInvoicesApiV1ClinicInvoiceClinicidGet(
+    String clinicid,
+  ) async {
+    final response =
+        await readClinicInvoicesApiV1ClinicInvoiceClinicidGetWithHttpInfo(
+      clinicid,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<ClinicInvoice>') as List)
-        .cast<ClinicInvoice>()
-        .toList(growable: false);
-
+      return (await apiClient.deserializeAsync(
+              responseBody, 'List<ClinicInvoice>') as List)
+          .cast<ClinicInvoice>()
+          .toList(growable: false);
     }
     return null;
   }

@@ -37,7 +37,7 @@ class ResponseReadAllInvoicesApiV1ClinicInvoiceGet {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'invoices_count'] = invoicesCount;
+    json[r'invoicesCount'] = invoicesCount;
     json[r'invoices'] = invoices.map((v) => v.toJson()).toList();
     return json;
   }
@@ -63,7 +63,7 @@ class ResponseReadAllInvoicesApiV1ClinicInvoiceGet {
       }());
 
       return ResponseReadAllInvoicesApiV1ClinicInvoiceGet(
-        invoicesCount: json[r'invoices_count'],
+        invoicesCount: json[r'invoicesCount'],
         invoices: ClinicInvoice.listFromJson(json[r'invoices']),
       );
     }
@@ -126,7 +126,7 @@ class ResponseReadAllInvoicesApiV1ClinicInvoiceGet {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    "invoices_count",
+    "invoicesCount",
     "invoices",
   };
 }
