@@ -12,15 +12,24 @@ part of openapi.api;
 
 class ResponseReadAllInvoicesApiV1ClinicInvoiceGet {
   /// Returns a new [ResponseReadAllInvoicesApiV1ClinicInvoiceGet] instance.
-  ResponseReadAllInvoicesApiV1ClinicInvoiceGet();
+  ResponseReadAllInvoicesApiV1ClinicInvoiceGet({
+    required this.invoicesCount,
+    required this.invoices,
+  });
+
+  int invoicesCount = 0;
+  List<ClinicInvoice> invoices = [];
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ResponseReadAllInvoicesApiV1ClinicInvoiceGet;
+      other is ResponseReadAllInvoicesApiV1ClinicInvoiceGet &&
+          other.invoicesCount == invoicesCount &&
+          ListEquality<ClinicInvoice>(DefaultEquality<ClinicInvoice>())
+              .equals(other.invoices, invoices);
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => invoicesCount.hashCode + invoices.hashCode;
   // ignore: unnecessary_parenthesis
 
   @override
@@ -28,6 +37,8 @@ class ResponseReadAllInvoicesApiV1ClinicInvoiceGet {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'invoices_count'] = invoicesCount;
+    json[r'invoices'] = invoices.map((v) => v.toJson()).toList();
     return json;
   }
 
@@ -51,7 +62,10 @@ class ResponseReadAllInvoicesApiV1ClinicInvoiceGet {
         return true;
       }());
 
-      return ResponseReadAllInvoicesApiV1ClinicInvoiceGet();
+      return ResponseReadAllInvoicesApiV1ClinicInvoiceGet(
+        invoicesCount: json[r'invoices_count'],
+        invoices: ClinicInvoice.listFromJson(json[r'invoices']),
+      );
     }
     return null;
   }
@@ -111,5 +125,8 @@ class ResponseReadAllInvoicesApiV1ClinicInvoiceGet {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+    "invoices_count",
+    "invoices",
+  };
 }
