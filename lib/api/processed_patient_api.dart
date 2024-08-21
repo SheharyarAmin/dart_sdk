@@ -200,7 +200,19 @@ class ProcessedPatientApi {
   /// * [int] month (required):
   ///
   /// * [String] empid (required):
-  Future<Response> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGetWithHttpInfo(int year, int month, String empid,) async {
+  ///
+  /// * [String] clinicid:
+  ///
+  /// * [String] patientName:
+  ///
+  /// * [String] payerName:
+  ///
+  /// * [bool] status:
+  ///
+  /// * [bool] hospital:
+  ///
+  /// * [String] action:
+  Future<Response> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGetWithHttpInfo(int year, int month, String empid, { String? clinicid, String? patientName, String? payerName, bool? status, bool? hospital, String? action, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/processed-patientprocess/{year}/{month}/{empid}'
       .replaceAll('{year}', year.toString())
@@ -213,6 +225,25 @@ class ProcessedPatientApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (clinicid != null) {
+      queryParams.addAll(_queryParams('', 'clinicid', clinicid));
+    }
+    if (patientName != null) {
+      queryParams.addAll(_queryParams('', 'patientName', patientName));
+    }
+    if (payerName != null) {
+      queryParams.addAll(_queryParams('', 'payerName', payerName));
+    }
+    if (status != null) {
+      queryParams.addAll(_queryParams('', 'status', status));
+    }
+    if (hospital != null) {
+      queryParams.addAll(_queryParams('', 'hospital', hospital));
+    }
+    if (action != null) {
+      queryParams.addAll(_queryParams('', 'action', action));
+    }
 
     const contentTypes = <String>[];
 
@@ -237,8 +268,20 @@ class ProcessedPatientApi {
   /// * [int] month (required):
   ///
   /// * [String] empid (required):
-  Future<AssignedPatientScreenResponse?> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid,) async {
-    final response = await readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGetWithHttpInfo(year, month, empid,);
+  ///
+  /// * [String] clinicid:
+  ///
+  /// * [String] patientName:
+  ///
+  /// * [String] payerName:
+  ///
+  /// * [bool] status:
+  ///
+  /// * [bool] hospital:
+  ///
+  /// * [String] action:
+  Future<AssignedPatientScreenResponse?> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid, { String? clinicid, String? patientName, String? payerName, bool? status, bool? hospital, String? action, }) async {
+    final response = await readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGetWithHttpInfo(year, month, empid,  clinicid: clinicid, patientName: patientName, payerName: payerName, status: status, hospital: hospital, action: action, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

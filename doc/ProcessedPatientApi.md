@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet**
-> AssignedPatientScreenResponse readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid)
+> AssignedPatientScreenResponse readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid, clinicid, patientName, payerName, status, hospital, action)
 
 Read Processed Patient Entries For Monthyear Empid
 
@@ -164,9 +164,15 @@ final api_instance = ProcessedPatientApi();
 final year = 56; // int | 
 final month = 56; // int | 
 final empid = empid_example; // String | 
+final clinicid = clinicid_example; // String | 
+final patientName = patientName_example; // String | 
+final payerName = payerName_example; // String | 
+final status = true; // bool | 
+final hospital = true; // bool | 
+final action = action_example; // String | 
 
 try {
-    final result = api_instance.readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid);
+    final result = api_instance.readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid, clinicid, patientName, payerName, status, hospital, action);
     print(result);
 } catch (e) {
     print('Exception when calling ProcessedPatientApi->readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet: $e\n');
@@ -180,6 +186,12 @@ Name | Type | Description  | Notes
  **year** | **int**|  | 
  **month** | **int**|  | 
  **empid** | **String**|  | 
+ **clinicid** | **String**|  | [optional] 
+ **patientName** | **String**|  | [optional] 
+ **payerName** | **String**|  | [optional] 
+ **status** | **bool**|  | [optional] 
+ **hospital** | **bool**|  | [optional] 
+ **action** | **String**|  | [optional] 
 
 ### Return type
 

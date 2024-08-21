@@ -136,6 +136,11 @@ void main() {
       // TODO
     });
 
+    // String payerName
+    test('to test the property `payerName`', () async {
+      // TODO
+    });
+
 
   });
 
