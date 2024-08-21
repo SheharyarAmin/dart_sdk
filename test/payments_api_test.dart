@@ -33,7 +33,7 @@ void main() {
 
     // Get Unpaid Patients
     //
-    //Future<Map<String, ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet>> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber, { int pageSize, String pageToken }) async
+    //Future<PaymentsResponse> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber, { int pageSize, String pageToken }) async
     test('test getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet', () async {
       // TODO
     });

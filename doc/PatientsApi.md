@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readPatientsApiV1PatientsGet**
-> Map<String, ResponseReadPatientsApiV1PatientsGet> readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken)
+> PatientsResponse readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken)
 
 Read Patients
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, ResponseReadPatientsApiV1PatientsGet>**](ResponseReadPatientsApiV1PatientsGet.md)
+[**PatientsResponse**](PatientsResponse.md)
 
 ### Authorization
 

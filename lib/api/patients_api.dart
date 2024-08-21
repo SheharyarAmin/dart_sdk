@@ -292,7 +292,7 @@ class PatientsApi {
   /// * [int] pageSize:
   ///
   /// * [String] pageToken:
-  Future<Map<String, ResponseReadPatientsApiV1PatientsGet>?> readPatientsApiV1PatientsGet({ String? patientName, String? clinicId, String? employeeId, String? providerId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, }) async {
+  Future<PatientsResponse?> readPatientsApiV1PatientsGet({ String? patientName, String? clinicId, String? employeeId, String? providerId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, }) async {
     final response = await readPatientsApiV1PatientsGetWithHttpInfo( patientName: patientName, clinicId: clinicId, employeeId: employeeId, providerId: providerId, regemployeeid: regemployeeid, assignmentStatus: assignmentStatus, processedStatus: processedStatus, processingDate: processingDate, sortBy: sortBy, ascending: ascending, pageSize: pageSize, pageToken: pageToken, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -301,8 +301,8 @@ class PatientsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, ResponseReadPatientsApiV1PatientsGet>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ResponseReadPatientsApiV1PatientsGet>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientsResponse',) as PatientsResponse;
+    
     }
     return null;
   }

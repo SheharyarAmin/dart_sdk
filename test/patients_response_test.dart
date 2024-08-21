@@ -11,11 +11,21 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet
+// tests for PatientsResponse
 void main() {
-  // final instance = ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet();
+  // final instance = PatientsResponse();
 
-  group('test ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet', () {
+  group('test PatientsResponse', () {
+    // List<Patient> patients (default value: const [])
+    test('to test the property `patients`', () async {
+      // TODO
+    });
+
+    // int count (default value: 0)
+    test('to test the property `count`', () async {
+      // TODO
+    });
+
 
   });
 

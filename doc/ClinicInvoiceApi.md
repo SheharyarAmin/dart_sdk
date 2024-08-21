@@ -157,15 +157,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readAllInvoicesApiV1ClinicInvoiceGet**
-> Map<String, ResponseReadAllInvoicesApiV1ClinicInvoiceGet> readAllInvoicesApiV1ClinicInvoiceGet(pageSize, pageToken, clinicid, invoiceNumber, grandTotal, amountPaid, patientsCount, amountLeft, dueDateTo, dueDateFrom, monthYearFrom, monthYearTo, sortBy, ascending)
+> InvoicesResponse readAllInvoicesApiV1ClinicInvoiceGet(pageSize, pageToken, clinicid, invoiceNumber, grandTotal, amountPaid, patientsCount, amountLeft, dueDateTo, dueDateFrom, monthYearFrom, monthYearTo, sortBy, ascending)
 
 Read All Invoices
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicInvoiceApi();
 final pageSize = 56; // int | 
@@ -212,11 +210,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, ResponseReadAllInvoicesApiV1ClinicInvoiceGet>**](ResponseReadAllInvoicesApiV1ClinicInvoiceGet.md)
+[**InvoicesResponse**](InvoicesResponse.md)
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 

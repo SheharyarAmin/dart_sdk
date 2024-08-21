@@ -40,7 +40,7 @@ void main() {
 
     // Read All Invoices
     //
-    //Future<Map<String, ResponseReadAllInvoicesApiV1ClinicInvoiceGet>> readAllInvoicesApiV1ClinicInvoiceGet({ int pageSize, String pageToken, String clinicid, int invoiceNumber, num grandTotal, num amountPaid, int patientsCount, num amountLeft, String dueDateTo, String dueDateFrom, String monthYearFrom, String monthYearTo, String sortBy, bool ascending }) async
+    //Future<InvoicesResponse> readAllInvoicesApiV1ClinicInvoiceGet({ int pageSize, String pageToken, String clinicid, int invoiceNumber, num grandTotal, num amountPaid, int patientsCount, num amountLeft, String dueDateTo, String dueDateFrom, String monthYearFrom, String monthYearTo, String sortBy, bool ascending }) async
     test('test readAllInvoicesApiV1ClinicInvoiceGet', () async {
       // TODO
     });

@@ -10,42 +10,42 @@
 
 part of openapi.api;
 
-class Token {
-  /// Returns a new [Token] instance.
-  Token({
-    required this.accessToken,
-    required this.tokenType,
+class PatientsResponse {
+  /// Returns a new [PatientsResponse] instance.
+  PatientsResponse({
+    this.patients = const [],
+    this.count = 0,
   });
 
-  String accessToken;
+  List<Patient> patients;
 
-  String tokenType;
+  int count;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Token &&
-    other.accessToken == accessToken &&
-    other.tokenType == tokenType;
+  bool operator ==(Object other) => identical(this, other) || other is PatientsResponse &&
+    _deepEquality.equals(other.patients, patients) &&
+    other.count == count;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (accessToken.hashCode) +
-    (tokenType.hashCode);
+    (patients.hashCode) +
+    (count.hashCode);
 
   @override
-  String toString() => 'Token[accessToken=$accessToken, tokenType=$tokenType]';
+  String toString() => 'PatientsResponse[patients=$patients, count=$count]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'access_token'] = this.accessToken;
-      json[r'token_type'] = this.tokenType;
+      json[r'patients'] = this.patients;
+      json[r'count'] = this.count;
     return json;
   }
 
-  /// Returns a new [Token] instance and imports its values from
+  /// Returns a new [PatientsResponse] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Token? fromJson(dynamic value) {
+  static PatientsResponse? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -54,25 +54,25 @@ class Token {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Token[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Token[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "PatientsResponse[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PatientsResponse[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return Token(
-        accessToken: mapValueOfType<String>(json, r'access_token')!,
-        tokenType: mapValueOfType<String>(json, r'token_type')!,
+      return PatientsResponse(
+        patients: Patient.listFromJson(json[r'patients']),
+        count: mapValueOfType<int>(json, r'count') ?? 0,
       );
     }
     return null;
   }
 
-  static List<Token> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <Token>[];
+  static List<PatientsResponse> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PatientsResponse>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = Token.fromJson(row);
+        final value = PatientsResponse.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +81,12 @@ class Token {
     return result.toList(growable: growable);
   }
 
-  static Map<String, Token> mapFromJson(dynamic json) {
-    final map = <String, Token>{};
+  static Map<String, PatientsResponse> mapFromJson(dynamic json) {
+    final map = <String, PatientsResponse>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = Token.fromJson(entry.value);
+        final value = PatientsResponse.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,14 +95,14 @@ class Token {
     return map;
   }
 
-  // maps a json object with a list of Token-objects as value to a dart map
-  static Map<String, List<Token>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<Token>>{};
+  // maps a json object with a list of PatientsResponse-objects as value to a dart map
+  static Map<String, List<PatientsResponse>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PatientsResponse>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Token.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = PatientsResponse.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -110,8 +110,6 @@ class Token {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'access_token',
-    'token_type',
   };
 }
 

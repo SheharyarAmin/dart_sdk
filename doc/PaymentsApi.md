@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet**
-> Map<String, ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(clinicId, invoiceNumber, pageSize, pageToken)
+> PaymentsResponse getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(clinicId, invoiceNumber, pageSize, pageToken)
 
 Get Unpaid Patients
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet>**](ResponseGetUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet.md)
+[**PaymentsResponse**](PaymentsResponse.md)
 
 ### Authorization
 
