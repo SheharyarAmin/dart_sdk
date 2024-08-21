@@ -182,6 +182,8 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'AssignedPatientScreenResponse':
+          return AssignedPatientScreenResponse.fromJson(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
         case 'Clinic':

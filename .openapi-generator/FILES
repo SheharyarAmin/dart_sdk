@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 analysis_options.yaml
+doc/AssignedPatientScreenResponse.md
 doc/AuthenticationToken.md
 doc/Clinic.md
 doc/ClinicInvoice.md
@@ -57,6 +58,7 @@ lib/auth/authentication.dart
 lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
+lib/model/assigned_patient_screen_response.dart
 lib/model/authentication_token.dart
 lib/model/clinic.dart
 lib/model/clinic_invoice.dart
@@ -80,6 +82,7 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
+test/assigned_patient_screen_response_test.dart
 test/authentication_token_test.dart
 test/clinic_invoice_api_test.dart
 test/clinic_invoice_test.dart

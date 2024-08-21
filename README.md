@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
  - [Clinic](doc//Clinic.md)
  - [ClinicInvoice](doc//ClinicInvoice.md)

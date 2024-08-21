@@ -34,6 +34,7 @@ class Patient {
     this.deceased,
     this.dob,
     this.iv,
+    this.canBeDeleted,
     required this.id,
   });
 
@@ -79,6 +80,8 @@ class Patient {
 
   String? iv;
 
+  bool? canBeDeleted;
+
   String id;
 
   @override
@@ -104,6 +107,7 @@ class Patient {
     other.deceased == deceased &&
     other.dob == dob &&
     other.iv == iv &&
+    other.canBeDeleted == canBeDeleted &&
     other.id == id;
 
   @override
@@ -130,10 +134,11 @@ class Patient {
     (deceased == null ? 0 : deceased!.hashCode) +
     (dob == null ? 0 : dob!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
+    (canBeDeleted == null ? 0 : canBeDeleted!.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, optOutDate=$optOutDate, finNumber=$finNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, lastProcessed=$lastProcessed, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, id=$id]';
+  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, optOutDate=$optOutDate, finNumber=$finNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, lastProcessed=$lastProcessed, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -242,6 +247,11 @@ class Patient {
     } else {
       json[r'iv'] = null;
     }
+    if (this.canBeDeleted != null) {
+      json[r'canBeDeleted'] = this.canBeDeleted;
+    } else {
+      json[r'canBeDeleted'] = null;
+    }
       json[r'id'] = this.id;
     return json;
   }
@@ -286,6 +296,7 @@ class Patient {
         deceased: mapValueOfType<bool>(json, r'deceased'),
         dob: mapValueOfType<String>(json, r'dob'),
         iv: mapValueOfType<String>(json, r'iv'),
+        canBeDeleted: mapValueOfType<bool>(json, r'canBeDeleted'),
         id: mapValueOfType<String>(json, r'id')!,
       );
     }

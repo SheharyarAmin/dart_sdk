@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **deceased** | **bool** |  | [optional] 
 **dob** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
+**canBeDeleted** | **bool** |  | [optional] 
 **id** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

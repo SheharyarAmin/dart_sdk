@@ -237,7 +237,7 @@ class ProcessedPatientApi {
   /// * [int] month (required):
   ///
   /// * [String] empid (required):
-  Future<Map<String, ProcessedPatientEntryForFrontEnd>?> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid,) async {
+  Future<AssignedPatientScreenResponse?> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid,) async {
     final response = await readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGetWithHttpInfo(year, month, empid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -246,8 +246,8 @@ class ProcessedPatientApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, ProcessedPatientEntryForFrontEnd>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ProcessedPatientEntryForFrontEnd>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AssignedPatientScreenResponse',) as AssignedPatientScreenResponse;
+    
     }
     return null;
   }

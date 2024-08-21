@@ -121,6 +121,11 @@ void main() {
       // TODO
     });
 
+    // bool canBeDeleted
+    test('to test the property `canBeDeleted`', () async {
+      // TODO
+    });
+
     // String id
     test('to test the property `id`', () async {
       // TODO

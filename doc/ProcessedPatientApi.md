@@ -152,15 +152,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet**
-> Map<String, ProcessedPatientEntryForFrontEnd> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid)
+> AssignedPatientScreenResponse readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid)
 
 Read Processed Patient Entries For Monthyear Empid
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProcessedPatientApi();
 final year = 56; // int | 
@@ -185,11 +183,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, ProcessedPatientEntryForFrontEnd>**](ProcessedPatientEntryForFrontEnd.md)
+[**AssignedPatientScreenResponse**](AssignedPatientScreenResponse.md)
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 

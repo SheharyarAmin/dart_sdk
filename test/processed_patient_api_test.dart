@@ -40,7 +40,7 @@ void main() {
 
     // Read Processed Patient Entries For Monthyear Empid
     //
-    //Future<Map<String, ProcessedPatientEntryForFrontEnd>> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid) async
+    //Future<AssignedPatientScreenResponse> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid) async
     test('test readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet', () async {
       // TODO
     });

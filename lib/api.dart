@@ -40,6 +40,7 @@ part 'api/processed_patient_api.dart';
 part 'api/providers_api.dart';
 part 'api/reports_api.dart';
 
+part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
 part 'model/clinic.dart';
 part 'model/clinic_invoice.dart';
