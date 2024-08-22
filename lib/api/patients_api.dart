@@ -124,7 +124,7 @@ class PatientsApi {
   /// Generate Report
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> generateReportApiV1PatientsGenerateExcelsheetPostWithHttpInfo() async {
+  Future<Response> generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/generate-excelsheet';
 
@@ -140,7 +140,7 @@ class PatientsApi {
 
     return apiClient.invokeAPI(
       path,
-      'POST',
+      'GET',
       queryParams,
       postBody,
       headerParams,
@@ -150,8 +150,8 @@ class PatientsApi {
   }
 
   /// Generate Report
-  Future<void> generateReportApiV1PatientsGenerateExcelsheetPost() async {
-    final response = await generateReportApiV1PatientsGenerateExcelsheetPostWithHttpInfo();
+  Future<void> generateReportApiV1PatientsGenerateExcelsheetGet() async {
+    final response = await generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createPatientApiV1PatientsPost**](PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 [**deletePatientApiV1PatientsPatientIdDelete**](PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
-[**generateReportApiV1PatientsGenerateExcelsheetPost**](PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetpost) | **POST** /api/v1/patients/generate-excelsheet | Generate Report
+[**generateReportApiV1PatientsGenerateExcelsheetGet**](PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
 [**readPatientApiV1PatientsPatientIdGet**](PatientsApi.md#readpatientapiv1patientspatientidget) | **GET** /api/v1/patients/{patient_id} | Read Patient
 [**readPatientsApiV1PatientsGet**](PatientsApi.md#readpatientsapiv1patientsget) | **GET** /api/v1/patients/ | Read Patients
 [**readPatientsByClinicIdApiV1PatientsClinicClinicIdGet**](PatientsApi.md#readpatientsbyclinicidapiv1patientsclinicclinicidget) | **GET** /api/v1/patients/clinic/{clinic_id} | Read Patients By Clinic Id
@@ -109,21 +109,23 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **generateReportApiV1PatientsGenerateExcelsheetPost**
-> generateReportApiV1PatientsGenerateExcelsheetPost()
+# **generateReportApiV1PatientsGenerateExcelsheetGet**
+> generateReportApiV1PatientsGenerateExcelsheetGet()
 
 Generate Report
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 
 try {
-    api_instance.generateReportApiV1PatientsGenerateExcelsheetPost();
+    api_instance.generateReportApiV1PatientsGenerateExcelsheetGet();
 } catch (e) {
-    print('Exception when calling PatientsApi->generateReportApiV1PatientsGenerateExcelsheetPost: $e\n');
+    print('Exception when calling PatientsApi->generateReportApiV1PatientsGenerateExcelsheetGet: $e\n');
 }
 ```
 
@@ -136,7 +138,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

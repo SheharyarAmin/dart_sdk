@@ -33,8 +33,8 @@ void main() {
 
     // Generate Report
     //
-    //Future generateReportApiV1PatientsGenerateExcelsheetPost() async
-    test('test generateReportApiV1PatientsGenerateExcelsheetPost', () async {
+    //Future generateReportApiV1PatientsGenerateExcelsheetGet() async
+    test('test generateReportApiV1PatientsGenerateExcelsheetGet', () async {
       // TODO
     });
 

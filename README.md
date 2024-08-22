@@ -101,7 +101,7 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**updateEmployeeApiV1EmployeesEmployeeIdPut**](doc//EmployeesApi.md#updateemployeeapiv1employeesemployeeidput) | **PUT** /api/v1/employees/{employee_id} | Update Employee
 *PatientsApi* | [**createPatientApiV1PatientsPost**](doc//PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 *PatientsApi* | [**deletePatientApiV1PatientsPatientIdDelete**](doc//PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
-*PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetPost**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetpost) | **POST** /api/v1/patients/generate-excelsheet | Generate Report
+*PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetGet**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
 *PatientsApi* | [**readPatientApiV1PatientsPatientIdGet**](doc//PatientsApi.md#readpatientapiv1patientspatientidget) | **GET** /api/v1/patients/{patient_id} | Read Patient
 *PatientsApi* | [**readPatientsApiV1PatientsGet**](doc//PatientsApi.md#readpatientsapiv1patientsget) | **GET** /api/v1/patients/ | Read Patients
 *PatientsApi* | [**readPatientsByClinicIdApiV1PatientsClinicClinicIdGet**](doc//PatientsApi.md#readpatientsbyclinicidapiv1patientsclinicclinicidget) | **GET** /api/v1/patients/clinic/{clinic_id} | Read Patients By Clinic Id
