@@ -11,9 +11,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createProcessedPatientEntryApiV1ProcessedPatientPost**](ProcessedPatientApi.md#createprocessedpatiententryapiv1processedpatientpost) | **POST** /api/v1/processed-patient/ | Create Processed Patient Entry
 [**readProcessedPatientEntriesApiV1ProcessedPatientYearMonthGet**](ProcessedPatientApi.md#readprocessedpatiententriesapiv1processedpatientyearmonthget) | **GET** /api/v1/processed-patient/{year}/{month} | Read Processed Patient Entries
-[**readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet**](ProcessedPatientApi.md#readprocessedpatiententriesfordayapiv1processedpatientyearmonthdayget) | **GET** /api/v1/processed-patient/{year}/{month}/{day} | Read Processed Patient Entries For Day
 [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet**](ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidget) | **GET** /api/v1/processed-patientprocess/{year}/{month}/{empid} | Read Processed Patient Entries For Monthyear Empid
-[**readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet**](ProcessedPatientApi.md#readprocessedpatiententryapiv1processedpatientyearmonthdaypatientidget) | **GET** /api/v1/processed-patient/{year}/{month}/{day}/{patient_id} | Read Processed Patient Entry
+[**readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet**](ProcessedPatientApi.md#readprocessedpatiententryforpatientinmonthyearapiv1processedpatientyearmonthpatientidget) | **GET** /api/v1/processed-patient/{year}/{month}/{patient_id} | Read Processed Patient Entry For Patient In Monthyear
 
 
 # **createProcessedPatientEntryApiV1ProcessedPatientPost**
@@ -104,53 +103,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet**
-> Map<String, ProcessedPatientEntry> readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet(year, month, day)
-
-Read Processed Patient Entries For Day
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
-
-final api_instance = ProcessedPatientApi();
-final year = 56; // int | 
-final month = 56; // int | 
-final day = 56; // int | 
-
-try {
-    final result = api_instance.readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet(year, month, day);
-    print(result);
-} catch (e) {
-    print('Exception when calling ProcessedPatientApi->readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **year** | **int**|  | 
- **month** | **int**|  | 
- **day** | **int**|  | 
-
-### Return type
-
-[**Map<String, ProcessedPatientEntry>**](ProcessedPatientEntry.md)
-
-### Authorization
-
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet**
 > AssignedPatientScreenResponse readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid, clinicid, patientName, payerName, status, hospital, action)
 
@@ -208,10 +160,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet**
-> ProcessedPatientEntry readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet(year, month, day, patientId)
+# **readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet**
+> ProcessedPatientEntry readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet(year, month, patientId)
 
-Read Processed Patient Entry
+Read Processed Patient Entry For Patient In Monthyear
 
 ### Example
 ```dart
@@ -222,14 +174,13 @@ import 'package:openapi/api.dart';
 final api_instance = ProcessedPatientApi();
 final year = 56; // int | 
 final month = 56; // int | 
-final day = 56; // int | 
 final patientId = patientId_example; // String | 
 
 try {
-    final result = api_instance.readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet(year, month, day, patientId);
+    final result = api_instance.readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet(year, month, patientId);
     print(result);
 } catch (e) {
-    print('Exception when calling ProcessedPatientApi->readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet: $e\n');
+    print('Exception when calling ProcessedPatientApi->readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet: $e\n');
 }
 ```
 
@@ -239,7 +190,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **year** | **int**|  | 
  **month** | **int**|  | 
- **day** | **int**|  | 
  **patientId** | **String**|  | 
 
 ### Return type

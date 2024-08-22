@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **patientId** | **String** |  | 
 **patientName** | **String** |  | [optional] 
+**finNumber** | **String** |  | [optional] 
 **processedDate** | **String** |  | [optional] 
 **action** | **String** |  | [optional] [default to '']
 **empid** | **String** |  | 

@@ -126,69 +126,6 @@ class ProcessedPatientApi {
     return null;
   }
 
-  /// Read Processed Patient Entries For Day
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] year (required):
-  ///
-  /// * [int] month (required):
-  ///
-  /// * [int] day (required):
-  Future<Response> readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGetWithHttpInfo(int year, int month, int day,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/processed-patient/{year}/{month}/{day}'
-      .replaceAll('{year}', year.toString())
-      .replaceAll('{month}', month.toString())
-      .replaceAll('{day}', day.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Read Processed Patient Entries For Day
-  ///
-  /// Parameters:
-  ///
-  /// * [int] year (required):
-  ///
-  /// * [int] month (required):
-  ///
-  /// * [int] day (required):
-  Future<Map<String, ProcessedPatientEntry>?> readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet(int year, int month, int day,) async {
-    final response = await readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGetWithHttpInfo(year, month, day,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, ProcessedPatientEntry>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ProcessedPatientEntry>'),);
-
-    }
-    return null;
-  }
-
   /// Read Processed Patient Entries For Monthyear Empid
   ///
   /// Note: This method returns the HTTP [Response].
@@ -295,7 +232,7 @@ class ProcessedPatientApi {
     return null;
   }
 
-  /// Read Processed Patient Entry
+  /// Read Processed Patient Entry For Patient In Monthyear
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -305,15 +242,12 @@ class ProcessedPatientApi {
   ///
   /// * [int] month (required):
   ///
-  /// * [int] day (required):
-  ///
   /// * [String] patientId (required):
-  Future<Response> readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGetWithHttpInfo(int year, int month, int day, String patientId,) async {
+  Future<Response> readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGetWithHttpInfo(int year, int month, String patientId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/processed-patient/{year}/{month}/{day}/{patient_id}'
+    final path = r'/api/v1/processed-patient/{year}/{month}/{patient_id}'
       .replaceAll('{year}', year.toString())
       .replaceAll('{month}', month.toString())
-      .replaceAll('{day}', day.toString())
       .replaceAll('{patient_id}', patientId);
 
     // ignore: prefer_final_locals
@@ -337,7 +271,7 @@ class ProcessedPatientApi {
     );
   }
 
-  /// Read Processed Patient Entry
+  /// Read Processed Patient Entry For Patient In Monthyear
   ///
   /// Parameters:
   ///
@@ -345,11 +279,9 @@ class ProcessedPatientApi {
   ///
   /// * [int] month (required):
   ///
-  /// * [int] day (required):
-  ///
   /// * [String] patientId (required):
-  Future<ProcessedPatientEntry?> readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet(int year, int month, int day, String patientId,) async {
-    final response = await readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGetWithHttpInfo(year, month, day, patientId,);
+  Future<ProcessedPatientEntry?> readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet(int year, int month, String patientId,) async {
+    final response = await readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGetWithHttpInfo(year, month, patientId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

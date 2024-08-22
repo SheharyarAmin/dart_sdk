@@ -31,13 +31,6 @@ void main() {
       // TODO
     });
 
-    // Read Processed Patient Entries For Day
-    //
-    //Future<Map<String, ProcessedPatientEntry>> readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet(int year, int month, int day) async
-    test('test readProcessedPatientEntriesForDayApiV1ProcessedPatientYearMonthDayGet', () async {
-      // TODO
-    });
-
     // Read Processed Patient Entries For Monthyear Empid
     //
     //Future<AssignedPatientScreenResponse> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid, { String clinicid, String patientName, String payerName, bool status, bool hospital, String action }) async
@@ -45,10 +38,10 @@ void main() {
       // TODO
     });
 
-    // Read Processed Patient Entry
+    // Read Processed Patient Entry For Patient In Monthyear
     //
-    //Future<ProcessedPatientEntry> readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet(int year, int month, int day, String patientId) async
-    test('test readProcessedPatientEntryApiV1ProcessedPatientYearMonthDayPatientIdGet', () async {
+    //Future<ProcessedPatientEntry> readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet(int year, int month, String patientId) async
+    test('test readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet', () async {
       // TODO
     });
 

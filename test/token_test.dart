@@ -21,6 +21,11 @@ void main() {
       // TODO
     });
 
+    // String refreshToken
+    test('to test the property `refreshToken`', () async {
+      // TODO
+    });
+
     // String tokenType
     test('to test the property `tokenType`', () async {
       // TODO

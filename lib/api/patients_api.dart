@@ -121,6 +121,42 @@ class PatientsApi {
     return null;
   }
 
+  /// Generate Report
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> generateReportApiV1PatientsGenerateExcelsheetPostWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/patients/generate-excelsheet';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Generate Report
+  Future<void> generateReportApiV1PatientsGenerateExcelsheetPost() async {
+    final response = await generateReportApiV1PatientsGenerateExcelsheetPostWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
   /// Read Patient
   ///
   /// Note: This method returns the HTTP [Response].

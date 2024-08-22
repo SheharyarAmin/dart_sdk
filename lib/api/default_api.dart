@@ -119,4 +119,58 @@ class DefaultApi {
     }
     return null;
   }
+
+  /// Refresh Access Token
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] refreshToken (required):
+  Future<Response> refreshAccessTokenAuthRefreshPostWithHttpInfo(String refreshToken,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/auth/refresh';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+      queryParams.addAll(_queryParams('', 'refresh_token', refreshToken));
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Refresh Access Token
+  ///
+  /// Parameters:
+  ///
+  /// * [String] refreshToken (required):
+  Future<Token?> refreshAccessTokenAuthRefreshPost(String refreshToken,) async {
+    final response = await refreshAccessTokenAuthRefreshPostWithHttpInfo(refreshToken,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Token',) as Token;
+    
+    }
+    return null;
+  }
 }

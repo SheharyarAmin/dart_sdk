@@ -35,5 +35,12 @@ void main() {
       // TODO
     });
 
+    // Refresh Access Token
+    //
+    //Future<Token> refreshAccessTokenAuthRefreshPost(String refreshToken) async
+    test('test refreshAccessTokenAuthRefreshPost', () async {
+      // TODO
+    });
+
   });
 }

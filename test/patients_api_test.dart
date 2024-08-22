@@ -31,6 +31,13 @@ void main() {
       // TODO
     });
 
+    // Generate Report
+    //
+    //Future generateReportApiV1PatientsGenerateExcelsheetPost() async
+    test('test generateReportApiV1PatientsGenerateExcelsheetPost', () async {
+      // TODO
+    });
+
     // Read Patient
     //
     //Future<Map<String, Patient>> readPatientApiV1PatientsPatientIdGet(String patientId) async

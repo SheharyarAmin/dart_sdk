@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**loginForAccessTokenAuthTokenPost**](DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
 [**pingAuthPingGet**](DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
+[**refreshAccessTokenAuthRefreshPost**](DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
 
 
 # **loginForAccessTokenAuthTokenPost**
@@ -83,6 +84,47 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **refreshAccessTokenAuthRefreshPost**
+> Token refreshAccessTokenAuthRefreshPost(refreshToken)
+
+Refresh Access Token
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+final refreshToken = refreshToken_example; // String | 
+
+try {
+    final result = api_instance.refreshAccessTokenAuthRefreshPost(refreshToken);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->refreshAccessTokenAuthRefreshPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **refreshToken** | **String**|  | 
+
+### Return type
+
+[**Token**](Token.md)
 
 ### Authorization
 

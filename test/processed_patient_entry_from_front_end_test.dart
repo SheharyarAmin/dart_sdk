@@ -26,6 +26,11 @@ void main() {
       // TODO
     });
 
+    // String finNumber
+    test('to test the property `finNumber`', () async {
+      // TODO
+    });
+
     // String processedDate
     test('to test the property `processedDate`', () async {
       // TODO

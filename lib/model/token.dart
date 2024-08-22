@@ -14,30 +14,36 @@ class Token {
   /// Returns a new [Token] instance.
   Token({
     required this.accessToken,
+    required this.refreshToken,
     required this.tokenType,
   });
 
   String accessToken;
+
+  String refreshToken;
 
   String tokenType;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Token &&
     other.accessToken == accessToken &&
+    other.refreshToken == refreshToken &&
     other.tokenType == tokenType;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (accessToken.hashCode) +
+    (refreshToken.hashCode) +
     (tokenType.hashCode);
 
   @override
-  String toString() => 'Token[accessToken=$accessToken, tokenType=$tokenType]';
+  String toString() => 'Token[accessToken=$accessToken, refreshToken=$refreshToken, tokenType=$tokenType]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'access_token'] = this.accessToken;
+      json[r'refresh_token'] = this.refreshToken;
       json[r'token_type'] = this.tokenType;
     return json;
   }
@@ -62,6 +68,7 @@ class Token {
 
       return Token(
         accessToken: mapValueOfType<String>(json, r'access_token')!,
+        refreshToken: mapValueOfType<String>(json, r'refresh_token')!,
         tokenType: mapValueOfType<String>(json, r'token_type')!,
       );
     }
@@ -111,6 +118,7 @@ class Token {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'access_token',
+    'refresh_token',
     'token_type',
   };
 }
