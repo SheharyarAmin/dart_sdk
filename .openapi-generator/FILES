@@ -34,6 +34,8 @@ doc/ProcessedPatientEntryFromFrontEnd.md
 doc/Provider.md
 doc/ProvidersApi.md
 doc/ReportsApi.md
+doc/TempAssignmentCreate.md
+doc/TempAssignmentsApi.md
 doc/Token.md
 doc/ValidationError.md
 doc/ValidationErrorLocInner.md
@@ -50,6 +52,7 @@ lib/api/payments_api.dart
 lib/api/processed_patient_api.dart
 lib/api/providers_api.dart
 lib/api/reports_api.dart
+lib/api/temp_assignments_api.dart
 lib/api_client.dart
 lib/api_exception.dart
 lib/api_helper.dart
@@ -78,6 +81,7 @@ lib/model/processed_patient_entry.dart
 lib/model/processed_patient_entry_for_front_end.dart
 lib/model/processed_patient_entry_from_front_end.dart
 lib/model/provider.dart
+lib/model/temp_assignment_create.dart
 lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
@@ -113,6 +117,8 @@ test/processed_patient_entry_test.dart
 test/provider_test.dart
 test/providers_api_test.dart
 test/reports_api_test.dart
+test/temp_assignment_create_test.dart
+test/temp_assignments_api_test.dart
 test/token_test.dart
 test/validation_error_loc_inner_test.dart
 test/validation_error_test.dart

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createProcessedPatientEntryApiV1ProcessedPatientPost**](ProcessedPatientApi.md#createprocessedpatiententryapiv1processedpatientpost) | **POST** /api/v1/processed-patient/ | Create Processed Patient Entry
 [**readProcessedPatientEntriesApiV1ProcessedPatientYearMonthGet**](ProcessedPatientApi.md#readprocessedpatiententriesapiv1processedpatientyearmonthget) | **GET** /api/v1/processed-patient/{year}/{month} | Read Processed Patient Entries
-[**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet**](ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidget) | **GET** /api/v1/processed-patientprocess/{year}/{month}/{empid} | Read Processed Patient Entries For Monthyear Empid
+[**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet**](ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidget) | **GET** /api/v1/processed-patient/process/{year}/{month}/{empid} | Read Processed Patient Entries For Monthyear Empid
 [**readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet**](ProcessedPatientApi.md#readprocessedpatiententryforpatientinmonthyearapiv1processedpatientyearmonthpatientidget) | **GET** /api/v1/processed-patient/{year}/{month}/{patient_id} | Read Processed Patient Entry For Patient In Monthyear
 
 
@@ -103,14 +103,16 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet**
-> AssignedPatientScreenResponse readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid, clinicid, patientName, payerName, status, hospital, action)
+# **readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet**
+> AssignedPatientScreenResponse readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet(year, month, empid, clinicid, patientName, payerName, status, hospital, action)
 
 Read Processed Patient Entries For Monthyear Empid
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProcessedPatientApi();
 final year = 56; // int | 
@@ -124,10 +126,10 @@ final hospital = true; // bool |
 final action = action_example; // String | 
 
 try {
-    final result = api_instance.readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(year, month, empid, clinicid, patientName, payerName, status, hospital, action);
+    final result = api_instance.readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet(year, month, empid, clinicid, patientName, payerName, status, hospital, action);
     print(result);
 } catch (e) {
-    print('Exception when calling ProcessedPatientApi->readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet: $e\n');
+    print('Exception when calling ProcessedPatientApi->readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet: $e\n');
 }
 ```
 
@@ -151,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

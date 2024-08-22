@@ -117,7 +117,7 @@ Class | Method | HTTP request | Description
 *PaymentsApi* | [**readPaymentDetailsApiV1PaymentsClinicIdInvoiceNumberGet**](doc//PaymentsApi.md#readpaymentdetailsapiv1paymentsclinicidinvoicenumberget) | **GET** /api/v1/payments/{clinic_id}/{invoice_number} | Read Payment Details
 *ProcessedPatientApi* | [**createProcessedPatientEntryApiV1ProcessedPatientPost**](doc//ProcessedPatientApi.md#createprocessedpatiententryapiv1processedpatientpost) | **POST** /api/v1/processed-patient/ | Create Processed Patient Entry
 *ProcessedPatientApi* | [**readProcessedPatientEntriesApiV1ProcessedPatientYearMonthGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesapiv1processedpatientyearmonthget) | **GET** /api/v1/processed-patient/{year}/{month} | Read Processed Patient Entries
-*ProcessedPatientApi* | [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidget) | **GET** /api/v1/processed-patientprocess/{year}/{month}/{empid} | Read Processed Patient Entries For Monthyear Empid
+*ProcessedPatientApi* | [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidget) | **GET** /api/v1/processed-patient/process/{year}/{month}/{empid} | Read Processed Patient Entries For Monthyear Empid
 *ProcessedPatientApi* | [**readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet**](doc//ProcessedPatientApi.md#readprocessedpatiententryforpatientinmonthyearapiv1processedpatientyearmonthpatientidget) | **GET** /api/v1/processed-patient/{year}/{month}/{patient_id} | Read Processed Patient Entry For Patient In Monthyear
 *ProvidersApi* | [**changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut**](doc//ProvidersApi.md#changeactivestatusapiv1providersprovideridchangeactivestatusput) | **PUT** /api/v1/providers/{provider_id}/change-active-status | Change Active Status
 *ProvidersApi* | [**changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut**](doc//ProvidersApi.md#changedeletedstatusapiv1providersprovideridchangedeletedstatusput) | **PUT** /api/v1/providers/{provider_id}/change-deleted-status | Change Deleted Status
@@ -127,6 +127,10 @@ Class | Method | HTTP request | Description
 *ProvidersApi* | [**readProvidersApiV1ProvidersGet**](doc//ProvidersApi.md#readprovidersapiv1providersget) | **GET** /api/v1/providers/ | Read Providers
 *ProvidersApi* | [**updateExistingProviderApiV1ProvidersProviderIdPut**](doc//ProvidersApi.md#updateexistingproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Existing Provider
 *ReportsApi* | [**generateReportApiV1ReportsGenerateReportPost**](doc//ReportsApi.md#generatereportapiv1reportsgeneratereportpost) | **POST** /api/v1/reports/generate-report | Generate Report
+*TempAssignmentsApi* | [**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete**](doc//TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempiddelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid} | Assign Patients Back To Original Route
+*TempAssignmentsApi* | [**assignPatientsTempRouteApiV1TempAssignmentsAssignTempPost**](doc//TempAssignmentsApi.md#assignpatientstemprouteapiv1tempassignmentsassigntemppost) | **POST** /api/v1/temp-assignments/assign-temp | Assign Patients Temp Route
+*TempAssignmentsApi* | [**createTempAssignmentRouteApiV1TempAssignmentsPost**](doc//TempAssignmentsApi.md#createtempassignmentrouteapiv1tempassignmentspost) | **POST** /api/v1/temp-assignments/ | Create Temp Assignment Route
+*TempAssignmentsApi* | [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllFromEmpIdsGet**](doc//TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallfromempidsget) | **GET** /api/v1/temp-assignments/all-from-emp-ids | Fetch All From Emp Ids Route
 
 
 ## Documentation For Models
@@ -151,6 +155,7 @@ Class | Method | HTTP request | Description
  - [ProcessedPatientEntryForFrontEnd](doc//ProcessedPatientEntryForFrontEnd.md)
  - [ProcessedPatientEntryFromFrontEnd](doc//ProcessedPatientEntryFromFrontEnd.md)
  - [Provider](doc//Provider.md)
+ - [TempAssignmentCreate](doc//TempAssignmentCreate.md)
  - [Token](doc//Token.md)
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)

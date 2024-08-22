@@ -149,9 +149,9 @@ class ProcessedPatientApi {
   /// * [bool] hospital:
   ///
   /// * [String] action:
-  Future<Response> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGetWithHttpInfo(int year, int month, String empid, { String? clinicid, String? patientName, String? payerName, bool? status, bool? hospital, String? action, }) async {
+  Future<Response> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGetWithHttpInfo(int year, int month, String empid, { String? clinicid, String? patientName, String? payerName, bool? status, bool? hospital, String? action, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/processed-patientprocess/{year}/{month}/{empid}'
+    final path = r'/api/v1/processed-patient/process/{year}/{month}/{empid}'
       .replaceAll('{year}', year.toString())
       .replaceAll('{month}', month.toString())
       .replaceAll('{empid}', empid);
@@ -217,8 +217,8 @@ class ProcessedPatientApi {
   /// * [bool] hospital:
   ///
   /// * [String] action:
-  Future<AssignedPatientScreenResponse?> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGet(int year, int month, String empid, { String? clinicid, String? patientName, String? payerName, bool? status, bool? hospital, String? action, }) async {
-    final response = await readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientprocessYearMonthEmpidGetWithHttpInfo(year, month, empid,  clinicid: clinicid, patientName: patientName, payerName: payerName, status: status, hospital: hospital, action: action, );
+  Future<AssignedPatientScreenResponse?> readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet(int year, int month, String empid, { String? clinicid, String? patientName, String? payerName, bool? status, bool? hospital, String? action, }) async {
+    final response = await readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGetWithHttpInfo(year, month, empid,  clinicid: clinicid, patientName: patientName, payerName: payerName, status: status, hospital: hospital, action: action, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

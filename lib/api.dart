@@ -39,6 +39,7 @@ part 'api/payments_api.dart';
 part 'api/processed_patient_api.dart';
 part 'api/providers_api.dart';
 part 'api/reports_api.dart';
+part 'api/temp_assignments_api.dart';
 
 part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
@@ -60,6 +61,7 @@ part 'model/processed_patient_entry.dart';
 part 'model/processed_patient_entry_for_front_end.dart';
 part 'model/processed_patient_entry_from_front_end.dart';
 part 'model/provider.dart';
+part 'model/temp_assignment_create.dart';
 part 'model/token.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';

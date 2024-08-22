@@ -222,6 +222,8 @@ class ApiClient {
           return ProcessedPatientEntryFromFrontEnd.fromJson(value);
         case 'Provider':
           return Provider.fromJson(value);
+        case 'TempAssignmentCreate':
+          return TempAssignmentCreate.fromJson(value);
         case 'Token':
           return Token.fromJson(value);
         case 'ValidationError':
