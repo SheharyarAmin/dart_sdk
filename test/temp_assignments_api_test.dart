@@ -21,7 +21,7 @@ void main() {
     //
     // Assign patients back to their original assignments for a specific employee.  Args:     empid (str): The employee ID.     user (User): The current active admin user.  Returns:     None
     //
-    //Future<Object> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(String empid) async
+    //Future<Map<String, String>> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(String empid) async
     test('test assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete', () async {
       // TODO
     });

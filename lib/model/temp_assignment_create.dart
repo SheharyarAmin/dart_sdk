@@ -14,7 +14,7 @@ class TempAssignmentCreate {
   /// Returns a new [TempAssignmentCreate] instance.
   TempAssignmentCreate({
     this.patientIds = const [],
-    required this.toemployeeid,
+    this.toemployeeid = '',
     this.fromemployeeid,
     this.permanent = false,
   });
@@ -80,7 +80,7 @@ class TempAssignmentCreate {
         patientIds: json[r'patientIds'] is Iterable
             ? (json[r'patientIds'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        toemployeeid: mapValueOfType<String>(json, r'toemployeeid')!,
+        toemployeeid: mapValueOfType<String>(json, r'toemployeeid') ?? '',
         fromemployeeid: mapValueOfType<String>(json, r'fromemployeeid'),
         permanent: mapValueOfType<bool>(json, r'permanent') ?? false,
       );
@@ -130,8 +130,6 @@ class TempAssignmentCreate {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'patientIds',
-    'toemployeeid',
   };
 }
 

@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // String toemployeeid
+    // String toemployeeid (default value: '')
     test('to test the property `toemployeeid`', () async {
       // TODO
     });

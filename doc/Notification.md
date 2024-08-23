@@ -1,4 +1,4 @@
-# openapi.model.Log
+# openapi.model.Notification
 
 ## Load the model package
 ```dart
@@ -8,14 +8,11 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**year** | **String** |  | [optional] [default to '']
-**month** | **String** |  | [optional] [default to '']
-**day** | **String** |  | [optional] [default to '']
-**details** | **String** |  | 
+**message** | **String** |  | 
 **empid** | **String** |  | 
-**operation** | **String** |  | 
-**timestamp** | **String** |  | [optional] 
-**id** | **String** |  | [optional] [default to '']
+**datetime** | **String** |  | 
+**status** | **String** |  | [optional] 
+**key** | **String** |  | [optional] [default to '']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

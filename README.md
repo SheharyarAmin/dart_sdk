@@ -96,7 +96,12 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**readEmployeesApiV1EmployeesGet**](doc//EmployeesApi.md#reademployeesapiv1employeesget) | **GET** /api/v1/employees/ | Read Employees
 *EmployeesApi* | [**updateEmployeeApiV1EmployeesEmployeeIdPut**](doc//EmployeesApi.md#updateemployeeapiv1employeesemployeeidput) | **PUT** /api/v1/employees/{employee_id} | Update Employee
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
-*LogsApi* | [**readLogsApiV1LogsYearMonthDayGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthdayget) | **GET** /api/v1/logs/{year}/{month}/{day} | Read Logs
+*LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
+*NotificationsApi* | [**deleteAllNotificationsApiV1NotificationsDeleteEmployeeIdDelete**](doc//NotificationsApi.md#deleteallnotificationsapiv1notificationsdeleteemployeeiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id} | Delete All Notifications
+*NotificationsApi* | [**deleteNotificationApiV1NotificationsDeleteEmployeeIdNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationapiv1notificationsdeleteemployeeidnotificationiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id}/{notification_id} | Delete Notification
+*NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
+*NotificationsApi* | [**markNotificationAsReadApiV1NotificationsReadEmployeeIdNotificationIdPut**](doc//NotificationsApi.md#marknotificationasreadapiv1notificationsreademployeeidnotificationidput) | **PUT** /api/v1/notifications/read/{employee_id}/{notification_id} | Mark Notification As Read
+*NotificationsApi* | [**readNotificationsByEmpidApiV1NotificationsEmployeeIdGet**](doc//NotificationsApi.md#readnotificationsbyempidapiv1notificationsemployeeidget) | **GET** /api/v1/notifications/{employee_id} | Read Notifications By Empid
 *PatientsApi* | [**createPatientApiV1PatientsPost**](doc//PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 *PatientsApi* | [**deletePatientApiV1PatientsPatientIdDelete**](doc//PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
 *PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetGet**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
@@ -142,6 +147,7 @@ Class | Method | HTTP request | Description
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [InvoicesResponse](doc//InvoicesResponse.md)
  - [Log](doc//Log.md)
+ - [Notification](doc//Notification.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
  - [Patient](doc//Patient.md)

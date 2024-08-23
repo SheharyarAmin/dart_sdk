@@ -20,7 +20,7 @@ class Log {
     required this.empid,
     required this.operation,
     this.timestamp,
-    required this.id,
+    this.id = '',
   });
 
   String year;
@@ -120,7 +120,7 @@ class Log {
         empid: mapValueOfType<String>(json, r'empid'),
         operation: mapValueOfType<String>(json, r'operation'),
         timestamp: mapValueOfType<String>(json, r'timestamp'),
-        id: mapValueOfType<String>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id') ?? '',
       );
     }
     return null;
@@ -171,7 +171,6 @@ class Log {
     'details',
     'empid',
     'operation',
-    'id',
   };
 }
 

@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addLogApiV1LogsPost**](LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
-[**readLogsApiV1LogsYearMonthDayGet**](LogsApi.md#readlogsapiv1logsyearmonthdayget) | **GET** /api/v1/logs/{year}/{month}/{day} | Read Logs
+[**readLogsApiV1LogsYearMonthGet**](LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
 
 
 # **addLogApiV1LogsPost**
@@ -54,8 +54,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **readLogsApiV1LogsYearMonthDayGet**
-> List<Log> readLogsApiV1LogsYearMonthDayGet(year, month, day)
+# **readLogsApiV1LogsYearMonthGet**
+> List<Log> readLogsApiV1LogsYearMonthGet(year, month)
 
 Read Logs
 
@@ -68,13 +68,12 @@ import 'package:openapi/api.dart';
 final api_instance = LogsApi();
 final year = year_example; // String | 
 final month = month_example; // String | 
-final day = day_example; // String | 
 
 try {
-    final result = api_instance.readLogsApiV1LogsYearMonthDayGet(year, month, day);
+    final result = api_instance.readLogsApiV1LogsYearMonthGet(year, month);
     print(result);
 } catch (e) {
-    print('Exception when calling LogsApi->readLogsApiV1LogsYearMonthDayGet: $e\n');
+    print('Exception when calling LogsApi->readLogsApiV1LogsYearMonthGet: $e\n');
 }
 ```
 
@@ -84,7 +83,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **year** | **String**|  | 
  **month** | **String**|  | 
- **day** | **String**|  | 
 
 ### Return type
 

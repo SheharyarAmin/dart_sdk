@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete**
-> Object assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(empid)
+> Map<String, String> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(empid)
 
 Assign Patients Back To Original Route
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+**Map<String, String>**
 
 ### Authorization
 

@@ -51,7 +51,7 @@ void main() {
       // TODO
     });
 
-    // String id
+    // String id (default value: '')
     test('to test the property `id`', () async {
       // TODO
     });

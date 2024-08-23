@@ -26,8 +26,8 @@ void main() {
 
     // Read Logs
     //
-    //Future<List<Log>> readLogsApiV1LogsYearMonthDayGet(String year, String month, String day) async
-    test('test readLogsApiV1LogsYearMonthDayGet', () async {
+    //Future<List<Log>> readLogsApiV1LogsYearMonthGet(String year, String month) async
+    test('test readLogsApiV1LogsYearMonthGet', () async {
       // TODO
     });
 

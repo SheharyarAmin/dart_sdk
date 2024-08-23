@@ -77,14 +77,11 @@ class LogsApi {
   /// * [String] year (required):
   ///
   /// * [String] month (required):
-  ///
-  /// * [String] day (required):
-  Future<Response> readLogsApiV1LogsYearMonthDayGetWithHttpInfo(String year, String month, String day,) async {
+  Future<Response> readLogsApiV1LogsYearMonthGetWithHttpInfo(String year, String month,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/logs/{year}/{month}/{day}'
+    final path = r'/api/v1/logs/{year}/{month}'
       .replaceAll('{year}', year)
-      .replaceAll('{month}', month)
-      .replaceAll('{day}', day);
+      .replaceAll('{month}', month);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -114,10 +111,8 @@ class LogsApi {
   /// * [String] year (required):
   ///
   /// * [String] month (required):
-  ///
-  /// * [String] day (required):
-  Future<List<Log>?> readLogsApiV1LogsYearMonthDayGet(String year, String month, String day,) async {
-    final response = await readLogsApiV1LogsYearMonthDayGetWithHttpInfo(year, month, day,);
+  Future<List<Log>?> readLogsApiV1LogsYearMonthGet(String year, String month,) async {
+    final response = await readLogsApiV1LogsYearMonthGetWithHttpInfo(year, month,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

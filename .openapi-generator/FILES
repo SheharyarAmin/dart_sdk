@@ -20,6 +20,8 @@ doc/HTTPValidationError.md
 doc/InvoicesResponse.md
 doc/Log.md
 doc/LogsApi.md
+doc/Notification.md
+doc/NotificationsApi.md
 doc/OptInEmployeeLogEntry.md
 doc/OptInEmployeeLogEntryBase.md
 doc/Patient.md
@@ -50,6 +52,7 @@ lib/api/default_api.dart
 lib/api/emplog_api.dart
 lib/api/employees_api.dart
 lib/api/logs_api.dart
+lib/api/notifications_api.dart
 lib/api/patients_api.dart
 lib/api/payments_api.dart
 lib/api/processed_patient_api.dart
@@ -74,6 +77,7 @@ lib/model/employee.dart
 lib/model/http_validation_error.dart
 lib/model/invoices_response.dart
 lib/model/log.dart
+lib/model/notification.dart
 lib/model/opt_in_employee_log_entry.dart
 lib/model/opt_in_employee_log_entry_base.dart
 lib/model/patient.dart
@@ -107,6 +111,8 @@ test/http_validation_error_test.dart
 test/invoices_response_test.dart
 test/log_test.dart
 test/logs_api_test.dart
+test/notification_test.dart
+test/notifications_api_test.dart
 test/opt_in_employee_log_entry_base_test.dart
 test/opt_in_employee_log_entry_test.dart
 test/patient_payment_entry_test.dart

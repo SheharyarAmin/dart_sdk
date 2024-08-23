@@ -58,7 +58,7 @@ class TempAssignmentsApi {
   /// Parameters:
   ///
   /// * [String] empid (required):
-  Future<Object?> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(String empid,) async {
+  Future<Map<String, String>?> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(String empid,) async {
     final response = await assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDeleteWithHttpInfo(empid,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -67,8 +67,8 @@ class TempAssignmentsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+
     }
     return null;
   }
