@@ -31,31 +31,10 @@ void main() {
       // TODO
     });
 
-    // Get Invoice By Clinicid And Month Year
-    //
-    //Future<ClinicInvoice> getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet(String clinicid, String month, String year) async
-    test('test getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet', () async {
-      // TODO
-    });
-
     // Read All Invoices
     //
     //Future<InvoicesResponse> readAllInvoicesApiV1ClinicInvoiceGet({ int pageSize, String pageToken, String clinicid, int invoiceNumber, num grandTotal, num amountPaid, int patientsCount, num amountLeft, String dueDateTo, String dueDateFrom, String monthYearFrom, String monthYearTo, String sortBy, bool ascending }) async
     test('test readAllInvoicesApiV1ClinicInvoiceGet', () async {
-      // TODO
-    });
-
-    // Read Clinic Invoice
-    //
-    //Future<ClinicInvoice> readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet(String clinicid, String invoiceNumber) async
-    test('test readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet', () async {
-      // TODO
-    });
-
-    // Read Clinic Invoices
-    //
-    //Future<List<ClinicInvoice>> readClinicInvoicesApiV1ClinicInvoiceClinicidGet(String clinicid) async
-    test('test readClinicInvoicesApiV1ClinicInvoiceClinicidGet', () async {
       // TODO
     });
 

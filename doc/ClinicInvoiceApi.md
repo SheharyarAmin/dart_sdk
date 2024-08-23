@@ -11,10 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createClinicInvoiceApiV1ClinicInvoiceClinicidPost**](ClinicInvoiceApi.md#createclinicinvoiceapiv1clinicinvoiceclinicidpost) | **POST** /api/v1/clinic-invoice/{clinicid}/ | Create Clinic Invoice
 [**deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**](ClinicInvoiceApi.md#deleteclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberdelete) | **DELETE** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Delete Clinic Invoice
-[**getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet**](ClinicInvoiceApi.md#getinvoicebyclinicidandmonthyearapiv1clinicinvoiceclinicidmonthmonthyearyearget) | **GET** /api/v1/clinic-invoice/{clinicid}/month/{month}/year/{year} | Get Invoice By Clinicid And Month Year
 [**readAllInvoicesApiV1ClinicInvoiceGet**](ClinicInvoiceApi.md#readallinvoicesapiv1clinicinvoiceget) | **GET** /api/v1/clinic-invoice/ | Read All Invoices
-[**readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet**](ClinicInvoiceApi.md#readclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberget) | **GET** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Read Clinic Invoice
-[**readClinicInvoicesApiV1ClinicInvoiceClinicidGet**](ClinicInvoiceApi.md#readclinicinvoicesapiv1clinicinvoiceclinicidget) | **GET** /api/v1/clinic-invoice/{clinicid}/ | Read Clinic Invoices
 
 
 # **createClinicInvoiceApiV1ClinicInvoiceClinicidPost**
@@ -109,53 +106,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet**
-> ClinicInvoice getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet(clinicid, month, year)
-
-Get Invoice By Clinicid And Month Year
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
-
-final api_instance = ClinicInvoiceApi();
-final clinicid = clinicid_example; // String | 
-final month = month_example; // String | 
-final year = year_example; // String | 
-
-try {
-    final result = api_instance.getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet(clinicid, month, year);
-    print(result);
-} catch (e) {
-    print('Exception when calling ClinicInvoiceApi->getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clinicid** | **String**|  | 
- **month** | **String**|  | 
- **year** | **String**|  | 
-
-### Return type
-
-[**ClinicInvoice**](ClinicInvoice.md)
-
-### Authorization
-
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **readAllInvoicesApiV1ClinicInvoiceGet**
 > InvoicesResponse readAllInvoicesApiV1ClinicInvoiceGet(pageSize, pageToken, clinicid, invoiceNumber, grandTotal, amountPaid, patientsCount, amountLeft, dueDateTo, dueDateFrom, monthYearFrom, monthYearTo, sortBy, ascending)
 
@@ -213,94 +163,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InvoicesResponse**](InvoicesResponse.md)
-
-### Authorization
-
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet**
-> ClinicInvoice readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet(clinicid, invoiceNumber)
-
-Read Clinic Invoice
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
-
-final api_instance = ClinicInvoiceApi();
-final clinicid = clinicid_example; // String | 
-final invoiceNumber = invoiceNumber_example; // String | 
-
-try {
-    final result = api_instance.readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet(clinicid, invoiceNumber);
-    print(result);
-} catch (e) {
-    print('Exception when calling ClinicInvoiceApi->readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clinicid** | **String**|  | 
- **invoiceNumber** | **String**|  | 
-
-### Return type
-
-[**ClinicInvoice**](ClinicInvoice.md)
-
-### Authorization
-
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **readClinicInvoicesApiV1ClinicInvoiceClinicidGet**
-> List<ClinicInvoice> readClinicInvoicesApiV1ClinicInvoiceClinicidGet(clinicid)
-
-Read Clinic Invoices
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
-
-final api_instance = ClinicInvoiceApi();
-final clinicid = clinicid_example; // String | 
-
-try {
-    final result = api_instance.readClinicInvoicesApiV1ClinicInvoiceClinicidGet(clinicid);
-    print(result);
-} catch (e) {
-    print('Exception when calling ClinicInvoiceApi->readClinicInvoicesApiV1ClinicInvoiceClinicidGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clinicid** | **String**|  | 
-
-### Return type
-
-[**List<ClinicInvoice>**](ClinicInvoice.md)
 
 ### Authorization
 

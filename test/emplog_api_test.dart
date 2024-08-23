@@ -24,12 +24,5 @@ void main() {
       // TODO
     });
 
-    // Read Optin Logs
-    //
-    //Future<Map<String, OptInEmployeeLogEntry>> readOptinLogsApiV1EmplogOptinEmpidYearMonthGet(String empid, String yearMonth) async
-    test('test readOptinLogsApiV1EmplogOptinEmpidYearMonthGet', () async {
-      // TODO
-    });
-
   });
 }

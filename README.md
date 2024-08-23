@@ -65,10 +65,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ClinicInvoiceApi* | [**createClinicInvoiceApiV1ClinicInvoiceClinicidPost**](doc//ClinicInvoiceApi.md#createclinicinvoiceapiv1clinicinvoiceclinicidpost) | **POST** /api/v1/clinic-invoice/{clinicid}/ | Create Clinic Invoice
 *ClinicInvoiceApi* | [**deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**](doc//ClinicInvoiceApi.md#deleteclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberdelete) | **DELETE** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Delete Clinic Invoice
-*ClinicInvoiceApi* | [**getInvoiceByClinicidAndMonthYearApiV1ClinicInvoiceClinicidMonthMonthYearYearGet**](doc//ClinicInvoiceApi.md#getinvoicebyclinicidandmonthyearapiv1clinicinvoiceclinicidmonthmonthyearyearget) | **GET** /api/v1/clinic-invoice/{clinicid}/month/{month}/year/{year} | Get Invoice By Clinicid And Month Year
 *ClinicInvoiceApi* | [**readAllInvoicesApiV1ClinicInvoiceGet**](doc//ClinicInvoiceApi.md#readallinvoicesapiv1clinicinvoiceget) | **GET** /api/v1/clinic-invoice/ | Read All Invoices
-*ClinicInvoiceApi* | [**readClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberGet**](doc//ClinicInvoiceApi.md#readclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberget) | **GET** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Read Clinic Invoice
-*ClinicInvoiceApi* | [**readClinicInvoicesApiV1ClinicInvoiceClinicidGet**](doc//ClinicInvoiceApi.md#readclinicinvoicesapiv1clinicinvoiceclinicidget) | **GET** /api/v1/clinic-invoice/{clinicid}/ | Read Clinic Invoices
 *ClinicsApi* | [**changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut**](doc//ClinicsApi.md#changeactivestatusapiv1clinicsclinicidchangeactivestatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-active-status | Change Active Status
 *ClinicsApi* | [**changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**](doc//ClinicsApi.md#changecannotdeletestatusapiv1clinicsclinicidchangedeletedstatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-deleted-status | Change Cannot Delete Status
 *ClinicsApi* | [**createNewClinicApiV1ClinicsPost**](doc//ClinicsApi.md#createnewclinicapiv1clinicspost) | **POST** /api/v1/clinics/ | Create New Clinic
@@ -90,7 +87,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 *DefaultApi* | [**refreshAccessTokenAuthRefreshPost**](doc//DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
 *EmplogApi* | [**createOptinLogApiV1EmplogOptinPost**](doc//EmplogApi.md#createoptinlogapiv1emplogoptinpost) | **POST** /api/v1/emplog/optin | Create Optin Log
-*EmplogApi* | [**readOptinLogsApiV1EmplogOptinEmpidYearMonthGet**](doc//EmplogApi.md#readoptinlogsapiv1emplogoptinempidyearmonthget) | **GET** /api/v1/emplog/optin/{empid}/{yearMonth} | Read Optin Logs
 *EmployeesApi* | [**changeActiveStatusApiV1EmployeesEmployeeIdChangeActiveStatusPut**](doc//EmployeesApi.md#changeactivestatusapiv1employeesemployeeidchangeactivestatusput) | **PUT** /api/v1/employees/{employee_id}/change-active-status | Change Active Status
 *EmployeesApi* | [**changeDeletedStatusApiV1EmployeesEmployeeIdChangeDeletedStatusPut**](doc//EmployeesApi.md#changedeletedstatusapiv1employeesemployeeidchangedeletedstatusput) | **PUT** /api/v1/employees/{employee_id}/change-deleted-status | Change Deleted Status
 *EmployeesApi* | [**createEmployeeApiV1EmployeesPost**](doc//EmployeesApi.md#createemployeeapiv1employeespost) | **POST** /api/v1/employees/ | Create Employee
@@ -99,6 +95,8 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**readEmployeeApiV1EmployeesEmployeeIdGet**](doc//EmployeesApi.md#reademployeeapiv1employeesemployeeidget) | **GET** /api/v1/employees/{employee_id} | Read Employee
 *EmployeesApi* | [**readEmployeesApiV1EmployeesGet**](doc//EmployeesApi.md#reademployeesapiv1employeesget) | **GET** /api/v1/employees/ | Read Employees
 *EmployeesApi* | [**updateEmployeeApiV1EmployeesEmployeeIdPut**](doc//EmployeesApi.md#updateemployeeapiv1employeesemployeeidput) | **PUT** /api/v1/employees/{employee_id} | Update Employee
+*LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
+*LogsApi* | [**readLogsApiV1LogsYearMonthDayGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthdayget) | **GET** /api/v1/logs/{year}/{month}/{day} | Read Logs
 *PatientsApi* | [**createPatientApiV1PatientsPost**](doc//PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 *PatientsApi* | [**deletePatientApiV1PatientsPatientIdDelete**](doc//PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
 *PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetGet**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
@@ -128,9 +126,8 @@ Class | Method | HTTP request | Description
 *ProvidersApi* | [**updateExistingProviderApiV1ProvidersProviderIdPut**](doc//ProvidersApi.md#updateexistingproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Existing Provider
 *ReportsApi* | [**generateReportApiV1ReportsGenerateReportPost**](doc//ReportsApi.md#generatereportapiv1reportsgeneratereportpost) | **POST** /api/v1/reports/generate-report | Generate Report
 *TempAssignmentsApi* | [**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete**](doc//TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempiddelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid} | Assign Patients Back To Original Route
-*TempAssignmentsApi* | [**assignPatientsTempRouteApiV1TempAssignmentsAssignTempPost**](doc//TempAssignmentsApi.md#assignpatientstemprouteapiv1tempassignmentsassigntemppost) | **POST** /api/v1/temp-assignments/assign-temp | Assign Patients Temp Route
 *TempAssignmentsApi* | [**createTempAssignmentRouteApiV1TempAssignmentsPost**](doc//TempAssignmentsApi.md#createtempassignmentrouteapiv1tempassignmentspost) | **POST** /api/v1/temp-assignments/ | Create Temp Assignment Route
-*TempAssignmentsApi* | [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllFromEmpIdsGet**](doc//TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallfromempidsget) | **GET** /api/v1/temp-assignments/all-from-emp-ids | Fetch All From Emp Ids Route
+*TempAssignmentsApi* | [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet**](doc//TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallemployeesget) | **GET** /api/v1/temp-assignments/all-employees | Fetch All From Emp Ids Route
 
 
 ## Documentation For Models
@@ -144,6 +141,7 @@ Class | Method | HTTP request | Description
  - [Employee](doc//Employee.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [InvoicesResponse](doc//InvoicesResponse.md)
+ - [Log](doc//Log.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
  - [Patient](doc//Patient.md)

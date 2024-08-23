@@ -200,6 +200,8 @@ class ApiClient {
           return HTTPValidationError.fromJson(value);
         case 'InvoicesResponse':
           return InvoicesResponse.fromJson(value);
+        case 'Log':
+          return Log.fromJson(value);
         case 'OptInEmployeeLogEntry':
           return OptInEmployeeLogEntry.fromJson(value);
         case 'OptInEmployeeLogEntryBase':
