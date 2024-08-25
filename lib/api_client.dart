@@ -94,7 +94,8 @@ class ApiClient {
         headerParams,
       );
     } on SocketException catch (error, trace) {
-      final errorMessage = 'Socket operation failed: $method $path';
+      final errorMessage =
+          'Unable to connect to the server. Please check your internet connection.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -103,7 +104,8 @@ class ApiClient {
         trace,
       );
     } on TlsException catch (error, trace) {
-      final errorMessage = 'TLS/SSL communication failed: $method $path';
+      final errorMessage =
+          'A secure connection to the server could not be established. Please try again later.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -112,7 +114,8 @@ class ApiClient {
         trace,
       );
     } on IOException catch (error, trace) {
-      final errorMessage = 'I/O operation failed: $method $path';
+      final errorMessage =
+          'An error occurred while communicating with the server. Please try again.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -121,23 +124,20 @@ class ApiClient {
         trace,
       );
     } on ClientException catch (error, trace) {
-      if (error.message.contains('401') && refreshTokenCallback != null) {
-        // Attempt to refresh the token using the refresh token
-        if (refreshToken != null) {
-          final newToken = await refreshTokenCallback!(refreshToken!);
-          if (newToken != null) {
-            addToken(newToken);
-            // Retry the request with the new token
-            return _makeRequest(uri, method, msgBody, headerParams);
-          } else {
-            throw ApiException(
-              HttpStatus.unauthorized,
-              'Token refresh failed, unauthorized request',
-            );
-          }
+      if (refreshToken != null) {
+        final newToken = await refreshTokenCallback!(refreshToken!);
+        if (newToken != null) {
+          addToken(newToken);
+          headerParams['Authorization'] = 'Bearer ${newToken.accessToken}';
+          return _makeRequest(uri, method, msgBody, headerParams);
+        } else {
+          throw ApiException(
+            HttpStatus.unauthorized,
+            'Unable to refresh your session. Please log in again.',
+          );
         }
       }
-      final errorMessage = 'HTTP connection failed: $method $path';
+      final errorMessage = 'Failed to connect to the server. Please try again.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -146,28 +146,29 @@ class ApiClient {
         trace,
       );
     } on ApiException catch (e) {
-      if (e.message!.contains('401') && refreshTokenCallback != null) {
-        // Attempt to refresh the token using the refresh token
-        if (refreshToken != null) {
-          final newToken = await refreshTokenCallback!(refreshToken!);
-          if (newToken != null) {
-            addToken(newToken);
-            // Retry the request with the new token
-            return _makeRequest(uri, method, msgBody, headerParams);
-          } else {
-            throw ApiException(
-              HttpStatus.unauthorized,
-              'Token refresh failed, unauthorized request',
-            );
-          }
+      print('ApiException: ${e.code} - ${e.message}');
+      if (refreshToken != null) {
+        final newToken = await refreshTokenCallback!(refreshToken!);
+        if (newToken != null) {
+          addToken(newToken);
+          return _makeRequest(uri, method, msgBody, headerParams);
         } else {
+          final errorMessage =
+              'Session expired. Please log in again to continue.';
+          errorCallback?.call(errorMessage);
           throw ApiException(
             HttpStatus.unauthorized,
-            'Refresh token is missing',
+            'Session expired. Please log in again.',
           );
         }
       } else {
-        rethrow;
+        final errorMessage =
+            'Session expired and no refresh token found. Please log in again.';
+        errorCallback?.call(errorMessage);
+        throw ApiException(
+          HttpStatus.unauthorized,
+          'Session expired and no refresh token found. Please log in again.',
+        );
       }
     }
   }
