@@ -205,6 +205,7 @@ class ApiClient {
     }
   }
 
+  // ignore: deprecated_member_use_from_same_package
   Future<dynamic> deserializeAsync(
     String value,
     String targetType, {
@@ -259,19 +260,149 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'AssignedPatientScreenResponse':
+          return AssignedPatientScreenResponse.fromJson(value);
+        case 'AuthenticationToken':
+          return AuthenticationToken.fromJson(value);
+        case 'Clinic':
+          return Clinic.fromJson(value);
+        case 'ClinicInvoice':
+          return ClinicInvoice.fromJson(value);
+        case 'Consultant':
+          return Consultant.fromJson(value);
+        case 'ConsultantPay':
+          return ConsultantPay.fromJson(value);
+        case 'Employee':
+          return Employee.fromJson(value);
+        case 'HTTPValidationError':
+          return HTTPValidationError.fromJson(value);
+        case 'InvoicesResponse':
+          return InvoicesResponse.fromJson(value);
+        case 'Log':
+          return Log.fromJson(value);
+        case 'Notification':
+          return Notification.fromJson(value);
+        case 'OptInEmployeeLogEntry':
+          return OptInEmployeeLogEntry.fromJson(value);
+        case 'OptInEmployeeLogEntryBase':
+          return OptInEmployeeLogEntryBase.fromJson(value);
+        case 'Patient':
+          return Patient.fromJson(value);
+        case 'PatientPaymentEntry':
+          return PatientPaymentEntry.fromJson(value);
+        case 'PatientsResponse':
+          return PatientsResponse.fromJson(value);
+        case 'PaymentDetail':
+          return PaymentDetail.fromJson(value);
+        case 'PaymentsResponse':
+          return PaymentsResponse.fromJson(value);
+        case 'ProcessedPatientEntry':
+          return ProcessedPatientEntry.fromJson(value);
+        case 'ProcessedPatientEntryForFrontEnd':
+          return ProcessedPatientEntryForFrontEnd.fromJson(value);
+        case 'ProcessedPatientEntryFromFrontEnd':
+          return ProcessedPatientEntryFromFrontEnd.fromJson(value);
+        case 'Provider':
+          return Provider.fromJson(value);
+        case 'TempAssignmentCreate':
+          return TempAssignmentCreate.fromJson(value);
+        case 'Token':
+          return Token.fromJson(value);
+        case 'ValidationError':
+          return ValidationError.fromJson(value);
+        case 'ValidationErrorLocInner':
+          return ValidationErrorLocInner.fromJson(value);
         default:
-          throw ApiException(
-            HttpStatus.internalServerError,
-            'No matching type found for deserialization',
-          );
+          dynamic match;
+          if (value is List &&
+              (match = _regList.firstMatch(targetType)?.group(1)) != null) {
+            return value
+                .map<dynamic>((dynamic v) => fromJson(
+                      v,
+                      match,
+                      growable: growable,
+                    ))
+                .toList(growable: growable);
+          }
+          if (value is Set &&
+              (match = _regSet.firstMatch(targetType)?.group(1)) != null) {
+            return value
+                .map<dynamic>((dynamic v) => fromJson(
+                      v,
+                      match,
+                      growable: growable,
+                    ))
+                .toSet();
+          }
+          if (value is Map &&
+              (match = _regMap.firstMatch(targetType)?.group(1)) != null) {
+            return Map<String, dynamic>.fromIterables(
+              value.keys.cast<String>(),
+              value.values.map<dynamic>((dynamic v) => fromJson(
+                    v,
+                    match,
+                    growable: growable,
+                  )),
+            );
+          }
       }
-    } catch (error, trace) {
+    } on Exception catch (error, trace) {
       throw ApiException.withInner(
         HttpStatus.internalServerError,
         'Exception during deserialization.',
-        error as Exception,
+        error,
         trace,
       );
     }
+    throw ApiException(
+      HttpStatus.internalServerError,
+      'Could not find a suitable class for deserialization',
+    );
   }
 }
+
+/// Primarily intended for use in an isolate.
+class DeserializationMessage {
+  const DeserializationMessage({
+    required this.json,
+    required this.targetType,
+    this.growable = false,
+  });
+
+  /// The JSON value to deserialize.
+  final String json;
+
+  /// Target type to deserialize to.
+  final String targetType;
+
+  /// Whether to make deserialized lists or maps growable.
+  final bool growable;
+}
+
+/// Primarily intended for use in an isolate.
+Future<dynamic> decodeAsync(DeserializationMessage message) async {
+  // Remove all spaces. Necessary for regular expressions as well.
+  final targetType = message.targetType.replaceAll(' ', '');
+
+  // If the expected target type is String, nothing to do...
+  return targetType == 'String' ? message.json : json.decode(message.json);
+}
+
+/// Primarily intended for use in an isolate.
+Future<dynamic> deserializeAsync(DeserializationMessage message) async {
+  // Remove all spaces. Necessary for regular expressions as well.
+  final targetType = message.targetType.replaceAll(' ', '');
+
+  // If the expected target type is String, nothing to do...
+  return targetType == 'String'
+      ? message.json
+      : ApiClient.fromJson(
+          json.decode(message.json),
+          targetType,
+          growable: message.growable,
+        );
+}
+
+/// Primarily intended for use in an isolate.
+Future<String> serializeAsync(Object? value) async =>
+    value == null ? '' : json.encode(value);
