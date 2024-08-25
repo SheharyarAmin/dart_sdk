@@ -121,6 +121,22 @@ class ApiClient {
         trace,
       );
     } on ClientException catch (error, trace) {
+      if (error.message.contains('401') && refreshTokenCallback != null) {
+        // Attempt to refresh the token using the refresh token
+        if (refreshToken != null) {
+          final newToken = await refreshTokenCallback!(refreshToken!);
+          if (newToken != null) {
+            addToken(newToken);
+            // Retry the request with the new token
+            return _makeRequest(uri, method, msgBody, headerParams);
+          } else {
+            throw ApiException(
+              HttpStatus.unauthorized,
+              'Token refresh failed, unauthorized request',
+            );
+          }
+        }
+      }
       final errorMessage = 'HTTP connection failed: $method $path';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
