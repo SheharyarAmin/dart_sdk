@@ -24,8 +24,12 @@ class ApiClient {
   final Authentication? authentication;
   final void Function(String message)? errorCallback;
   final Future<Token?> Function(String refreshToken)? refreshTokenCallback;
-  Token? token; // Holds the current access and refresh tokens
-  String? refreshToken; // Holds the refresh token
+  Token? token;
+  String? refreshToken;
+
+  late DateTime _lastTokenAccessTime;
+  int _refreshTokenTries = 0;
+  static const int _maxRefreshTokenTries = 2;
 
   var _client = Client();
   final _defaultHeaderMap = <String, String>{};
@@ -43,8 +47,10 @@ class ApiClient {
   Map<String, String> get defaultHeaderMap => _defaultHeaderMap;
 
   void addToken(Token? newToken) {
+    _refreshTokenTries = 0;
     token = newToken;
     refreshToken = newToken?.refreshToken;
+    _lastTokenAccessTime = DateTime.now();
     if (token != null) {
       _defaultHeaderMap['Authorization'] = 'Bearer ${token!.accessToken}';
     }
@@ -86,6 +92,8 @@ class ApiClient {
             ? json.encode(body)
             : null;
 
+    String? errorMessage;
+
     try {
       return await _makeRequest(
         uri,
@@ -94,8 +102,9 @@ class ApiClient {
         headerParams,
       );
     } on SocketException catch (error, trace) {
-      final errorMessage =
-          'Unable to connect to the server. Please check your internet connection.';
+      print("Socket Exception: $error");
+      errorMessage =
+          'Network error: Unable to connect to the server while performing $method on $path. Please check your internet connection.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -104,8 +113,9 @@ class ApiClient {
         trace,
       );
     } on TlsException catch (error, trace) {
-      final errorMessage =
-          'A secure connection to the server could not be established. Please try again later.';
+      print("TLS Exception: $error");
+      errorMessage =
+          'Security error: TLS/SSL communication failed during $method on $path. Please ensure the server\'s SSL certificate is valid.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -114,8 +124,9 @@ class ApiClient {
         trace,
       );
     } on IOException catch (error, trace) {
-      final errorMessage =
-          'An error occurred while communicating with the server. Please try again.';
+      print("IO Exception: $error");
+      errorMessage =
+          'I/O error: An error occurred while reading/writing data during $method on $path. Please try again.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -124,20 +135,29 @@ class ApiClient {
         trace,
       );
     } on ClientException catch (error, trace) {
-      if (refreshToken != null) {
-        final newToken = await refreshTokenCallback!(refreshToken!);
-        if (newToken != null) {
-          addToken(newToken);
-          headerParams['Authorization'] = 'Bearer ${newToken.accessToken}';
-          return _makeRequest(uri, method, msgBody, headerParams);
-        } else {
-          throw ApiException(
-            HttpStatus.unauthorized,
-            'Unable to refresh your session. Please log in again.',
-          );
+      if (_refreshTokenTries <= _maxRefreshTokenTries) {
+        _refreshTokenTries++;
+        if (refreshTokenCallback != null && refreshToken != null) {
+          final newToken = await refreshTokenCallback!(refreshToken!);
+          if (newToken != null) {
+            addToken(newToken);
+            return await invokeAPI(
+              path,
+              method,
+              queryParams,
+              body,
+              headerParams,
+              formParams,
+              contentType,
+            );
+          }
         }
+      } else {
+        errorMessage = "Can't Authenticate, Please login again";
+        errorCallback?.call(errorMessage);
       }
-      final errorMessage = 'Failed to connect to the server. Please try again.';
+      errorMessage =
+          'Please check your internet connection and try again later.';
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
@@ -145,31 +165,22 @@ class ApiClient {
         error,
         trace,
       );
-    } on ApiException catch (e) {
-      print('ApiException: ${e.code} - ${e.message}');
-      if (refreshToken != null) {
-        final newToken = await refreshTokenCallback!(refreshToken!);
-        if (newToken != null) {
-          addToken(newToken);
-          return _makeRequest(uri, method, msgBody, headerParams);
-        } else {
-          final errorMessage =
-              'Session expired. Please log in again to continue.';
-          errorCallback?.call(errorMessage);
-          throw ApiException(
-            HttpStatus.unauthorized,
-            'Session expired. Please log in again.',
-          );
-        }
-      } else {
-        final errorMessage =
-            'Session expired and no refresh token found. Please log in again.';
+    } on Exception catch (error, trace) {
+      errorMessage =
+          'Unexpected error: An unknown error occurred during $method on $path. Please try again later.';
+      errorCallback?.call(errorMessage);
+      throw ApiException.withInner(
+        HttpStatus.badRequest,
+        errorMessage,
+        error,
+        trace,
+      );
+    } finally {
+      if (errorMessage != null) {
         errorCallback?.call(errorMessage);
-        throw ApiException(
-          HttpStatus.unauthorized,
-          'Session expired and no refresh token found. Please log in again.',
-        );
       }
+      // Reset the refresh token attempts on successful API call
+      _refreshTokenTries = 0;
     }
   }
 
