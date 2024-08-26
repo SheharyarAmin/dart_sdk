@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-
 class ConsultantsApi {
-  ConsultantsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  ConsultantsApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -23,10 +23,13 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Response> changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPutWithHttpInfo(String consultantId,) async {
+  Future<Response>
+      changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPutWithHttpInfo(
+    String consultantId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}/change-active-status'
-      .replaceAll('{consultant_id}', consultantId);
+        .replaceAll('{consultant_id}', consultantId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -36,7 +39,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -54,17 +56,26 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Map<String, String>?> changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPut(String consultantId,) async {
-    final response = await changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPutWithHttpInfo(consultantId,);
+  Future<Map<String, String>?>
+      changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPut(
+    String consultantId,
+  ) async {
+    final response =
+        await changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPutWithHttpInfo(
+      consultantId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
-
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return Map<String, String>.from(
+        await apiClient.deserializeAsync(
+            await _decodeBodyBytes(response), 'Map<String, String>'),
+      );
     }
     return null;
   }
@@ -76,10 +87,13 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Response> changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPutWithHttpInfo(String consultantId,) async {
+  Future<Response>
+      changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPutWithHttpInfo(
+    String consultantId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}/change-deleted-status'
-      .replaceAll('{consultant_id}', consultantId);
+        .replaceAll('{consultant_id}', consultantId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -89,7 +103,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -107,17 +120,26 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Map<String, String>?> changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPut(String consultantId,) async {
-    final response = await changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPutWithHttpInfo(consultantId,);
+  Future<Map<String, String>?>
+      changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPut(
+    String consultantId,
+  ) async {
+    final response =
+        await changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPutWithHttpInfo(
+      consultantId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
-
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return Map<String, String>.from(
+        await apiClient.deserializeAsync(
+            await _decodeBodyBytes(response), 'Map<String, String>'),
+      );
     }
     return null;
   }
@@ -129,7 +151,9 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [Consultant] consultant (required):
-  Future<Response> createNewConsultantApiV1ConsultantsPostWithHttpInfo(Consultant consultant,) async {
+  Future<Response> createNewConsultantApiV1ConsultantsPostWithHttpInfo(
+    Consultant consultant,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/';
 
@@ -141,7 +165,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -159,17 +182,24 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [Consultant] consultant (required):
-  Future<Consultant?> createNewConsultantApiV1ConsultantsPost(Consultant consultant,) async {
-    final response = await createNewConsultantApiV1ConsultantsPostWithHttpInfo(consultant,);
+  Future<Consultant?> createNewConsultantApiV1ConsultantsPost(
+    Consultant consultant,
+  ) async {
+    final response = await createNewConsultantApiV1ConsultantsPostWithHttpInfo(
+      consultant,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Consultant',) as Consultant;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Consultant',
+      ) as Consultant;
     }
     return null;
   }
@@ -181,10 +211,13 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Response> deleteExistingConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(String consultantId,) async {
+  Future<Response>
+      deleteExistingConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(
+    String consultantId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}'
-      .replaceAll('{consultant_id}', consultantId);
+        .replaceAll('{consultant_id}', consultantId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -194,7 +227,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -212,17 +244,26 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Consultant?> deleteExistingConsultantApiV1ConsultantsConsultantIdDelete(String consultantId,) async {
-    final response = await deleteExistingConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(consultantId,);
+  Future<Consultant?>
+      deleteExistingConsultantApiV1ConsultantsConsultantIdDelete(
+    String consultantId,
+  ) async {
+    final response =
+        await deleteExistingConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(
+      consultantId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Consultant',) as Consultant;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Consultant',
+      ) as Consultant;
     }
     return null;
   }
@@ -234,7 +275,10 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<Response> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(Map<String, String> requestBody,) async {
+  Future<Response>
+      getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(
+    Map<String, String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/consultant-invoice';
 
@@ -246,7 +290,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -264,11 +307,17 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<void> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost(Map<String, String> requestBody,) async {
-    final response = await getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(requestBody,);
+  Future<Uint8List> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost(
+    Map<String, String> requestBody,
+  ) async {
+    final response =
+        await getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, response.body);
     }
+    return response.bodyBytes;
   }
 
   /// Read Consultant
@@ -278,10 +327,12 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Response> readConsultantApiV1ConsultantsConsultantIdGetWithHttpInfo(String consultantId,) async {
+  Future<Response> readConsultantApiV1ConsultantsConsultantIdGetWithHttpInfo(
+    String consultantId,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}'
-      .replaceAll('{consultant_id}', consultantId);
+        .replaceAll('{consultant_id}', consultantId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -291,7 +342,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -309,17 +359,26 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Map<String, Consultant>?> readConsultantApiV1ConsultantsConsultantIdGet(String consultantId,) async {
-    final response = await readConsultantApiV1ConsultantsConsultantIdGetWithHttpInfo(consultantId,);
+  Future<Map<String, Consultant>?>
+      readConsultantApiV1ConsultantsConsultantIdGet(
+    String consultantId,
+  ) async {
+    final response =
+        await readConsultantApiV1ConsultantsConsultantIdGetWithHttpInfo(
+      consultantId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Consultant>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Consultant>'),);
-
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return Map<String, Consultant>.from(
+        await apiClient.deserializeAsync(
+            await _decodeBodyBytes(response), 'Map<String, Consultant>'),
+      );
     }
     return null;
   }
@@ -339,7 +398,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -361,9 +419,12 @@ class ConsultantsApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Consultant>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Consultant>'),);
-
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return Map<String, Consultant>.from(
+        await apiClient.deserializeAsync(
+            await _decodeBodyBytes(response), 'Map<String, Consultant>'),
+      );
     }
     return null;
   }
@@ -377,10 +438,14 @@ class ConsultantsApi {
   /// * [String] consultantId (required):
   ///
   /// * [Consultant] consultant (required):
-  Future<Response> updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(String consultantId, Consultant consultant,) async {
+  Future<Response>
+      updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(
+    String consultantId,
+    Consultant consultant,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}'
-      .replaceAll('{consultant_id}', consultantId);
+        .replaceAll('{consultant_id}', consultantId);
 
     // ignore: prefer_final_locals
     Object? postBody = consultant;
@@ -390,7 +455,6 @@ class ConsultantsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -410,17 +474,27 @@ class ConsultantsApi {
   /// * [String] consultantId (required):
   ///
   /// * [Consultant] consultant (required):
-  Future<Consultant?> updateExistingConsultantApiV1ConsultantsConsultantIdPut(String consultantId, Consultant consultant,) async {
-    final response = await updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(consultantId, consultant,);
+  Future<Consultant?> updateExistingConsultantApiV1ConsultantsConsultantIdPut(
+    String consultantId,
+    Consultant consultant,
+  ) async {
+    final response =
+        await updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(
+      consultantId,
+      consultant,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Consultant',) as Consultant;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Consultant',
+      ) as Consultant;
     }
     return null;
   }
