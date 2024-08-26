@@ -24,7 +24,7 @@ class Clinic {
     required this.region,
     this.canBeDeleted = true,
     this.status,
-    required this.id,
+    this.id = '',
   });
 
   String? customerId;
@@ -142,7 +142,7 @@ class Clinic {
         region: mapValueOfType<String>(json, r'region')!,
         canBeDeleted: mapValueOfType<bool>(json, r'canBeDeleted') ?? true,
         status: mapValueOfType<String>(json, r'status'),
-        id: mapValueOfType<String>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id') ?? '',
       );
     }
     return null;
@@ -197,7 +197,6 @@ class Clinic {
     'email',
     'fax',
     'region',
-    'id',
   };
 }
 

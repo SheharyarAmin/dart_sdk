@@ -57,14 +57,15 @@ class ApiClient {
   }
 
   Future<Response> invokeAPI(
-    String path,
-    String method,
-    List<QueryParam> queryParams,
-    Object? body,
-    Map<String, String> headerParams,
-    Map<String, String> formParams,
-    String? contentType,
-  ) async {
+      String path,
+      String method,
+      List<QueryParam> queryParams,
+      Object? body,
+      Map<String, String> headerParams,
+      Map<String, String> formParams,
+      String? contentType,
+      {bool isStream = false} // Added parameter to handle streams
+      ) async {
     // Add the access token to the headers if available
     if (token != null) {
       headerParams['Authorization'] = 'Bearer ${token!.accessToken}';
@@ -95,6 +96,13 @@ class ApiClient {
     String? errorMessage;
 
     try {
+      if (isStream) {
+        // Special handling for streaming responses
+        final request = Request(method, uri)..headers.addAll(headerParams);
+        final streamedResponse = await _client.send(request);
+        return await Response.fromStream(streamedResponse);
+      }
+
       return await _makeRequest(
         uri,
         method,
