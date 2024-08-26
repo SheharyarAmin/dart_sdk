@@ -310,6 +310,7 @@ class ConsultantsApi {
   Future<Uint8List> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost(
     Map<String, String> requestBody,
   ) async {
+    print("Starting request: ${requestBody}");
     final response =
         await getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(
       requestBody,
