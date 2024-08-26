@@ -63,9 +63,7 @@ class ApiClient {
       Object? body,
       Map<String, String> headerParams,
       Map<String, String> formParams,
-      String? contentType,
-      {bool isStream = false} // Added parameter to handle streams
-      ) async {
+      String? contentType) async {
     // Add the access token to the headers if available
     if (token != null) {
       headerParams['Authorization'] = 'Bearer ${token!.accessToken}';
@@ -96,13 +94,6 @@ class ApiClient {
     String? errorMessage;
 
     try {
-      if (isStream) {
-        // Special handling for streaming responses
-        final request = Request(method, uri)..headers.addAll(headerParams);
-        final streamedResponse = await _client.send(request);
-        return await Response.fromStream(streamedResponse);
-      }
-
       return await _makeRequest(
         uri,
         method,
@@ -143,6 +134,29 @@ class ApiClient {
         trace,
       );
     } on ClientException catch (error, trace) {
+      if (_lastTokenAccessTime
+              .isBefore(DateTime.now().subtract(const Duration(minutes: 25))) &&
+          _refreshTokenTries <= _maxRefreshTokenTries) {
+        _refreshTokenTries++;
+        if (refreshTokenCallback != null && refreshToken != null) {
+          final newToken = await refreshTokenCallback!(refreshToken!);
+          if (newToken != null) {
+            addToken(newToken);
+            return await invokeAPI(
+              path,
+              method,
+              queryParams,
+              body,
+              headerParams,
+              formParams,
+              contentType,
+            );
+          }
+        }
+      } else {
+        errorMessage = "Can't Authenticate, Please login again";
+        errorCallback?.call(errorMessage);
+      }
       if (_refreshTokenTries <= _maxRefreshTokenTries) {
         _refreshTokenTries++;
         if (refreshTokenCallback != null && refreshToken != null) {
