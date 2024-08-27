@@ -152,31 +152,10 @@ class ApiClient {
               contentType,
             );
           }
+        } else {
+          errorMessage = "Can't Authenticate, Please login again";
+          errorCallback?.call(errorMessage);
         }
-      } else {
-        errorMessage = "Can't Authenticate, Please login again";
-        errorCallback?.call(errorMessage);
-      }
-      if (_refreshTokenTries <= _maxRefreshTokenTries) {
-        _refreshTokenTries++;
-        if (refreshTokenCallback != null && refreshToken != null) {
-          final newToken = await refreshTokenCallback!(refreshToken!);
-          if (newToken != null) {
-            addToken(newToken);
-            return await invokeAPI(
-              path,
-              method,
-              queryParams,
-              body,
-              headerParams,
-              formParams,
-              contentType,
-            );
-          }
-        }
-      } else {
-        errorMessage = "Can't Authenticate, Please login again";
-        errorCallback?.call(errorMessage);
       }
       errorMessage =
           'Please check your internet connection and try again later.';
