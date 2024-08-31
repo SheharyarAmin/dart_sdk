@@ -18,7 +18,9 @@ class ApiClient {
     this.refreshTokenCallback,
     this.token,
     this.refreshToken,
-  });
+  }) {
+    _lastTokenAccessTime = DateTime.fromMillisecondsSinceEpoch(0);
+  }
 
   final String basePath;
   final Authentication? authentication;
@@ -162,6 +164,19 @@ class ApiClient {
       errorCallback?.call(errorMessage);
       throw ApiException.withInner(
         HttpStatus.badRequest,
+        errorMessage,
+        error,
+        trace,
+      );
+    } on ApiException catch (error, trace) {
+      errorMessage = error.message;
+      if (errorMessage != null) {
+        print("API Exception: $errorMessage");
+        errorCallback?.call("${error.code}: $errorMessage");
+      }
+
+      throw ApiException.withInner(
+        error.code,
         errorMessage,
         error,
         trace,
