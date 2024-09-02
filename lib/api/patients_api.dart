@@ -266,6 +266,8 @@ class PatientsApi {
   /// * [int] pageSize:
   ///
   /// * [String] pageToken:
+  ///
+  /// * [String] prevPageToken:
   Future<Response> readPatientsApiV1PatientsGetWithHttpInfo({
     String? patientName,
     String? clinicId,
@@ -279,6 +281,7 @@ class PatientsApi {
     bool? ascending,
     int? pageSize,
     String? pageToken,
+    String? prevPageToken,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/';
@@ -327,6 +330,9 @@ class PatientsApi {
     if (pageToken != null) {
       queryParams.addAll(_queryParams('', 'pageToken', pageToken));
     }
+    if (prevPageToken != null) {
+      queryParams.addAll(_queryParams('', 'prevPageToken', prevPageToken));
+    }
 
     const contentTypes = <String>[];
 
@@ -368,6 +374,8 @@ class PatientsApi {
   /// * [int] pageSize:
   ///
   /// * [String] pageToken:
+  ///
+  /// * [String] prevPageToken:
   Future<PatientsResponse?> readPatientsApiV1PatientsGet({
     String? patientName,
     String? clinicId,
@@ -381,6 +389,7 @@ class PatientsApi {
     bool? ascending,
     int? pageSize,
     String? pageToken,
+    String? prevPageToken,
   }) async {
     final response = await readPatientsApiV1PatientsGetWithHttpInfo(
       patientName: patientName,
@@ -395,6 +404,7 @@ class PatientsApi {
       ascending: ascending,
       pageSize: pageSize,
       pageToken: pageToken,
+      prevPageToken: prevPageToken,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

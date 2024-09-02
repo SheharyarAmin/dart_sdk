@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readPatientsApiV1PatientsGet**
-> PatientsResponse readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken)
+> PatientsResponse readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken, prevPageToken)
 
 Read Patients
 
@@ -214,9 +214,10 @@ final sortBy = sortBy_example; // String |
 final ascending = true; // bool | 
 final pageSize = 56; // int | 
 final pageToken = pageToken_example; // String | 
+final prevPageToken = prevPageToken_example; // String | 
 
 try {
-    final result = api_instance.readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken);
+    final result = api_instance.readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken, prevPageToken);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->readPatientsApiV1PatientsGet: $e\n');
@@ -239,6 +240,7 @@ Name | Type | Description  | Notes
  **ascending** | **bool**|  | [optional] [default to true]
  **pageSize** | **int**|  | [optional] [default to 10]
  **pageToken** | **String**|  | [optional] 
+ **prevPageToken** | **String**|  | [optional] 
 
 ### Return type
 
