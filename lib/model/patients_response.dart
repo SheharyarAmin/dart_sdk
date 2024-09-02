@@ -15,30 +15,68 @@ class PatientsResponse {
   PatientsResponse({
     this.patients = const [],
     this.count = 0,
+    this.nextPageToken,
+    this.prevPageToken,
+    this.totalPages = 0,
+    this.hasNextPage = false,
+    this.hasPreviousPage = false,
   });
 
   List<Patient> patients;
 
   int count;
 
+  String? nextPageToken;
+
+  String? prevPageToken;
+
+  int totalPages;
+
+  bool hasNextPage;
+
+  bool hasPreviousPage;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientsResponse &&
     _deepEquality.equals(other.patients, patients) &&
-    other.count == count;
+    other.count == count &&
+    other.nextPageToken == nextPageToken &&
+    other.prevPageToken == prevPageToken &&
+    other.totalPages == totalPages &&
+    other.hasNextPage == hasNextPage &&
+    other.hasPreviousPage == hasPreviousPage;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (patients.hashCode) +
-    (count.hashCode);
+    (count.hashCode) +
+    (nextPageToken == null ? 0 : nextPageToken!.hashCode) +
+    (prevPageToken == null ? 0 : prevPageToken!.hashCode) +
+    (totalPages.hashCode) +
+    (hasNextPage.hashCode) +
+    (hasPreviousPage.hashCode);
 
   @override
-  String toString() => 'PatientsResponse[patients=$patients, count=$count]';
+  String toString() => 'PatientsResponse[patients=$patients, count=$count, nextPageToken=$nextPageToken, prevPageToken=$prevPageToken, totalPages=$totalPages, hasNextPage=$hasNextPage, hasPreviousPage=$hasPreviousPage]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'patients'] = this.patients;
       json[r'count'] = this.count;
+    if (this.nextPageToken != null) {
+      json[r'nextPageToken'] = this.nextPageToken;
+    } else {
+      json[r'nextPageToken'] = null;
+    }
+    if (this.prevPageToken != null) {
+      json[r'prevPageToken'] = this.prevPageToken;
+    } else {
+      json[r'prevPageToken'] = null;
+    }
+      json[r'totalPages'] = this.totalPages;
+      json[r'hasNextPage'] = this.hasNextPage;
+      json[r'hasPreviousPage'] = this.hasPreviousPage;
     return json;
   }
 
@@ -63,6 +101,11 @@ class PatientsResponse {
       return PatientsResponse(
         patients: Patient.listFromJson(json[r'patients']),
         count: mapValueOfType<int>(json, r'count') ?? 0,
+        nextPageToken: mapValueOfType<String>(json, r'nextPageToken'),
+        prevPageToken: mapValueOfType<String>(json, r'prevPageToken'),
+        totalPages: mapValueOfType<int>(json, r'totalPages') ?? 0,
+        hasNextPage: mapValueOfType<bool>(json, r'hasNextPage') ?? false,
+        hasPreviousPage: mapValueOfType<bool>(json, r'hasPreviousPage') ?? false,
       );
     }
     return null;

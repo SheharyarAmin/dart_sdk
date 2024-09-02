@@ -26,6 +26,31 @@ void main() {
       // TODO
     });
 
+    // String nextPageToken
+    test('to test the property `nextPageToken`', () async {
+      // TODO
+    });
+
+    // String prevPageToken
+    test('to test the property `prevPageToken`', () async {
+      // TODO
+    });
+
+    // int totalPages (default value: 0)
+    test('to test the property `totalPages`', () async {
+      // TODO
+    });
+
+    // bool hasNextPage (default value: false)
+    test('to test the property `hasNextPage`', () async {
+      // TODO
+    });
+
+    // bool hasPreviousPage (default value: false)
+    test('to test the property `hasPreviousPage`', () async {
+      // TODO
+    });
+
 
   });
 

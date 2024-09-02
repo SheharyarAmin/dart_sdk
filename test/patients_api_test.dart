@@ -47,7 +47,7 @@ void main() {
 
     // Read Patients
     //
-    //Future<PatientsResponse> readPatientsApiV1PatientsGet({ String patientName, String clinicId, String employeeId, String providerId, String regemployeeid, String assignmentStatus, String processedStatus, String processingDate, String sortBy, bool ascending, int pageSize, String pageToken }) async
+    //Future<PatientsResponse> readPatientsApiV1PatientsGet({ String patientName, String clinicId, String employeeId, String providerId, String regemployeeid, String assignmentStatus, String processedStatus, String processingDate, String sortBy, bool ascending, int pageSize, String pageToken, String prevPageToken }) async
     test('test readPatientsApiV1PatientsGet', () async {
       // TODO
     });
