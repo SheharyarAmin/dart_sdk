@@ -17,6 +17,13 @@ class PaymentsResponse {
     this.allPatients = const [],
     required this.grandTotal,
     required this.count,
+    this.nextPageToken,
+    this.prevPageToken,
+    this.totalPages = 0,
+    this.hasNextPage = false,
+    this.hasPreviousPage = false,
+    this.currentPage = 0,
+    this.currentPageToken,
   });
 
   List<PatientPaymentEntry> patients;
@@ -27,12 +34,33 @@ class PaymentsResponse {
 
   int? count;
 
+  String? nextPageToken;
+
+  String? prevPageToken;
+
+  int totalPages;
+
+  bool hasNextPage;
+
+  bool hasPreviousPage;
+
+  int currentPage;
+
+  String? currentPageToken;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is PaymentsResponse &&
     _deepEquality.equals(other.patients, patients) &&
     _deepEquality.equals(other.allPatients, allPatients) &&
     other.grandTotal == grandTotal &&
-    other.count == count;
+    other.count == count &&
+    other.nextPageToken == nextPageToken &&
+    other.prevPageToken == prevPageToken &&
+    other.totalPages == totalPages &&
+    other.hasNextPage == hasNextPage &&
+    other.hasPreviousPage == hasPreviousPage &&
+    other.currentPage == currentPage &&
+    other.currentPageToken == currentPageToken;
 
   @override
   int get hashCode =>
@@ -40,10 +68,17 @@ class PaymentsResponse {
     (patients.hashCode) +
     (allPatients.hashCode) +
     (grandTotal == null ? 0 : grandTotal!.hashCode) +
-    (count == null ? 0 : count!.hashCode);
+    (count == null ? 0 : count!.hashCode) +
+    (nextPageToken == null ? 0 : nextPageToken!.hashCode) +
+    (prevPageToken == null ? 0 : prevPageToken!.hashCode) +
+    (totalPages.hashCode) +
+    (hasNextPage.hashCode) +
+    (hasPreviousPage.hashCode) +
+    (currentPage.hashCode) +
+    (currentPageToken == null ? 0 : currentPageToken!.hashCode);
 
   @override
-  String toString() => 'PaymentsResponse[patients=$patients, allPatients=$allPatients, grandTotal=$grandTotal, count=$count]';
+  String toString() => 'PaymentsResponse[patients=$patients, allPatients=$allPatients, grandTotal=$grandTotal, count=$count, nextPageToken=$nextPageToken, prevPageToken=$prevPageToken, totalPages=$totalPages, hasNextPage=$hasNextPage, hasPreviousPage=$hasPreviousPage, currentPage=$currentPage, currentPageToken=$currentPageToken]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -58,6 +93,25 @@ class PaymentsResponse {
       json[r'count'] = this.count;
     } else {
       json[r'count'] = null;
+    }
+    if (this.nextPageToken != null) {
+      json[r'nextPageToken'] = this.nextPageToken;
+    } else {
+      json[r'nextPageToken'] = null;
+    }
+    if (this.prevPageToken != null) {
+      json[r'prevPageToken'] = this.prevPageToken;
+    } else {
+      json[r'prevPageToken'] = null;
+    }
+      json[r'totalPages'] = this.totalPages;
+      json[r'hasNextPage'] = this.hasNextPage;
+      json[r'hasPreviousPage'] = this.hasPreviousPage;
+      json[r'currentPage'] = this.currentPage;
+    if (this.currentPageToken != null) {
+      json[r'currentPageToken'] = this.currentPageToken;
+    } else {
+      json[r'currentPageToken'] = null;
     }
     return json;
   }
@@ -87,6 +141,13 @@ class PaymentsResponse {
             ? null
             : num.parse('${json[r'grandTotal']}'),
         count: mapValueOfType<int>(json, r'count'),
+        nextPageToken: mapValueOfType<String>(json, r'nextPageToken'),
+        prevPageToken: mapValueOfType<String>(json, r'prevPageToken'),
+        totalPages: mapValueOfType<int>(json, r'totalPages') ?? 0,
+        hasNextPage: mapValueOfType<bool>(json, r'hasNextPage') ?? false,
+        hasPreviousPage: mapValueOfType<bool>(json, r'hasPreviousPage') ?? false,
+        currentPage: mapValueOfType<int>(json, r'currentPage') ?? 0,
+        currentPageToken: mapValueOfType<String>(json, r'currentPageToken'),
       );
     }
     return null;

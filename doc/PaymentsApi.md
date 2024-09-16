@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet**
-> PaymentsResponse getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(clinicId, invoiceNumber, pageSize, pageToken)
+> PaymentsResponse getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(clinicId, invoiceNumber, pageSize, pageToken, prevPageToken, refreshCurrentDataset)
 
 Get Unpaid Patients
 
@@ -125,9 +125,11 @@ final clinicId = clinicId_example; // String |
 final invoiceNumber = invoiceNumber_example; // String | 
 final pageSize = 56; // int | 
 final pageToken = pageToken_example; // String | 
+final prevPageToken = prevPageToken_example; // String | 
+final refreshCurrentDataset = true; // bool | 
 
 try {
-    final result = api_instance.getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(clinicId, invoiceNumber, pageSize, pageToken);
+    final result = api_instance.getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(clinicId, invoiceNumber, pageSize, pageToken, prevPageToken, refreshCurrentDataset);
     print(result);
 } catch (e) {
     print('Exception when calling PaymentsApi->getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet: $e\n');
@@ -142,6 +144,8 @@ Name | Type | Description  | Notes
  **invoiceNumber** | **String**|  | 
  **pageSize** | **int**|  | [optional] [default to 10]
  **pageToken** | **String**|  | [optional] 
+ **prevPageToken** | **String**|  | [optional] 
+ **refreshCurrentDataset** | **bool**|  | [optional] [default to false]
 
 ### Return type
 

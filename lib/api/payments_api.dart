@@ -154,7 +154,11 @@ class PaymentsApi {
   /// * [int] pageSize:
   ///
   /// * [String] pageToken:
-  Future<Response> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, }) async {
+  ///
+  /// * [String] prevPageToken:
+  ///
+  /// * [bool] refreshCurrentDataset:
+  Future<Response> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/payments/unpaid_patients/{clinic_id}/{invoice_number}'
       .replaceAll('{clinic_id}', clinicId)
@@ -172,6 +176,12 @@ class PaymentsApi {
     }
     if (pageToken != null) {
       queryParams.addAll(_queryParams('', 'pageToken', pageToken));
+    }
+    if (prevPageToken != null) {
+      queryParams.addAll(_queryParams('', 'prevPageToken', prevPageToken));
+    }
+    if (refreshCurrentDataset != null) {
+      queryParams.addAll(_queryParams('', 'refreshCurrentDataset', refreshCurrentDataset));
     }
 
     const contentTypes = <String>[];
@@ -199,8 +209,12 @@ class PaymentsApi {
   /// * [int] pageSize:
   ///
   /// * [String] pageToken:
-  Future<PaymentsResponse?> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, }) async {
-    final response = await getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(clinicId, invoiceNumber,  pageSize: pageSize, pageToken: pageToken, );
+  ///
+  /// * [String] prevPageToken:
+  ///
+  /// * [bool] refreshCurrentDataset:
+  Future<PaymentsResponse?> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
+    final response = await getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(clinicId, invoiceNumber,  pageSize: pageSize, pageToken: pageToken, prevPageToken: prevPageToken, refreshCurrentDataset: refreshCurrentDataset, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
