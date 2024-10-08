@@ -16,6 +16,7 @@ class ProcessedPatientEntryForFrontEnd {
     required this.patientId,
     this.patientName,
     this.finNumber,
+    this.mrnNumber,
     this.processedDate,
     this.action = '',
     required this.empid,
@@ -46,6 +47,8 @@ class ProcessedPatientEntryForFrontEnd {
   String? patientName;
 
   String? finNumber;
+
+  String? mrnNumber;
 
   String? processedDate;
 
@@ -98,6 +101,7 @@ class ProcessedPatientEntryForFrontEnd {
     other.patientId == patientId &&
     other.patientName == patientName &&
     other.finNumber == finNumber &&
+    other.mrnNumber == mrnNumber &&
     other.processedDate == processedDate &&
     other.action == action &&
     other.empid == empid &&
@@ -128,6 +132,7 @@ class ProcessedPatientEntryForFrontEnd {
     (patientId.hashCode) +
     (patientName == null ? 0 : patientName!.hashCode) +
     (finNumber == null ? 0 : finNumber!.hashCode) +
+    (mrnNumber == null ? 0 : mrnNumber!.hashCode) +
     (processedDate == null ? 0 : processedDate!.hashCode) +
     (action.hashCode) +
     (empid.hashCode) +
@@ -153,7 +158,7 @@ class ProcessedPatientEntryForFrontEnd {
     (payerName == null ? 0 : payerName!.hashCode);
 
   @override
-  String toString() => 'ProcessedPatientEntryForFrontEnd[patientId=$patientId, patientName=$patientName, finNumber=$finNumber, processedDate=$processedDate, action=$action, empid=$empid, year=$year, month=$month, day=$day, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, remarks=$remarks, timestamp=$timestamp, currentTime=$currentTime, id=$id, timeSpent=$timeSpent, payerName=$payerName]';
+  String toString() => 'ProcessedPatientEntryForFrontEnd[patientId=$patientId, patientName=$patientName, finNumber=$finNumber, mrnNumber=$mrnNumber, processedDate=$processedDate, action=$action, empid=$empid, year=$year, month=$month, day=$day, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, remarks=$remarks, timestamp=$timestamp, currentTime=$currentTime, id=$id, timeSpent=$timeSpent, payerName=$payerName]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -167,6 +172,11 @@ class ProcessedPatientEntryForFrontEnd {
       json[r'finNumber'] = this.finNumber;
     } else {
       json[r'finNumber'] = null;
+    }
+    if (this.mrnNumber != null) {
+      json[r'mrnNumber'] = this.mrnNumber;
+    } else {
+      json[r'mrnNumber'] = null;
     }
     if (this.processedDate != null) {
       json[r'processedDate'] = this.processedDate;
@@ -280,6 +290,7 @@ class ProcessedPatientEntryForFrontEnd {
         patientId: mapValueOfType<String>(json, r'patient_id')!,
         patientName: mapValueOfType<String>(json, r'patientName'),
         finNumber: mapValueOfType<String>(json, r'finNumber'),
+        mrnNumber: mapValueOfType<String>(json, r'mrnNumber'),
         processedDate: mapValueOfType<String>(json, r'processedDate'),
         action: mapValueOfType<String>(json, r'action') ?? '',
         empid: mapValueOfType<String>(json, r'empid')!,
