@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **dob** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
 **canBeDeleted** | **bool** |  | [optional] 
+**primaryPhone** | **String** |  | [optional] 
+**secondaryPhone** | **String** |  | [optional] 
 **id** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
