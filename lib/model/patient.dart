@@ -35,6 +35,7 @@ class Patient {
     this.dob,
     this.iv,
     this.canBeDeleted,
+    this.address,
     this.primaryPhone,
     this.secondaryPhone,
     required this.id,
@@ -84,6 +85,8 @@ class Patient {
 
   bool? canBeDeleted;
 
+  String? address;
+
   String? primaryPhone;
 
   String? secondaryPhone;
@@ -114,6 +117,7 @@ class Patient {
     other.dob == dob &&
     other.iv == iv &&
     other.canBeDeleted == canBeDeleted &&
+    other.address == address &&
     other.primaryPhone == primaryPhone &&
     other.secondaryPhone == secondaryPhone &&
     other.id == id;
@@ -143,12 +147,13 @@ class Patient {
     (dob == null ? 0 : dob!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (canBeDeleted == null ? 0 : canBeDeleted!.hashCode) +
+    (address == null ? 0 : address!.hashCode) +
     (primaryPhone == null ? 0 : primaryPhone!.hashCode) +
     (secondaryPhone == null ? 0 : secondaryPhone!.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, optOutDate=$optOutDate, finNumber=$finNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, lastProcessed=$lastProcessed, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id]';
+  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, optOutDate=$optOutDate, finNumber=$finNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, lastProcessed=$lastProcessed, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -262,6 +267,11 @@ class Patient {
     } else {
       json[r'canBeDeleted'] = null;
     }
+    if (this.address != null) {
+      json[r'address'] = this.address;
+    } else {
+      json[r'address'] = null;
+    }
     if (this.primaryPhone != null) {
       json[r'primaryPhone'] = this.primaryPhone;
     } else {
@@ -317,6 +327,7 @@ class Patient {
         dob: mapValueOfType<String>(json, r'dob'),
         iv: mapValueOfType<String>(json, r'iv'),
         canBeDeleted: mapValueOfType<bool>(json, r'canBeDeleted'),
+        address: mapValueOfType<String>(json, r'address'),
         primaryPhone: mapValueOfType<String>(json, r'primaryPhone'),
         secondaryPhone: mapValueOfType<String>(json, r'secondaryPhone'),
         id: mapValueOfType<String>(json, r'id')!,

@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **dob** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
 **canBeDeleted** | **bool** |  | [optional] 
+**address** | **String** |  | [optional] 
 **primaryPhone** | **String** |  | [optional] 
 **secondaryPhone** | **String** |  | [optional] 
 **id** | **String** |  | 
