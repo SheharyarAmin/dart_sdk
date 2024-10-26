@@ -40,6 +40,7 @@ class ProcessedPatientEntryForFrontEnd {
     required this.id,
     this.timeSpent,
     this.payerName,
+    this.lastProcessed,
   });
 
   String patientId;
@@ -96,6 +97,8 @@ class ProcessedPatientEntryForFrontEnd {
 
   String? payerName;
 
+  String? lastProcessed;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is ProcessedPatientEntryForFrontEnd &&
     other.patientId == patientId &&
@@ -124,7 +127,8 @@ class ProcessedPatientEntryForFrontEnd {
     other.currentTime == currentTime &&
     other.id == id &&
     other.timeSpent == timeSpent &&
-    other.payerName == payerName;
+    other.payerName == payerName &&
+    other.lastProcessed == lastProcessed;
 
   @override
   int get hashCode =>
@@ -155,10 +159,11 @@ class ProcessedPatientEntryForFrontEnd {
     (currentTime == null ? 0 : currentTime!.hashCode) +
     (id.hashCode) +
     (timeSpent == null ? 0 : timeSpent!.hashCode) +
-    (payerName == null ? 0 : payerName!.hashCode);
+    (payerName == null ? 0 : payerName!.hashCode) +
+    (lastProcessed == null ? 0 : lastProcessed!.hashCode);
 
   @override
-  String toString() => 'ProcessedPatientEntryForFrontEnd[patientId=$patientId, patientName=$patientName, finNumber=$finNumber, mrnNumber=$mrnNumber, processedDate=$processedDate, action=$action, empid=$empid, year=$year, month=$month, day=$day, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, remarks=$remarks, timestamp=$timestamp, currentTime=$currentTime, id=$id, timeSpent=$timeSpent, payerName=$payerName]';
+  String toString() => 'ProcessedPatientEntryForFrontEnd[patientId=$patientId, patientName=$patientName, finNumber=$finNumber, mrnNumber=$mrnNumber, processedDate=$processedDate, action=$action, empid=$empid, year=$year, month=$month, day=$day, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, remarks=$remarks, timestamp=$timestamp, currentTime=$currentTime, id=$id, timeSpent=$timeSpent, payerName=$payerName, lastProcessed=$lastProcessed]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -265,6 +270,11 @@ class ProcessedPatientEntryForFrontEnd {
     } else {
       json[r'payerName'] = null;
     }
+    if (this.lastProcessed != null) {
+      json[r'lastProcessed'] = this.lastProcessed;
+    } else {
+      json[r'lastProcessed'] = null;
+    }
     return json;
   }
 
@@ -316,6 +326,7 @@ class ProcessedPatientEntryForFrontEnd {
             ? null
             : num.parse('${json[r'timeSpent']}'),
         payerName: mapValueOfType<String>(json, r'payerName'),
+        lastProcessed: mapValueOfType<String>(json, r'lastProcessed'),
       );
     }
     return null;

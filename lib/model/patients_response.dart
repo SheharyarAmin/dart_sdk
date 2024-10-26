@@ -15,6 +15,8 @@ class PatientsResponse {
   PatientsResponse({
     this.patients = const [],
     this.count = 0,
+    this.expiredCarePlan = 0,
+    this.activeCarePlan = 0,
     this.nextPageToken,
     this.prevPageToken,
     this.totalPages = 0,
@@ -27,6 +29,10 @@ class PatientsResponse {
   List<Patient> patients;
 
   int count;
+
+  int expiredCarePlan;
+
+  int activeCarePlan;
 
   String? nextPageToken;
 
@@ -46,6 +52,8 @@ class PatientsResponse {
   bool operator ==(Object other) => identical(this, other) || other is PatientsResponse &&
     _deepEquality.equals(other.patients, patients) &&
     other.count == count &&
+    other.expiredCarePlan == expiredCarePlan &&
+    other.activeCarePlan == activeCarePlan &&
     other.nextPageToken == nextPageToken &&
     other.prevPageToken == prevPageToken &&
     other.totalPages == totalPages &&
@@ -59,6 +67,8 @@ class PatientsResponse {
     // ignore: unnecessary_parenthesis
     (patients.hashCode) +
     (count.hashCode) +
+    (expiredCarePlan.hashCode) +
+    (activeCarePlan.hashCode) +
     (nextPageToken == null ? 0 : nextPageToken!.hashCode) +
     (prevPageToken == null ? 0 : prevPageToken!.hashCode) +
     (totalPages.hashCode) +
@@ -68,12 +78,14 @@ class PatientsResponse {
     (currentPageToken == null ? 0 : currentPageToken!.hashCode);
 
   @override
-  String toString() => 'PatientsResponse[patients=$patients, count=$count, nextPageToken=$nextPageToken, prevPageToken=$prevPageToken, totalPages=$totalPages, hasNextPage=$hasNextPage, hasPreviousPage=$hasPreviousPage, currentPage=$currentPage, currentPageToken=$currentPageToken]';
+  String toString() => 'PatientsResponse[patients=$patients, count=$count, expiredCarePlan=$expiredCarePlan, activeCarePlan=$activeCarePlan, nextPageToken=$nextPageToken, prevPageToken=$prevPageToken, totalPages=$totalPages, hasNextPage=$hasNextPage, hasPreviousPage=$hasPreviousPage, currentPage=$currentPage, currentPageToken=$currentPageToken]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'patients'] = this.patients;
       json[r'count'] = this.count;
+      json[r'expiredCarePlan'] = this.expiredCarePlan;
+      json[r'activeCarePlan'] = this.activeCarePlan;
     if (this.nextPageToken != null) {
       json[r'nextPageToken'] = this.nextPageToken;
     } else {
@@ -117,6 +129,8 @@ class PatientsResponse {
       return PatientsResponse(
         patients: Patient.listFromJson(json[r'patients']),
         count: mapValueOfType<int>(json, r'count') ?? 0,
+        expiredCarePlan: mapValueOfType<int>(json, r'expiredCarePlan') ?? 0,
+        activeCarePlan: mapValueOfType<int>(json, r'activeCarePlan') ?? 0,
         nextPageToken: mapValueOfType<String>(json, r'nextPageToken'),
         prevPageToken: mapValueOfType<String>(json, r'prevPageToken'),
         totalPages: mapValueOfType<int>(json, r'totalPages') ?? 0,

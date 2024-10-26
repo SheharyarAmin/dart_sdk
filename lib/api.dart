@@ -31,6 +31,7 @@ part 'auth/http_bearer_auth.dart';
 
 part 'api/clinic_invoice_api.dart';
 part 'api/clinics_api.dart';
+part 'api/careplans_api.dart';
 part 'api/consultants_api.dart';
 part 'api/default_api.dart';
 part 'api/emplog_api.dart';
@@ -48,6 +49,7 @@ part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
 part 'model/clinic.dart';
 part 'model/clinic_invoice.dart';
+part 'model/care_plan_entry.dart';
 part 'model/consultant.dart';
 part 'model/consultant_pay.dart';
 part 'model/employee.dart';

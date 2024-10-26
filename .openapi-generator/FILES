@@ -4,6 +4,8 @@ README.md
 analysis_options.yaml
 doc/AssignedPatientScreenResponse.md
 doc/AuthenticationToken.md
+doc/CarePlanEntry.md
+doc/CareplansApi.md
 doc/Clinic.md
 doc/ClinicInvoice.md
 doc/ClinicInvoiceApi.md
@@ -44,6 +46,7 @@ doc/ValidationError.md
 doc/ValidationErrorLocInner.md
 git_push.sh
 lib/api.dart
+lib/api/careplans_api.dart
 lib/api/clinic_invoice_api.dart
 lib/api/clinics_api.dart
 lib/api/consultants_api.dart
@@ -68,6 +71,7 @@ lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
 lib/model/assigned_patient_screen_response.dart
 lib/model/authentication_token.dart
+lib/model/care_plan_entry.dart
 lib/model/clinic.dart
 lib/model/clinic_invoice.dart
 lib/model/consultant.dart
@@ -93,3 +97,5 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
+test/care_plan_entry_test.dart
+test/careplans_api_test.dart
