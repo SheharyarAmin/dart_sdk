@@ -13,7 +13,6 @@ library openapi.api;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 import 'package:http/http.dart';
@@ -29,9 +28,9 @@ part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 part 'auth/http_bearer_auth.dart';
 
+part 'api/careplans_api.dart';
 part 'api/clinic_invoice_api.dart';
 part 'api/clinics_api.dart';
-part 'api/careplans_api.dart';
 part 'api/consultants_api.dart';
 part 'api/default_api.dart';
 part 'api/emplog_api.dart';
@@ -47,9 +46,9 @@ part 'api/temp_assignments_api.dart';
 
 part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
+part 'model/care_plan_entry.dart';
 part 'model/clinic.dart';
 part 'model/clinic_invoice.dart';
-part 'model/care_plan_entry.dart';
 part 'model/consultant.dart';
 part 'model/consultant_pay.dart';
 part 'model/employee.dart';
@@ -61,6 +60,7 @@ part 'model/opt_in_employee_log_entry.dart';
 part 'model/opt_in_employee_log_entry_base.dart';
 part 'model/patient.dart';
 part 'model/patient_payment_entry.dart';
+part 'model/patient_with_care_plan.dart';
 part 'model/patients_response.dart';
 part 'model/payment_detail.dart';
 part 'model/payments_response.dart';
@@ -72,6 +72,7 @@ part 'model/temp_assignment_create.dart';
 part 'model/token.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
+
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
@@ -85,5 +86,4 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) =>
-    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

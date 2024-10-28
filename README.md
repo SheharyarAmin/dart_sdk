@@ -40,19 +40,15 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:openapi/api.dart';
 
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
-final api_instance = ClinicInvoiceApi();
-final clinicid = clinicid_example; // String | 
-final date = date_example; // String | 
-final taxrate = 8.14; // num | 
+final api_instance = CareplansApi();
+final carePlanEntry = CarePlanEntry(); // CarePlanEntry | 
 
 try {
-    final result = api_instance.createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate);
+    final result = api_instance.createCareplanApiV1CareplansPost(carePlanEntry);
     print(result);
 } catch (e) {
-    print('Exception when calling ClinicInvoiceApi->createClinicInvoiceApiV1ClinicInvoiceClinicidPost: $e\n');
+    print('Exception when calling CareplansApi->createCareplanApiV1CareplansPost: $e\n');
 }
 
 ```
@@ -63,6 +59,8 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CareplansApi* | [**createCareplanApiV1CareplansPost**](doc//CareplansApi.md#createcareplanapiv1careplanspost) | **POST** /api/v1/careplans/ | Create Careplan
+*CareplansApi* | [**deleteCareplanApiV1CareplansCareplanIdDelete**](doc//CareplansApi.md#deletecareplanapiv1careplanscareplaniddelete) | **DELETE** /api/v1/careplans/{careplan_id} | Delete Careplan
 *ClinicInvoiceApi* | [**createClinicInvoiceApiV1ClinicInvoiceClinicidPost**](doc//ClinicInvoiceApi.md#createclinicinvoiceapiv1clinicinvoiceclinicidpost) | **POST** /api/v1/clinic-invoice/{clinicid}/ | Create Clinic Invoice
 *ClinicInvoiceApi* | [**deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**](doc//ClinicInvoiceApi.md#deleteclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberdelete) | **DELETE** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Delete Clinic Invoice
 *ClinicInvoiceApi* | [**readAllInvoicesApiV1ClinicInvoiceGet**](doc//ClinicInvoiceApi.md#readallinvoicesapiv1clinicinvoiceget) | **GET** /api/v1/clinic-invoice/ | Read All Invoices
@@ -139,6 +137,7 @@ Class | Method | HTTP request | Description
 
  - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
+ - [CarePlanEntry](doc//CarePlanEntry.md)
  - [Clinic](doc//Clinic.md)
  - [ClinicInvoice](doc//ClinicInvoice.md)
  - [Consultant](doc//Consultant.md)
@@ -152,6 +151,7 @@ Class | Method | HTTP request | Description
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
  - [Patient](doc//Patient.md)
  - [PatientPaymentEntry](doc//PatientPaymentEntry.md)
+ - [PatientWithCarePlan](doc//PatientWithCarePlan.md)
  - [PatientsResponse](doc//PatientsResponse.md)
  - [PaymentDetail](doc//PaymentDetail.md)
  - [PaymentsResponse](doc//PaymentsResponse.md)

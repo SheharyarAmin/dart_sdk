@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **assignedPatients** | **int** |  | [optional] 
 **canBeDeleted** | **bool** |  | [optional] [default to true]
 **status** | **String** |  | [optional] [default to 'Active']
+**managerid** | **String** |  | [optional] 
+**managerName** | **String** |  | [optional] 
 **id** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

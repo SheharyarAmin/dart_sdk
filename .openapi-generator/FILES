@@ -27,6 +27,7 @@ doc/OptInEmployeeLogEntry.md
 doc/OptInEmployeeLogEntryBase.md
 doc/Patient.md
 doc/PatientPaymentEntry.md
+doc/PatientWithCarePlan.md
 doc/PatientsApi.md
 doc/PatientsResponse.md
 doc/PaymentDetail.md
@@ -85,6 +86,7 @@ lib/model/opt_in_employee_log_entry.dart
 lib/model/opt_in_employee_log_entry_base.dart
 lib/model/patient.dart
 lib/model/patient_payment_entry.dart
+lib/model/patient_with_care_plan.dart
 lib/model/patients_response.dart
 lib/model/payment_detail.dart
 lib/model/payments_response.dart
@@ -97,5 +99,4 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/care_plan_entry_test.dart
-test/careplans_api_test.dart
+test/patient_with_care_plan_test.dart

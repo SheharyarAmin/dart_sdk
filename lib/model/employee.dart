@@ -24,6 +24,8 @@ class Employee {
     this.assignedPatients,
     this.canBeDeleted = true,
     this.status = 'Active',
+    this.managerid,
+    this.managerName,
     required this.id,
   });
 
@@ -49,6 +51,10 @@ class Employee {
 
   String status;
 
+  String? managerid;
+
+  String? managerName;
+
   String id;
 
   @override
@@ -64,6 +70,8 @@ class Employee {
     other.assignedPatients == assignedPatients &&
     other.canBeDeleted == canBeDeleted &&
     other.status == status &&
+    other.managerid == managerid &&
+    other.managerName == managerName &&
     other.id == id;
 
   @override
@@ -80,10 +88,12 @@ class Employee {
     (assignedPatients == null ? 0 : assignedPatients!.hashCode) +
     (canBeDeleted.hashCode) +
     (status.hashCode) +
+    (managerid == null ? 0 : managerid!.hashCode) +
+    (managerName == null ? 0 : managerName!.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'Employee[name=$name, address=$address, email=$email, role=$role, region=$region, payPerCCM=$payPerCCM, payPerHour=$payPerHour, patientsPerMonth=$patientsPerMonth, assignedPatients=$assignedPatients, canBeDeleted=$canBeDeleted, status=$status, id=$id]';
+  String toString() => 'Employee[name=$name, address=$address, email=$email, role=$role, region=$region, payPerCCM=$payPerCCM, payPerHour=$payPerHour, patientsPerMonth=$patientsPerMonth, assignedPatients=$assignedPatients, canBeDeleted=$canBeDeleted, status=$status, managerid=$managerid, managerName=$managerName, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -106,6 +116,16 @@ class Employee {
     }
       json[r'canBeDeleted'] = this.canBeDeleted;
       json[r'status'] = this.status;
+    if (this.managerid != null) {
+      json[r'managerid'] = this.managerid;
+    } else {
+      json[r'managerid'] = null;
+    }
+    if (this.managerName != null) {
+      json[r'managerName'] = this.managerName;
+    } else {
+      json[r'managerName'] = null;
+    }
       json[r'id'] = this.id;
     return json;
   }
@@ -140,6 +160,8 @@ class Employee {
         assignedPatients: mapValueOfType<int>(json, r'assignedPatients'),
         canBeDeleted: mapValueOfType<bool>(json, r'canBeDeleted') ?? true,
         status: mapValueOfType<String>(json, r'status') ?? 'Active',
+        managerid: mapValueOfType<String>(json, r'managerid'),
+        managerName: mapValueOfType<String>(json, r'managerName'),
         id: mapValueOfType<String>(json, r'id')!,
       );
     }
