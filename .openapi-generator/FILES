@@ -16,11 +16,14 @@ doc/ConsultantsApi.md
 doc/DefaultApi.md
 doc/EmplogApi.md
 doc/Employee.md
+doc/EmployeeByProcessedPatients.md
 doc/EmployeesApi.md
 doc/HTTPValidationError.md
 doc/InvoicesResponse.md
 doc/Log.md
 doc/LogsApi.md
+doc/ManagerApi.md
+doc/ManagerResponse.md
 doc/Notification.md
 doc/NotificationsApi.md
 doc/OptInEmployeeLogEntry.md
@@ -55,6 +58,7 @@ lib/api/default_api.dart
 lib/api/emplog_api.dart
 lib/api/employees_api.dart
 lib/api/logs_api.dart
+lib/api/manager_api.dart
 lib/api/notifications_api.dart
 lib/api/patients_api.dart
 lib/api/payments_api.dart
@@ -78,9 +82,11 @@ lib/model/clinic_invoice.dart
 lib/model/consultant.dart
 lib/model/consultant_pay.dart
 lib/model/employee.dart
+lib/model/employee_by_processed_patients.dart
 lib/model/http_validation_error.dart
 lib/model/invoices_response.dart
 lib/model/log.dart
+lib/model/manager_response.dart
 lib/model/notification.dart
 lib/model/opt_in_employee_log_entry.dart
 lib/model/opt_in_employee_log_entry_base.dart
@@ -99,4 +105,3 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/patient_with_care_plan_test.dart

@@ -40,6 +40,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:openapi/api.dart';
 
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = CareplansApi();
 final carePlanEntry = CarePlanEntry(); // CarePlanEntry | 
@@ -95,6 +97,7 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**updateEmployeeApiV1EmployeesEmployeeIdPut**](doc//EmployeesApi.md#updateemployeeapiv1employeesemployeeidput) | **PUT** /api/v1/employees/{employee_id} | Update Employee
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
 *LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
+*ManagerApi* | [**getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet**](doc//ManagerApi.md#getmanagerdashboardformonthyearapiv1managerdashboardyearmonthget) | **GET** /api/v1/manager/dashboard/{year}/{month} | Get Manager Dashboard For Monthyear
 *NotificationsApi* | [**deleteAllNotificationsApiV1NotificationsDeleteEmployeeIdDelete**](doc//NotificationsApi.md#deleteallnotificationsapiv1notificationsdeleteemployeeiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id} | Delete All Notifications
 *NotificationsApi* | [**deleteNotificationApiV1NotificationsDeleteEmployeeIdNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationapiv1notificationsdeleteemployeeidnotificationiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id}/{notification_id} | Delete Notification
 *NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
@@ -143,9 +146,11 @@ Class | Method | HTTP request | Description
  - [Consultant](doc//Consultant.md)
  - [ConsultantPay](doc//ConsultantPay.md)
  - [Employee](doc//Employee.md)
+ - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [InvoicesResponse](doc//InvoicesResponse.md)
  - [Log](doc//Log.md)
+ - [ManagerResponse](doc//ManagerResponse.md)
  - [Notification](doc//Notification.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
