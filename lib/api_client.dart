@@ -324,6 +324,8 @@ class ApiClient {
           return InvoicesResponse.fromJson(value);
         case 'Log':
           return Log.fromJson(value);
+        case 'ManagerResponse':
+          return ManagerResponse.fromJson(value);
         case 'Notification':
           return Notification.fromJson(value);
         case 'OptInEmployeeLogEntry':

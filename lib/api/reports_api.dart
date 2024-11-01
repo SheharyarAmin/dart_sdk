@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-
 class ReportsApi {
-  ReportsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  ReportsApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -23,7 +23,9 @@ class ReportsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<Response> generateReportApiV1ReportsGenerateReportPostWithHttpInfo(Map<String, String> requestBody,) async {
+  Future<Response> generateReportApiV1ReportsGenerateReportPostWithHttpInfo(
+    Map<String, String> requestBody,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/reports/generate-report';
 
@@ -35,7 +37,6 @@ class ReportsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -53,10 +54,16 @@ class ReportsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<void> generateReportApiV1ReportsGenerateReportPost(Map<String, String> requestBody,) async {
-    final response = await generateReportApiV1ReportsGenerateReportPostWithHttpInfo(requestBody,);
+  Future<Uint8List> generateReportApiV1ReportsGenerateReportPost(
+    Map<String, String> requestBody,
+  ) async {
+    final response =
+        await generateReportApiV1ReportsGenerateReportPostWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    return response.bodyBytes;
   }
 }
