@@ -36,6 +36,7 @@ doc/PatientsResponse.md
 doc/PaymentDetail.md
 doc/PaymentsApi.md
 doc/PaymentsResponse.md
+doc/Portal.md
 doc/ProcessedPatientApi.md
 doc/ProcessedPatientEntry.md
 doc/ProcessedPatientEntryForFrontEnd.md
@@ -96,6 +97,7 @@ lib/model/patient_with_care_plan.dart
 lib/model/patients_response.dart
 lib/model/payment_detail.dart
 lib/model/payments_response.dart
+lib/model/portal.dart
 lib/model/processed_patient_entry.dart
 lib/model/processed_patient_entry_for_front_end.dart
 lib/model/processed_patient_entry_from_front_end.dart
@@ -105,3 +107,4 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
+test/portal_test.dart

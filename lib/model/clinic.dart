@@ -15,6 +15,7 @@ class Clinic {
   Clinic({
     this.customerId,
     required this.clinicName,
+    this.portal,
     this.consultantid = const [],
     required this.address,
     required this.poc,
@@ -30,6 +31,8 @@ class Clinic {
   String? customerId;
 
   String clinicName;
+
+  Portal? portal;
 
   List<String> consultantid;
 
@@ -55,6 +58,7 @@ class Clinic {
   bool operator ==(Object other) => identical(this, other) || other is Clinic &&
     other.customerId == customerId &&
     other.clinicName == clinicName &&
+    other.portal == portal &&
     _deepEquality.equals(other.consultantid, consultantid) &&
     other.address == address &&
     other.poc == poc &&
@@ -71,6 +75,7 @@ class Clinic {
     // ignore: unnecessary_parenthesis
     (customerId == null ? 0 : customerId!.hashCode) +
     (clinicName.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
     (consultantid.hashCode) +
     (address.hashCode) +
     (poc.hashCode) +
@@ -83,7 +88,7 @@ class Clinic {
     (id.hashCode);
 
   @override
-  String toString() => 'Clinic[customerId=$customerId, clinicName=$clinicName, consultantid=$consultantid, address=$address, poc=$poc, phone=$phone, email=$email, fax=$fax, region=$region, canBeDeleted=$canBeDeleted, status=$status, id=$id]';
+  String toString() => 'Clinic[customerId=$customerId, clinicName=$clinicName, portal=$portal, consultantid=$consultantid, address=$address, poc=$poc, phone=$phone, email=$email, fax=$fax, region=$region, canBeDeleted=$canBeDeleted, status=$status, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -93,6 +98,11 @@ class Clinic {
       json[r'customerId'] = null;
     }
       json[r'clinicName'] = this.clinicName;
+    if (this.portal != null) {
+      json[r'portal'] = this.portal;
+    } else {
+      json[r'portal'] = null;
+    }
       json[r'consultantid'] = this.consultantid;
       json[r'address'] = this.address;
       json[r'poc'] = this.poc;
@@ -131,6 +141,7 @@ class Clinic {
       return Clinic(
         customerId: mapValueOfType<String>(json, r'customerId'),
         clinicName: mapValueOfType<String>(json, r'clinicName')!,
+        portal: Portal.fromJson(json[r'portal']),
         consultantid: json[r'consultantid'] is Iterable
             ? (json[r'consultantid'] as Iterable).cast<String>().toList(growable: false)
             : const [],

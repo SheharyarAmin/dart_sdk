@@ -14,6 +14,7 @@ class Consultant {
   /// Returns a new [Consultant] instance.
   Consultant({
     required this.name,
+    this.portal,
     required this.address,
     required this.phoneNumber,
     required this.email,
@@ -26,6 +27,8 @@ class Consultant {
   });
 
   String name;
+
+  Portal? portal;
 
   String address;
 
@@ -48,6 +51,7 @@ class Consultant {
   @override
   bool operator ==(Object other) => identical(this, other) || other is Consultant &&
     other.name == name &&
+    other.portal == portal &&
     other.address == address &&
     other.phoneNumber == phoneNumber &&
     other.email == email &&
@@ -62,6 +66,7 @@ class Consultant {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (name.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
     (address.hashCode) +
     (phoneNumber.hashCode) +
     (email.hashCode) +
@@ -73,11 +78,16 @@ class Consultant {
     (id.hashCode);
 
   @override
-  String toString() => 'Consultant[name=$name, address=$address, phoneNumber=$phoneNumber, email=$email, notes=$notes, paycode99439=$paycode99439, paycode99490=$paycode99490, canBeDeleted=$canBeDeleted, status=$status, id=$id]';
+  String toString() => 'Consultant[name=$name, portal=$portal, address=$address, phoneNumber=$phoneNumber, email=$email, notes=$notes, paycode99439=$paycode99439, paycode99490=$paycode99490, canBeDeleted=$canBeDeleted, status=$status, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'name'] = this.name;
+    if (this.portal != null) {
+      json[r'portal'] = this.portal;
+    } else {
+      json[r'portal'] = null;
+    }
       json[r'address'] = this.address;
       json[r'phoneNumber'] = this.phoneNumber;
       json[r'email'] = this.email;
@@ -122,6 +132,7 @@ class Consultant {
 
       return Consultant(
         name: mapValueOfType<String>(json, r'name')!,
+        portal: Portal.fromJson(json[r'portal']),
         address: mapValueOfType<String>(json, r'address')!,
         phoneNumber: mapValueOfType<String>(json, r'phoneNumber')!,
         email: mapValueOfType<String>(json, r'email')!,

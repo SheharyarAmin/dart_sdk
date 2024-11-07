@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **address** | **String** |  | 
 **email** | **String** |  | 
 **role** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] 
 **region** | **String** |  | 
 **payPerCCM** | **num** |  | [optional] [default to 0]
 **payPerHour** | **num** |  | [optional] [default to 0]

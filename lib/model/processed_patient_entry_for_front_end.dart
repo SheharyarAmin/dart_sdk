@@ -23,6 +23,9 @@ class ProcessedPatientEntryForFrontEnd {
     this.year,
     this.month,
     this.day,
+    this.portal,
+    this.paycode99426 = false,
+    this.paycode99427 = false,
     this.paycode1 = false,
     this.paycode2 = false,
     this.paycode12 = false,
@@ -62,6 +65,12 @@ class ProcessedPatientEntryForFrontEnd {
   int? month;
 
   int? day;
+
+  Portal? portal;
+
+  bool paycode99426;
+
+  bool paycode99427;
 
   bool paycode1;
 
@@ -111,6 +120,9 @@ class ProcessedPatientEntryForFrontEnd {
     other.year == year &&
     other.month == month &&
     other.day == day &&
+    other.portal == portal &&
+    other.paycode99426 == paycode99426 &&
+    other.paycode99427 == paycode99427 &&
     other.paycode1 == paycode1 &&
     other.paycode2 == paycode2 &&
     other.paycode12 == paycode12 &&
@@ -143,6 +155,9 @@ class ProcessedPatientEntryForFrontEnd {
     (year == null ? 0 : year!.hashCode) +
     (month == null ? 0 : month!.hashCode) +
     (day == null ? 0 : day!.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
+    (paycode99426.hashCode) +
+    (paycode99427.hashCode) +
     (paycode1.hashCode) +
     (paycode2.hashCode) +
     (paycode12.hashCode) +
@@ -163,7 +178,7 @@ class ProcessedPatientEntryForFrontEnd {
     (lastProcessed == null ? 0 : lastProcessed!.hashCode);
 
   @override
-  String toString() => 'ProcessedPatientEntryForFrontEnd[patientId=$patientId, patientName=$patientName, finNumber=$finNumber, mrnNumber=$mrnNumber, processedDate=$processedDate, action=$action, empid=$empid, year=$year, month=$month, day=$day, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, remarks=$remarks, timestamp=$timestamp, currentTime=$currentTime, id=$id, timeSpent=$timeSpent, payerName=$payerName, lastProcessed=$lastProcessed]';
+  String toString() => 'ProcessedPatientEntryForFrontEnd[patientId=$patientId, patientName=$patientName, finNumber=$finNumber, mrnNumber=$mrnNumber, processedDate=$processedDate, action=$action, empid=$empid, year=$year, month=$month, day=$day, portal=$portal, paycode99426=$paycode99426, paycode99427=$paycode99427, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, remarks=$remarks, timestamp=$timestamp, currentTime=$currentTime, id=$id, timeSpent=$timeSpent, payerName=$payerName, lastProcessed=$lastProcessed]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -205,6 +220,13 @@ class ProcessedPatientEntryForFrontEnd {
     } else {
       json[r'day'] = null;
     }
+    if (this.portal != null) {
+      json[r'portal'] = this.portal;
+    } else {
+      json[r'portal'] = null;
+    }
+      json[r'paycode99426'] = this.paycode99426;
+      json[r'paycode99427'] = this.paycode99427;
       json[r'paycode1'] = this.paycode1;
       json[r'paycode2'] = this.paycode2;
       json[r'paycode1_2'] = this.paycode12;
@@ -307,6 +329,9 @@ class ProcessedPatientEntryForFrontEnd {
         year: mapValueOfType<int>(json, r'year'),
         month: mapValueOfType<int>(json, r'month'),
         day: mapValueOfType<int>(json, r'day'),
+        portal: Portal.fromJson(json[r'portal']),
+        paycode99426: mapValueOfType<bool>(json, r'paycode99426') ?? false,
+        paycode99427: mapValueOfType<bool>(json, r'paycode99427') ?? false,
         paycode1: mapValueOfType<bool>(json, r'paycode1') ?? false,
         paycode2: mapValueOfType<bool>(json, r'paycode2') ?? false,
         paycode12: mapValueOfType<bool>(json, r'paycode1_2') ?? false,

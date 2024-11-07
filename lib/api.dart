@@ -68,6 +68,7 @@ part 'model/patient_with_care_plan.dart';
 part 'model/patients_response.dart';
 part 'model/payment_detail.dart';
 part 'model/payments_response.dart';
+part 'model/portal.dart';
 part 'model/processed_patient_entry.dart';
 part 'model/processed_patient_entry_for_front_end.dart';
 part 'model/processed_patient_entry_from_front_end.dart';

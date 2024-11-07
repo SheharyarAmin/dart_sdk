@@ -9,6 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **doctorsName** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] 
 **address** | **String** |  | 
 **email** | **String** |  | 
 **faxNumber** | **String** |  | 
@@ -18,6 +19,8 @@ Name | Type | Description | Notes
 **clinicid** | **String** |  | [optional] 
 **payRate99490** | **num** |  | 
 **payRate99439** | **num** |  | 
+**payRate99426** | **num** |  | [optional] [default to 0]
+**payRate99427** | **num** |  | [optional] [default to 0]
 **canBeDeleted** | **bool** |  | [optional] [default to true]
 **status** | **String** |  | [optional] [default to 'Active']
 **consultantPays** | [**List<ConsultantPay>**](ConsultantPay.md) |  | [optional] [default to const []]

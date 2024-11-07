@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customerId** | **String** |  | [optional] 
 **clinicName** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] 
 **consultantid** | **List<String>** |  | [optional] [default to const []]
 **address** | **String** |  | 
 **poc** | **String** |  | 

@@ -68,7 +68,6 @@ class ManagerApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      print("Response: ${response.toString()}");
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ManagerResponse',) as ManagerResponse;
     
     }

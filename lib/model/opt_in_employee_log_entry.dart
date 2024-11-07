@@ -18,6 +18,7 @@ class OptInEmployeeLogEntry {
     required this.yearMonth,
     required this.day,
     required this.startTime,
+    this.portal,
     required this.patientName,
     required this.DOB,
     required this.clinicName,
@@ -36,6 +37,8 @@ class OptInEmployeeLogEntry {
   String day;
 
   String startTime;
+
+  Portal? portal;
 
   String? patientName;
 
@@ -58,6 +61,7 @@ class OptInEmployeeLogEntry {
     other.yearMonth == yearMonth &&
     other.day == day &&
     other.startTime == startTime &&
+    other.portal == portal &&
     other.patientName == patientName &&
     other.DOB == DOB &&
     other.clinicName == clinicName &&
@@ -74,6 +78,7 @@ class OptInEmployeeLogEntry {
     (yearMonth.hashCode) +
     (day.hashCode) +
     (startTime.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
     (patientName == null ? 0 : patientName!.hashCode) +
     (DOB == null ? 0 : DOB!.hashCode) +
     (clinicName == null ? 0 : clinicName!.hashCode) +
@@ -83,7 +88,7 @@ class OptInEmployeeLogEntry {
     (id.hashCode);
 
   @override
-  String toString() => 'OptInEmployeeLogEntry[empid=$empid, clinicid=$clinicid, yearMonth=$yearMonth, day=$day, startTime=$startTime, patientName=$patientName, DOB=$DOB, clinicName=$clinicName, mrnNumber=$mrnNumber, status=$status, remarks=$remarks, id=$id]';
+  String toString() => 'OptInEmployeeLogEntry[empid=$empid, clinicid=$clinicid, yearMonth=$yearMonth, day=$day, startTime=$startTime, portal=$portal, patientName=$patientName, DOB=$DOB, clinicName=$clinicName, mrnNumber=$mrnNumber, status=$status, remarks=$remarks, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -96,6 +101,11 @@ class OptInEmployeeLogEntry {
       json[r'yearMonth'] = this.yearMonth;
       json[r'day'] = this.day;
       json[r'startTime'] = this.startTime;
+    if (this.portal != null) {
+      json[r'portal'] = this.portal;
+    } else {
+      json[r'portal'] = null;
+    }
     if (this.patientName != null) {
       json[r'patientName'] = this.patientName;
     } else {
@@ -154,6 +164,7 @@ class OptInEmployeeLogEntry {
         yearMonth: mapValueOfType<String>(json, r'yearMonth')!,
         day: mapValueOfType<String>(json, r'day')!,
         startTime: mapValueOfType<String>(json, r'startTime')!,
+        portal: Portal.fromJson(json[r'portal']),
         patientName: mapValueOfType<String>(json, r'patientName'),
         DOB: mapValueOfType<String>(json, r'DOB'),
         clinicName: mapValueOfType<String>(json, r'clinicName'),

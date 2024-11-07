@@ -17,6 +17,7 @@ class Employee {
     required this.address,
     required this.email,
     required this.role,
+    this.portal,
     required this.region,
     this.payPerCCM = 0,
     this.payPerHour = 0,
@@ -36,6 +37,8 @@ class Employee {
   String email;
 
   String role;
+
+  Portal? portal;
 
   String region;
 
@@ -63,6 +66,7 @@ class Employee {
     other.address == address &&
     other.email == email &&
     other.role == role &&
+    other.portal == portal &&
     other.region == region &&
     other.payPerCCM == payPerCCM &&
     other.payPerHour == payPerHour &&
@@ -81,6 +85,7 @@ class Employee {
     (address.hashCode) +
     (email.hashCode) +
     (role.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
     (region.hashCode) +
     (payPerCCM.hashCode) +
     (payPerHour.hashCode) +
@@ -93,7 +98,7 @@ class Employee {
     (id.hashCode);
 
   @override
-  String toString() => 'Employee[name=$name, address=$address, email=$email, role=$role, region=$region, payPerCCM=$payPerCCM, payPerHour=$payPerHour, patientsPerMonth=$patientsPerMonth, assignedPatients=$assignedPatients, canBeDeleted=$canBeDeleted, status=$status, managerid=$managerid, managerName=$managerName, id=$id]';
+  String toString() => 'Employee[name=$name, address=$address, email=$email, role=$role, portal=$portal, region=$region, payPerCCM=$payPerCCM, payPerHour=$payPerHour, patientsPerMonth=$patientsPerMonth, assignedPatients=$assignedPatients, canBeDeleted=$canBeDeleted, status=$status, managerid=$managerid, managerName=$managerName, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -101,6 +106,11 @@ class Employee {
       json[r'address'] = this.address;
       json[r'email'] = this.email;
       json[r'role'] = this.role;
+    if (this.portal != null) {
+      json[r'portal'] = this.portal;
+    } else {
+      json[r'portal'] = null;
+    }
       json[r'region'] = this.region;
       json[r'payPerCCM'] = this.payPerCCM;
       json[r'payPerHour'] = this.payPerHour;
@@ -153,6 +163,7 @@ class Employee {
         address: mapValueOfType<String>(json, r'address')!,
         email: mapValueOfType<String>(json, r'email')!,
         role: mapValueOfType<String>(json, r'role')!,
+        portal: Portal.fromJson(json[r'portal']),
         region: mapValueOfType<String>(json, r'region')!,
         payPerCCM: num.parse('${json[r'payPerCCM']}'),
         payPerHour: num.parse('${json[r'payPerHour']}'),

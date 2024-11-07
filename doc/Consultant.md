@@ -9,6 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] 
 **address** | **String** |  | 
 **phoneNumber** | **String** |  | 
 **email** | **String** |  | 

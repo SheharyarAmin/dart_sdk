@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **yearMonth** | **String** |  | 
 **day** | **String** |  | 
 **startTime** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] 
 **patientName** | **String** |  | 
 **DOB** | **String** |  | 
 **clinicName** | **String** |  | 

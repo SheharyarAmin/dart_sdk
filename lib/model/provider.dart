@@ -14,6 +14,7 @@ class Provider {
   /// Returns a new [Provider] instance.
   Provider({
     required this.doctorsName,
+    this.portal,
     required this.address,
     required this.email,
     required this.faxNumber,
@@ -23,6 +24,8 @@ class Provider {
     this.clinicid,
     required this.payRate99490,
     required this.payRate99439,
+    this.payRate99426 = 0,
+    this.payRate99427 = 0,
     this.canBeDeleted = true,
     this.status = 'Active',
     this.consultantPays = const [],
@@ -30,6 +33,8 @@ class Provider {
   });
 
   String doctorsName;
+
+  Portal? portal;
 
   String address;
 
@@ -55,6 +60,10 @@ class Provider {
 
   num payRate99439;
 
+  num payRate99426;
+
+  num payRate99427;
+
   bool canBeDeleted;
 
   String status;
@@ -66,6 +75,7 @@ class Provider {
   @override
   bool operator ==(Object other) => identical(this, other) || other is Provider &&
     other.doctorsName == doctorsName &&
+    other.portal == portal &&
     other.address == address &&
     other.email == email &&
     other.faxNumber == faxNumber &&
@@ -75,6 +85,8 @@ class Provider {
     other.clinicid == clinicid &&
     other.payRate99490 == payRate99490 &&
     other.payRate99439 == payRate99439 &&
+    other.payRate99426 == payRate99426 &&
+    other.payRate99427 == payRate99427 &&
     other.canBeDeleted == canBeDeleted &&
     other.status == status &&
     _deepEquality.equals(other.consultantPays, consultantPays) &&
@@ -84,6 +96,7 @@ class Provider {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (doctorsName.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
     (address.hashCode) +
     (email.hashCode) +
     (faxNumber.hashCode) +
@@ -93,17 +106,24 @@ class Provider {
     (clinicid == null ? 0 : clinicid!.hashCode) +
     (payRate99490.hashCode) +
     (payRate99439.hashCode) +
+    (payRate99426.hashCode) +
+    (payRate99427.hashCode) +
     (canBeDeleted.hashCode) +
     (status.hashCode) +
     (consultantPays.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'Provider[doctorsName=$doctorsName, address=$address, email=$email, faxNumber=$faxNumber, phoneNumber=$phoneNumber, specialization=$specialization, region=$region, clinicid=$clinicid, payRate99490=$payRate99490, payRate99439=$payRate99439, canBeDeleted=$canBeDeleted, status=$status, consultantPays=$consultantPays, id=$id]';
+  String toString() => 'Provider[doctorsName=$doctorsName, portal=$portal, address=$address, email=$email, faxNumber=$faxNumber, phoneNumber=$phoneNumber, specialization=$specialization, region=$region, clinicid=$clinicid, payRate99490=$payRate99490, payRate99439=$payRate99439, payRate99426=$payRate99426, payRate99427=$payRate99427, canBeDeleted=$canBeDeleted, status=$status, consultantPays=$consultantPays, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'doctorsName'] = this.doctorsName;
+    if (this.portal != null) {
+      json[r'portal'] = this.portal;
+    } else {
+      json[r'portal'] = null;
+    }
       json[r'address'] = this.address;
       json[r'email'] = this.email;
       json[r'faxNumber'] = this.faxNumber;
@@ -117,6 +137,8 @@ class Provider {
     }
       json[r'payRate99490'] = this.payRate99490;
       json[r'payRate99439'] = this.payRate99439;
+      json[r'payRate99426'] = this.payRate99426;
+      json[r'payRate99427'] = this.payRate99427;
       json[r'canBeDeleted'] = this.canBeDeleted;
       json[r'status'] = this.status;
       json[r'consultantPays'] = this.consultantPays;
@@ -144,6 +166,7 @@ class Provider {
 
       return Provider(
         doctorsName: mapValueOfType<String>(json, r'doctorsName')!,
+        portal: Portal.fromJson(json[r'portal']),
         address: mapValueOfType<String>(json, r'address')!,
         email: mapValueOfType<String>(json, r'email')!,
         faxNumber: mapValueOfType<String>(json, r'faxNumber')!,
@@ -153,6 +176,8 @@ class Provider {
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         payRate99490: num.parse('${json[r'payRate99490']}'),
         payRate99439: num.parse('${json[r'payRate99439']}'),
+        payRate99426: num.parse('${json[r'payRate99426']}'),
+        payRate99427: num.parse('${json[r'payRate99427']}'),
         canBeDeleted: mapValueOfType<bool>(json, r'canBeDeleted') ?? true,
         status: mapValueOfType<String>(json, r'status') ?? 'Active',
         consultantPays: ConsultantPay.listFromJson(json[r'consultantPays']),

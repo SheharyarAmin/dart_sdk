@@ -106,22 +106,14 @@ Class | Method | HTTP request | Description
 *PatientsApi* | [**createPatientApiV1PatientsPost**](doc//PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 *PatientsApi* | [**deletePatientApiV1PatientsPatientIdDelete**](doc//PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
 *PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetGet**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
-*PatientsApi* | [**readPatientApiV1PatientsPatientIdGet**](doc//PatientsApi.md#readpatientapiv1patientspatientidget) | **GET** /api/v1/patients/{patient_id} | Read Patient
 *PatientsApi* | [**readPatientsApiV1PatientsGet**](doc//PatientsApi.md#readpatientsapiv1patientsget) | **GET** /api/v1/patients/ | Read Patients
-*PatientsApi* | [**readPatientsByClinicIdApiV1PatientsClinicClinicIdGet**](doc//PatientsApi.md#readpatientsbyclinicidapiv1patientsclinicclinicidget) | **GET** /api/v1/patients/clinic/{clinic_id} | Read Patients By Clinic Id
-*PatientsApi* | [**readPatientsByEmployeeIdApiV1PatientsEmployeeEmployeeIdGet**](doc//PatientsApi.md#readpatientsbyemployeeidapiv1patientsemployeeemployeeidget) | **GET** /api/v1/patients/employee/{employee_id} | Read Patients By Employee Id
-*PatientsApi* | [**readPatientsByProviderIdApiV1PatientsProviderProviderIdGet**](doc//PatientsApi.md#readpatientsbyprovideridapiv1patientsproviderprovideridget) | **GET** /api/v1/patients/provider/{provider_id} | Read Patients By Provider Id
-*PatientsApi* | [**readTotalPatientsByEmployeeIdApiV1PatientsEmployeeEmployeeIdTotalGet**](doc//PatientsApi.md#readtotalpatientsbyemployeeidapiv1patientsemployeeemployeeidtotalget) | **GET** /api/v1/patients/employee/{employee_id}/total | Read Total Patients By Employee Id
-*PatientsApi* | [**removeFieldApiV1PatientsRemoveFieldPut**](doc//PatientsApi.md#removefieldapiv1patientsremovefieldput) | **PUT** /api/v1/patients/remove_field | Remove Field
-*PatientsApi* | [**updateFieldApiV1PatientsUpdateFieldPut**](doc//PatientsApi.md#updatefieldapiv1patientsupdatefieldput) | **PUT** /api/v1/patients/update_field | Update Field
 *PatientsApi* | [**updatePatientApiV1PatientsPatientIdPut**](doc//PatientsApi.md#updatepatientapiv1patientspatientidput) | **PUT** /api/v1/patients/{patient_id} | Update Patient
 *PaymentsApi* | [**createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost**](doc//PaymentsApi.md#createpaymentdetailapiv1paymentsclinicidinvoicenumberpost) | **POST** /api/v1/payments/{clinic_id}/{invoice_number} | Create Payment Detail
 *PaymentsApi* | [**deletePaymentDetailApiV1PaymentsClinicIdInvoiceNumberPaymentDetailIdDelete**](doc//PaymentsApi.md#deletepaymentdetailapiv1paymentsclinicidinvoicenumberpaymentdetailiddelete) | **DELETE** /api/v1/payments/{clinic_id}/{invoice_number}/{payment_detail_id} | Delete Payment Detail
 *PaymentsApi* | [**getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet**](doc//PaymentsApi.md#getunpaidpatientsapiv1paymentsunpaidpatientsclinicidinvoicenumberget) | **GET** /api/v1/payments/unpaid_patients/{clinic_id}/{invoice_number} | Get Unpaid Patients
 *PaymentsApi* | [**readPaymentDetailsApiV1PaymentsClinicIdInvoiceNumberGet**](doc//PaymentsApi.md#readpaymentdetailsapiv1paymentsclinicidinvoicenumberget) | **GET** /api/v1/payments/{clinic_id}/{invoice_number} | Read Payment Details
 *ProcessedPatientApi* | [**createProcessedPatientEntryApiV1ProcessedPatientPost**](doc//ProcessedPatientApi.md#createprocessedpatiententryapiv1processedpatientpost) | **POST** /api/v1/processed-patient/ | Create Processed Patient Entry
-*ProcessedPatientApi* | [**readProcessedPatientEntriesApiV1ProcessedPatientYearMonthGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesapiv1processedpatientyearmonthget) | **GET** /api/v1/processed-patient/{year}/{month} | Read Processed Patient Entries
-*ProcessedPatientApi* | [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidget) | **GET** /api/v1/processed-patient/process/{year}/{month}/{empid} | Read Processed Patient Entries For Monthyear Empid
+*ProcessedPatientApi* | [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidPortalGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidportalget) | **GET** /api/v1/processed-patient/process/{year}/{month}/{empid}/{portal} | Read Processed Patient Entries For Monthyear Empid
 *ProcessedPatientApi* | [**readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet**](doc//ProcessedPatientApi.md#readprocessedpatiententryforpatientinmonthyearapiv1processedpatientyearmonthpatientidget) | **GET** /api/v1/processed-patient/{year}/{month}/{patient_id} | Read Processed Patient Entry For Patient In Monthyear
 *ProvidersApi* | [**changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut**](doc//ProvidersApi.md#changeactivestatusapiv1providersprovideridchangeactivestatusput) | **PUT** /api/v1/providers/{provider_id}/change-active-status | Change Active Status
 *ProvidersApi* | [**changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut**](doc//ProvidersApi.md#changedeletedstatusapiv1providersprovideridchangedeletedstatusput) | **PUT** /api/v1/providers/{provider_id}/change-deleted-status | Change Deleted Status
@@ -160,6 +152,7 @@ Class | Method | HTTP request | Description
  - [PatientsResponse](doc//PatientsResponse.md)
  - [PaymentDetail](doc//PaymentDetail.md)
  - [PaymentsResponse](doc//PaymentsResponse.md)
+ - [Portal](doc//Portal.md)
  - [ProcessedPatientEntry](doc//ProcessedPatientEntry.md)
  - [ProcessedPatientEntryForFrontEnd](doc//ProcessedPatientEntryForFrontEnd.md)
  - [ProcessedPatientEntryFromFrontEnd](doc//ProcessedPatientEntryFromFrontEnd.md)

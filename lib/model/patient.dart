@@ -15,6 +15,7 @@ class Patient {
   Patient({
     this.optOutRemarks,
     this.optInDate,
+    this.portal,
     this.payerName,
     this.patientName,
     this.mrnNumber,
@@ -25,10 +26,13 @@ class Patient {
     this.careTeamMemberName,
     this.regEmpName,
     this.employeeid,
+    this.pcmemployeeid,
+    this.pcmcareTeamMemberName,
     this.regemployeeid,
     this.providerid,
     this.clinicid,
     this.lastProcessed,
+    this.lastProcessedPCM,
     this.secandaryPayerName,
     this.region,
     this.deceased,
@@ -44,6 +48,8 @@ class Patient {
   String? optOutRemarks;
 
   String? optInDate;
+
+  Portal? portal;
 
   String? payerName;
 
@@ -65,6 +71,10 @@ class Patient {
 
   String? employeeid;
 
+  String? pcmemployeeid;
+
+  String? pcmcareTeamMemberName;
+
   String? regemployeeid;
 
   String? providerid;
@@ -72,6 +82,8 @@ class Patient {
   String? clinicid;
 
   String? lastProcessed;
+
+  String? lastProcessedPCM;
 
   String? secandaryPayerName;
 
@@ -97,6 +109,7 @@ class Patient {
   bool operator ==(Object other) => identical(this, other) || other is Patient &&
     other.optOutRemarks == optOutRemarks &&
     other.optInDate == optInDate &&
+    other.portal == portal &&
     other.payerName == payerName &&
     other.patientName == patientName &&
     other.mrnNumber == mrnNumber &&
@@ -107,10 +120,13 @@ class Patient {
     other.careTeamMemberName == careTeamMemberName &&
     other.regEmpName == regEmpName &&
     other.employeeid == employeeid &&
+    other.pcmemployeeid == pcmemployeeid &&
+    other.pcmcareTeamMemberName == pcmcareTeamMemberName &&
     other.regemployeeid == regemployeeid &&
     other.providerid == providerid &&
     other.clinicid == clinicid &&
     other.lastProcessed == lastProcessed &&
+    other.lastProcessedPCM == lastProcessedPCM &&
     other.secandaryPayerName == secandaryPayerName &&
     other.region == region &&
     other.deceased == deceased &&
@@ -127,6 +143,7 @@ class Patient {
     // ignore: unnecessary_parenthesis
     (optOutRemarks == null ? 0 : optOutRemarks!.hashCode) +
     (optInDate == null ? 0 : optInDate!.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
     (payerName == null ? 0 : payerName!.hashCode) +
     (patientName == null ? 0 : patientName!.hashCode) +
     (mrnNumber == null ? 0 : mrnNumber!.hashCode) +
@@ -137,10 +154,13 @@ class Patient {
     (careTeamMemberName == null ? 0 : careTeamMemberName!.hashCode) +
     (regEmpName == null ? 0 : regEmpName!.hashCode) +
     (employeeid == null ? 0 : employeeid!.hashCode) +
+    (pcmemployeeid == null ? 0 : pcmemployeeid!.hashCode) +
+    (pcmcareTeamMemberName == null ? 0 : pcmcareTeamMemberName!.hashCode) +
     (regemployeeid == null ? 0 : regemployeeid!.hashCode) +
     (providerid == null ? 0 : providerid!.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
     (lastProcessed == null ? 0 : lastProcessed!.hashCode) +
+    (lastProcessedPCM == null ? 0 : lastProcessedPCM!.hashCode) +
     (secandaryPayerName == null ? 0 : secandaryPayerName!.hashCode) +
     (region == null ? 0 : region!.hashCode) +
     (deceased == null ? 0 : deceased!.hashCode) +
@@ -153,7 +173,7 @@ class Patient {
     (id.hashCode);
 
   @override
-  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, optOutDate=$optOutDate, finNumber=$finNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, lastProcessed=$lastProcessed, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id]';
+  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, portal=$portal, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, optOutDate=$optOutDate, finNumber=$finNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, pcmemployeeid=$pcmemployeeid, pcmcareTeamMemberName=$pcmcareTeamMemberName, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, lastProcessed=$lastProcessed, lastProcessedPCM=$lastProcessedPCM, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -166,6 +186,11 @@ class Patient {
       json[r'optInDate'] = this.optInDate;
     } else {
       json[r'optInDate'] = null;
+    }
+    if (this.portal != null) {
+      json[r'portal'] = this.portal;
+    } else {
+      json[r'portal'] = null;
     }
     if (this.payerName != null) {
       json[r'payerName'] = this.payerName;
@@ -217,6 +242,16 @@ class Patient {
     } else {
       json[r'employeeid'] = null;
     }
+    if (this.pcmemployeeid != null) {
+      json[r'pcmemployeeid'] = this.pcmemployeeid;
+    } else {
+      json[r'pcmemployeeid'] = null;
+    }
+    if (this.pcmcareTeamMemberName != null) {
+      json[r'pcmcareTeamMemberName'] = this.pcmcareTeamMemberName;
+    } else {
+      json[r'pcmcareTeamMemberName'] = null;
+    }
     if (this.regemployeeid != null) {
       json[r'regemployeeid'] = this.regemployeeid;
     } else {
@@ -236,6 +271,11 @@ class Patient {
       json[r'lastProcessed'] = this.lastProcessed;
     } else {
       json[r'lastProcessed'] = null;
+    }
+    if (this.lastProcessedPCM != null) {
+      json[r'lastProcessedPCM'] = this.lastProcessedPCM;
+    } else {
+      json[r'lastProcessedPCM'] = null;
     }
     if (this.secandaryPayerName != null) {
       json[r'secandaryPayerName'] = this.secandaryPayerName;
@@ -307,6 +347,7 @@ class Patient {
       return Patient(
         optOutRemarks: mapValueOfType<String>(json, r'optOutRemarks'),
         optInDate: mapValueOfType<String>(json, r'optInDate'),
+        portal: Portal.fromJson(json[r'portal']),
         payerName: mapValueOfType<String>(json, r'payerName'),
         patientName: mapValueOfType<String>(json, r'patientName'),
         mrnNumber: mapValueOfType<String>(json, r'mrnNumber'),
@@ -317,10 +358,13 @@ class Patient {
         careTeamMemberName: mapValueOfType<String>(json, r'careTeamMemberName'),
         regEmpName: mapValueOfType<String>(json, r'regEmpName'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
+        pcmemployeeid: mapValueOfType<String>(json, r'pcmemployeeid'),
+        pcmcareTeamMemberName: mapValueOfType<String>(json, r'pcmcareTeamMemberName'),
         regemployeeid: mapValueOfType<String>(json, r'regemployeeid'),
         providerid: mapValueOfType<String>(json, r'providerid'),
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         lastProcessed: mapValueOfType<String>(json, r'lastProcessed'),
+        lastProcessedPCM: mapValueOfType<String>(json, r'lastProcessedPCM'),
         secandaryPayerName: mapValueOfType<String>(json, r'secandaryPayerName'),
         region: mapValueOfType<String>(json, r'region'),
         deceased: mapValueOfType<bool>(json, r'deceased'),
