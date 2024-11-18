@@ -21,8 +21,11 @@ class PatientWithCarePlan {
     this.mrnNumber,
     this.providerName,
     this.clinicName,
+    this.pcmProviderName,
+    this.pcmClinicName,
     this.optOutDate,
     this.finNumber,
+    this.pcmFinNumber,
     this.careTeamMemberName,
     this.regEmpName,
     this.employeeid,
@@ -31,6 +34,8 @@ class PatientWithCarePlan {
     this.regemployeeid,
     this.providerid,
     this.clinicid,
+    this.pcmproviderid,
+    this.pcmclinicid,
     this.lastProcessed,
     this.lastProcessedPCM,
     this.secandaryPayerName,
@@ -63,9 +68,15 @@ class PatientWithCarePlan {
 
   String? clinicName;
 
+  String? pcmProviderName;
+
+  String? pcmClinicName;
+
   String? optOutDate;
 
   String? finNumber;
+
+  String? pcmFinNumber;
 
   String? careTeamMemberName;
 
@@ -82,6 +93,10 @@ class PatientWithCarePlan {
   String? providerid;
 
   String? clinicid;
+
+  String? pcmproviderid;
+
+  String? pcmclinicid;
 
   String? lastProcessed;
 
@@ -121,8 +136,11 @@ class PatientWithCarePlan {
     other.mrnNumber == mrnNumber &&
     other.providerName == providerName &&
     other.clinicName == clinicName &&
+    other.pcmProviderName == pcmProviderName &&
+    other.pcmClinicName == pcmClinicName &&
     other.optOutDate == optOutDate &&
     other.finNumber == finNumber &&
+    other.pcmFinNumber == pcmFinNumber &&
     other.careTeamMemberName == careTeamMemberName &&
     other.regEmpName == regEmpName &&
     other.employeeid == employeeid &&
@@ -131,6 +149,8 @@ class PatientWithCarePlan {
     other.regemployeeid == regemployeeid &&
     other.providerid == providerid &&
     other.clinicid == clinicid &&
+    other.pcmproviderid == pcmproviderid &&
+    other.pcmclinicid == pcmclinicid &&
     other.lastProcessed == lastProcessed &&
     other.lastProcessedPCM == lastProcessedPCM &&
     other.secandaryPayerName == secandaryPayerName &&
@@ -157,8 +177,11 @@ class PatientWithCarePlan {
     (mrnNumber == null ? 0 : mrnNumber!.hashCode) +
     (providerName == null ? 0 : providerName!.hashCode) +
     (clinicName == null ? 0 : clinicName!.hashCode) +
+    (pcmProviderName == null ? 0 : pcmProviderName!.hashCode) +
+    (pcmClinicName == null ? 0 : pcmClinicName!.hashCode) +
     (optOutDate == null ? 0 : optOutDate!.hashCode) +
     (finNumber == null ? 0 : finNumber!.hashCode) +
+    (pcmFinNumber == null ? 0 : pcmFinNumber!.hashCode) +
     (careTeamMemberName == null ? 0 : careTeamMemberName!.hashCode) +
     (regEmpName == null ? 0 : regEmpName!.hashCode) +
     (employeeid == null ? 0 : employeeid!.hashCode) +
@@ -167,6 +190,8 @@ class PatientWithCarePlan {
     (regemployeeid == null ? 0 : regemployeeid!.hashCode) +
     (providerid == null ? 0 : providerid!.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
+    (pcmproviderid == null ? 0 : pcmproviderid!.hashCode) +
+    (pcmclinicid == null ? 0 : pcmclinicid!.hashCode) +
     (lastProcessed == null ? 0 : lastProcessed!.hashCode) +
     (lastProcessedPCM == null ? 0 : lastProcessedPCM!.hashCode) +
     (secandaryPayerName == null ? 0 : secandaryPayerName!.hashCode) +
@@ -183,7 +208,7 @@ class PatientWithCarePlan {
     (careplans.hashCode);
 
   @override
-  String toString() => 'PatientWithCarePlan[optOutRemarks=$optOutRemarks, optInDate=$optInDate, portal=$portal, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, optOutDate=$optOutDate, finNumber=$finNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, pcmemployeeid=$pcmemployeeid, pcmcareTeamMemberName=$pcmcareTeamMemberName, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, lastProcessed=$lastProcessed, lastProcessedPCM=$lastProcessedPCM, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id, total=$total, careplans=$careplans]';
+  String toString() => 'PatientWithCarePlan[optOutRemarks=$optOutRemarks, optInDate=$optInDate, portal=$portal, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, pcmProviderName=$pcmProviderName, pcmClinicName=$pcmClinicName, optOutDate=$optOutDate, finNumber=$finNumber, pcmFinNumber=$pcmFinNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, pcmemployeeid=$pcmemployeeid, pcmcareTeamMemberName=$pcmcareTeamMemberName, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, pcmproviderid=$pcmproviderid, pcmclinicid=$pcmclinicid, lastProcessed=$lastProcessed, lastProcessedPCM=$lastProcessedPCM, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id, total=$total, careplans=$careplans]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -227,6 +252,16 @@ class PatientWithCarePlan {
     } else {
       json[r'clinicName'] = null;
     }
+    if (this.pcmProviderName != null) {
+      json[r'pcmProviderName'] = this.pcmProviderName;
+    } else {
+      json[r'pcmProviderName'] = null;
+    }
+    if (this.pcmClinicName != null) {
+      json[r'pcmClinicName'] = this.pcmClinicName;
+    } else {
+      json[r'pcmClinicName'] = null;
+    }
     if (this.optOutDate != null) {
       json[r'optOutDate'] = this.optOutDate;
     } else {
@@ -236,6 +271,11 @@ class PatientWithCarePlan {
       json[r'finNumber'] = this.finNumber;
     } else {
       json[r'finNumber'] = null;
+    }
+    if (this.pcmFinNumber != null) {
+      json[r'pcmFinNumber'] = this.pcmFinNumber;
+    } else {
+      json[r'pcmFinNumber'] = null;
     }
     if (this.careTeamMemberName != null) {
       json[r'careTeamMemberName'] = this.careTeamMemberName;
@@ -276,6 +316,16 @@ class PatientWithCarePlan {
       json[r'clinicid'] = this.clinicid;
     } else {
       json[r'clinicid'] = null;
+    }
+    if (this.pcmproviderid != null) {
+      json[r'pcmproviderid'] = this.pcmproviderid;
+    } else {
+      json[r'pcmproviderid'] = null;
+    }
+    if (this.pcmclinicid != null) {
+      json[r'pcmclinicid'] = this.pcmclinicid;
+    } else {
+      json[r'pcmclinicid'] = null;
     }
     if (this.lastProcessed != null) {
       json[r'lastProcessed'] = this.lastProcessed;
@@ -365,8 +415,11 @@ class PatientWithCarePlan {
         mrnNumber: mapValueOfType<String>(json, r'mrnNumber'),
         providerName: mapValueOfType<String>(json, r'providerName'),
         clinicName: mapValueOfType<String>(json, r'clinicName'),
+        pcmProviderName: mapValueOfType<String>(json, r'pcmProviderName'),
+        pcmClinicName: mapValueOfType<String>(json, r'pcmClinicName'),
         optOutDate: mapValueOfType<String>(json, r'optOutDate'),
         finNumber: mapValueOfType<String>(json, r'finNumber'),
+        pcmFinNumber: mapValueOfType<String>(json, r'pcmFinNumber'),
         careTeamMemberName: mapValueOfType<String>(json, r'careTeamMemberName'),
         regEmpName: mapValueOfType<String>(json, r'regEmpName'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
@@ -375,6 +428,8 @@ class PatientWithCarePlan {
         regemployeeid: mapValueOfType<String>(json, r'regemployeeid'),
         providerid: mapValueOfType<String>(json, r'providerid'),
         clinicid: mapValueOfType<String>(json, r'clinicid'),
+        pcmproviderid: mapValueOfType<String>(json, r'pcmproviderid'),
+        pcmclinicid: mapValueOfType<String>(json, r'pcmclinicid'),
         lastProcessed: mapValueOfType<String>(json, r'lastProcessed'),
         lastProcessedPCM: mapValueOfType<String>(json, r'lastProcessedPCM'),
         secandaryPayerName: mapValueOfType<String>(json, r'secandaryPayerName'),

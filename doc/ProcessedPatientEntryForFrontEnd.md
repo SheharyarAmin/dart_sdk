@@ -10,17 +10,19 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **patientId** | **String** |  | 
 **patientName** | **String** |  | [optional] 
-**finNumber** | **String** |  | [optional] 
 **mrnNumber** | **String** |  | [optional] 
-**processedDate** | **String** |  | [optional] 
-**action** | **String** |  | [optional] [default to '']
-**empid** | **String** |  | 
 **year** | **int** |  | [optional] 
 **month** | **int** |  | [optional] 
 **day** | **int** |  | [optional] 
 **portal** | [**Portal**](Portal.md) |  | [optional] 
-**paycode99426** | **bool** |  | [optional] [default to false]
-**paycode99427** | **bool** |  | [optional] [default to false]
+**finNumber** | **String** |  | [optional] 
+**processedDate** | **String** |  | [optional] 
+**empid** | **String** |  | 
+**action** | **String** |  | [optional] [default to '']
+**hospitalRehabStatus** | **bool** |  | [optional] [default to false]
+**unableToProcess** | **bool** |  | [optional] 
+**carePlanStatus** | **bool** |  | [optional] 
+**inCompleteCarePlanStatus** | **String** |  | [optional] 
 **paycode1** | **bool** |  | [optional] [default to false]
 **paycode2** | **bool** |  | [optional] [default to false]
 **paycode12** | **bool** |  | [optional] [default to false]
@@ -28,17 +30,29 @@ Name | Type | Description | Notes
 **clinincName** | **String** |  | [optional] 
 **providerid** | **String** |  | 
 **providerName** | **String** |  | [optional] 
-**hospitalRehabStatus** | **bool** |  | [optional] [default to false]
-**unableToProcess** | **bool** |  | [optional] 
-**carePlanStatus** | **bool** |  | [optional] 
-**inCompleteCarePlanStatus** | **String** |  | [optional] 
 **remarks** | **String** |  | [optional] 
+**pcmfinNumber** | **String** |  | [optional] 
+**pcmprocessedDate** | **String** |  | [optional] 
+**pcmEmpid** | **String** |  | 
+**pcmAction** | **String** |  | [optional] [default to '']
+**pcmHospitalRehabStatus** | **bool** |  | [optional] [default to false]
+**pcmUnableToProcess** | **bool** |  | [optional] 
+**pcmCarePlanStatus** | **bool** |  | [optional] 
+**pcmInCompleteCarePlanStatus** | **String** |  | [optional] 
+**pcmClinicid** | **String** |  | 
+**pcmClinicName** | **String** |  | [optional] 
+**pcmProviderid** | **String** |  | 
+**pcmProviderName** | **String** |  | [optional] 
+**paycode99426** | **bool** |  | [optional] [default to false]
+**paycode99427** | **bool** |  | [optional] [default to false]
+**pcmRemarks** | **String** |  | [optional] 
 **timestamp** | **String** |  | [optional] 
 **currentTime** | **String** |  | [optional] 
 **id** | **String** |  | 
 **timeSpent** | **num** |  | [optional] 
 **payerName** | **String** |  | [optional] 
 **lastProcessed** | **String** |  | [optional] 
+**pcmLastProcessed** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
