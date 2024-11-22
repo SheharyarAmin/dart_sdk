@@ -14,14 +14,20 @@ class TempAssignmentCreate {
   /// Returns a new [TempAssignmentCreate] instance.
   TempAssignmentCreate({
     this.patientIds = const [],
+    this.pcmPatientIds = const [],
     this.toemployeeid = '',
+    this.portal = Portal.CCM,
     this.fromemployeeid,
     this.permanent = false,
   });
 
   List<String> patientIds;
 
+  List<String> pcmPatientIds;
+
   String toemployeeid;
+
+  Portal portal;
 
   String? fromemployeeid;
 
@@ -30,7 +36,9 @@ class TempAssignmentCreate {
   @override
   bool operator ==(Object other) => identical(this, other) || other is TempAssignmentCreate &&
     _deepEquality.equals(other.patientIds, patientIds) &&
+    _deepEquality.equals(other.pcmPatientIds, pcmPatientIds) &&
     other.toemployeeid == toemployeeid &&
+    other.portal == portal &&
     other.fromemployeeid == fromemployeeid &&
     other.permanent == permanent;
 
@@ -38,17 +46,21 @@ class TempAssignmentCreate {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (patientIds.hashCode) +
+    (pcmPatientIds.hashCode) +
     (toemployeeid.hashCode) +
+    (portal.hashCode) +
     (fromemployeeid == null ? 0 : fromemployeeid!.hashCode) +
     (permanent.hashCode);
 
   @override
-  String toString() => 'TempAssignmentCreate[patientIds=$patientIds, toemployeeid=$toemployeeid, fromemployeeid=$fromemployeeid, permanent=$permanent]';
+  String toString() => 'TempAssignmentCreate[patientIds=$patientIds, pcmPatientIds=$pcmPatientIds, toemployeeid=$toemployeeid, portal=$portal, fromemployeeid=$fromemployeeid, permanent=$permanent]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'patientIds'] = this.patientIds;
+      json[r'pcmPatientIds'] = this.pcmPatientIds;
       json[r'toemployeeid'] = this.toemployeeid;
+      json[r'portal'] = this.portal;
     if (this.fromemployeeid != null) {
       json[r'fromemployeeid'] = this.fromemployeeid;
     } else {
@@ -80,7 +92,11 @@ class TempAssignmentCreate {
         patientIds: json[r'patientIds'] is Iterable
             ? (json[r'patientIds'] as Iterable).cast<String>().toList(growable: false)
             : const [],
+        pcmPatientIds: json[r'pcmPatientIds'] is Iterable
+            ? (json[r'pcmPatientIds'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         toemployeeid: mapValueOfType<String>(json, r'toemployeeid') ?? '',
+        portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         fromemployeeid: mapValueOfType<String>(json, r'fromemployeeid'),
         permanent: mapValueOfType<bool>(json, r'permanent') ?? false,
       );

@@ -13,6 +13,7 @@ library openapi.api;
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:js_interop';
 import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
@@ -74,6 +75,7 @@ part 'model/processed_patient_entry_for_front_end.dart';
 part 'model/processed_patient_entry_from_front_end.dart';
 part 'model/provider.dart';
 part 'model/temp_assignment_create.dart';
+part 'model/temp_assignment_emp_lists.dart';
 part 'model/token.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **optOutRemarks** | **String** |  | [optional] 
 **optInDate** | **String** |  | [optional] 
-**portal** | [**Portal**](Portal.md) |  | [optional] 
+**portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
 **payerName** | **String** |  | [optional] 
 **patientName** | **String** |  | [optional] 
 **mrnNumber** | **String** |  | [optional] 

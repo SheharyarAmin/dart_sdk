@@ -169,9 +169,15 @@ class PatientsApi {
   ///
   /// * [String] clinicId:
   ///
+  /// * [String] pcmClinicId:
+  ///
   /// * [String] employeeId:
   ///
+  /// * [String] pcmEmployeeId:
+  ///
   /// * [String] providerId:
+  ///
+  /// * [String] pcmProviderId:
   ///
   /// * [String] regemployeeid:
   ///
@@ -192,7 +198,9 @@ class PatientsApi {
   /// * [String] prevPageToken:
   ///
   /// * [bool] refreshCurrentDataset:
-  Future<Response> readPatientsApiV1PatientsGetWithHttpInfo({ String? patientName, String? clinicId, String? employeeId, String? providerId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
+  ///
+  /// * [Portal] portal:
+  Future<Response> readPatientsApiV1PatientsGetWithHttpInfo({ String? patientName, String? clinicId, String? pcmClinicId, String? employeeId, String? pcmEmployeeId, String? providerId, String? pcmProviderId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, Portal? portal, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/';
 
@@ -209,11 +217,20 @@ class PatientsApi {
     if (clinicId != null) {
       queryParams.addAll(_queryParams('', 'clinicId', clinicId));
     }
+    if (pcmClinicId != null) {
+      queryParams.addAll(_queryParams('', 'pcmClinicId', pcmClinicId));
+    }
     if (employeeId != null) {
       queryParams.addAll(_queryParams('', 'employeeId', employeeId));
     }
+    if (pcmEmployeeId != null) {
+      queryParams.addAll(_queryParams('', 'pcmEmployeeId', pcmEmployeeId));
+    }
     if (providerId != null) {
       queryParams.addAll(_queryParams('', 'providerId', providerId));
+    }
+    if (pcmProviderId != null) {
+      queryParams.addAll(_queryParams('', 'pcmProviderId', pcmProviderId));
     }
     if (regemployeeid != null) {
       queryParams.addAll(_queryParams('', 'regemployeeid', regemployeeid));
@@ -245,6 +262,9 @@ class PatientsApi {
     if (refreshCurrentDataset != null) {
       queryParams.addAll(_queryParams('', 'refreshCurrentDataset', refreshCurrentDataset));
     }
+    if (portal != null) {
+      queryParams.addAll(_queryParams('', 'portal', portal));
+    }
 
     const contentTypes = <String>[];
 
@@ -268,9 +288,15 @@ class PatientsApi {
   ///
   /// * [String] clinicId:
   ///
+  /// * [String] pcmClinicId:
+  ///
   /// * [String] employeeId:
   ///
+  /// * [String] pcmEmployeeId:
+  ///
   /// * [String] providerId:
+  ///
+  /// * [String] pcmProviderId:
   ///
   /// * [String] regemployeeid:
   ///
@@ -291,8 +317,10 @@ class PatientsApi {
   /// * [String] prevPageToken:
   ///
   /// * [bool] refreshCurrentDataset:
-  Future<PatientsResponse?> readPatientsApiV1PatientsGet({ String? patientName, String? clinicId, String? employeeId, String? providerId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
-    final response = await readPatientsApiV1PatientsGetWithHttpInfo( patientName: patientName, clinicId: clinicId, employeeId: employeeId, providerId: providerId, regemployeeid: regemployeeid, assignmentStatus: assignmentStatus, processedStatus: processedStatus, processingDate: processingDate, sortBy: sortBy, ascending: ascending, pageSize: pageSize, pageToken: pageToken, prevPageToken: prevPageToken, refreshCurrentDataset: refreshCurrentDataset, );
+  ///
+  /// * [Portal] portal:
+  Future<PatientsResponse?> readPatientsApiV1PatientsGet({ String? patientName, String? clinicId, String? pcmClinicId, String? employeeId, String? pcmEmployeeId, String? providerId, String? pcmProviderId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, Portal? portal, }) async {
+    final response = await readPatientsApiV1PatientsGetWithHttpInfo( patientName: patientName, clinicId: clinicId, pcmClinicId: pcmClinicId, employeeId: employeeId, pcmEmployeeId: pcmEmployeeId, providerId: providerId, pcmProviderId: pcmProviderId, regemployeeid: regemployeeid, assignmentStatus: assignmentStatus, processedStatus: processedStatus, processingDate: processingDate, sortBy: sortBy, ascending: ascending, pageSize: pageSize, pageToken: pageToken, prevPageToken: prevPageToken, refreshCurrentDataset: refreshCurrentDataset, portal: portal, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

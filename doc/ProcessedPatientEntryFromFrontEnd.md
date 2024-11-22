@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **portal** | [**Portal**](Portal.md) |  | [optional] 
 **finNumber** | **String** |  | [optional] 
 **processedDate** | **String** |  | [optional] 
-**empid** | **String** |  | 
+**empid** | **String** |  | [optional] [default to '']
 **action** | **String** |  | [optional] [default to '']
 **hospitalRehabStatus** | **bool** |  | [optional] [default to false]
 **unableToProcess** | **bool** |  | [optional] 
@@ -26,22 +26,22 @@ Name | Type | Description | Notes
 **paycode1** | **bool** |  | [optional] [default to false]
 **paycode2** | **bool** |  | [optional] [default to false]
 **paycode12** | **bool** |  | [optional] [default to false]
-**clinicid** | **String** |  | 
+**clinicid** | **String** |  | [optional] 
 **clinincName** | **String** |  | [optional] 
-**providerid** | **String** |  | 
+**providerid** | **String** |  | [optional] 
 **providerName** | **String** |  | [optional] 
 **remarks** | **String** |  | [optional] 
 **pcmfinNumber** | **String** |  | [optional] 
 **pcmprocessedDate** | **String** |  | [optional] 
-**pcmEmpid** | **String** |  | 
+**pcmEmpid** | **String** |  | [optional] [default to '']
 **pcmAction** | **String** |  | [optional] [default to '']
 **pcmHospitalRehabStatus** | **bool** |  | [optional] [default to false]
 **pcmUnableToProcess** | **bool** |  | [optional] 
 **pcmCarePlanStatus** | **bool** |  | [optional] 
 **pcmInCompleteCarePlanStatus** | **String** |  | [optional] 
-**pcmClinicid** | **String** |  | 
+**pcmClinicid** | **String** |  | [optional] 
 **pcmClinicName** | **String** |  | [optional] 
-**pcmProviderid** | **String** |  | 
+**pcmProviderid** | **String** |  | [optional] 
 **pcmProviderName** | **String** |  | [optional] 
 **paycode99426** | **bool** |  | [optional] [default to false]
 **paycode99427** | **bool** |  | [optional] [default to false]

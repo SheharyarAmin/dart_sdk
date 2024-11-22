@@ -45,6 +45,7 @@ doc/Provider.md
 doc/ProvidersApi.md
 doc/ReportsApi.md
 doc/TempAssignmentCreate.md
+doc/TempAssignmentEmpLists.md
 doc/TempAssignmentsApi.md
 doc/Token.md
 doc/ValidationError.md
@@ -103,7 +104,9 @@ lib/model/processed_patient_entry_for_front_end.dart
 lib/model/processed_patient_entry_from_front_end.dart
 lib/model/provider.dart
 lib/model/temp_assignment_create.dart
+lib/model/temp_assignment_emp_lists.dart
 lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
+test/temp_assignment_emp_lists_test.dart

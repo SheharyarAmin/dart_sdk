@@ -141,21 +141,22 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readPatientsApiV1PatientsGet**
-> PatientsResponse readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken, prevPageToken, refreshCurrentDataset)
+> PatientsResponse readPatientsApiV1PatientsGet(patientName, clinicId, pcmClinicId, employeeId, pcmEmployeeId, providerId, pcmProviderId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken, prevPageToken, refreshCurrentDataset, portal)
 
 Read Patients
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientName = patientName_example; // String | 
 final clinicId = clinicId_example; // String | 
+final pcmClinicId = pcmClinicId_example; // String | 
 final employeeId = employeeId_example; // String | 
+final pcmEmployeeId = pcmEmployeeId_example; // String | 
 final providerId = providerId_example; // String | 
+final pcmProviderId = pcmProviderId_example; // String | 
 final regemployeeid = regemployeeid_example; // String | 
 final assignmentStatus = assignmentStatus_example; // String | 
 final processedStatus = processedStatus_example; // String | 
@@ -166,9 +167,10 @@ final pageSize = 56; // int |
 final pageToken = pageToken_example; // String | 
 final prevPageToken = prevPageToken_example; // String | 
 final refreshCurrentDataset = true; // bool | 
+final portal = ; // Portal | 
 
 try {
-    final result = api_instance.readPatientsApiV1PatientsGet(patientName, clinicId, employeeId, providerId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken, prevPageToken, refreshCurrentDataset);
+    final result = api_instance.readPatientsApiV1PatientsGet(patientName, clinicId, pcmClinicId, employeeId, pcmEmployeeId, providerId, pcmProviderId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken, prevPageToken, refreshCurrentDataset, portal);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->readPatientsApiV1PatientsGet: $e\n');
@@ -181,8 +183,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **patientName** | **String**|  | [optional] 
  **clinicId** | **String**|  | [optional] 
+ **pcmClinicId** | **String**|  | [optional] 
  **employeeId** | **String**|  | [optional] 
+ **pcmEmployeeId** | **String**|  | [optional] 
  **providerId** | **String**|  | [optional] 
+ **pcmProviderId** | **String**|  | [optional] 
  **regemployeeid** | **String**|  | [optional] 
  **assignmentStatus** | **String**|  | [optional] 
  **processedStatus** | **String**|  | [optional] 
@@ -193,6 +198,7 @@ Name | Type | Description  | Notes
  **pageToken** | **String**|  | [optional] 
  **prevPageToken** | **String**|  | [optional] 
  **refreshCurrentDataset** | **bool**|  | [optional] [default to false]
+ **portal** | [**Portal**](.md)|  | [optional] 
 
 ### Return type
 
@@ -200,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -217,8 +223,6 @@ Update Patient
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientId = patientId_example; // String | 
@@ -245,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 

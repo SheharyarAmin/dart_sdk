@@ -15,7 +15,7 @@ class Patient {
   Patient({
     this.optOutRemarks,
     this.optInDate,
-    this.portal,
+    this.portal = Portal.CCM,
     this.payerName,
     this.patientName,
     this.mrnNumber,
@@ -54,7 +54,7 @@ class Patient {
 
   String? optInDate;
 
-  Portal? portal;
+  Portal portal;
 
   String? payerName;
 
@@ -163,7 +163,7 @@ class Patient {
     // ignore: unnecessary_parenthesis
     (optOutRemarks == null ? 0 : optOutRemarks!.hashCode) +
     (optInDate == null ? 0 : optInDate!.hashCode) +
-    (portal == null ? 0 : portal!.hashCode) +
+    (portal.hashCode) +
     (payerName == null ? 0 : payerName!.hashCode) +
     (patientName == null ? 0 : patientName!.hashCode) +
     (mrnNumber == null ? 0 : mrnNumber!.hashCode) +
@@ -212,11 +212,7 @@ class Patient {
     } else {
       json[r'optInDate'] = null;
     }
-    if (this.portal != null) {
       json[r'portal'] = this.portal;
-    } else {
-      json[r'portal'] = null;
-    }
     if (this.payerName != null) {
       json[r'payerName'] = this.payerName;
     } else {
@@ -397,7 +393,7 @@ class Patient {
       return Patient(
         optOutRemarks: mapValueOfType<String>(json, r'optOutRemarks'),
         optInDate: mapValueOfType<String>(json, r'optInDate'),
-        portal: Portal.fromJson(json[r'portal']),
+        portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         payerName: mapValueOfType<String>(json, r'payerName'),
         patientName: mapValueOfType<String>(json, r'patientName'),
         mrnNumber: mapValueOfType<String>(json, r'mrnNumber'),

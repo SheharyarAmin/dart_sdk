@@ -9,13 +9,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete**](TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempiddelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid} | Assign Patients Back To Original Route
+[**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**](TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempidportaldelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid}/{portal} | Assign Patients Back To Original Route
 [**createTempAssignmentRouteApiV1TempAssignmentsPost**](TempAssignmentsApi.md#createtempassignmentrouteapiv1tempassignmentspost) | **POST** /api/v1/temp-assignments/ | Create Temp Assignment Route
 [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet**](TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallemployeesget) | **GET** /api/v1/temp-assignments/all-employees | Fetch All From Emp Ids Route
 
 
-# **assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete**
-> Map<String, String> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(empid)
+# **assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**
+> Map<String, String> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete(empid, portal)
 
 Assign Patients Back To Original Route
 
@@ -29,12 +29,13 @@ import 'package:openapi/api.dart';
 
 final api_instance = TempAssignmentsApi();
 final empid = empid_example; // String | 
+final portal = ; // Portal | 
 
 try {
-    final result = api_instance.assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(empid);
+    final result = api_instance.assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete(empid, portal);
     print(result);
 } catch (e) {
-    print('Exception when calling TempAssignmentsApi->assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete: $e\n');
+    print('Exception when calling TempAssignmentsApi->assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete: $e\n');
 }
 ```
 
@@ -43,6 +44,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **empid** | **String**|  | 
+ **portal** | [**Portal**](.md)|  | 
 
 ### Return type
 
@@ -105,7 +107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet**
-> List<Employee> fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet()
+> TempAssignmentEmpLists fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet()
 
 Fetch All From Emp Ids Route
 
@@ -132,7 +134,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<Employee>**](Employee.md)
+[**TempAssignmentEmpLists**](TempAssignmentEmpLists.md)
 
 ### Authorization
 

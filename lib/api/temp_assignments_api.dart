@@ -25,10 +25,13 @@ class TempAssignmentsApi {
   /// Parameters:
   ///
   /// * [String] empid (required):
-  Future<Response> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDeleteWithHttpInfo(String empid,) async {
+  ///
+  /// * [Portal] portal (required):
+  Future<Response> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDeleteWithHttpInfo(String empid, Portal portal,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/temp-assignments/assign-back/{empid}'
-      .replaceAll('{empid}', empid);
+    final path = r'/api/v1/temp-assignments/assign-back/{empid}/{portal}'
+      .replaceAll('{empid}', empid)
+      .replaceAll('{portal}', portal.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -58,8 +61,10 @@ class TempAssignmentsApi {
   /// Parameters:
   ///
   /// * [String] empid (required):
-  Future<Map<String, String>?> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDelete(String empid,) async {
-    final response = await assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidDeleteWithHttpInfo(empid,);
+  ///
+  /// * [Portal] portal (required):
+  Future<Map<String, String>?> assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete(String empid, Portal portal,) async {
+    final response = await assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDeleteWithHttpInfo(empid, portal,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -162,7 +167,7 @@ class TempAssignmentsApi {
   /// Fetch All From Emp Ids Route
   ///
   /// Fetch all temporary assignments from employee IDs.  Args:     user (User): The current active user.  Returns:     List[str]: A list of employee IDs.
-  Future<List<Employee>?> fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet() async {
+  Future<TempAssignmentEmpLists?> fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet() async {
     final response = await fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -171,11 +176,8 @@ class TempAssignmentsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Employee>') as List)
-        .cast<Employee>()
-        .toList(growable: false);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TempAssignmentEmpLists',) as TempAssignmentEmpLists;
+    
     }
     return null;
   }
