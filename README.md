@@ -85,7 +85,6 @@ Class | Method | HTTP request | Description
 *ConsultantsApi* | [**updateExistingConsultantApiV1ConsultantsConsultantIdPut**](doc//ConsultantsApi.md#updateexistingconsultantapiv1consultantsconsultantidput) | **PUT** /api/v1/consultants/{consultant_id} | Update Existing Consultant
 *DefaultApi* | [**loginForAccessTokenAuthTokenPost**](doc//DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
 *DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
-*DefaultApi* | [**readUnicornCustomErrorNameGet**](doc//DefaultApi.md#readunicorncustomerrornameget) | **GET** /custom-error/{name} | Read Unicorn
 *DefaultApi* | [**refreshAccessTokenAuthRefreshPost**](doc//DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
 *EmplogApi* | [**createOptinLogApiV1EmplogOptinPost**](doc//EmplogApi.md#createoptinlogapiv1emplogoptinpost) | **POST** /api/v1/emplog/optin | Create Optin Log
 *EmployeesApi* | [**changeActiveStatusApiV1EmployeesEmployeeIdChangeActiveStatusPut**](doc//EmployeesApi.md#changeactivestatusapiv1employeesemployeeidchangeactivestatusput) | **PUT** /api/v1/employees/{employee_id}/change-active-status | Change Active Status

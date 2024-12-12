@@ -390,6 +390,8 @@ class ApiClient {
           return Provider.fromJson(value);
         case 'TempAssignmentCreate':
           return TempAssignmentCreate.fromJson(value);
+        case 'TempAssignmentEmpLists':
+          return TempAssignmentEmpLists.fromJson(value);
         case 'Token':
           return Token.fromJson(value);
         case 'ValidationError':

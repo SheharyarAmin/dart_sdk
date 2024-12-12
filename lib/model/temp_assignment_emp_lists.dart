@@ -17,9 +17,9 @@ class TempAssignmentEmpLists {
     this.pcmEmployeeIds = const [],
   });
 
-  List<String> ccmEmployeeIds;
+  List<Employee> ccmEmployeeIds;
 
-  List<String> pcmEmployeeIds;
+  List<Employee> pcmEmployeeIds;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TempAssignmentEmpLists &&
@@ -61,12 +61,8 @@ class TempAssignmentEmpLists {
       }());
 
       return TempAssignmentEmpLists(
-        ccmEmployeeIds: json[r'ccmEmployeeIds'] is Iterable
-            ? (json[r'ccmEmployeeIds'] as Iterable).cast<String>().toList(growable: false)
-            : const [],
-        pcmEmployeeIds: json[r'pcmEmployeeIds'] is Iterable
-            ? (json[r'pcmEmployeeIds'] as Iterable).cast<String>().toList(growable: false)
-            : const [],
+        ccmEmployeeIds: Employee.listFromJson(json[r'ccmEmployeeIds']),
+        pcmEmployeeIds: Employee.listFromJson(json[r'pcmEmployeeIds']),
       );
     }
     return null;
