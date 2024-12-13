@@ -190,12 +190,15 @@ class ProcessedPatientApi {
   /// * [int] month (required):
   ///
   /// * [String] patientId (required):
-  Future<Response> readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGetWithHttpInfo(int year, int month, String patientId,) async {
+  ///
+  /// * [Portal] portal (required):
+  Future<Response> readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdPortalGetWithHttpInfo(int year, int month, String patientId, Portal portal,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/processed-patient/{year}/{month}/{patient_id}'
+    final path = r'/api/v1/processed-patient/{year}/{month}/{patient_id}/{portal}'
       .replaceAll('{year}', year.toString())
       .replaceAll('{month}', month.toString())
-      .replaceAll('{patient_id}', patientId);
+      .replaceAll('{patient_id}', patientId)
+      .replaceAll('{portal}', portal.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -227,8 +230,10 @@ class ProcessedPatientApi {
   /// * [int] month (required):
   ///
   /// * [String] patientId (required):
-  Future<ProcessedPatientEntry?> readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGet(int year, int month, String patientId,) async {
-    final response = await readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdGetWithHttpInfo(year, month, patientId,);
+  ///
+  /// * [Portal] portal (required):
+  Future<ProcessedPatientEntry?> readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdPortalGet(int year, int month, String patientId, Portal portal,) async {
+    final response = await readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdPortalGetWithHttpInfo(year, month, patientId, portal,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
