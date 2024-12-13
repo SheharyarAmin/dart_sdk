@@ -150,7 +150,6 @@ Class | Method | HTTP request | Description
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
  - [Patient](doc//Patient.md)
  - [PatientPaymentEntry](doc//PatientPaymentEntry.md)
- - [PatientWithCarePlan](doc//PatientWithCarePlan.md)
  - [PatientsResponse](doc//PatientsResponse.md)
  - [PaymentDetail](doc//PaymentDetail.md)
  - [PaymentsResponse](doc//PaymentsResponse.md)

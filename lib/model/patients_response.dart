@@ -26,7 +26,7 @@ class PatientsResponse {
     this.currentPageToken,
   });
 
-  List<PatientWithCarePlan> patients;
+  List<Patient> patients;
 
   int count;
 
@@ -127,7 +127,7 @@ class PatientsResponse {
       }());
 
       return PatientsResponse(
-        patients: PatientWithCarePlan.listFromJson(json[r'patients']),
+        patients: Patient.listFromJson(json[r'patients']),
         count: mapValueOfType<int>(json, r'count') ?? 0,
         expiredCarePlan: mapValueOfType<int>(json, r'expiredCarePlan') ?? 0,
         activeCarePlan: mapValueOfType<int>(json, r'activeCarePlan') ?? 0,

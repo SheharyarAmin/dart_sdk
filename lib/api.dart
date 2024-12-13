@@ -65,7 +65,6 @@ part 'model/opt_in_employee_log_entry.dart';
 part 'model/opt_in_employee_log_entry_base.dart';
 part 'model/patient.dart';
 part 'model/patient_payment_entry.dart';
-part 'model/patient_with_care_plan.dart';
 part 'model/patients_response.dart';
 part 'model/payment_detail.dart';
 part 'model/payments_response.dart';
