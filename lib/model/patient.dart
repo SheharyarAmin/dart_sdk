@@ -47,6 +47,8 @@ class Patient {
     this.address,
     this.primaryPhone,
     this.secondaryPhone,
+    this.cpSignDate,
+    this.pcmcpSignDate,
     required this.id,
   });
 
@@ -118,6 +120,10 @@ class Patient {
 
   String? secondaryPhone;
 
+  String? cpSignDate;
+
+  String? pcmcpSignDate;
+
   String id;
 
   @override
@@ -156,6 +162,8 @@ class Patient {
     other.address == address &&
     other.primaryPhone == primaryPhone &&
     other.secondaryPhone == secondaryPhone &&
+    other.cpSignDate == cpSignDate &&
+    other.pcmcpSignDate == pcmcpSignDate &&
     other.id == id;
 
   @override
@@ -195,10 +203,12 @@ class Patient {
     (address == null ? 0 : address!.hashCode) +
     (primaryPhone == null ? 0 : primaryPhone!.hashCode) +
     (secondaryPhone == null ? 0 : secondaryPhone!.hashCode) +
+    (cpSignDate == null ? 0 : cpSignDate!.hashCode) +
+    (pcmcpSignDate == null ? 0 : pcmcpSignDate!.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, portal=$portal, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, pcmProviderName=$pcmProviderName, pcmClinicName=$pcmClinicName, optOutDate=$optOutDate, finNumber=$finNumber, pcmFinNumber=$pcmFinNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, pcmemployeeid=$pcmemployeeid, pcmcareTeamMemberName=$pcmcareTeamMemberName, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, pcmproviderid=$pcmproviderid, pcmclinicid=$pcmclinicid, lastProcessed=$lastProcessed, lastProcessedPCM=$lastProcessedPCM, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id]';
+  String toString() => 'Patient[optOutRemarks=$optOutRemarks, optInDate=$optInDate, portal=$portal, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, pcmProviderName=$pcmProviderName, pcmClinicName=$pcmClinicName, optOutDate=$optOutDate, finNumber=$finNumber, pcmFinNumber=$pcmFinNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, pcmemployeeid=$pcmemployeeid, pcmcareTeamMemberName=$pcmcareTeamMemberName, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, pcmproviderid=$pcmproviderid, pcmclinicid=$pcmclinicid, lastProcessed=$lastProcessed, lastProcessedPCM=$lastProcessedPCM, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, cpSignDate=$cpSignDate, pcmcpSignDate=$pcmcpSignDate, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -368,6 +378,16 @@ class Patient {
     } else {
       json[r'secondaryPhone'] = null;
     }
+    if (this.cpSignDate != null) {
+      json[r'cpSignDate'] = this.cpSignDate;
+    } else {
+      json[r'cpSignDate'] = null;
+    }
+    if (this.pcmcpSignDate != null) {
+      json[r'pcmcpSignDate'] = this.pcmcpSignDate;
+    } else {
+      json[r'pcmcpSignDate'] = null;
+    }
       json[r'id'] = this.id;
     return json;
   }
@@ -425,6 +445,8 @@ class Patient {
         address: mapValueOfType<String>(json, r'address'),
         primaryPhone: mapValueOfType<String>(json, r'primaryPhone'),
         secondaryPhone: mapValueOfType<String>(json, r'secondaryPhone'),
+        cpSignDate: mapValueOfType<String>(json, r'cpSignDate'),
+        pcmcpSignDate: mapValueOfType<String>(json, r'pcmcpSignDate'),
         id: mapValueOfType<String>(json, r'id')!,
       );
     }

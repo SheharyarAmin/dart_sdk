@@ -42,6 +42,8 @@ Name | Type | Description | Notes
 **address** | **String** |  | [optional] 
 **primaryPhone** | **String** |  | [optional] 
 **secondaryPhone** | **String** |  | [optional] 
+**cpSignDate** | **String** |  | [optional] 
+**pcmcpSignDate** | **String** |  | [optional] 
 **id** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
