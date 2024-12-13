@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **clinicName** | **String** |  | 
 **providerid** | **String** |  | 
 **providerName** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
 **finNumber** | **String** |  | 
 **startDate** | **String** |  | 
 **endDate** | **String** |  | 

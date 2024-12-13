@@ -63,6 +63,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CareplansApi* | [**createCareplanApiV1CareplansPost**](doc//CareplansApi.md#createcareplanapiv1careplanspost) | **POST** /api/v1/careplans/ | Create Careplan
 *CareplansApi* | [**deleteCareplanApiV1CareplansCareplanIdDelete**](doc//CareplansApi.md#deletecareplanapiv1careplanscareplaniddelete) | **DELETE** /api/v1/careplans/{careplan_id} | Delete Careplan
+*CareplansApi* | [**readCareplansApiV1CareplansPatientIdPortalGet**](doc//CareplansApi.md#readcareplansapiv1careplanspatientidportalget) | **GET** /api/v1/careplans/{patient_id}/{portal} | Read Careplans
 *ClinicInvoiceApi* | [**createClinicInvoiceApiV1ClinicInvoiceClinicidPost**](doc//ClinicInvoiceApi.md#createclinicinvoiceapiv1clinicinvoiceclinicidpost) | **POST** /api/v1/clinic-invoice/{clinicid}/ | Create Clinic Invoice
 *ClinicInvoiceApi* | [**deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**](doc//ClinicInvoiceApi.md#deleteclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberdelete) | **DELETE** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Delete Clinic Invoice
 *ClinicInvoiceApi* | [**readAllInvoicesApiV1ClinicInvoiceGet**](doc//ClinicInvoiceApi.md#readallinvoicesapiv1clinicinvoiceget) | **GET** /api/v1/clinic-invoice/ | Read All Invoices
@@ -108,6 +109,7 @@ Class | Method | HTTP request | Description
 *PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetGet**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
 *PatientsApi* | [**readPatientsApiV1PatientsGet**](doc//PatientsApi.md#readpatientsapiv1patientsget) | **GET** /api/v1/patients/ | Read Patients
 *PatientsApi* | [**updatePatientApiV1PatientsPatientIdPut**](doc//PatientsApi.md#updatepatientapiv1patientspatientidput) | **PUT** /api/v1/patients/{patient_id} | Update Patient
+*PatientsApi* | [**updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet**](doc//PatientsApi.md#updatepatientfinancialsapiv1patientsupdatefinpatientidportalget) | **GET** /api/v1/patients/update-fin/{patient_id}/{portal} | Update Patient Financials
 *PaymentsApi* | [**createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost**](doc//PaymentsApi.md#createpaymentdetailapiv1paymentsclinicidinvoicenumberpost) | **POST** /api/v1/payments/{clinic_id}/{invoice_number} | Create Payment Detail
 *PaymentsApi* | [**deletePaymentDetailApiV1PaymentsClinicIdInvoiceNumberPaymentDetailIdDelete**](doc//PaymentsApi.md#deletepaymentdetailapiv1paymentsclinicidinvoicenumberpaymentdetailiddelete) | **DELETE** /api/v1/payments/{clinic_id}/{invoice_number}/{payment_detail_id} | Delete Payment Detail
 *PaymentsApi* | [**getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet**](doc//PaymentsApi.md#getunpaidpatientsapiv1paymentsunpaidpatientsclinicidinvoicenumberget) | **GET** /api/v1/payments/unpaid_patients/{clinic_id}/{invoice_number} | Get Unpaid Patients

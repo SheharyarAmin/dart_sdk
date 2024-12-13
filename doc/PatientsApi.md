@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**generateReportApiV1PatientsGenerateExcelsheetGet**](PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
 [**readPatientsApiV1PatientsGet**](PatientsApi.md#readpatientsapiv1patientsget) | **GET** /api/v1/patients/ | Read Patients
 [**updatePatientApiV1PatientsPatientIdPut**](PatientsApi.md#updatepatientapiv1patientspatientidput) | **PUT** /api/v1/patients/{patient_id} | Update Patient
+[**updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet**](PatientsApi.md#updatepatientfinancialsapiv1patientsupdatefinpatientidportalget) | **GET** /api/v1/patients/update-fin/{patient_id}/{portal} | Update Patient Financials
 
 
 # **createPatientApiV1PatientsPost**
@@ -148,6 +149,8 @@ Read Patients
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientName = patientName_example; // String | 
@@ -206,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -223,6 +226,8 @@ Update Patient
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientId = patientId_example; // String | 
@@ -249,11 +254,58 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet**
+> Patient updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet(patientId, portal, finNumber)
+
+Update Patient Financials
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = PatientsApi();
+final patientId = patientId_example; // String | 
+final portal = ; // Portal | 
+final finNumber = finNumber_example; // String | 
+
+try {
+    final result = api_instance.updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet(patientId, portal, finNumber);
+    print(result);
+} catch (e) {
+    print('Exception when calling PatientsApi->updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patientId** | **String**|  | 
+ **portal** | [**Portal**](.md)|  | 
+ **finNumber** | **String**|  | 
+
+### Return type
+
+[**Patient**](Patient.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

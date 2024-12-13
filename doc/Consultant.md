@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**portal** | [**Portal**](Portal.md) |  | [optional] 
+**portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
 **address** | **String** |  | 
 **phoneNumber** | **String** |  | 
 **email** | **String** |  | 

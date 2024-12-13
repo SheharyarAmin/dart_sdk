@@ -49,7 +49,9 @@ class PatientWithCarePlan {
     this.secondaryPhone,
     required this.id,
     this.total = 0,
+    this.totalPCM = 0,
     this.careplans = const [],
+    this.pcmCareplans = const [],
   });
 
   String? optOutRemarks;
@@ -124,7 +126,11 @@ class PatientWithCarePlan {
 
   int total;
 
+  int totalPCM;
+
   List<CarePlanEntry> careplans;
+
+  List<CarePlanEntry> pcmCareplans;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientWithCarePlan &&
@@ -164,7 +170,9 @@ class PatientWithCarePlan {
     other.secondaryPhone == secondaryPhone &&
     other.id == id &&
     other.total == total &&
-    _deepEquality.equals(other.careplans, careplans);
+    other.totalPCM == totalPCM &&
+    _deepEquality.equals(other.careplans, careplans) &&
+    _deepEquality.equals(other.pcmCareplans, pcmCareplans);
 
   @override
   int get hashCode =>
@@ -205,10 +213,12 @@ class PatientWithCarePlan {
     (secondaryPhone == null ? 0 : secondaryPhone!.hashCode) +
     (id.hashCode) +
     (total.hashCode) +
-    (careplans.hashCode);
+    (totalPCM.hashCode) +
+    (careplans.hashCode) +
+    (pcmCareplans.hashCode);
 
   @override
-  String toString() => 'PatientWithCarePlan[optOutRemarks=$optOutRemarks, optInDate=$optInDate, portal=$portal, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, pcmProviderName=$pcmProviderName, pcmClinicName=$pcmClinicName, optOutDate=$optOutDate, finNumber=$finNumber, pcmFinNumber=$pcmFinNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, pcmemployeeid=$pcmemployeeid, pcmcareTeamMemberName=$pcmcareTeamMemberName, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, pcmproviderid=$pcmproviderid, pcmclinicid=$pcmclinicid, lastProcessed=$lastProcessed, lastProcessedPCM=$lastProcessedPCM, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id, total=$total, careplans=$careplans]';
+  String toString() => 'PatientWithCarePlan[optOutRemarks=$optOutRemarks, optInDate=$optInDate, portal=$portal, payerName=$payerName, patientName=$patientName, mrnNumber=$mrnNumber, providerName=$providerName, clinicName=$clinicName, pcmProviderName=$pcmProviderName, pcmClinicName=$pcmClinicName, optOutDate=$optOutDate, finNumber=$finNumber, pcmFinNumber=$pcmFinNumber, careTeamMemberName=$careTeamMemberName, regEmpName=$regEmpName, employeeid=$employeeid, pcmemployeeid=$pcmemployeeid, pcmcareTeamMemberName=$pcmcareTeamMemberName, regemployeeid=$regemployeeid, providerid=$providerid, clinicid=$clinicid, pcmproviderid=$pcmproviderid, pcmclinicid=$pcmclinicid, lastProcessed=$lastProcessed, lastProcessedPCM=$lastProcessedPCM, secandaryPayerName=$secandaryPayerName, region=$region, deceased=$deceased, dob=$dob, iv=$iv, canBeDeleted=$canBeDeleted, address=$address, primaryPhone=$primaryPhone, secondaryPhone=$secondaryPhone, id=$id, total=$total, totalPCM=$totalPCM, careplans=$careplans, pcmCareplans=$pcmCareplans]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -380,7 +390,9 @@ class PatientWithCarePlan {
     }
       json[r'id'] = this.id;
       json[r'total'] = this.total;
+      json[r'totalPCM'] = this.totalPCM;
       json[r'careplans'] = this.careplans;
+      json[r'pcmCareplans'] = this.pcmCareplans;
     return json;
   }
 
@@ -439,7 +451,9 @@ class PatientWithCarePlan {
         secondaryPhone: mapValueOfType<String>(json, r'secondaryPhone'),
         id: mapValueOfType<String>(json, r'id')!,
         total: mapValueOfType<int>(json, r'total') ?? 0,
+        totalPCM: mapValueOfType<int>(json, r'totalPCM') ?? 0,
         careplans: CarePlanEntry.listFromJson(json[r'careplans']),
+        pcmCareplans: CarePlanEntry.listFromJson(json[r'pcmCareplans']),
       );
     }
     return null;

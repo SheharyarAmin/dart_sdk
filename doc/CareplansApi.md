@@ -11,10 +11,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createCareplanApiV1CareplansPost**](CareplansApi.md#createcareplanapiv1careplanspost) | **POST** /api/v1/careplans/ | Create Careplan
 [**deleteCareplanApiV1CareplansCareplanIdDelete**](CareplansApi.md#deletecareplanapiv1careplanscareplaniddelete) | **DELETE** /api/v1/careplans/{careplan_id} | Delete Careplan
+[**readCareplansApiV1CareplansPatientIdPortalGet**](CareplansApi.md#readcareplansapiv1careplanspatientidportalget) | **GET** /api/v1/careplans/{patient_id}/{portal} | Read Careplans
 
 
 # **createCareplanApiV1CareplansPost**
-> Object createCareplanApiV1CareplansPost(carePlanEntry)
+> CarePlanEntry createCareplanApiV1CareplansPost(carePlanEntry)
 
 Create Careplan
 
@@ -43,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**CarePlanEntry**](CarePlanEntry.md)
 
 ### Authorization
 
@@ -57,7 +58,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteCareplanApiV1CareplansCareplanIdDelete**
-> Object deleteCareplanApiV1CareplansCareplanIdDelete(careplanId)
+> Map<String, String> deleteCareplanApiV1CareplansCareplanIdDelete(careplanId)
 
 Delete Careplan
 
@@ -86,7 +87,52 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+**Map<String, String>**
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **readCareplansApiV1CareplansPatientIdPortalGet**
+> List<CarePlanEntry> readCareplansApiV1CareplansPatientIdPortalGet(patientId, portal)
+
+Read Careplans
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = CareplansApi();
+final patientId = patientId_example; // String | 
+final portal = portal_example; // String | 
+
+try {
+    final result = api_instance.readCareplansApiV1CareplansPatientIdPortalGet(patientId, portal);
+    print(result);
+} catch (e) {
+    print('Exception when calling CareplansApi->readCareplansApiV1CareplansPatientIdPortalGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patientId** | **String**|  | 
+ **portal** | **String**|  | 
+
+### Return type
+
+[**List<CarePlanEntry>**](CarePlanEntry.md)
 
 ### Authorization
 

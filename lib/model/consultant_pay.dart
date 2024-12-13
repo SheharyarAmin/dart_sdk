@@ -14,37 +14,65 @@ class ConsultantPay {
   /// Returns a new [ConsultantPay] instance.
   ConsultantPay({
     required this.consultantId,
-    required this.payRate99439,
-    required this.payRate99490,
+    this.payRate99439,
+    this.payRate99490,
+    this.payRate99426,
+    this.payRate99427,
   });
 
   String consultantId;
 
-  num payRate99439;
+  num? payRate99439;
 
-  num payRate99490;
+  num? payRate99490;
+
+  num? payRate99426;
+
+  num? payRate99427;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ConsultantPay &&
     other.consultantId == consultantId &&
     other.payRate99439 == payRate99439 &&
-    other.payRate99490 == payRate99490;
+    other.payRate99490 == payRate99490 &&
+    other.payRate99426 == payRate99426 &&
+    other.payRate99427 == payRate99427;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (consultantId.hashCode) +
-    (payRate99439.hashCode) +
-    (payRate99490.hashCode);
+    (payRate99439 == null ? 0 : payRate99439!.hashCode) +
+    (payRate99490 == null ? 0 : payRate99490!.hashCode) +
+    (payRate99426 == null ? 0 : payRate99426!.hashCode) +
+    (payRate99427 == null ? 0 : payRate99427!.hashCode);
 
   @override
-  String toString() => 'ConsultantPay[consultantId=$consultantId, payRate99439=$payRate99439, payRate99490=$payRate99490]';
+  String toString() => 'ConsultantPay[consultantId=$consultantId, payRate99439=$payRate99439, payRate99490=$payRate99490, payRate99426=$payRate99426, payRate99427=$payRate99427]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'consultantId'] = this.consultantId;
+    if (this.payRate99439 != null) {
       json[r'payRate99439'] = this.payRate99439;
+    } else {
+      json[r'payRate99439'] = null;
+    }
+    if (this.payRate99490 != null) {
       json[r'payRate99490'] = this.payRate99490;
+    } else {
+      json[r'payRate99490'] = null;
+    }
+    if (this.payRate99426 != null) {
+      json[r'payRate99426'] = this.payRate99426;
+    } else {
+      json[r'payRate99426'] = null;
+    }
+    if (this.payRate99427 != null) {
+      json[r'payRate99427'] = this.payRate99427;
+    } else {
+      json[r'payRate99427'] = null;
+    }
     return json;
   }
 
@@ -68,8 +96,18 @@ class ConsultantPay {
 
       return ConsultantPay(
         consultantId: mapValueOfType<String>(json, r'consultantId')!,
-        payRate99439: num.parse('${json[r'payRate99439']}'),
-        payRate99490: num.parse('${json[r'payRate99490']}'),
+        payRate99439: json[r'payRate99439'] == null
+            ? null
+            : num.parse('${json[r'payRate99439']}'),
+        payRate99490: json[r'payRate99490'] == null
+            ? null
+            : num.parse('${json[r'payRate99490']}'),
+        payRate99426: json[r'payRate99426'] == null
+            ? null
+            : num.parse('${json[r'payRate99426']}'),
+        payRate99427: json[r'payRate99427'] == null
+            ? null
+            : num.parse('${json[r'payRate99427']}'),
       );
     }
     return null;
@@ -118,8 +156,6 @@ class ConsultantPay {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'consultantId',
-    'payRate99439',
-    'payRate99490',
   };
 }
 

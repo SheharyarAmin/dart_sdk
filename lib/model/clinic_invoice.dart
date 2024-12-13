@@ -24,6 +24,7 @@ class ClinicInvoice {
     required this.patientsCount,
     required this.clinicid,
     required this.clinicName,
+    this.portal = Portal.CCM,
     required this.id,
   });
 
@@ -49,6 +50,8 @@ class ClinicInvoice {
 
   String? clinicName;
 
+  Portal portal;
+
   int id;
 
   @override
@@ -64,6 +67,7 @@ class ClinicInvoice {
     other.patientsCount == patientsCount &&
     other.clinicid == clinicid &&
     other.clinicName == clinicName &&
+    other.portal == portal &&
     other.id == id;
 
   @override
@@ -80,10 +84,11 @@ class ClinicInvoice {
     (patientsCount == null ? 0 : patientsCount!.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
     (clinicName == null ? 0 : clinicName!.hashCode) +
+    (portal.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'ClinicInvoice[dueDate=$dueDate, grandTotal=$grandTotal, invoiceDate=$invoiceDate, monthYear=$monthYear, invoiceNumber=$invoiceNumber, invoiceUrl=$invoiceUrl, amountPaid=$amountPaid, amountLeft=$amountLeft, patientsCount=$patientsCount, clinicid=$clinicid, clinicName=$clinicName, id=$id]';
+  String toString() => 'ClinicInvoice[dueDate=$dueDate, grandTotal=$grandTotal, invoiceDate=$invoiceDate, monthYear=$monthYear, invoiceNumber=$invoiceNumber, invoiceUrl=$invoiceUrl, amountPaid=$amountPaid, amountLeft=$amountLeft, patientsCount=$patientsCount, clinicid=$clinicid, clinicName=$clinicName, portal=$portal, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -142,6 +147,7 @@ class ClinicInvoice {
     } else {
       json[r'clinicName'] = null;
     }
+      json[r'portal'] = this.portal;
       json[r'id'] = this.id;
     return json;
   }
@@ -182,6 +188,7 @@ class ClinicInvoice {
         patientsCount: mapValueOfType<int>(json, r'patientsCount'),
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         clinicName: mapValueOfType<String>(json, r'clinicName'),
+        portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         id: mapValueOfType<int>(json, r'id')!,
       );
     }

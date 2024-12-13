@@ -15,10 +15,10 @@ class OptInEmployeeLogEntry {
   OptInEmployeeLogEntry({
     required this.empid,
     required this.clinicid,
+    this.portal,
     required this.yearMonth,
     required this.day,
     required this.startTime,
-    this.portal,
     required this.patientName,
     required this.DOB,
     required this.clinicName,
@@ -32,13 +32,13 @@ class OptInEmployeeLogEntry {
 
   String? clinicid;
 
+  Portal? portal;
+
   String yearMonth;
 
   String day;
 
   String startTime;
-
-  Portal? portal;
 
   String? patientName;
 
@@ -58,10 +58,10 @@ class OptInEmployeeLogEntry {
   bool operator ==(Object other) => identical(this, other) || other is OptInEmployeeLogEntry &&
     other.empid == empid &&
     other.clinicid == clinicid &&
+    other.portal == portal &&
     other.yearMonth == yearMonth &&
     other.day == day &&
     other.startTime == startTime &&
-    other.portal == portal &&
     other.patientName == patientName &&
     other.DOB == DOB &&
     other.clinicName == clinicName &&
@@ -75,10 +75,10 @@ class OptInEmployeeLogEntry {
     // ignore: unnecessary_parenthesis
     (empid.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
+    (portal == null ? 0 : portal!.hashCode) +
     (yearMonth.hashCode) +
     (day.hashCode) +
     (startTime.hashCode) +
-    (portal == null ? 0 : portal!.hashCode) +
     (patientName == null ? 0 : patientName!.hashCode) +
     (DOB == null ? 0 : DOB!.hashCode) +
     (clinicName == null ? 0 : clinicName!.hashCode) +
@@ -88,7 +88,7 @@ class OptInEmployeeLogEntry {
     (id.hashCode);
 
   @override
-  String toString() => 'OptInEmployeeLogEntry[empid=$empid, clinicid=$clinicid, yearMonth=$yearMonth, day=$day, startTime=$startTime, portal=$portal, patientName=$patientName, DOB=$DOB, clinicName=$clinicName, mrnNumber=$mrnNumber, status=$status, remarks=$remarks, id=$id]';
+  String toString() => 'OptInEmployeeLogEntry[empid=$empid, clinicid=$clinicid, portal=$portal, yearMonth=$yearMonth, day=$day, startTime=$startTime, patientName=$patientName, DOB=$DOB, clinicName=$clinicName, mrnNumber=$mrnNumber, status=$status, remarks=$remarks, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -98,14 +98,14 @@ class OptInEmployeeLogEntry {
     } else {
       json[r'clinicid'] = null;
     }
-      json[r'yearMonth'] = this.yearMonth;
-      json[r'day'] = this.day;
-      json[r'startTime'] = this.startTime;
     if (this.portal != null) {
       json[r'portal'] = this.portal;
     } else {
       json[r'portal'] = null;
     }
+      json[r'yearMonth'] = this.yearMonth;
+      json[r'day'] = this.day;
+      json[r'startTime'] = this.startTime;
     if (this.patientName != null) {
       json[r'patientName'] = this.patientName;
     } else {
@@ -161,10 +161,10 @@ class OptInEmployeeLogEntry {
       return OptInEmployeeLogEntry(
         empid: mapValueOfType<String>(json, r'empid')!,
         clinicid: mapValueOfType<String>(json, r'clinicid'),
+        portal: Portal.fromJson(json[r'portal']),
         yearMonth: mapValueOfType<String>(json, r'yearMonth')!,
         day: mapValueOfType<String>(json, r'day')!,
         startTime: mapValueOfType<String>(json, r'startTime')!,
-        portal: Portal.fromJson(json[r'portal']),
         patientName: mapValueOfType<String>(json, r'patientName'),
         DOB: mapValueOfType<String>(json, r'DOB'),
         clinicName: mapValueOfType<String>(json, r'clinicName'),

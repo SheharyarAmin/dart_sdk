@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **patientsCount** | **int** |  | 
 **clinicid** | **String** |  | 
 **clinicName** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
 **id** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

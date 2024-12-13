@@ -44,7 +44,9 @@ Name | Type | Description | Notes
 **secondaryPhone** | **String** |  | [optional] 
 **id** | **String** |  | 
 **total** | **int** |  | [optional] [default to 0]
+**totalPCM** | **int** |  | [optional] [default to 0]
 **careplans** | [**List<CarePlanEntry>**](CarePlanEntry.md) |  | [optional] [default to const []]
+**pcmCareplans** | [**List<CarePlanEntry>**](CarePlanEntry.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

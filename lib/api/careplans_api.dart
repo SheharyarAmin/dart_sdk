@@ -53,7 +53,7 @@ class CareplansApi {
   /// Parameters:
   ///
   /// * [CarePlanEntry] carePlanEntry (required):
-  Future<Object?> createCareplanApiV1CareplansPost(CarePlanEntry carePlanEntry,) async {
+  Future<CarePlanEntry?> createCareplanApiV1CareplansPost(CarePlanEntry carePlanEntry,) async {
     final response = await createCareplanApiV1CareplansPostWithHttpInfo(carePlanEntry,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -62,7 +62,7 @@ class CareplansApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CarePlanEntry',) as CarePlanEntry;
     
     }
     return null;
@@ -106,7 +106,7 @@ class CareplansApi {
   /// Parameters:
   ///
   /// * [String] careplanId (required):
-  Future<Object?> deleteCareplanApiV1CareplansCareplanIdDelete(String careplanId,) async {
+  Future<Map<String, String>?> deleteCareplanApiV1CareplansCareplanIdDelete(String careplanId,) async {
     final response = await deleteCareplanApiV1CareplansCareplanIdDeleteWithHttpInfo(careplanId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -115,8 +115,69 @@ class CareplansApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+
+    }
+    return null;
+  }
+
+  /// Read Careplans
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] patientId (required):
+  ///
+  /// * [String] portal (required):
+  Future<Response> readCareplansApiV1CareplansPatientIdPortalGetWithHttpInfo(String patientId, String portal,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/careplans/{patient_id}/{portal}'
+      .replaceAll('{patient_id}', patientId)
+      .replaceAll('{portal}', portal);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Read Careplans
+  ///
+  /// Parameters:
+  ///
+  /// * [String] patientId (required):
+  ///
+  /// * [String] portal (required):
+  Future<List<CarePlanEntry>?> readCareplansApiV1CareplansPatientIdPortalGet(String patientId, String portal,) async {
+    final response = await readCareplansApiV1CareplansPatientIdPortalGetWithHttpInfo(patientId, portal,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<CarePlanEntry>') as List)
+        .cast<CarePlanEntry>()
+        .toList(growable: false);
+
     }
     return null;
   }

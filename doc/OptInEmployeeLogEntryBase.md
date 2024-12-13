@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **empid** | **String** |  | 
 **clinicid** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] 
 **yearMonth** | **String** |  | 
 **day** | **String** |  | 
 **startTime** | **String** |  | 
-**portal** | [**Portal**](Portal.md) |  | [optional] 
 **patientName** | **String** |  | 
 **DOB** | **String** |  | 
 **clinicName** | **String** |  | 

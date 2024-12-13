@@ -19,6 +19,7 @@ class CarePlanEntry {
     required this.clinicName,
     required this.providerid,
     required this.providerName,
+    this.portal = Portal.CCM,
     required this.finNumber,
     required this.startDate,
     required this.endDate,
@@ -38,6 +39,8 @@ class CarePlanEntry {
   String providerid;
 
   String providerName;
+
+  Portal portal;
 
   String finNumber;
 
@@ -59,6 +62,7 @@ class CarePlanEntry {
     other.clinicName == clinicName &&
     other.providerid == providerid &&
     other.providerName == providerName &&
+    other.portal == portal &&
     other.finNumber == finNumber &&
     other.startDate == startDate &&
     other.endDate == endDate &&
@@ -75,6 +79,7 @@ class CarePlanEntry {
     (clinicName.hashCode) +
     (providerid.hashCode) +
     (providerName.hashCode) +
+    (portal.hashCode) +
     (finNumber.hashCode) +
     (startDate.hashCode) +
     (endDate.hashCode) +
@@ -83,7 +88,7 @@ class CarePlanEntry {
     (id.hashCode);
 
   @override
-  String toString() => 'CarePlanEntry[patientid=$patientid, patientName=$patientName, clinicid=$clinicid, clinicName=$clinicName, providerid=$providerid, providerName=$providerName, finNumber=$finNumber, startDate=$startDate, endDate=$endDate, status=$status, encounterDate=$encounterDate, id=$id]';
+  String toString() => 'CarePlanEntry[patientid=$patientid, patientName=$patientName, clinicid=$clinicid, clinicName=$clinicName, providerid=$providerid, providerName=$providerName, portal=$portal, finNumber=$finNumber, startDate=$startDate, endDate=$endDate, status=$status, encounterDate=$encounterDate, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -93,6 +98,7 @@ class CarePlanEntry {
       json[r'clinicName'] = this.clinicName;
       json[r'providerid'] = this.providerid;
       json[r'providerName'] = this.providerName;
+      json[r'portal'] = this.portal;
       json[r'finNumber'] = this.finNumber;
       json[r'start_date'] = this.startDate;
       json[r'end_date'] = this.endDate;
@@ -127,6 +133,7 @@ class CarePlanEntry {
         clinicName: mapValueOfType<String>(json, r'clinicName')!,
         providerid: mapValueOfType<String>(json, r'providerid')!,
         providerName: mapValueOfType<String>(json, r'providerName')!,
+        portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         finNumber: mapValueOfType<String>(json, r'finNumber')!,
         startDate: mapValueOfType<String>(json, r'start_date')!,
         endDate: mapValueOfType<String>(json, r'end_date')!,
