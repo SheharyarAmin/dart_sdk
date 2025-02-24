@@ -10,18 +10,17 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut**](ClinicsApi.md#changeactivestatusapiv1clinicsclinicidchangeactivestatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-active-status | Change Active Status
-[**changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**](ClinicsApi.md#changecannotdeletestatusapiv1clinicsclinicidchangedeletedstatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-deleted-status | Change Cannot Delete Status
-[**createNewClinicApiV1ClinicsPost**](ClinicsApi.md#createnewclinicapiv1clinicspost) | **POST** /api/v1/clinics/ | Create New Clinic
-[**deleteExistingClinicApiV1ClinicsClinicIdDelete**](ClinicsApi.md#deleteexistingclinicapiv1clinicscliniciddelete) | **DELETE** /api/v1/clinics/{clinic_id} | Delete Existing Clinic
+[**changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**](ClinicsApi.md#changedeletedstatusapiv1clinicsclinicidchangedeletedstatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-deleted-status | Change Deleted Status
+[**createClinicApiV1ClinicsPost**](ClinicsApi.md#createclinicapiv1clinicspost) | **POST** /api/v1/clinics/ | Create Clinic
+[**deleteClinicApiV1ClinicsClinicIdDelete**](ClinicsApi.md#deleteclinicapiv1clinicscliniciddelete) | **DELETE** /api/v1/clinics/{clinic_id} | Delete Clinic
 [**getClinicStatementApiV1ClinicsClinicStatementPost**](ClinicsApi.md#getclinicstatementapiv1clinicsclinicstatementpost) | **POST** /api/v1/clinics/clinic-statement | Get Clinic Statement
 [**readClinicApiV1ClinicsClinicIdGet**](ClinicsApi.md#readclinicapiv1clinicsclinicidget) | **GET** /api/v1/clinics/{clinic_id} | Read Clinic
 [**readClinicsApiV1ClinicsGet**](ClinicsApi.md#readclinicsapiv1clinicsget) | **GET** /api/v1/clinics/ | Read Clinics
-[**removeConsultantApiV1ClinicsConsultantConsultantIdDelete**](ClinicsApi.md#removeconsultantapiv1clinicsconsultantconsultantiddelete) | **DELETE** /api/v1/clinics/consultant/{consultant_id} | Remove Consultant
-[**updateExistingClinicApiV1ClinicsClinicIdPut**](ClinicsApi.md#updateexistingclinicapiv1clinicsclinicidput) | **PUT** /api/v1/clinics/{clinic_id} | Update Existing Clinic
+[**updateClinicApiV1ClinicsClinicIdPut**](ClinicsApi.md#updateclinicapiv1clinicsclinicidput) | **PUT** /api/v1/clinics/{clinic_id} | Update Clinic
 
 
 # **changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut**
-> Clinic changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(clinicId)
+> Map<String, String> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(clinicId)
 
 Change Active Status
 
@@ -50,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Clinic**](Clinic.md)
+**Map<String, String>**
 
 ### Authorization
 
@@ -63,10 +62,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**
-> Clinic changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId)
+# **changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**
+> Map<String, String> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId)
 
-Change Cannot Delete Status
+Change Deleted Status
 
 ### Example
 ```dart
@@ -78,10 +77,10 @@ final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
 
 try {
-    final result = api_instance.changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId);
+    final result = api_instance.changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId);
     print(result);
 } catch (e) {
-    print('Exception when calling ClinicsApi->changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut: $e\n');
+    print('Exception when calling ClinicsApi->changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut: $e\n');
 }
 ```
 
@@ -93,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Clinic**](Clinic.md)
+**Map<String, String>**
 
 ### Authorization
 
@@ -106,10 +105,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **createNewClinicApiV1ClinicsPost**
-> Clinic createNewClinicApiV1ClinicsPost(clinic)
+# **createClinicApiV1ClinicsPost**
+> ClinicRead createClinicApiV1ClinicsPost(clinicCreate)
 
-Create New Clinic
+Create Clinic
 
 ### Example
 ```dart
@@ -118,13 +117,13 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
-final clinic = Clinic(); // Clinic | 
+final clinicCreate = ClinicCreate(); // ClinicCreate | 
 
 try {
-    final result = api_instance.createNewClinicApiV1ClinicsPost(clinic);
+    final result = api_instance.createClinicApiV1ClinicsPost(clinicCreate);
     print(result);
 } catch (e) {
-    print('Exception when calling ClinicsApi->createNewClinicApiV1ClinicsPost: $e\n');
+    print('Exception when calling ClinicsApi->createClinicApiV1ClinicsPost: $e\n');
 }
 ```
 
@@ -132,11 +131,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clinic** | [**Clinic**](Clinic.md)|  | 
+ **clinicCreate** | [**ClinicCreate**](ClinicCreate.md)|  | 
 
 ### Return type
 
-[**Clinic**](Clinic.md)
+[**ClinicRead**](ClinicRead.md)
 
 ### Authorization
 
@@ -149,10 +148,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteExistingClinicApiV1ClinicsClinicIdDelete**
-> Clinic deleteExistingClinicApiV1ClinicsClinicIdDelete(clinicId)
+# **deleteClinicApiV1ClinicsClinicIdDelete**
+> Map<String, String> deleteClinicApiV1ClinicsClinicIdDelete(clinicId)
 
-Delete Existing Clinic
+Delete Clinic
 
 ### Example
 ```dart
@@ -164,10 +163,10 @@ final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
 
 try {
-    final result = api_instance.deleteExistingClinicApiV1ClinicsClinicIdDelete(clinicId);
+    final result = api_instance.deleteClinicApiV1ClinicsClinicIdDelete(clinicId);
     print(result);
 } catch (e) {
-    print('Exception when calling ClinicsApi->deleteExistingClinicApiV1ClinicsClinicIdDelete: $e\n');
+    print('Exception when calling ClinicsApi->deleteClinicApiV1ClinicsClinicIdDelete: $e\n');
 }
 ```
 
@@ -179,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Clinic**](Clinic.md)
+**Map<String, String>**
 
 ### Authorization
 
@@ -235,7 +234,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readClinicApiV1ClinicsClinicIdGet**
-> Map<String, Clinic> readClinicApiV1ClinicsClinicIdGet(clinicId)
+> ClinicRead readClinicApiV1ClinicsClinicIdGet(clinicId)
 
 Read Clinic
 
@@ -264,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, Clinic>**](Clinic.md)
+[**ClinicRead**](ClinicRead.md)
 
 ### Authorization
 
@@ -278,7 +277,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readClinicsApiV1ClinicsGet**
-> Map<String, Clinic> readClinicsApiV1ClinicsGet()
+> Map<String, ClinicRead> readClinicsApiV1ClinicsGet()
 
 Read Clinics
 
@@ -303,7 +302,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Map<String, Clinic>**](Clinic.md)
+[**Map<String, ClinicRead>**](ClinicRead.md)
 
 ### Authorization
 
@@ -316,53 +315,10 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **removeConsultantApiV1ClinicsConsultantConsultantIdDelete**
-> Object removeConsultantApiV1ClinicsConsultantConsultantIdDelete(consultantId)
+# **updateClinicApiV1ClinicsClinicIdPut**
+> ClinicRead updateClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate)
 
-Remove Consultant
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
-
-final api_instance = ClinicsApi();
-final consultantId = consultantId_example; // String | 
-
-try {
-    final result = api_instance.removeConsultantApiV1ClinicsConsultantConsultantIdDelete(consultantId);
-    print(result);
-} catch (e) {
-    print('Exception when calling ClinicsApi->removeConsultantApiV1ClinicsConsultantConsultantIdDelete: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **consultantId** | **String**|  | 
-
-### Return type
-
-[**Object**](Object.md)
-
-### Authorization
-
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **updateExistingClinicApiV1ClinicsClinicIdPut**
-> Clinic updateExistingClinicApiV1ClinicsClinicIdPut(clinicId, clinic)
-
-Update Existing Clinic
+Update Clinic
 
 ### Example
 ```dart
@@ -372,13 +328,13 @@ import 'package:openapi/api.dart';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
-final clinic = Clinic(); // Clinic | 
+final clinicUpdate = ClinicUpdate(); // ClinicUpdate | 
 
 try {
-    final result = api_instance.updateExistingClinicApiV1ClinicsClinicIdPut(clinicId, clinic);
+    final result = api_instance.updateClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate);
     print(result);
 } catch (e) {
-    print('Exception when calling ClinicsApi->updateExistingClinicApiV1ClinicsClinicIdPut: $e\n');
+    print('Exception when calling ClinicsApi->updateClinicApiV1ClinicsClinicIdPut: $e\n');
 }
 ```
 
@@ -387,11 +343,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
- **clinic** | [**Clinic**](Clinic.md)|  | 
+ **clinicUpdate** | [**ClinicUpdate**](ClinicUpdate.md)|  | 
 
 ### Return type
 
-[**Clinic**](Clinic.md)
+[**ClinicRead**](ClinicRead.md)
 
 ### Authorization
 

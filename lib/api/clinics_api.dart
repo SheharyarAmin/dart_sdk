@@ -54,7 +54,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  Future<Clinic?> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(String clinicId,) async {
+  Future<Map<String, String>?> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(String clinicId,) async {
     final response = await changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPutWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -63,20 +63,20 @@ class ClinicsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Clinic',) as Clinic;
-    
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+
     }
     return null;
   }
 
-  /// Change Cannot Delete Status
+  /// Change Deleted Status
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  Future<Response> changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(String clinicId,) async {
+  Future<Response> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(String clinicId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}/change-deleted-status'
       .replaceAll('{clinic_id}', clinicId);
@@ -102,13 +102,13 @@ class ClinicsApi {
     );
   }
 
-  /// Change Cannot Delete Status
+  /// Change Deleted Status
   ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  Future<Clinic?> changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(String clinicId,) async {
-    final response = await changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(clinicId,);
+  Future<Map<String, String>?> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(String clinicId,) async {
+    final response = await changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -116,25 +116,25 @@ class ClinicsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Clinic',) as Clinic;
-    
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+
     }
     return null;
   }
 
-  /// Create New Clinic
+  /// Create Clinic
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [Clinic] clinic (required):
-  Future<Response> createNewClinicApiV1ClinicsPostWithHttpInfo(Clinic clinic,) async {
+  /// * [ClinicCreate] clinicCreate (required):
+  Future<Response> createClinicApiV1ClinicsPostWithHttpInfo(ClinicCreate clinicCreate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/';
 
     // ignore: prefer_final_locals
-    Object? postBody = clinic;
+    Object? postBody = clinicCreate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -154,13 +154,13 @@ class ClinicsApi {
     );
   }
 
-  /// Create New Clinic
+  /// Create Clinic
   ///
   /// Parameters:
   ///
-  /// * [Clinic] clinic (required):
-  Future<Clinic?> createNewClinicApiV1ClinicsPost(Clinic clinic,) async {
-    final response = await createNewClinicApiV1ClinicsPostWithHttpInfo(clinic,);
+  /// * [ClinicCreate] clinicCreate (required):
+  Future<ClinicRead?> createClinicApiV1ClinicsPost(ClinicCreate clinicCreate,) async {
+    final response = await createClinicApiV1ClinicsPostWithHttpInfo(clinicCreate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -168,20 +168,20 @@ class ClinicsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Clinic',) as Clinic;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClinicRead',) as ClinicRead;
     
     }
     return null;
   }
 
-  /// Delete Existing Clinic
+  /// Delete Clinic
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  Future<Response> deleteExistingClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(String clinicId,) async {
+  Future<Response> deleteClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(String clinicId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}'
       .replaceAll('{clinic_id}', clinicId);
@@ -207,13 +207,13 @@ class ClinicsApi {
     );
   }
 
-  /// Delete Existing Clinic
+  /// Delete Clinic
   ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  Future<Clinic?> deleteExistingClinicApiV1ClinicsClinicIdDelete(String clinicId,) async {
-    final response = await deleteExistingClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(clinicId,);
+  Future<Map<String, String>?> deleteClinicApiV1ClinicsClinicIdDelete(String clinicId,) async {
+    final response = await deleteClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -221,8 +221,8 @@ class ClinicsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Clinic',) as Clinic;
-    
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+
     }
     return null;
   }
@@ -315,7 +315,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  Future<Map<String, Clinic>?> readClinicApiV1ClinicsClinicIdGet(String clinicId,) async {
+  Future<ClinicRead?> readClinicApiV1ClinicsClinicIdGet(String clinicId,) async {
     final response = await readClinicApiV1ClinicsClinicIdGetWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -324,8 +324,8 @@ class ClinicsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Clinic>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Clinic>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClinicRead',) as ClinicRead;
+    
     }
     return null;
   }
@@ -359,7 +359,7 @@ class ClinicsApi {
   }
 
   /// Read Clinics
-  Future<Map<String, Clinic>?> readClinicsApiV1ClinicsGet() async {
+  Future<Map<String, ClinicRead>?> readClinicsApiV1ClinicsGet() async {
     final response = await readClinicsApiV1ClinicsGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -368,66 +368,13 @@ class ClinicsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Clinic>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Clinic>'),);
+      return Map<String, ClinicRead>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ClinicRead>'),);
 
     }
     return null;
   }
 
-  /// Remove Consultant
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] consultantId (required):
-  Future<Response> removeConsultantApiV1ClinicsConsultantConsultantIdDeleteWithHttpInfo(String consultantId,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/clinics/consultant/{consultant_id}'
-      .replaceAll('{consultant_id}', consultantId);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'DELETE',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Remove Consultant
-  ///
-  /// Parameters:
-  ///
-  /// * [String] consultantId (required):
-  Future<Object?> removeConsultantApiV1ClinicsConsultantConsultantIdDelete(String consultantId,) async {
-    final response = await removeConsultantApiV1ClinicsConsultantConsultantIdDeleteWithHttpInfo(consultantId,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
-    
-    }
-    return null;
-  }
-
-  /// Update Existing Clinic
+  /// Update Clinic
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -435,14 +382,14 @@ class ClinicsApi {
   ///
   /// * [String] clinicId (required):
   ///
-  /// * [Clinic] clinic (required):
-  Future<Response> updateExistingClinicApiV1ClinicsClinicIdPutWithHttpInfo(String clinicId, Clinic clinic,) async {
+  /// * [ClinicUpdate] clinicUpdate (required):
+  Future<Response> updateClinicApiV1ClinicsClinicIdPutWithHttpInfo(String clinicId, ClinicUpdate clinicUpdate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}'
       .replaceAll('{clinic_id}', clinicId);
 
     // ignore: prefer_final_locals
-    Object? postBody = clinic;
+    Object? postBody = clinicUpdate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -462,15 +409,15 @@ class ClinicsApi {
     );
   }
 
-  /// Update Existing Clinic
+  /// Update Clinic
   ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
   ///
-  /// * [Clinic] clinic (required):
-  Future<Clinic?> updateExistingClinicApiV1ClinicsClinicIdPut(String clinicId, Clinic clinic,) async {
-    final response = await updateExistingClinicApiV1ClinicsClinicIdPutWithHttpInfo(clinicId, clinic,);
+  /// * [ClinicUpdate] clinicUpdate (required):
+  Future<ClinicRead?> updateClinicApiV1ClinicsClinicIdPut(String clinicId, ClinicUpdate clinicUpdate,) async {
+    final response = await updateClinicApiV1ClinicsClinicIdPutWithHttpInfo(clinicId, clinicUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -478,7 +425,7 @@ class ClinicsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Clinic',) as Clinic;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ClinicRead',) as ClinicRead;
     
     }
     return null;

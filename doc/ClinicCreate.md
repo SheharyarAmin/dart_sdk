@@ -1,4 +1,4 @@
-# openapi.model.Consultant
+# openapi.model.ClinicCreate
 
 ## Load the model package
 ```dart
@@ -9,17 +9,16 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
+**customerId** | **String** |  | [optional] 
 **address** | **String** |  | 
-**phoneNumber** | **String** |  | 
-**email** | **String** |  | 
-**notes** | **String** |  | [optional] 
-**paycode99439** | **num** |  | [optional] 
-**paycode99490** | **num** |  | [optional] 
-**canBeDeleted** | **bool** |  | [optional] [default to true]
 **status** | **String** |  | [optional] [default to 'Active']
-**region** | **String** |  | [optional] 
-**id** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
+**email** | **String** |  | 
+**phone** | **String** |  | 
+**fax** | **String** |  | 
+**region** | **String** |  | 
+**poc** | **String** |  | 
+**consultantIds** | **List<String>** |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

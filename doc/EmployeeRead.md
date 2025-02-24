@@ -1,4 +1,4 @@
-# openapi.model.Consultant
+# openapi.model.EmployeeRead
 
 ## Load the model package
 ```dart
@@ -9,17 +9,19 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
+**role** | **String** |  | 
 **portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
-**address** | **String** |  | 
-**phoneNumber** | **String** |  | 
-**email** | **String** |  | 
-**notes** | **String** |  | [optional] 
-**paycode99439** | **num** |  | [optional] 
-**paycode99490** | **num** |  | [optional] 
-**canBeDeleted** | **bool** |  | [optional] [default to true]
+**region** | **String** |  | 
 **status** | **String** |  | [optional] [default to 'Active']
-**region** | **String** |  | [optional] 
+**email** | **String** |  | 
+**address** | **String** |  | 
+**patientspermonth** | **int** |  | [optional] 
+**payperccm** | **num** |  | [optional] [default to 0]
+**payperhour** | **num** |  | [optional] [default to 0]
+**managerid** | **String** |  | [optional] 
+**managername** | **String** |  | [optional] 
 **id** | **String** |  | 
+**canbedeleted** | **bool** |  | [optional] [default to true]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

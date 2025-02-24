@@ -325,10 +325,14 @@ class ApiClient {
           return AuthenticationToken.fromJson(value);
         case 'CarePlanEntry':
           return CarePlanEntry.fromJson(value);
-        case 'Clinic':
-          return Clinic.fromJson(value);
+        case 'ClinicCreate':
+          return ClinicCreate.fromJson(value);
         case 'ClinicInvoice':
           return ClinicInvoice.fromJson(value);
+        case 'ClinicRead':
+          return ClinicRead.fromJson(value);
+        case 'ClinicUpdate':
+          return ClinicUpdate.fromJson(value);
         case 'Consultant':
           return Consultant.fromJson(value);
         case 'ConsultantPay':
@@ -337,6 +341,12 @@ class ApiClient {
           return Employee.fromJson(value);
         case 'EmployeeByProcessedPatients':
           return EmployeeByProcessedPatients.fromJson(value);
+        case 'EmployeeCreate':
+          return EmployeeCreate.fromJson(value);
+        case 'EmployeeRead':
+          return EmployeeRead.fromJson(value);
+        case 'EmployeeUpdate':
+          return EmployeeUpdate.fromJson(value);
         case 'HTTPValidationError':
           return HTTPValidationError.fromJson(value);
         case 'InvoicesResponse':

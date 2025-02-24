@@ -39,6 +39,7 @@ part 'api/emplog_api.dart';
 part 'api/employees_api.dart';
 part 'api/logs_api.dart';
 part 'api/manager_api.dart';
+part 'api/migration_api.dart';
 part 'api/notifications_api.dart';
 part 'api/patients_api.dart';
 part 'api/payments_api.dart';
@@ -50,12 +51,17 @@ part 'api/temp_assignments_api.dart';
 part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
 part 'model/care_plan_entry.dart';
-part 'model/clinic.dart';
+part 'model/clinic_create.dart';
 part 'model/clinic_invoice.dart';
+part 'model/clinic_read.dart';
+part 'model/clinic_update.dart';
 part 'model/consultant.dart';
 part 'model/consultant_pay.dart';
 part 'model/employee.dart';
 part 'model/employee_by_processed_patients.dart';
+part 'model/employee_create.dart';
+part 'model/employee_read.dart';
+part 'model/employee_update.dart';
 part 'model/http_validation_error.dart';
 part 'model/invoices_response.dart';
 part 'model/log.dart';
@@ -79,7 +85,6 @@ part 'model/token.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
 
-
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
 var defaultApiClient = ApiClient();
@@ -92,4 +97,5 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) =>
+    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

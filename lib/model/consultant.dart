@@ -23,6 +23,7 @@ class Consultant {
     this.paycode99490,
     this.canBeDeleted = true,
     this.status = 'Active',
+    this.region,
     required this.id,
   });
 
@@ -46,6 +47,8 @@ class Consultant {
 
   String status;
 
+  String? region;
+
   String id;
 
   @override
@@ -60,6 +63,7 @@ class Consultant {
     other.paycode99490 == paycode99490 &&
     other.canBeDeleted == canBeDeleted &&
     other.status == status &&
+    other.region == region &&
     other.id == id;
 
   @override
@@ -75,10 +79,11 @@ class Consultant {
     (paycode99490 == null ? 0 : paycode99490!.hashCode) +
     (canBeDeleted.hashCode) +
     (status.hashCode) +
+    (region == null ? 0 : region!.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'Consultant[name=$name, portal=$portal, address=$address, phoneNumber=$phoneNumber, email=$email, notes=$notes, paycode99439=$paycode99439, paycode99490=$paycode99490, canBeDeleted=$canBeDeleted, status=$status, id=$id]';
+  String toString() => 'Consultant[name=$name, portal=$portal, address=$address, phoneNumber=$phoneNumber, email=$email, notes=$notes, paycode99439=$paycode99439, paycode99490=$paycode99490, canBeDeleted=$canBeDeleted, status=$status, region=$region, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -104,6 +109,11 @@ class Consultant {
     }
       json[r'canBeDeleted'] = this.canBeDeleted;
       json[r'status'] = this.status;
+    if (this.region != null) {
+      json[r'region'] = this.region;
+    } else {
+      json[r'region'] = null;
+    }
       json[r'id'] = this.id;
     return json;
   }
@@ -141,6 +151,7 @@ class Consultant {
             : num.parse('${json[r'paycode99490']}'),
         canBeDeleted: mapValueOfType<bool>(json, r'canBeDeleted') ?? true,
         status: mapValueOfType<String>(json, r'status') ?? 'Active',
+        region: mapValueOfType<String>(json, r'region'),
         id: mapValueOfType<String>(json, r'id')!,
       );
     }

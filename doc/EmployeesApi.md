@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createEmployeeApiV1EmployeesPost**
-> Employee createEmployeeApiV1EmployeesPost(employee)
+> EmployeeRead createEmployeeApiV1EmployeesPost(employeeCreate)
 
 Create Employee
 
@@ -117,10 +117,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
-final employee = Employee(); // Employee | 
+final employeeCreate = EmployeeCreate(); // EmployeeCreate | 
 
 try {
-    final result = api_instance.createEmployeeApiV1EmployeesPost(employee);
+    final result = api_instance.createEmployeeApiV1EmployeesPost(employeeCreate);
     print(result);
 } catch (e) {
     print('Exception when calling EmployeesApi->createEmployeeApiV1EmployeesPost: $e\n');
@@ -131,11 +131,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **employee** | [**Employee**](Employee.md)|  | 
+ **employeeCreate** | [**EmployeeCreate**](EmployeeCreate.md)|  | 
 
 ### Return type
 
-[**Employee**](Employee.md)
+[**EmployeeRead**](EmployeeRead.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteEmployeeApiV1EmployeesEmployeeIdDelete**
-> Employee deleteEmployeeApiV1EmployeesEmployeeIdDelete(employeeId)
+> Map<String, String> deleteEmployeeApiV1EmployeesEmployeeIdDelete(employeeId)
 
 Delete Employee
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Employee**](Employee.md)
+**Map<String, String>**
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getEmployeeRoleApiV1EmployeesRoleEmailGet**
-> Map<String, Employee> getEmployeeRoleApiV1EmployeesRoleEmailGet(email)
+> EmployeeRead getEmployeeRoleApiV1EmployeesRoleEmailGet(email)
 
 Get Employee Role
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, Employee>**](Employee.md)
+[**EmployeeRead**](EmployeeRead.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readEmployeeApiV1EmployeesEmployeeIdGet**
-> Map<String, Employee> readEmployeeApiV1EmployeesEmployeeIdGet(employeeId)
+> EmployeeRead readEmployeeApiV1EmployeesEmployeeIdGet(employeeId)
 
 Read Employee
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, Employee>**](Employee.md)
+[**EmployeeRead**](EmployeeRead.md)
 
 ### Authorization
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readEmployeesApiV1EmployeesGet**
-> Map<String, Employee> readEmployeesApiV1EmployeesGet()
+> Map<String, EmployeeRead> readEmployeesApiV1EmployeesGet()
 
 Read Employees
 
@@ -303,7 +303,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Map<String, Employee>**](Employee.md)
+[**Map<String, EmployeeRead>**](EmployeeRead.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateEmployeeApiV1EmployeesEmployeeIdPut**
-> Employee updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employee)
+> EmployeeRead updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employeeUpdate)
 
 Update Employee
 
@@ -329,10 +329,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = EmployeesApi();
 final employeeId = employeeId_example; // String | 
-final employee = Employee(); // Employee | 
+final employeeUpdate = EmployeeUpdate(); // EmployeeUpdate | 
 
 try {
-    final result = api_instance.updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employee);
+    final result = api_instance.updateEmployeeApiV1EmployeesEmployeeIdPut(employeeId, employeeUpdate);
     print(result);
 } catch (e) {
     print('Exception when calling EmployeesApi->updateEmployeeApiV1EmployeesEmployeeIdPut: $e\n');
@@ -344,11 +344,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **employeeId** | **String**|  | 
- **employee** | [**Employee**](Employee.md)|  | 
+ **employeeUpdate** | [**EmployeeUpdate**](EmployeeUpdate.md)|  | 
 
 ### Return type
 
-[**Employee**](Employee.md)
+[**EmployeeRead**](EmployeeRead.md)
 
 ### Authorization
 

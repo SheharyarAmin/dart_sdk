@@ -128,13 +128,13 @@ class EmployeesApi {
   ///
   /// Parameters:
   ///
-  /// * [Employee] employee (required):
-  Future<Response> createEmployeeApiV1EmployeesPostWithHttpInfo(Employee employee,) async {
+  /// * [EmployeeCreate] employeeCreate (required):
+  Future<Response> createEmployeeApiV1EmployeesPostWithHttpInfo(EmployeeCreate employeeCreate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/employees/';
 
     // ignore: prefer_final_locals
-    Object? postBody = employee;
+    Object? postBody = employeeCreate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -158,9 +158,9 @@ class EmployeesApi {
   ///
   /// Parameters:
   ///
-  /// * [Employee] employee (required):
-  Future<Employee?> createEmployeeApiV1EmployeesPost(Employee employee,) async {
-    final response = await createEmployeeApiV1EmployeesPostWithHttpInfo(employee,);
+  /// * [EmployeeCreate] employeeCreate (required):
+  Future<EmployeeRead?> createEmployeeApiV1EmployeesPost(EmployeeCreate employeeCreate,) async {
+    final response = await createEmployeeApiV1EmployeesPostWithHttpInfo(employeeCreate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -168,7 +168,7 @@ class EmployeesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Employee',) as Employee;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeRead',) as EmployeeRead;
     
     }
     return null;
@@ -212,7 +212,7 @@ class EmployeesApi {
   /// Parameters:
   ///
   /// * [String] employeeId (required):
-  Future<Employee?> deleteEmployeeApiV1EmployeesEmployeeIdDelete(String employeeId,) async {
+  Future<Map<String, String>?> deleteEmployeeApiV1EmployeesEmployeeIdDelete(String employeeId,) async {
     final response = await deleteEmployeeApiV1EmployeesEmployeeIdDeleteWithHttpInfo(employeeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -221,8 +221,8 @@ class EmployeesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Employee',) as Employee;
-    
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+
     }
     return null;
   }
@@ -265,7 +265,7 @@ class EmployeesApi {
   /// Parameters:
   ///
   /// * [String] email (required):
-  Future<Map<String, Employee>?> getEmployeeRoleApiV1EmployeesRoleEmailGet(String email,) async {
+  Future<EmployeeRead?> getEmployeeRoleApiV1EmployeesRoleEmailGet(String email,) async {
     final response = await getEmployeeRoleApiV1EmployeesRoleEmailGetWithHttpInfo(email,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -274,8 +274,8 @@ class EmployeesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Employee>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Employee>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeRead',) as EmployeeRead;
+    
     }
     return null;
   }
@@ -318,7 +318,7 @@ class EmployeesApi {
   /// Parameters:
   ///
   /// * [String] employeeId (required):
-  Future<Map<String, Employee>?> readEmployeeApiV1EmployeesEmployeeIdGet(String employeeId,) async {
+  Future<EmployeeRead?> readEmployeeApiV1EmployeesEmployeeIdGet(String employeeId,) async {
     final response = await readEmployeeApiV1EmployeesEmployeeIdGetWithHttpInfo(employeeId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -327,8 +327,8 @@ class EmployeesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Employee>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Employee>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeRead',) as EmployeeRead;
+    
     }
     return null;
   }
@@ -362,7 +362,7 @@ class EmployeesApi {
   }
 
   /// Read Employees
-  Future<Map<String, Employee>?> readEmployeesApiV1EmployeesGet() async {
+  Future<Map<String, EmployeeRead>?> readEmployeesApiV1EmployeesGet() async {
     final response = await readEmployeesApiV1EmployeesGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -371,7 +371,7 @@ class EmployeesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Employee>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Employee>'),);
+      return Map<String, EmployeeRead>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, EmployeeRead>'),);
 
     }
     return null;
@@ -385,14 +385,14 @@ class EmployeesApi {
   ///
   /// * [String] employeeId (required):
   ///
-  /// * [Employee] employee (required):
-  Future<Response> updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(String employeeId, Employee employee,) async {
+  /// * [EmployeeUpdate] employeeUpdate (required):
+  Future<Response> updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(String employeeId, EmployeeUpdate employeeUpdate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/employees/{employee_id}'
       .replaceAll('{employee_id}', employeeId);
 
     // ignore: prefer_final_locals
-    Object? postBody = employee;
+    Object? postBody = employeeUpdate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -418,9 +418,9 @@ class EmployeesApi {
   ///
   /// * [String] employeeId (required):
   ///
-  /// * [Employee] employee (required):
-  Future<Employee?> updateEmployeeApiV1EmployeesEmployeeIdPut(String employeeId, Employee employee,) async {
-    final response = await updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(employeeId, employee,);
+  /// * [EmployeeUpdate] employeeUpdate (required):
+  Future<EmployeeRead?> updateEmployeeApiV1EmployeesEmployeeIdPut(String employeeId, EmployeeUpdate employeeUpdate,) async {
+    final response = await updateEmployeeApiV1EmployeesEmployeeIdPutWithHttpInfo(employeeId, employeeUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -428,7 +428,7 @@ class EmployeesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Employee',) as Employee;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeRead',) as EmployeeRead;
     
     }
     return null;

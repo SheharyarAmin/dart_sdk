@@ -68,14 +68,13 @@ Class | Method | HTTP request | Description
 *ClinicInvoiceApi* | [**deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**](doc//ClinicInvoiceApi.md#deleteclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberdelete) | **DELETE** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Delete Clinic Invoice
 *ClinicInvoiceApi* | [**readAllInvoicesApiV1ClinicInvoiceGet**](doc//ClinicInvoiceApi.md#readallinvoicesapiv1clinicinvoiceget) | **GET** /api/v1/clinic-invoice/ | Read All Invoices
 *ClinicsApi* | [**changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut**](doc//ClinicsApi.md#changeactivestatusapiv1clinicsclinicidchangeactivestatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-active-status | Change Active Status
-*ClinicsApi* | [**changeCannotDeleteStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**](doc//ClinicsApi.md#changecannotdeletestatusapiv1clinicsclinicidchangedeletedstatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-deleted-status | Change Cannot Delete Status
-*ClinicsApi* | [**createNewClinicApiV1ClinicsPost**](doc//ClinicsApi.md#createnewclinicapiv1clinicspost) | **POST** /api/v1/clinics/ | Create New Clinic
-*ClinicsApi* | [**deleteExistingClinicApiV1ClinicsClinicIdDelete**](doc//ClinicsApi.md#deleteexistingclinicapiv1clinicscliniciddelete) | **DELETE** /api/v1/clinics/{clinic_id} | Delete Existing Clinic
+*ClinicsApi* | [**changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**](doc//ClinicsApi.md#changedeletedstatusapiv1clinicsclinicidchangedeletedstatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-deleted-status | Change Deleted Status
+*ClinicsApi* | [**createClinicApiV1ClinicsPost**](doc//ClinicsApi.md#createclinicapiv1clinicspost) | **POST** /api/v1/clinics/ | Create Clinic
+*ClinicsApi* | [**deleteClinicApiV1ClinicsClinicIdDelete**](doc//ClinicsApi.md#deleteclinicapiv1clinicscliniciddelete) | **DELETE** /api/v1/clinics/{clinic_id} | Delete Clinic
 *ClinicsApi* | [**getClinicStatementApiV1ClinicsClinicStatementPost**](doc//ClinicsApi.md#getclinicstatementapiv1clinicsclinicstatementpost) | **POST** /api/v1/clinics/clinic-statement | Get Clinic Statement
 *ClinicsApi* | [**readClinicApiV1ClinicsClinicIdGet**](doc//ClinicsApi.md#readclinicapiv1clinicsclinicidget) | **GET** /api/v1/clinics/{clinic_id} | Read Clinic
 *ClinicsApi* | [**readClinicsApiV1ClinicsGet**](doc//ClinicsApi.md#readclinicsapiv1clinicsget) | **GET** /api/v1/clinics/ | Read Clinics
-*ClinicsApi* | [**removeConsultantApiV1ClinicsConsultantConsultantIdDelete**](doc//ClinicsApi.md#removeconsultantapiv1clinicsconsultantconsultantiddelete) | **DELETE** /api/v1/clinics/consultant/{consultant_id} | Remove Consultant
-*ClinicsApi* | [**updateExistingClinicApiV1ClinicsClinicIdPut**](doc//ClinicsApi.md#updateexistingclinicapiv1clinicsclinicidput) | **PUT** /api/v1/clinics/{clinic_id} | Update Existing Clinic
+*ClinicsApi* | [**updateClinicApiV1ClinicsClinicIdPut**](doc//ClinicsApi.md#updateclinicapiv1clinicsclinicidput) | **PUT** /api/v1/clinics/{clinic_id} | Update Clinic
 *ConsultantsApi* | [**changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPut**](doc//ConsultantsApi.md#changeactivestatusapiv1consultantsconsultantidchangeactivestatusput) | **PUT** /api/v1/consultants/{consultant_id}/change-active-status | Change Active Status
 *ConsultantsApi* | [**changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPut**](doc//ConsultantsApi.md#changedeletedstatusapiv1consultantsconsultantidchangedeletedstatusput) | **PUT** /api/v1/consultants/{consultant_id}/change-deleted-status | Change Deleted Status
 *ConsultantsApi* | [**createNewConsultantApiV1ConsultantsPost**](doc//ConsultantsApi.md#createnewconsultantapiv1consultantspost) | **POST** /api/v1/consultants/ | Create New Consultant
@@ -99,6 +98,17 @@ Class | Method | HTTP request | Description
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
 *LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
 *ManagerApi* | [**getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet**](doc//ManagerApi.md#getmanagerdashboardformonthyearapiv1managerdashboardyearmonthget) | **GET** /api/v1/manager/dashboard/{year}/{month} | Get Manager Dashboard For Monthyear
+*MigrationApi* | [**migrateCareplansEndpointApiV1MigrationMigrationCareplansPost**](doc//MigrationApi.md#migratecareplansendpointapiv1migrationmigrationcareplanspost) | **POST** /api/v1/migration/migration/careplans | Migrate careplans from RTDB to Postgres
+*MigrationApi* | [**migrateClinicsEndpointApiV1MigrationMigrationClinicsPost**](doc//MigrationApi.md#migrateclinicsendpointapiv1migrationmigrationclinicspost) | **POST** /api/v1/migration/migration/clinics | Migrate clinics from RTDB to Postgres
+*MigrationApi* | [**migrateConsultantsEndpointApiV1MigrationMigrationConsultantsPost**](doc//MigrationApi.md#migrateconsultantsendpointapiv1migrationmigrationconsultantspost) | **POST** /api/v1/migration/migration/consultants | Migrate consultants from RTDB to Postgres
+*MigrationApi* | [**migrateEmployeeLogsEndpointApiV1MigrationMigrationEmployeeLogsPost**](doc//MigrationApi.md#migrateemployeelogsendpointapiv1migrationmigrationemployeelogspost) | **POST** /api/v1/migration/migration/employee-logs | Migrate employee logs (processor and optin) from RTDB to Postgres
+*MigrationApi* | [**migrateEmployeesEndpointApiV1MigrationMigrationEmployeesPost**](doc//MigrationApi.md#migrateemployeesendpointapiv1migrationmigrationemployeespost) | **POST** /api/v1/migration/migration/employees | Migrate employees from RTDB to Postgres
+*MigrationApi* | [**migrateInvoicesEndpointApiV1MigrationMigrationInvoicesPost**](doc//MigrationApi.md#migrateinvoicesendpointapiv1migrationmigrationinvoicespost) | **POST** /api/v1/migration/migration/invoices | Migrate invoices, provider paycodes, and payments from RTDB to Postgres
+*MigrationApi* | [**migrateLogsEndpointApiV1MigrationMigrationLogsPost**](doc//MigrationApi.md#migratelogsendpointapiv1migrationmigrationlogspost) | **POST** /api/v1/migration/migration/logs | Migrate application logs from RTDB to Postgres
+*MigrationApi* | [**migratePatientsEndpointApiV1MigrationMigrationPatientsPost**](doc//MigrationApi.md#migratepatientsendpointapiv1migrationmigrationpatientspost) | **POST** /api/v1/migration/migration/patients | Migrate patients from RTDB to Postgres
+*MigrationApi* | [**migrateProcessingReportsEndpointApiV1MigrationMigrationProcessingReportsPost**](doc//MigrationApi.md#migrateprocessingreportsendpointapiv1migrationmigrationprocessingreportspost) | **POST** /api/v1/migration/migration/processing-reports | Migrate processing reports from RTDB to Postgres
+*MigrationApi* | [**migrateProvidersEndpointApiV1MigrationMigrationProvidersPost**](doc//MigrationApi.md#migrateprovidersendpointapiv1migrationmigrationproviderspost) | **POST** /api/v1/migration/migration/providers | Migrate providers from RTDB to Postgres
+*MigrationApi* | [**migrateTempAssignmentsEndpointApiV1MigrationMigrationTempAssignmentsPost**](doc//MigrationApi.md#migratetempassignmentsendpointapiv1migrationmigrationtempassignmentspost) | **POST** /api/v1/migration/migration/temp-assignments | Migrate temporary assignments from RTDB to Postgres
 *NotificationsApi* | [**deleteAllNotificationsApiV1NotificationsDeleteEmployeeIdDelete**](doc//NotificationsApi.md#deleteallnotificationsapiv1notificationsdeleteemployeeiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id} | Delete All Notifications
 *NotificationsApi* | [**deleteNotificationApiV1NotificationsDeleteEmployeeIdNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationapiv1notificationsdeleteemployeeidnotificationiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id}/{notification_id} | Delete Notification
 *NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
@@ -135,12 +145,17 @@ Class | Method | HTTP request | Description
  - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
  - [CarePlanEntry](doc//CarePlanEntry.md)
- - [Clinic](doc//Clinic.md)
+ - [ClinicCreate](doc//ClinicCreate.md)
  - [ClinicInvoice](doc//ClinicInvoice.md)
+ - [ClinicRead](doc//ClinicRead.md)
+ - [ClinicUpdate](doc//ClinicUpdate.md)
  - [Consultant](doc//Consultant.md)
  - [ConsultantPay](doc//ConsultantPay.md)
  - [Employee](doc//Employee.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
+ - [EmployeeCreate](doc//EmployeeCreate.md)
+ - [EmployeeRead](doc//EmployeeRead.md)
+ - [EmployeeUpdate](doc//EmployeeUpdate.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [InvoicesResponse](doc//InvoicesResponse.md)
  - [Log](doc//Log.md)
