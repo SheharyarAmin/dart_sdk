@@ -12,13 +12,14 @@ Method | HTTP request | Description
 [**createPatientApiV1PatientsPost**](PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 [**deletePatientApiV1PatientsPatientIdDelete**](PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
 [**generateReportApiV1PatientsGenerateExcelsheetGet**](PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
+[**readPatientApiV1PatientsPatientIdGet**](PatientsApi.md#readpatientapiv1patientspatientidget) | **GET** /api/v1/patients/{patient_id} | Read Patient
 [**readPatientsApiV1PatientsGet**](PatientsApi.md#readpatientsapiv1patientsget) | **GET** /api/v1/patients/ | Read Patients
 [**updatePatientApiV1PatientsPatientIdPut**](PatientsApi.md#updatepatientapiv1patientspatientidput) | **PUT** /api/v1/patients/{patient_id} | Update Patient
-[**updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet**](PatientsApi.md#updatepatientfinancialsapiv1patientsupdatefinpatientidportalget) | **GET** /api/v1/patients/update-fin/{patient_id}/{portal} | Update Patient Financials
+[**updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut**](PatientsApi.md#updatepatientfinancialsapiv1patientsupdatefinpatientidportalput) | **PUT** /api/v1/patients/update-fin/{patient_id}/{portal} | Update Patient Financials
 
 
 # **createPatientApiV1PatientsPost**
-> Patient createPatientApiV1PatientsPost(patient)
+> Patient createPatientApiV1PatientsPost(bodyCreatePatientApiV1PatientsPost)
 
 Create Patient
 
@@ -29,10 +30,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
-final patient = Patient(); // Patient | 
+final bodyCreatePatientApiV1PatientsPost = BodyCreatePatientApiV1PatientsPost(); // BodyCreatePatientApiV1PatientsPost | 
 
 try {
-    final result = api_instance.createPatientApiV1PatientsPost(patient);
+    final result = api_instance.createPatientApiV1PatientsPost(bodyCreatePatientApiV1PatientsPost);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->createPatientApiV1PatientsPost: $e\n');
@@ -43,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **patient** | [**Patient**](Patient.md)|  | 
+ **bodyCreatePatientApiV1PatientsPost** | [**BodyCreatePatientApiV1PatientsPost**](BodyCreatePatientApiV1PatientsPost.md)|  | 
 
 ### Return type
 
@@ -141,6 +142,53 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **readPatientApiV1PatientsPatientIdGet**
+> Patient readPatientApiV1PatientsPatientIdGet(patientId, includeCCM, includePCM)
+
+Read Patient
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = PatientsApi();
+final patientId = patientId_example; // String | 
+final includeCCM = true; // bool | 
+final includePCM = true; // bool | 
+
+try {
+    final result = api_instance.readPatientApiV1PatientsPatientIdGet(patientId, includeCCM, includePCM);
+    print(result);
+} catch (e) {
+    print('Exception when calling PatientsApi->readPatientApiV1PatientsPatientIdGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patientId** | **String**|  | 
+ **includeCCM** | **bool**|  | [optional] [default to true]
+ **includePCM** | **bool**|  | [optional] [default to true]
+
+### Return type
+
+[**Patient**](Patient.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **readPatientsApiV1PatientsGet**
 > PatientsResponse readPatientsApiV1PatientsGet(patientName, clinicId, pcmClinicId, employeeId, pcmEmployeeId, providerId, pcmProviderId, regemployeeid, assignmentStatus, processedStatus, processingDate, sortBy, ascending, pageSize, pageToken, prevPageToken, refreshCurrentDataset, portal)
 
@@ -149,8 +197,6 @@ Read Patients
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
 final patientName = patientName_example; // String | 
@@ -201,7 +247,7 @@ Name | Type | Description  | Notes
  **pageToken** | **String**|  | [optional] 
  **prevPageToken** | **String**|  | [optional] 
  **refreshCurrentDataset** | **bool**|  | [optional] [default to false]
- **portal** | [**Portal**](.md)|  | [optional] 
+ **portal** | [**Portal**](.md)|  | [optional] [default to CCM]
 
 ### Return type
 
@@ -209,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -219,7 +265,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updatePatientApiV1PatientsPatientIdPut**
-> Patient updatePatientApiV1PatientsPatientIdPut(patientId, patient)
+> Patient updatePatientApiV1PatientsPatientIdPut(patientId, bodyUpdatePatientApiV1PatientsPatientIdPut)
 
 Update Patient
 
@@ -231,10 +277,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = PatientsApi();
 final patientId = patientId_example; // String | 
-final patient = Patient(); // Patient | 
+final bodyUpdatePatientApiV1PatientsPatientIdPut = BodyUpdatePatientApiV1PatientsPatientIdPut(); // BodyUpdatePatientApiV1PatientsPatientIdPut | 
 
 try {
-    final result = api_instance.updatePatientApiV1PatientsPatientIdPut(patientId, patient);
+    final result = api_instance.updatePatientApiV1PatientsPatientIdPut(patientId, bodyUpdatePatientApiV1PatientsPatientIdPut);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->updatePatientApiV1PatientsPatientIdPut: $e\n');
@@ -246,7 +292,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **patientId** | **String**|  | 
- **patient** | [**Patient**](Patient.md)|  | 
+ **bodyUpdatePatientApiV1PatientsPatientIdPut** | [**BodyUpdatePatientApiV1PatientsPatientIdPut**](BodyUpdatePatientApiV1PatientsPatientIdPut.md)|  | 
 
 ### Return type
 
@@ -263,8 +309,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet**
-> Patient updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet(patientId, portal, finNumber)
+# **updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut**
+> Patient updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut(patientId, portal, finNumber)
 
 Update Patient Financials
 
@@ -280,10 +326,10 @@ final portal = ; // Portal |
 final finNumber = finNumber_example; // String | 
 
 try {
-    final result = api_instance.updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet(patientId, portal, finNumber);
+    final result = api_instance.updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut(patientId, portal, finNumber);
     print(result);
 } catch (e) {
-    print('Exception when calling PatientsApi->updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet: $e\n');
+    print('Exception when calling PatientsApi->updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut: $e\n');
 }
 ```
 

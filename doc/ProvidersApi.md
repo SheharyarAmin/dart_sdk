@@ -11,11 +11,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut**](ProvidersApi.md#changeactivestatusapiv1providersprovideridchangeactivestatusput) | **PUT** /api/v1/providers/{provider_id}/change-active-status | Change Active Status
 [**changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut**](ProvidersApi.md#changedeletedstatusapiv1providersprovideridchangedeletedstatusput) | **PUT** /api/v1/providers/{provider_id}/change-deleted-status | Change Deleted Status
-[**createNewProviderApiV1ProvidersPost**](ProvidersApi.md#createnewproviderapiv1providerspost) | **POST** /api/v1/providers/ | Create New Provider
-[**deleteExistingProviderApiV1ProvidersProviderIdDelete**](ProvidersApi.md#deleteexistingproviderapiv1providersprovideriddelete) | **DELETE** /api/v1/providers/{provider_id} | Delete Existing Provider
+[**createProviderApiV1ProvidersPost**](ProvidersApi.md#createproviderapiv1providerspost) | **POST** /api/v1/providers/ | Create Provider
+[**deleteProviderApiV1ProvidersProviderIdDelete**](ProvidersApi.md#deleteproviderapiv1providersprovideriddelete) | **DELETE** /api/v1/providers/{provider_id} | Delete Provider
 [**readProviderApiV1ProvidersProviderIdGet**](ProvidersApi.md#readproviderapiv1providersprovideridget) | **GET** /api/v1/providers/{provider_id} | Read Provider
 [**readProvidersApiV1ProvidersGet**](ProvidersApi.md#readprovidersapiv1providersget) | **GET** /api/v1/providers/ | Read Providers
-[**updateExistingProviderApiV1ProvidersProviderIdPut**](ProvidersApi.md#updateexistingproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Existing Provider
+[**updateProviderApiV1ProvidersProviderIdPut**](ProvidersApi.md#updateproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Provider
 
 
 # **changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut**
@@ -104,10 +104,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **createNewProviderApiV1ProvidersPost**
-> Provider createNewProviderApiV1ProvidersPost(provider)
+# **createProviderApiV1ProvidersPost**
+> ProviderRead createProviderApiV1ProvidersPost(providerCreate)
 
-Create New Provider
+Create Provider
 
 ### Example
 ```dart
@@ -116,13 +116,13 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
-final provider = Provider(); // Provider | 
+final providerCreate = ProviderCreate(); // ProviderCreate | 
 
 try {
-    final result = api_instance.createNewProviderApiV1ProvidersPost(provider);
+    final result = api_instance.createProviderApiV1ProvidersPost(providerCreate);
     print(result);
 } catch (e) {
-    print('Exception when calling ProvidersApi->createNewProviderApiV1ProvidersPost: $e\n');
+    print('Exception when calling ProvidersApi->createProviderApiV1ProvidersPost: $e\n');
 }
 ```
 
@@ -130,11 +130,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **provider** | [**Provider**](Provider.md)|  | 
+ **providerCreate** | [**ProviderCreate**](ProviderCreate.md)|  | 
 
 ### Return type
 
-[**Provider**](Provider.md)
+[**ProviderRead**](ProviderRead.md)
 
 ### Authorization
 
@@ -147,10 +147,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteExistingProviderApiV1ProvidersProviderIdDelete**
-> Map<String, Provider> deleteExistingProviderApiV1ProvidersProviderIdDelete(providerId)
+# **deleteProviderApiV1ProvidersProviderIdDelete**
+> Map<String, String> deleteProviderApiV1ProvidersProviderIdDelete(providerId)
 
-Delete Existing Provider
+Delete Provider
 
 ### Example
 ```dart
@@ -162,10 +162,10 @@ final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
 
 try {
-    final result = api_instance.deleteExistingProviderApiV1ProvidersProviderIdDelete(providerId);
+    final result = api_instance.deleteProviderApiV1ProvidersProviderIdDelete(providerId);
     print(result);
 } catch (e) {
-    print('Exception when calling ProvidersApi->deleteExistingProviderApiV1ProvidersProviderIdDelete: $e\n');
+    print('Exception when calling ProvidersApi->deleteProviderApiV1ProvidersProviderIdDelete: $e\n');
 }
 ```
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, Provider>**](Provider.md)
+**Map<String, String>**
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readProviderApiV1ProvidersProviderIdGet**
-> Map<String, Provider> readProviderApiV1ProvidersProviderIdGet(providerId)
+> ProviderRead readProviderApiV1ProvidersProviderIdGet(providerId)
 
 Read Provider
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, Provider>**](Provider.md)
+[**ProviderRead**](ProviderRead.md)
 
 ### Authorization
 
@@ -234,15 +234,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readProvidersApiV1ProvidersGet**
-> Map<String, Provider> readProvidersApiV1ProvidersGet()
+> Map<String, ProviderRead> readProvidersApiV1ProvidersGet()
 
 Read Providers
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 
@@ -259,11 +257,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Map<String, Provider>**](Provider.md)
+[**Map<String, ProviderRead>**](ProviderRead.md)
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,10 +270,10 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateExistingProviderApiV1ProvidersProviderIdPut**
-> Map<String, Provider> updateExistingProviderApiV1ProvidersProviderIdPut(providerId, provider)
+# **updateProviderApiV1ProvidersProviderIdPut**
+> ProviderRead updateProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate)
 
-Update Existing Provider
+Update Provider
 
 ### Example
 ```dart
@@ -285,13 +283,13 @@ import 'package:openapi/api.dart';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
-final provider = Provider(); // Provider | 
+final providerUpdate = ProviderUpdate(); // ProviderUpdate | 
 
 try {
-    final result = api_instance.updateExistingProviderApiV1ProvidersProviderIdPut(providerId, provider);
+    final result = api_instance.updateProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate);
     print(result);
 } catch (e) {
-    print('Exception when calling ProvidersApi->updateExistingProviderApiV1ProvidersProviderIdPut: $e\n');
+    print('Exception when calling ProvidersApi->updateProviderApiV1ProvidersProviderIdPut: $e\n');
 }
 ```
 
@@ -300,11 +298,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerId** | **String**|  | 
- **provider** | [**Provider**](Provider.md)|  | 
+ **providerUpdate** | [**ProviderUpdate**](ProviderUpdate.md)|  | 
 
 ### Return type
 
-[**Map<String, Provider>**](Provider.md)
+[**ProviderRead**](ProviderRead.md)
 
 ### Authorization
 

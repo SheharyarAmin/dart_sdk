@@ -122,19 +122,19 @@ class ConsultantsApi {
     return null;
   }
 
-  /// Create New Consultant
+  /// Create Consultant
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [Consultant] consultant (required):
-  Future<Response> createNewConsultantApiV1ConsultantsPostWithHttpInfo(Consultant consultant,) async {
+  /// * [ConsultantCreate] consultantCreate (required):
+  Future<Response> createConsultantApiV1ConsultantsPostWithHttpInfo(ConsultantCreate consultantCreate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/';
 
     // ignore: prefer_final_locals
-    Object? postBody = consultant;
+    Object? postBody = consultantCreate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -154,13 +154,13 @@ class ConsultantsApi {
     );
   }
 
-  /// Create New Consultant
+  /// Create Consultant
   ///
   /// Parameters:
   ///
-  /// * [Consultant] consultant (required):
-  Future<Consultant?> createNewConsultantApiV1ConsultantsPost(Consultant consultant,) async {
-    final response = await createNewConsultantApiV1ConsultantsPostWithHttpInfo(consultant,);
+  /// * [ConsultantCreate] consultantCreate (required):
+  Future<ConsultantRead?> createConsultantApiV1ConsultantsPost(ConsultantCreate consultantCreate,) async {
+    final response = await createConsultantApiV1ConsultantsPostWithHttpInfo(consultantCreate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -168,20 +168,20 @@ class ConsultantsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Consultant',) as Consultant;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ConsultantRead',) as ConsultantRead;
     
     }
     return null;
   }
 
-  /// Delete Existing Consultant
+  /// Delete Consultant
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Response> deleteExistingConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(String consultantId,) async {
+  Future<Response> deleteConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(String consultantId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}'
       .replaceAll('{consultant_id}', consultantId);
@@ -207,13 +207,13 @@ class ConsultantsApi {
     );
   }
 
-  /// Delete Existing Consultant
+  /// Delete Consultant
   ///
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Consultant?> deleteExistingConsultantApiV1ConsultantsConsultantIdDelete(String consultantId,) async {
-    final response = await deleteExistingConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(consultantId,);
+  Future<Map<String, String>?> deleteConsultantApiV1ConsultantsConsultantIdDelete(String consultantId,) async {
+    final response = await deleteConsultantApiV1ConsultantsConsultantIdDeleteWithHttpInfo(consultantId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -221,8 +221,8 @@ class ConsultantsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Consultant',) as Consultant;
-    
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
+
     }
     return null;
   }
@@ -264,17 +264,11 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<Uint8List> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost(
-    Map<String, String> requestBody,
-  ) async {
-    final response =
-        await getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(
-      requestBody,
-    );
+  Future<void> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost(Map<String, String> requestBody,) async {
+    final response = await getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    return response.bodyBytes;
   }
 
   /// Read Consultant
@@ -315,7 +309,7 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [String] consultantId (required):
-  Future<Map<String, Consultant>?> readConsultantApiV1ConsultantsConsultantIdGet(String consultantId,) async {
+  Future<ConsultantRead?> readConsultantApiV1ConsultantsConsultantIdGet(String consultantId,) async {
     final response = await readConsultantApiV1ConsultantsConsultantIdGetWithHttpInfo(consultantId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -324,8 +318,8 @@ class ConsultantsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Consultant>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Consultant>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ConsultantRead',) as ConsultantRead;
+    
     }
     return null;
   }
@@ -359,7 +353,7 @@ class ConsultantsApi {
   }
 
   /// Read Consultants
-  Future<Map<String, Consultant>?> readConsultantsApiV1ConsultantsGet() async {
+  Future<Map<String, ConsultantRead>?> readConsultantsApiV1ConsultantsGet() async {
     final response = await readConsultantsApiV1ConsultantsGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -368,13 +362,13 @@ class ConsultantsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Consultant>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Consultant>'),);
+      return Map<String, ConsultantRead>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ConsultantRead>'),);
 
     }
     return null;
   }
 
-  /// Update Existing Consultant
+  /// Update Consultant
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -382,14 +376,14 @@ class ConsultantsApi {
   ///
   /// * [String] consultantId (required):
   ///
-  /// * [Consultant] consultant (required):
-  Future<Response> updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(String consultantId, Consultant consultant,) async {
+  /// * [ConsultantUpdate] consultantUpdate (required):
+  Future<Response> updateConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(String consultantId, ConsultantUpdate consultantUpdate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/consultants/{consultant_id}'
       .replaceAll('{consultant_id}', consultantId);
 
     // ignore: prefer_final_locals
-    Object? postBody = consultant;
+    Object? postBody = consultantUpdate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -409,15 +403,15 @@ class ConsultantsApi {
     );
   }
 
-  /// Update Existing Consultant
+  /// Update Consultant
   ///
   /// Parameters:
   ///
   /// * [String] consultantId (required):
   ///
-  /// * [Consultant] consultant (required):
-  Future<Consultant?> updateExistingConsultantApiV1ConsultantsConsultantIdPut(String consultantId, Consultant consultant,) async {
-    final response = await updateExistingConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(consultantId, consultant,);
+  /// * [ConsultantUpdate] consultantUpdate (required):
+  Future<ConsultantRead?> updateConsultantApiV1ConsultantsConsultantIdPut(String consultantId, ConsultantUpdate consultantUpdate,) async {
+    final response = await updateConsultantApiV1ConsultantsConsultantIdPutWithHttpInfo(consultantId, consultantUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -425,7 +419,7 @@ class ConsultantsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Consultant',) as Consultant;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ConsultantRead',) as ConsultantRead;
     
     }
     return null;

@@ -122,19 +122,19 @@ class ProvidersApi {
     return null;
   }
 
-  /// Create New Provider
+  /// Create Provider
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [Provider] provider (required):
-  Future<Response> createNewProviderApiV1ProvidersPostWithHttpInfo(Provider provider,) async {
+  /// * [ProviderCreate] providerCreate (required):
+  Future<Response> createProviderApiV1ProvidersPostWithHttpInfo(ProviderCreate providerCreate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/';
 
     // ignore: prefer_final_locals
-    Object? postBody = provider;
+    Object? postBody = providerCreate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -154,13 +154,13 @@ class ProvidersApi {
     );
   }
 
-  /// Create New Provider
+  /// Create Provider
   ///
   /// Parameters:
   ///
-  /// * [Provider] provider (required):
-  Future<Provider?> createNewProviderApiV1ProvidersPost(Provider provider,) async {
-    final response = await createNewProviderApiV1ProvidersPostWithHttpInfo(provider,);
+  /// * [ProviderCreate] providerCreate (required):
+  Future<ProviderRead?> createProviderApiV1ProvidersPost(ProviderCreate providerCreate,) async {
+    final response = await createProviderApiV1ProvidersPostWithHttpInfo(providerCreate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -168,20 +168,20 @@ class ProvidersApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Provider',) as Provider;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ProviderRead',) as ProviderRead;
     
     }
     return null;
   }
 
-  /// Delete Existing Provider
+  /// Delete Provider
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  Future<Response> deleteExistingProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(String providerId,) async {
+  Future<Response> deleteProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(String providerId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}'
       .replaceAll('{provider_id}', providerId);
@@ -207,13 +207,13 @@ class ProvidersApi {
     );
   }
 
-  /// Delete Existing Provider
+  /// Delete Provider
   ///
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  Future<Map<String, Provider>?> deleteExistingProviderApiV1ProvidersProviderIdDelete(String providerId,) async {
-    final response = await deleteExistingProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(providerId,);
+  Future<Map<String, String>?> deleteProviderApiV1ProvidersProviderIdDelete(String providerId,) async {
+    final response = await deleteProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(providerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -221,7 +221,7 @@ class ProvidersApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Provider>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Provider>'),);
+      return Map<String, String>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, String>'),);
 
     }
     return null;
@@ -265,7 +265,7 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  Future<Map<String, Provider>?> readProviderApiV1ProvidersProviderIdGet(String providerId,) async {
+  Future<ProviderRead?> readProviderApiV1ProvidersProviderIdGet(String providerId,) async {
     final response = await readProviderApiV1ProvidersProviderIdGetWithHttpInfo(providerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -274,8 +274,8 @@ class ProvidersApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Provider>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Provider>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ProviderRead',) as ProviderRead;
+    
     }
     return null;
   }
@@ -309,7 +309,7 @@ class ProvidersApi {
   }
 
   /// Read Providers
-  Future<Map<String, Provider>?> readProvidersApiV1ProvidersGet() async {
+  Future<Map<String, ProviderRead>?> readProvidersApiV1ProvidersGet() async {
     final response = await readProvidersApiV1ProvidersGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -318,13 +318,13 @@ class ProvidersApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Provider>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Provider>'),);
+      return Map<String, ProviderRead>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ProviderRead>'),);
 
     }
     return null;
   }
 
-  /// Update Existing Provider
+  /// Update Provider
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -332,14 +332,14 @@ class ProvidersApi {
   ///
   /// * [String] providerId (required):
   ///
-  /// * [Provider] provider (required):
-  Future<Response> updateExistingProviderApiV1ProvidersProviderIdPutWithHttpInfo(String providerId, Provider provider,) async {
+  /// * [ProviderUpdate] providerUpdate (required):
+  Future<Response> updateProviderApiV1ProvidersProviderIdPutWithHttpInfo(String providerId, ProviderUpdate providerUpdate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}'
       .replaceAll('{provider_id}', providerId);
 
     // ignore: prefer_final_locals
-    Object? postBody = provider;
+    Object? postBody = providerUpdate;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -359,15 +359,15 @@ class ProvidersApi {
     );
   }
 
-  /// Update Existing Provider
+  /// Update Provider
   ///
   /// Parameters:
   ///
   /// * [String] providerId (required):
   ///
-  /// * [Provider] provider (required):
-  Future<Map<String, Provider>?> updateExistingProviderApiV1ProvidersProviderIdPut(String providerId, Provider provider,) async {
-    final response = await updateExistingProviderApiV1ProvidersProviderIdPutWithHttpInfo(providerId, provider,);
+  /// * [ProviderUpdate] providerUpdate (required):
+  Future<ProviderRead?> updateProviderApiV1ProvidersProviderIdPut(String providerId, ProviderUpdate providerUpdate,) async {
+    final response = await updateProviderApiV1ProvidersProviderIdPutWithHttpInfo(providerId, providerUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -375,8 +375,8 @@ class ProvidersApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, Provider>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, Provider>'),);
-
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ProviderRead',) as ProviderRead;
+    
     }
     return null;
   }

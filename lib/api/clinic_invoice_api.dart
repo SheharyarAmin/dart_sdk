@@ -18,6 +18,8 @@ class ClinicInvoiceApi {
 
   /// Create Clinic Invoice
   ///
+  /// Create a new invoice for a clinic
+  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -62,6 +64,8 @@ class ClinicInvoiceApi {
 
   /// Create Clinic Invoice
   ///
+  /// Create a new invoice for a clinic
+  ///
   /// Parameters:
   ///
   /// * [String] clinicid (required):
@@ -85,6 +89,8 @@ class ClinicInvoiceApi {
   }
 
   /// Delete Clinic Invoice
+  ///
+  /// Delete an invoice for a clinic
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -122,6 +128,8 @@ class ClinicInvoiceApi {
 
   /// Delete Clinic Invoice
   ///
+  /// Delete an invoice for a clinic
+  ///
   /// Parameters:
   ///
   /// * [String] clinicid (required):
@@ -143,6 +151,8 @@ class ClinicInvoiceApi {
   }
 
   /// Read All Invoices
+  ///
+  /// Get all invoices with filtering, pagination and sorting
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -175,7 +185,9 @@ class ClinicInvoiceApi {
   /// * [String] sortBy:
   ///
   /// * [bool] ascending:
-  Future<Response> readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo({ int? pageSize, String? pageToken, String? clinicid, int? invoiceNumber, num? grandTotal, num? amountPaid, int? patientsCount, num? amountLeft, String? dueDateTo, String? dueDateFrom, String? monthYearFrom, String? monthYearTo, String? sortBy, bool? ascending, }) async {
+  ///
+  /// * [Portal] portal:
+  Future<Response> readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo({ int? pageSize, String? pageToken, String? clinicid, int? invoiceNumber, num? grandTotal, num? amountPaid, int? patientsCount, num? amountLeft, String? dueDateTo, String? dueDateFrom, String? monthYearFrom, String? monthYearTo, String? sortBy, bool? ascending, Portal? portal, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/';
 
@@ -228,6 +240,9 @@ class ClinicInvoiceApi {
     if (ascending != null) {
       queryParams.addAll(_queryParams('', 'ascending', ascending));
     }
+    if (portal != null) {
+      queryParams.addAll(_queryParams('', 'portal', portal));
+    }
 
     const contentTypes = <String>[];
 
@@ -244,6 +259,8 @@ class ClinicInvoiceApi {
   }
 
   /// Read All Invoices
+  ///
+  /// Get all invoices with filtering, pagination and sorting
   ///
   /// Parameters:
   ///
@@ -274,8 +291,10 @@ class ClinicInvoiceApi {
   /// * [String] sortBy:
   ///
   /// * [bool] ascending:
-  Future<InvoicesResponse?> readAllInvoicesApiV1ClinicInvoiceGet({ int? pageSize, String? pageToken, String? clinicid, int? invoiceNumber, num? grandTotal, num? amountPaid, int? patientsCount, num? amountLeft, String? dueDateTo, String? dueDateFrom, String? monthYearFrom, String? monthYearTo, String? sortBy, bool? ascending, }) async {
-    final response = await readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo( pageSize: pageSize, pageToken: pageToken, clinicid: clinicid, invoiceNumber: invoiceNumber, grandTotal: grandTotal, amountPaid: amountPaid, patientsCount: patientsCount, amountLeft: amountLeft, dueDateTo: dueDateTo, dueDateFrom: dueDateFrom, monthYearFrom: monthYearFrom, monthYearTo: monthYearTo, sortBy: sortBy, ascending: ascending, );
+  ///
+  /// * [Portal] portal:
+  Future<InvoicesResponse?> readAllInvoicesApiV1ClinicInvoiceGet({ int? pageSize, String? pageToken, String? clinicid, int? invoiceNumber, num? grandTotal, num? amountPaid, int? patientsCount, num? amountLeft, String? dueDateTo, String? dueDateFrom, String? monthYearFrom, String? monthYearTo, String? sortBy, bool? ascending, Portal? portal, }) async {
+    final response = await readAllInvoicesApiV1ClinicInvoiceGetWithHttpInfo( pageSize: pageSize, pageToken: pageToken, clinicid: clinicid, invoiceNumber: invoiceNumber, grandTotal: grandTotal, amountPaid: amountPaid, patientsCount: patientsCount, amountLeft: amountLeft, dueDateTo: dueDateTo, dueDateFrom: dueDateFrom, monthYearFrom: monthYearFrom, monthYearTo: monthYearTo, sortBy: sortBy, ascending: ascending, portal: portal, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -285,6 +304,71 @@ class ClinicInvoiceApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InvoicesResponse',) as InvoicesResponse;
     
+    }
+    return null;
+  }
+
+  /// Read Clinic Invoices
+  ///
+  /// Get all invoices for a specific clinic
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] clinicid (required):
+  ///
+  /// * [Portal] portal:
+  Future<Response> readClinicInvoicesApiV1ClinicInvoiceClinicidGetWithHttpInfo(String clinicid, { Portal? portal, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/clinic-invoice/{clinicid}/'
+      .replaceAll('{clinicid}', clinicid);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (portal != null) {
+      queryParams.addAll(_queryParams('', 'portal', portal));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Read Clinic Invoices
+  ///
+  /// Get all invoices for a specific clinic
+  ///
+  /// Parameters:
+  ///
+  /// * [String] clinicid (required):
+  ///
+  /// * [Portal] portal:
+  Future<Map<String, ClinicInvoice>?> readClinicInvoicesApiV1ClinicInvoiceClinicidGet(String clinicid, { Portal? portal, }) async {
+    final response = await readClinicInvoicesApiV1ClinicInvoiceClinicidGetWithHttpInfo(clinicid,  portal: portal, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return Map<String, ClinicInvoice>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ClinicInvoice>'),);
+
     }
     return null;
   }

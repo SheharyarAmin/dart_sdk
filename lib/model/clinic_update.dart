@@ -14,7 +14,7 @@ class ClinicUpdate {
   /// Returns a new [ClinicUpdate] instance.
   ClinicUpdate({
     this.name,
-    this.customerId,
+    this.customerid,
     this.address,
     this.status,
     this.portal,
@@ -23,12 +23,12 @@ class ClinicUpdate {
     this.fax,
     this.region,
     this.poc,
-    this.consultantIds = const [],
+    this.consultantids = const [],
   });
 
   String? name;
 
-  String? customerId;
+  String? customerid;
 
   String? address;
 
@@ -46,12 +46,12 @@ class ClinicUpdate {
 
   String? poc;
 
-  List<String>? consultantIds;
+  List<String>? consultantids;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ClinicUpdate &&
     other.name == name &&
-    other.customerId == customerId &&
+    other.customerid == customerid &&
     other.address == address &&
     other.status == status &&
     other.portal == portal &&
@@ -60,13 +60,13 @@ class ClinicUpdate {
     other.fax == fax &&
     other.region == region &&
     other.poc == poc &&
-    _deepEquality.equals(other.consultantIds, consultantIds);
+    _deepEquality.equals(other.consultantids, consultantids);
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (name == null ? 0 : name!.hashCode) +
-    (customerId == null ? 0 : customerId!.hashCode) +
+    (customerid == null ? 0 : customerid!.hashCode) +
     (address == null ? 0 : address!.hashCode) +
     (status == null ? 0 : status!.hashCode) +
     (portal == null ? 0 : portal!.hashCode) +
@@ -75,10 +75,10 @@ class ClinicUpdate {
     (fax == null ? 0 : fax!.hashCode) +
     (region == null ? 0 : region!.hashCode) +
     (poc == null ? 0 : poc!.hashCode) +
-    (consultantIds == null ? 0 : consultantIds!.hashCode);
+    (consultantids == null ? 0 : consultantids!.hashCode);
 
   @override
-  String toString() => 'ClinicUpdate[name=$name, customerId=$customerId, address=$address, status=$status, portal=$portal, email=$email, phone=$phone, fax=$fax, region=$region, poc=$poc, consultantIds=$consultantIds]';
+  String toString() => 'ClinicUpdate[name=$name, customerid=$customerid, address=$address, status=$status, portal=$portal, email=$email, phone=$phone, fax=$fax, region=$region, poc=$poc, consultantids=$consultantids]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -87,10 +87,10 @@ class ClinicUpdate {
     } else {
       json[r'name'] = null;
     }
-    if (this.customerId != null) {
-      json[r'customer_id'] = this.customerId;
+    if (this.customerid != null) {
+      json[r'customerid'] = this.customerid;
     } else {
-      json[r'customer_id'] = null;
+      json[r'customerid'] = null;
     }
     if (this.address != null) {
       json[r'address'] = this.address;
@@ -132,10 +132,10 @@ class ClinicUpdate {
     } else {
       json[r'poc'] = null;
     }
-    if (this.consultantIds != null) {
-      json[r'consultant_ids'] = this.consultantIds;
+    if (this.consultantids != null) {
+      json[r'consultantids'] = this.consultantids;
     } else {
-      json[r'consultant_ids'] = null;
+      json[r'consultantids'] = null;
     }
     return json;
   }
@@ -160,7 +160,7 @@ class ClinicUpdate {
 
       return ClinicUpdate(
         name: mapValueOfType<String>(json, r'name'),
-        customerId: mapValueOfType<String>(json, r'customer_id'),
+        customerid: mapValueOfType<String>(json, r'customerid'),
         address: mapValueOfType<String>(json, r'address'),
         status: mapValueOfType<String>(json, r'status'),
         portal: Portal.fromJson(json[r'portal']),
@@ -169,8 +169,8 @@ class ClinicUpdate {
         fax: mapValueOfType<String>(json, r'fax'),
         region: mapValueOfType<String>(json, r'region'),
         poc: mapValueOfType<String>(json, r'poc'),
-        consultantIds: json[r'consultant_ids'] is Iterable
-            ? (json[r'consultant_ids'] as Iterable).cast<String>().toList(growable: false)
+        consultantids: json[r'consultantids'] is Iterable
+            ? (json[r'consultantids'] as Iterable).cast<String>().toList(growable: false)
             : const [],
       );
     }

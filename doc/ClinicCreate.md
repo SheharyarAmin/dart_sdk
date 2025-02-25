@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**customerId** | **String** |  | [optional] 
+**customerid** | **String** |  | [optional] 
 **address** | **String** |  | 
 **status** | **String** |  | [optional] [default to 'Active']
 **portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **fax** | **String** |  | 
 **region** | **String** |  | 
 **poc** | **String** |  | 
-**consultantIds** | **List<String>** |  | [optional] [default to const []]
+**consultantids** | **List<String>** |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

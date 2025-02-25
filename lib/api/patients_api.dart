@@ -22,13 +22,13 @@ class PatientsApi {
   ///
   /// Parameters:
   ///
-  /// * [Patient] patient (required):
-  Future<Response> createPatientApiV1PatientsPostWithHttpInfo(Patient patient,) async {
+  /// * [BodyCreatePatientApiV1PatientsPost] bodyCreatePatientApiV1PatientsPost (required):
+  Future<Response> createPatientApiV1PatientsPostWithHttpInfo(BodyCreatePatientApiV1PatientsPost bodyCreatePatientApiV1PatientsPost,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/';
 
     // ignore: prefer_final_locals
-    Object? postBody = patient;
+    Object? postBody = bodyCreatePatientApiV1PatientsPost;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -52,9 +52,9 @@ class PatientsApi {
   ///
   /// Parameters:
   ///
-  /// * [Patient] patient (required):
-  Future<Patient?> createPatientApiV1PatientsPost(Patient patient,) async {
-    final response = await createPatientApiV1PatientsPostWithHttpInfo(patient,);
+  /// * [BodyCreatePatientApiV1PatientsPost] bodyCreatePatientApiV1PatientsPost (required):
+  Future<Patient?> createPatientApiV1PatientsPost(BodyCreatePatientApiV1PatientsPost bodyCreatePatientApiV1PatientsPost,) async {
+    final response = await createPatientApiV1PatientsPostWithHttpInfo(bodyCreatePatientApiV1PatientsPost,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -151,12 +151,79 @@ class PatientsApi {
 
   /// Generate Report
   Future<Uint8List> generateReportApiV1PatientsGenerateExcelsheetGet() async {
-    final response =
-        await generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo();
+    final response = await generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     return response.bodyBytes;
+  }
+
+  /// Read Patient
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] patientId (required):
+  ///
+  /// * [bool] includeCCM:
+  ///
+  /// * [bool] includePCM:
+  Future<Response> readPatientApiV1PatientsPatientIdGetWithHttpInfo(String patientId, { bool? includeCCM, bool? includePCM, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/patients/{patient_id}'
+      .replaceAll('{patient_id}', patientId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (includeCCM != null) {
+      queryParams.addAll(_queryParams('', 'includeCCM', includeCCM));
+    }
+    if (includePCM != null) {
+      queryParams.addAll(_queryParams('', 'includePCM', includePCM));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Read Patient
+  ///
+  /// Parameters:
+  ///
+  /// * [String] patientId (required):
+  ///
+  /// * [bool] includeCCM:
+  ///
+  /// * [bool] includePCM:
+  Future<Patient?> readPatientApiV1PatientsPatientIdGet(String patientId, { bool? includeCCM, bool? includePCM, }) async {
+    final response = await readPatientApiV1PatientsPatientIdGetWithHttpInfo(patientId,  includeCCM: includeCCM, includePCM: includePCM, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Patient',) as Patient;
+    
+    }
+    return null;
   }
 
   /// Read Patients
@@ -342,14 +409,14 @@ class PatientsApi {
   ///
   /// * [String] patientId (required):
   ///
-  /// * [Patient] patient (required):
-  Future<Response> updatePatientApiV1PatientsPatientIdPutWithHttpInfo(String patientId, Patient patient,) async {
+  /// * [BodyUpdatePatientApiV1PatientsPatientIdPut] bodyUpdatePatientApiV1PatientsPatientIdPut (required):
+  Future<Response> updatePatientApiV1PatientsPatientIdPutWithHttpInfo(String patientId, BodyUpdatePatientApiV1PatientsPatientIdPut bodyUpdatePatientApiV1PatientsPatientIdPut,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/{patient_id}'
       .replaceAll('{patient_id}', patientId);
 
     // ignore: prefer_final_locals
-    Object? postBody = patient;
+    Object? postBody = bodyUpdatePatientApiV1PatientsPatientIdPut;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -375,9 +442,9 @@ class PatientsApi {
   ///
   /// * [String] patientId (required):
   ///
-  /// * [Patient] patient (required):
-  Future<Patient?> updatePatientApiV1PatientsPatientIdPut(String patientId, Patient patient,) async {
-    final response = await updatePatientApiV1PatientsPatientIdPutWithHttpInfo(patientId, patient,);
+  /// * [BodyUpdatePatientApiV1PatientsPatientIdPut] bodyUpdatePatientApiV1PatientsPatientIdPut (required):
+  Future<Patient?> updatePatientApiV1PatientsPatientIdPut(String patientId, BodyUpdatePatientApiV1PatientsPatientIdPut bodyUpdatePatientApiV1PatientsPatientIdPut,) async {
+    final response = await updatePatientApiV1PatientsPatientIdPutWithHttpInfo(patientId, bodyUpdatePatientApiV1PatientsPatientIdPut,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -402,7 +469,7 @@ class PatientsApi {
   /// * [Portal] portal (required):
   ///
   /// * [String] finNumber (required):
-  Future<Response> updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGetWithHttpInfo(String patientId, Portal portal, String finNumber,) async {
+  Future<Response> updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPutWithHttpInfo(String patientId, Portal portal, String finNumber,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/update-fin/{patient_id}/{portal}'
       .replaceAll('{patient_id}', patientId)
@@ -422,7 +489,7 @@ class PatientsApi {
 
     return apiClient.invokeAPI(
       path,
-      'GET',
+      'PUT',
       queryParams,
       postBody,
       headerParams,
@@ -440,8 +507,8 @@ class PatientsApi {
   /// * [Portal] portal (required):
   ///
   /// * [String] finNumber (required):
-  Future<Patient?> updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet(String patientId, Portal portal, String finNumber,) async {
-    final response = await updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGetWithHttpInfo(patientId, portal, finNumber,);
+  Future<Patient?> updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut(String patientId, Portal portal, String finNumber,) async {
+    final response = await updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPutWithHttpInfo(patientId, portal, finNumber,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

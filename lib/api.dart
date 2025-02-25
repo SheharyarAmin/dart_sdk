@@ -42,7 +42,7 @@ part 'api/manager_api.dart';
 part 'api/migration_api.dart';
 part 'api/notifications_api.dart';
 part 'api/patients_api.dart';
-part 'api/payments_api.dart';
+part 'api/payment_details_api.dart';
 part 'api/processed_patient_api.dart';
 part 'api/providers_api.dart';
 part 'api/reports_api.dart';
@@ -50,13 +50,18 @@ part 'api/temp_assignments_api.dart';
 
 part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
+part 'model/body_create_patient_api_v1_patients_post.dart';
+part 'model/body_update_patient_api_v1_patients_patient_id_put.dart';
+part 'model/ccm_patient_create.dart';
+part 'model/ccm_patient_update.dart';
 part 'model/care_plan_entry.dart';
 part 'model/clinic_create.dart';
 part 'model/clinic_invoice.dart';
 part 'model/clinic_read.dart';
 part 'model/clinic_update.dart';
-part 'model/consultant.dart';
-part 'model/consultant_pay.dart';
+part 'model/consultant_create.dart';
+part 'model/consultant_read.dart';
+part 'model/consultant_update.dart';
 part 'model/employee.dart';
 part 'model/employee_by_processed_patients.dart';
 part 'model/employee_create.dart';
@@ -69,8 +74,13 @@ part 'model/manager_response.dart';
 part 'model/notification.dart';
 part 'model/opt_in_employee_log_entry.dart';
 part 'model/opt_in_employee_log_entry_base.dart';
+part 'model/pcm_patient_create.dart';
+part 'model/pcm_patient_update.dart';
+part 'model/pagination_metadata.dart';
 part 'model/patient.dart';
+part 'model/patient_create.dart';
 part 'model/patient_payment_entry.dart';
+part 'model/patient_update.dart';
 part 'model/patients_response.dart';
 part 'model/payment_detail.dart';
 part 'model/payments_response.dart';
@@ -78,12 +88,19 @@ part 'model/portal.dart';
 part 'model/processed_patient_entry.dart';
 part 'model/processed_patient_entry_for_front_end.dart';
 part 'model/processed_patient_entry_from_front_end.dart';
-part 'model/provider.dart';
+part 'model/provider_create.dart';
+part 'model/provider_pay_rate.dart';
+part 'model/provider_pay_rate_create.dart';
+part 'model/provider_pay_rate_update.dart';
+part 'model/provider_read.dart';
+part 'model/provider_update.dart';
+part 'model/temp_assignment.dart';
 part 'model/temp_assignment_create.dart';
 part 'model/temp_assignment_emp_lists.dart';
 part 'model/token.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
+
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
@@ -97,5 +114,4 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) =>
-    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

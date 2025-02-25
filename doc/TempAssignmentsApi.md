@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**](TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempidportaldelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid}/{portal} | Assign Patients Back To Original Route
 [**createTempAssignmentRouteApiV1TempAssignmentsPost**](TempAssignmentsApi.md#createtempassignmentrouteapiv1tempassignmentspost) | **POST** /api/v1/temp-assignments/ | Create Temp Assignment Route
 [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet**](TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallemployeesget) | **GET** /api/v1/temp-assignments/all-employees | Fetch All From Emp Ids Route
+[**updateTempAssignmentRouteApiV1TempAssignmentsUpdatePortalPut**](TempAssignmentsApi.md#updatetempassignmentrouteapiv1tempassignmentsupdateportalput) | **PUT** /api/v1/temp-assignments/update/{portal} | Update Temp Assignment Route
 
 
 # **assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**
@@ -19,7 +20,7 @@ Method | HTTP request | Description
 
 Assign Patients Back To Original Route
 
-Assign patients back to their original assignments for a specific employee.  Args:     empid (str): The employee ID.     user (User): The current active admin user.  Returns:     None
+Assign patients back to their original assignments for a specific employee.  Args:     empid (str): The employee ID.     portal (Portal): The portal (CCM/PCM).     user (User): The current active admin user.  Returns:     Dict[str, str]: A message indicating the result.
 
 ### Example
 ```dart
@@ -111,7 +112,7 @@ Name | Type | Description  | Notes
 
 Fetch All From Emp Ids Route
 
-Fetch all temporary assignments from employee IDs.  Args:     user (User): The current active user.  Returns:     List[str]: A list of employee IDs.
+Fetch all temporary assignments from employee IDs.  Args:     user (User): The current active user.  Returns:     TempAssignmentEmpLists: Lists of employees with temporary assignments.
 
 ### Example
 ```dart
@@ -143,6 +144,53 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateTempAssignmentRouteApiV1TempAssignmentsUpdatePortalPut**
+> Map<String, String> updateTempAssignmentRouteApiV1TempAssignmentsUpdatePortalPut(portal, tempAssignment)
+
+Update Temp Assignment Route
+
+Update a temporary assignment for a specific portal.  Args:     temp_assignment (TempAssignment): The updated assignment data     portal (Portal): The portal (CCM/PCM)     user (User): The current active user      Returns:     Dict[str, str]: A message indicating the result
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = TempAssignmentsApi();
+final portal = ; // Portal | 
+final tempAssignment = TempAssignment(); // TempAssignment | 
+
+try {
+    final result = api_instance.updateTempAssignmentRouteApiV1TempAssignmentsUpdatePortalPut(portal, tempAssignment);
+    print(result);
+} catch (e) {
+    print('Exception when calling TempAssignmentsApi->updateTempAssignmentRouteApiV1TempAssignmentsUpdatePortalPut: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portal** | [**Portal**](.md)|  | 
+ **tempAssignment** | [**TempAssignment**](TempAssignment.md)|  | 
+
+### Return type
+
+**Map<String, String>**
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

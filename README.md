@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
 *ClinicInvoiceApi* | [**createClinicInvoiceApiV1ClinicInvoiceClinicidPost**](doc//ClinicInvoiceApi.md#createclinicinvoiceapiv1clinicinvoiceclinicidpost) | **POST** /api/v1/clinic-invoice/{clinicid}/ | Create Clinic Invoice
 *ClinicInvoiceApi* | [**deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**](doc//ClinicInvoiceApi.md#deleteclinicinvoiceapiv1clinicinvoiceclinicidinvoicenumberdelete) | **DELETE** /api/v1/clinic-invoice/{clinicid}/{invoice_number} | Delete Clinic Invoice
 *ClinicInvoiceApi* | [**readAllInvoicesApiV1ClinicInvoiceGet**](doc//ClinicInvoiceApi.md#readallinvoicesapiv1clinicinvoiceget) | **GET** /api/v1/clinic-invoice/ | Read All Invoices
+*ClinicInvoiceApi* | [**readClinicInvoicesApiV1ClinicInvoiceClinicidGet**](doc//ClinicInvoiceApi.md#readclinicinvoicesapiv1clinicinvoiceclinicidget) | **GET** /api/v1/clinic-invoice/{clinicid}/ | Read Clinic Invoices
 *ClinicsApi* | [**changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut**](doc//ClinicsApi.md#changeactivestatusapiv1clinicsclinicidchangeactivestatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-active-status | Change Active Status
 *ClinicsApi* | [**changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**](doc//ClinicsApi.md#changedeletedstatusapiv1clinicsclinicidchangedeletedstatusput) | **PUT** /api/v1/clinics/{clinic_id}/change-deleted-status | Change Deleted Status
 *ClinicsApi* | [**createClinicApiV1ClinicsPost**](doc//ClinicsApi.md#createclinicapiv1clinicspost) | **POST** /api/v1/clinics/ | Create Clinic
@@ -77,12 +78,12 @@ Class | Method | HTTP request | Description
 *ClinicsApi* | [**updateClinicApiV1ClinicsClinicIdPut**](doc//ClinicsApi.md#updateclinicapiv1clinicsclinicidput) | **PUT** /api/v1/clinics/{clinic_id} | Update Clinic
 *ConsultantsApi* | [**changeActiveStatusApiV1ConsultantsConsultantIdChangeActiveStatusPut**](doc//ConsultantsApi.md#changeactivestatusapiv1consultantsconsultantidchangeactivestatusput) | **PUT** /api/v1/consultants/{consultant_id}/change-active-status | Change Active Status
 *ConsultantsApi* | [**changeDeletedStatusApiV1ConsultantsConsultantIdChangeDeletedStatusPut**](doc//ConsultantsApi.md#changedeletedstatusapiv1consultantsconsultantidchangedeletedstatusput) | **PUT** /api/v1/consultants/{consultant_id}/change-deleted-status | Change Deleted Status
-*ConsultantsApi* | [**createNewConsultantApiV1ConsultantsPost**](doc//ConsultantsApi.md#createnewconsultantapiv1consultantspost) | **POST** /api/v1/consultants/ | Create New Consultant
-*ConsultantsApi* | [**deleteExistingConsultantApiV1ConsultantsConsultantIdDelete**](doc//ConsultantsApi.md#deleteexistingconsultantapiv1consultantsconsultantiddelete) | **DELETE** /api/v1/consultants/{consultant_id} | Delete Existing Consultant
+*ConsultantsApi* | [**createConsultantApiV1ConsultantsPost**](doc//ConsultantsApi.md#createconsultantapiv1consultantspost) | **POST** /api/v1/consultants/ | Create Consultant
+*ConsultantsApi* | [**deleteConsultantApiV1ConsultantsConsultantIdDelete**](doc//ConsultantsApi.md#deleteconsultantapiv1consultantsconsultantiddelete) | **DELETE** /api/v1/consultants/{consultant_id} | Delete Consultant
 *ConsultantsApi* | [**getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost**](doc//ConsultantsApi.md#getconsultantinvoiceapiv1consultantsconsultantinvoicepost) | **POST** /api/v1/consultants/consultant-invoice | Get Consultant Invoice
 *ConsultantsApi* | [**readConsultantApiV1ConsultantsConsultantIdGet**](doc//ConsultantsApi.md#readconsultantapiv1consultantsconsultantidget) | **GET** /api/v1/consultants/{consultant_id} | Read Consultant
 *ConsultantsApi* | [**readConsultantsApiV1ConsultantsGet**](doc//ConsultantsApi.md#readconsultantsapiv1consultantsget) | **GET** /api/v1/consultants/ | Read Consultants
-*ConsultantsApi* | [**updateExistingConsultantApiV1ConsultantsConsultantIdPut**](doc//ConsultantsApi.md#updateexistingconsultantapiv1consultantsconsultantidput) | **PUT** /api/v1/consultants/{consultant_id} | Update Existing Consultant
+*ConsultantsApi* | [**updateConsultantApiV1ConsultantsConsultantIdPut**](doc//ConsultantsApi.md#updateconsultantapiv1consultantsconsultantidput) | **PUT** /api/v1/consultants/{consultant_id} | Update Consultant
 *DefaultApi* | [**loginForAccessTokenAuthTokenPost**](doc//DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
 *DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 *DefaultApi* | [**refreshAccessTokenAuthRefreshPost**](doc//DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
@@ -117,40 +118,47 @@ Class | Method | HTTP request | Description
 *PatientsApi* | [**createPatientApiV1PatientsPost**](doc//PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 *PatientsApi* | [**deletePatientApiV1PatientsPatientIdDelete**](doc//PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
 *PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetGet**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
+*PatientsApi* | [**readPatientApiV1PatientsPatientIdGet**](doc//PatientsApi.md#readpatientapiv1patientspatientidget) | **GET** /api/v1/patients/{patient_id} | Read Patient
 *PatientsApi* | [**readPatientsApiV1PatientsGet**](doc//PatientsApi.md#readpatientsapiv1patientsget) | **GET** /api/v1/patients/ | Read Patients
 *PatientsApi* | [**updatePatientApiV1PatientsPatientIdPut**](doc//PatientsApi.md#updatepatientapiv1patientspatientidput) | **PUT** /api/v1/patients/{patient_id} | Update Patient
-*PatientsApi* | [**updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalGet**](doc//PatientsApi.md#updatepatientfinancialsapiv1patientsupdatefinpatientidportalget) | **GET** /api/v1/patients/update-fin/{patient_id}/{portal} | Update Patient Financials
-*PaymentsApi* | [**createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost**](doc//PaymentsApi.md#createpaymentdetailapiv1paymentsclinicidinvoicenumberpost) | **POST** /api/v1/payments/{clinic_id}/{invoice_number} | Create Payment Detail
-*PaymentsApi* | [**deletePaymentDetailApiV1PaymentsClinicIdInvoiceNumberPaymentDetailIdDelete**](doc//PaymentsApi.md#deletepaymentdetailapiv1paymentsclinicidinvoicenumberpaymentdetailiddelete) | **DELETE** /api/v1/payments/{clinic_id}/{invoice_number}/{payment_detail_id} | Delete Payment Detail
-*PaymentsApi* | [**getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet**](doc//PaymentsApi.md#getunpaidpatientsapiv1paymentsunpaidpatientsclinicidinvoicenumberget) | **GET** /api/v1/payments/unpaid_patients/{clinic_id}/{invoice_number} | Get Unpaid Patients
-*PaymentsApi* | [**readPaymentDetailsApiV1PaymentsClinicIdInvoiceNumberGet**](doc//PaymentsApi.md#readpaymentdetailsapiv1paymentsclinicidinvoicenumberget) | **GET** /api/v1/payments/{clinic_id}/{invoice_number} | Read Payment Details
+*PatientsApi* | [**updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut**](doc//PatientsApi.md#updatepatientfinancialsapiv1patientsupdatefinpatientidportalput) | **PUT** /api/v1/patients/update-fin/{patient_id}/{portal} | Update Patient Financials
+*PaymentDetailsApi* | [**createPaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPost**](doc//PaymentDetailsApi.md#createpaymentdetailapiv1paymentdetailsclinicidinvoicenumberpost) | **POST** /api/v1/payment-details/{clinic_id}/{invoice_number} | Create Payment Detail
+*PaymentDetailsApi* | [**deletePaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPaymentDetailIdDelete**](doc//PaymentDetailsApi.md#deletepaymentdetailapiv1paymentdetailsclinicidinvoicenumberpaymentdetailiddelete) | **DELETE** /api/v1/payment-details/{clinic_id}/{invoice_number}/{payment_detail_id} | Delete Payment Detail
+*PaymentDetailsApi* | [**getUnpaidPatientsApiV1PaymentDetailsUnpaidPatientsClinicIdInvoiceNumberGet**](doc//PaymentDetailsApi.md#getunpaidpatientsapiv1paymentdetailsunpaidpatientsclinicidinvoicenumberget) | **GET** /api/v1/payment-details/unpaid_patients/{clinic_id}/{invoice_number} | Get Unpaid Patients
+*PaymentDetailsApi* | [**readPaymentDetailsApiV1PaymentDetailsClinicIdInvoiceNumberGet**](doc//PaymentDetailsApi.md#readpaymentdetailsapiv1paymentdetailsclinicidinvoicenumberget) | **GET** /api/v1/payment-details/{clinic_id}/{invoice_number} | Read Payment Details
 *ProcessedPatientApi* | [**createProcessedPatientEntryApiV1ProcessedPatientPost**](doc//ProcessedPatientApi.md#createprocessedpatiententryapiv1processedpatientpost) | **POST** /api/v1/processed-patient/ | Create Processed Patient Entry
 *ProcessedPatientApi* | [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidPortalGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidportalget) | **GET** /api/v1/processed-patient/process/{year}/{month}/{empid}/{portal} | Read Processed Patient Entries For Monthyear Empid
 *ProcessedPatientApi* | [**readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdPortalGet**](doc//ProcessedPatientApi.md#readprocessedpatiententryforpatientinmonthyearapiv1processedpatientyearmonthpatientidportalget) | **GET** /api/v1/processed-patient/{year}/{month}/{patient_id}/{portal} | Read Processed Patient Entry For Patient In Monthyear
 *ProvidersApi* | [**changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut**](doc//ProvidersApi.md#changeactivestatusapiv1providersprovideridchangeactivestatusput) | **PUT** /api/v1/providers/{provider_id}/change-active-status | Change Active Status
 *ProvidersApi* | [**changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut**](doc//ProvidersApi.md#changedeletedstatusapiv1providersprovideridchangedeletedstatusput) | **PUT** /api/v1/providers/{provider_id}/change-deleted-status | Change Deleted Status
-*ProvidersApi* | [**createNewProviderApiV1ProvidersPost**](doc//ProvidersApi.md#createnewproviderapiv1providerspost) | **POST** /api/v1/providers/ | Create New Provider
-*ProvidersApi* | [**deleteExistingProviderApiV1ProvidersProviderIdDelete**](doc//ProvidersApi.md#deleteexistingproviderapiv1providersprovideriddelete) | **DELETE** /api/v1/providers/{provider_id} | Delete Existing Provider
+*ProvidersApi* | [**createProviderApiV1ProvidersPost**](doc//ProvidersApi.md#createproviderapiv1providerspost) | **POST** /api/v1/providers/ | Create Provider
+*ProvidersApi* | [**deleteProviderApiV1ProvidersProviderIdDelete**](doc//ProvidersApi.md#deleteproviderapiv1providersprovideriddelete) | **DELETE** /api/v1/providers/{provider_id} | Delete Provider
 *ProvidersApi* | [**readProviderApiV1ProvidersProviderIdGet**](doc//ProvidersApi.md#readproviderapiv1providersprovideridget) | **GET** /api/v1/providers/{provider_id} | Read Provider
 *ProvidersApi* | [**readProvidersApiV1ProvidersGet**](doc//ProvidersApi.md#readprovidersapiv1providersget) | **GET** /api/v1/providers/ | Read Providers
-*ProvidersApi* | [**updateExistingProviderApiV1ProvidersProviderIdPut**](doc//ProvidersApi.md#updateexistingproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Existing Provider
+*ProvidersApi* | [**updateProviderApiV1ProvidersProviderIdPut**](doc//ProvidersApi.md#updateproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Provider
 *ReportsApi* | [**generateReportApiV1ReportsGenerateReportPost**](doc//ReportsApi.md#generatereportapiv1reportsgeneratereportpost) | **POST** /api/v1/reports/generate-report | Generate Report
 *TempAssignmentsApi* | [**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**](doc//TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempidportaldelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid}/{portal} | Assign Patients Back To Original Route
 *TempAssignmentsApi* | [**createTempAssignmentRouteApiV1TempAssignmentsPost**](doc//TempAssignmentsApi.md#createtempassignmentrouteapiv1tempassignmentspost) | **POST** /api/v1/temp-assignments/ | Create Temp Assignment Route
 *TempAssignmentsApi* | [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet**](doc//TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallemployeesget) | **GET** /api/v1/temp-assignments/all-employees | Fetch All From Emp Ids Route
+*TempAssignmentsApi* | [**updateTempAssignmentRouteApiV1TempAssignmentsUpdatePortalPut**](doc//TempAssignmentsApi.md#updatetempassignmentrouteapiv1tempassignmentsupdateportalput) | **PUT** /api/v1/temp-assignments/update/{portal} | Update Temp Assignment Route
 
 
 ## Documentation For Models
 
  - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
+ - [BodyCreatePatientApiV1PatientsPost](doc//BodyCreatePatientApiV1PatientsPost.md)
+ - [BodyUpdatePatientApiV1PatientsPatientIdPut](doc//BodyUpdatePatientApiV1PatientsPatientIdPut.md)
+ - [CCMPatientCreate](doc//CCMPatientCreate.md)
+ - [CCMPatientUpdate](doc//CCMPatientUpdate.md)
  - [CarePlanEntry](doc//CarePlanEntry.md)
  - [ClinicCreate](doc//ClinicCreate.md)
  - [ClinicInvoice](doc//ClinicInvoice.md)
  - [ClinicRead](doc//ClinicRead.md)
  - [ClinicUpdate](doc//ClinicUpdate.md)
- - [Consultant](doc//Consultant.md)
- - [ConsultantPay](doc//ConsultantPay.md)
+ - [ConsultantCreate](doc//ConsultantCreate.md)
+ - [ConsultantRead](doc//ConsultantRead.md)
+ - [ConsultantUpdate](doc//ConsultantUpdate.md)
  - [Employee](doc//Employee.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)
@@ -163,8 +171,13 @@ Class | Method | HTTP request | Description
  - [Notification](doc//Notification.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
+ - [PCMPatientCreate](doc//PCMPatientCreate.md)
+ - [PCMPatientUpdate](doc//PCMPatientUpdate.md)
+ - [PaginationMetadata](doc//PaginationMetadata.md)
  - [Patient](doc//Patient.md)
+ - [PatientCreate](doc//PatientCreate.md)
  - [PatientPaymentEntry](doc//PatientPaymentEntry.md)
+ - [PatientUpdate](doc//PatientUpdate.md)
  - [PatientsResponse](doc//PatientsResponse.md)
  - [PaymentDetail](doc//PaymentDetail.md)
  - [PaymentsResponse](doc//PaymentsResponse.md)
@@ -172,7 +185,13 @@ Class | Method | HTTP request | Description
  - [ProcessedPatientEntry](doc//ProcessedPatientEntry.md)
  - [ProcessedPatientEntryForFrontEnd](doc//ProcessedPatientEntryForFrontEnd.md)
  - [ProcessedPatientEntryFromFrontEnd](doc//ProcessedPatientEntryFromFrontEnd.md)
- - [Provider](doc//Provider.md)
+ - [ProviderCreate](doc//ProviderCreate.md)
+ - [ProviderPayRate](doc//ProviderPayRate.md)
+ - [ProviderPayRateCreate](doc//ProviderPayRateCreate.md)
+ - [ProviderPayRateUpdate](doc//ProviderPayRateUpdate.md)
+ - [ProviderRead](doc//ProviderRead.md)
+ - [ProviderUpdate](doc//ProviderUpdate.md)
+ - [TempAssignment](doc//TempAssignment.md)
  - [TempAssignmentCreate](doc//TempAssignmentCreate.md)
  - [TempAssignmentEmpLists](doc//TempAssignmentEmpLists.md)
  - [Token](doc//Token.md)

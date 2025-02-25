@@ -14,7 +14,7 @@ class ClinicCreate {
   /// Returns a new [ClinicCreate] instance.
   ClinicCreate({
     required this.name,
-    this.customerId,
+    this.customerid,
     required this.address,
     this.status = 'Active',
     this.portal = Portal.CCM,
@@ -23,12 +23,12 @@ class ClinicCreate {
     required this.fax,
     required this.region,
     required this.poc,
-    this.consultantIds = const [],
+    this.consultantids = const [],
   });
 
   String name;
 
-  String? customerId;
+  String? customerid;
 
   String address;
 
@@ -46,12 +46,12 @@ class ClinicCreate {
 
   String poc;
 
-  List<String> consultantIds;
+  List<String> consultantids;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ClinicCreate &&
     other.name == name &&
-    other.customerId == customerId &&
+    other.customerid == customerid &&
     other.address == address &&
     other.status == status &&
     other.portal == portal &&
@@ -60,13 +60,13 @@ class ClinicCreate {
     other.fax == fax &&
     other.region == region &&
     other.poc == poc &&
-    _deepEquality.equals(other.consultantIds, consultantIds);
+    _deepEquality.equals(other.consultantids, consultantids);
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (name.hashCode) +
-    (customerId == null ? 0 : customerId!.hashCode) +
+    (customerid == null ? 0 : customerid!.hashCode) +
     (address.hashCode) +
     (status.hashCode) +
     (portal.hashCode) +
@@ -75,18 +75,18 @@ class ClinicCreate {
     (fax.hashCode) +
     (region.hashCode) +
     (poc.hashCode) +
-    (consultantIds.hashCode);
+    (consultantids.hashCode);
 
   @override
-  String toString() => 'ClinicCreate[name=$name, customerId=$customerId, address=$address, status=$status, portal=$portal, email=$email, phone=$phone, fax=$fax, region=$region, poc=$poc, consultantIds=$consultantIds]';
+  String toString() => 'ClinicCreate[name=$name, customerid=$customerid, address=$address, status=$status, portal=$portal, email=$email, phone=$phone, fax=$fax, region=$region, poc=$poc, consultantids=$consultantids]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'name'] = this.name;
-    if (this.customerId != null) {
-      json[r'customer_id'] = this.customerId;
+    if (this.customerid != null) {
+      json[r'customerid'] = this.customerid;
     } else {
-      json[r'customer_id'] = null;
+      json[r'customerid'] = null;
     }
       json[r'address'] = this.address;
       json[r'status'] = this.status;
@@ -96,7 +96,7 @@ class ClinicCreate {
       json[r'fax'] = this.fax;
       json[r'region'] = this.region;
       json[r'poc'] = this.poc;
-      json[r'consultant_ids'] = this.consultantIds;
+      json[r'consultantids'] = this.consultantids;
     return json;
   }
 
@@ -120,7 +120,7 @@ class ClinicCreate {
 
       return ClinicCreate(
         name: mapValueOfType<String>(json, r'name')!,
-        customerId: mapValueOfType<String>(json, r'customer_id'),
+        customerid: mapValueOfType<String>(json, r'customerid'),
         address: mapValueOfType<String>(json, r'address')!,
         status: mapValueOfType<String>(json, r'status') ?? 'Active',
         portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
@@ -129,8 +129,8 @@ class ClinicCreate {
         fax: mapValueOfType<String>(json, r'fax')!,
         region: mapValueOfType<String>(json, r'region')!,
         poc: mapValueOfType<String>(json, r'poc')!,
-        consultantIds: json[r'consultant_ids'] is Iterable
-            ? (json[r'consultant_ids'] as Iterable).cast<String>().toList(growable: false)
+        consultantids: json[r'consultantids'] is Iterable
+            ? (json[r'consultantids'] as Iterable).cast<String>().toList(growable: false)
             : const [],
       );
     }

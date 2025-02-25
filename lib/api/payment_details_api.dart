@@ -11,12 +11,14 @@
 part of openapi.api;
 
 
-class PaymentsApi {
-  PaymentsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+class PaymentDetailsApi {
+  PaymentDetailsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
   /// Create Payment Detail
+  ///
+  /// Create a new payment detail
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -27,9 +29,9 @@ class PaymentsApi {
   /// * [String] invoiceNumber (required):
   ///
   /// * [PaymentDetail] paymentDetail (required):
-  Future<Response> createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPostWithHttpInfo(String clinicId, String invoiceNumber, PaymentDetail paymentDetail,) async {
+  Future<Response> createPaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPostWithHttpInfo(String clinicId, String invoiceNumber, PaymentDetail paymentDetail,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/payments/{clinic_id}/{invoice_number}'
+    final path = r'/api/v1/payment-details/{clinic_id}/{invoice_number}'
       .replaceAll('{clinic_id}', clinicId)
       .replaceAll('{invoice_number}', invoiceNumber);
 
@@ -56,6 +58,8 @@ class PaymentsApi {
 
   /// Create Payment Detail
   ///
+  /// Create a new payment detail
+  ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
@@ -63,8 +67,8 @@ class PaymentsApi {
   /// * [String] invoiceNumber (required):
   ///
   /// * [PaymentDetail] paymentDetail (required):
-  Future<PaymentDetail?> createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPost(String clinicId, String invoiceNumber, PaymentDetail paymentDetail,) async {
-    final response = await createPaymentDetailApiV1PaymentsClinicIdInvoiceNumberPostWithHttpInfo(clinicId, invoiceNumber, paymentDetail,);
+  Future<PaymentDetail?> createPaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPost(String clinicId, String invoiceNumber, PaymentDetail paymentDetail,) async {
+    final response = await createPaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPostWithHttpInfo(clinicId, invoiceNumber, paymentDetail,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -80,6 +84,8 @@ class PaymentsApi {
 
   /// Delete Payment Detail
   ///
+  /// Delete a payment detail
+  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -89,9 +95,9 @@ class PaymentsApi {
   /// * [String] invoiceNumber (required):
   ///
   /// * [String] paymentDetailId (required):
-  Future<Response> deletePaymentDetailApiV1PaymentsClinicIdInvoiceNumberPaymentDetailIdDeleteWithHttpInfo(String clinicId, String invoiceNumber, String paymentDetailId,) async {
+  Future<Response> deletePaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPaymentDetailIdDeleteWithHttpInfo(String clinicId, String invoiceNumber, String paymentDetailId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/payments/{clinic_id}/{invoice_number}/{payment_detail_id}'
+    final path = r'/api/v1/payment-details/{clinic_id}/{invoice_number}/{payment_detail_id}'
       .replaceAll('{clinic_id}', clinicId)
       .replaceAll('{invoice_number}', invoiceNumber)
       .replaceAll('{payment_detail_id}', paymentDetailId);
@@ -119,6 +125,8 @@ class PaymentsApi {
 
   /// Delete Payment Detail
   ///
+  /// Delete a payment detail
+  ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
@@ -126,8 +134,8 @@ class PaymentsApi {
   /// * [String] invoiceNumber (required):
   ///
   /// * [String] paymentDetailId (required):
-  Future<PaymentDetail?> deletePaymentDetailApiV1PaymentsClinicIdInvoiceNumberPaymentDetailIdDelete(String clinicId, String invoiceNumber, String paymentDetailId,) async {
-    final response = await deletePaymentDetailApiV1PaymentsClinicIdInvoiceNumberPaymentDetailIdDeleteWithHttpInfo(clinicId, invoiceNumber, paymentDetailId,);
+  Future<PaymentDetail?> deletePaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPaymentDetailIdDelete(String clinicId, String invoiceNumber, String paymentDetailId,) async {
+    final response = await deletePaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPaymentDetailIdDeleteWithHttpInfo(clinicId, invoiceNumber, paymentDetailId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -142,6 +150,8 @@ class PaymentsApi {
   }
 
   /// Get Unpaid Patients
+  ///
+  /// Get all unpaid patients for a specific clinic and invoice
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -158,9 +168,9 @@ class PaymentsApi {
   /// * [String] prevPageToken:
   ///
   /// * [bool] refreshCurrentDataset:
-  Future<Response> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
+  Future<Response> getUnpaidPatientsApiV1PaymentDetailsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/payments/unpaid_patients/{clinic_id}/{invoice_number}'
+    final path = r'/api/v1/payment-details/unpaid_patients/{clinic_id}/{invoice_number}'
       .replaceAll('{clinic_id}', clinicId)
       .replaceAll('{invoice_number}', invoiceNumber);
 
@@ -200,6 +210,8 @@ class PaymentsApi {
 
   /// Get Unpaid Patients
   ///
+  /// Get all unpaid patients for a specific clinic and invoice
+  ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
@@ -213,8 +225,8 @@ class PaymentsApi {
   /// * [String] prevPageToken:
   ///
   /// * [bool] refreshCurrentDataset:
-  Future<PaymentsResponse?> getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
-    final response = await getUnpaidPatientsApiV1PaymentsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(clinicId, invoiceNumber,  pageSize: pageSize, pageToken: pageToken, prevPageToken: prevPageToken, refreshCurrentDataset: refreshCurrentDataset, );
+  Future<PaymentsResponse?> getUnpaidPatientsApiV1PaymentDetailsUnpaidPatientsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber, { int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, }) async {
+    final response = await getUnpaidPatientsApiV1PaymentDetailsUnpaidPatientsClinicIdInvoiceNumberGetWithHttpInfo(clinicId, invoiceNumber,  pageSize: pageSize, pageToken: pageToken, prevPageToken: prevPageToken, refreshCurrentDataset: refreshCurrentDataset, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -230,6 +242,8 @@ class PaymentsApi {
 
   /// Read Payment Details
   ///
+  /// Get payment details for a specific clinic and invoice number
+  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -237,9 +251,9 @@ class PaymentsApi {
   /// * [String] clinicId (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<Response> readPaymentDetailsApiV1PaymentsClinicIdInvoiceNumberGetWithHttpInfo(String clinicId, String invoiceNumber,) async {
+  Future<Response> readPaymentDetailsApiV1PaymentDetailsClinicIdInvoiceNumberGetWithHttpInfo(String clinicId, String invoiceNumber,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/payments/{clinic_id}/{invoice_number}'
+    final path = r'/api/v1/payment-details/{clinic_id}/{invoice_number}'
       .replaceAll('{clinic_id}', clinicId)
       .replaceAll('{invoice_number}', invoiceNumber);
 
@@ -266,13 +280,15 @@ class PaymentsApi {
 
   /// Read Payment Details
   ///
+  /// Get payment details for a specific clinic and invoice number
+  ///
   /// Parameters:
   ///
   /// * [String] clinicId (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<List<PaymentDetail>?> readPaymentDetailsApiV1PaymentsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber,) async {
-    final response = await readPaymentDetailsApiV1PaymentsClinicIdInvoiceNumberGetWithHttpInfo(clinicId, invoiceNumber,);
+  Future<List<PaymentDetail>?> readPaymentDetailsApiV1PaymentDetailsClinicIdInvoiceNumberGet(String clinicId, String invoiceNumber,) async {
+    final response = await readPaymentDetailsApiV1PaymentDetailsClinicIdInvoiceNumberGetWithHttpInfo(clinicId, invoiceNumber,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
