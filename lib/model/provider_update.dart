@@ -24,6 +24,7 @@ class ProviderUpdate {
     this.region,
     this.clinicid,
     this.payrates = const [],
+    this.consultantPayrates = const [],
   });
 
   String? doctorsname;
@@ -46,7 +47,9 @@ class ProviderUpdate {
 
   String? clinicid;
 
-  List<ProviderPayRateUpdate>? payrates;
+  List<ProviderPayRate>? payrates;
+
+  List<ConsultantProviderPayRate>? consultantPayrates;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ProviderUpdate &&
@@ -60,7 +63,8 @@ class ProviderUpdate {
     other.portal == portal &&
     other.region == region &&
     other.clinicid == clinicid &&
-    _deepEquality.equals(other.payrates, payrates);
+    _deepEquality.equals(other.payrates, payrates) &&
+    _deepEquality.equals(other.consultantPayrates, consultantPayrates);
 
   @override
   int get hashCode =>
@@ -75,10 +79,11 @@ class ProviderUpdate {
     (portal == null ? 0 : portal!.hashCode) +
     (region == null ? 0 : region!.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
-    (payrates == null ? 0 : payrates!.hashCode);
+    (payrates == null ? 0 : payrates!.hashCode) +
+    (consultantPayrates == null ? 0 : consultantPayrates!.hashCode);
 
   @override
-  String toString() => 'ProviderUpdate[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, payrates=$payrates]';
+  String toString() => 'ProviderUpdate[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, payrates=$payrates, consultantPayrates=$consultantPayrates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -137,6 +142,11 @@ class ProviderUpdate {
     } else {
       json[r'payrates'] = null;
     }
+    if (this.consultantPayrates != null) {
+      json[r'consultant_payrates'] = this.consultantPayrates;
+    } else {
+      json[r'consultant_payrates'] = null;
+    }
     return json;
   }
 
@@ -169,7 +179,8 @@ class ProviderUpdate {
         portal: Portal.fromJson(json[r'portal']),
         region: mapValueOfType<String>(json, r'region'),
         clinicid: mapValueOfType<String>(json, r'clinicid'),
-        payrates: ProviderPayRateUpdate.listFromJson(json[r'payrates']),
+        payrates: ProviderPayRate.listFromJson(json[r'payrates']),
+        consultantPayrates: ConsultantProviderPayRate.listFromJson(json[r'consultant_payrates']),
       );
     }
     return null;

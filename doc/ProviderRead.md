@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **canbedeleted** | **bool** |  | [optional] [default to true]
 **clinicname** | **String** |  | [optional] 
 **payrates** | [**List<ProviderPayRate>**](ProviderPayRate.md) |  | [optional] [default to const []]
+**consultantPayrates** | [**List<ConsultantProviderPayRate>**](ConsultantProviderPayRate.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

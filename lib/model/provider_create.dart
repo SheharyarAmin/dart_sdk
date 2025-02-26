@@ -24,6 +24,7 @@ class ProviderCreate {
     required this.region,
     this.clinicid,
     this.payrates = const [],
+    this.consultantPayrates = const [],
   });
 
   String doctorsname;
@@ -46,7 +47,9 @@ class ProviderCreate {
 
   String? clinicid;
 
-  List<ProviderPayRateCreate> payrates;
+  List<ProviderPayRate> payrates;
+
+  List<ConsultantProviderPayRate> consultantPayrates;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ProviderCreate &&
@@ -60,7 +63,8 @@ class ProviderCreate {
     other.portal == portal &&
     other.region == region &&
     other.clinicid == clinicid &&
-    _deepEquality.equals(other.payrates, payrates);
+    _deepEquality.equals(other.payrates, payrates) &&
+    _deepEquality.equals(other.consultantPayrates, consultantPayrates);
 
   @override
   int get hashCode =>
@@ -75,10 +79,11 @@ class ProviderCreate {
     (portal.hashCode) +
     (region.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
-    (payrates.hashCode);
+    (payrates.hashCode) +
+    (consultantPayrates.hashCode);
 
   @override
-  String toString() => 'ProviderCreate[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, payrates=$payrates]';
+  String toString() => 'ProviderCreate[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, payrates=$payrates, consultantPayrates=$consultantPayrates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -97,6 +102,7 @@ class ProviderCreate {
       json[r'clinicid'] = null;
     }
       json[r'payrates'] = this.payrates;
+      json[r'consultant_payrates'] = this.consultantPayrates;
     return json;
   }
 
@@ -129,7 +135,8 @@ class ProviderCreate {
         portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         region: mapValueOfType<String>(json, r'region')!,
         clinicid: mapValueOfType<String>(json, r'clinicid'),
-        payrates: ProviderPayRateCreate.listFromJson(json[r'payrates']),
+        payrates: ProviderPayRate.listFromJson(json[r'payrates']),
+        consultantPayrates: ConsultantProviderPayRate.listFromJson(json[r'consultant_payrates']),
       );
     }
     return null;

@@ -17,6 +17,7 @@ doc/ClinicRead.md
 doc/ClinicUpdate.md
 doc/ClinicsApi.md
 doc/ConsultantCreate.md
+doc/ConsultantProviderPayRate.md
 doc/ConsultantRead.md
 doc/ConsultantUpdate.md
 doc/ConsultantsApi.md
@@ -58,8 +59,6 @@ doc/ProcessedPatientEntryForFrontEnd.md
 doc/ProcessedPatientEntryFromFrontEnd.md
 doc/ProviderCreate.md
 doc/ProviderPayRate.md
-doc/ProviderPayRateCreate.md
-doc/ProviderPayRateUpdate.md
 doc/ProviderRead.md
 doc/ProviderUpdate.md
 doc/ProvidersApi.md
@@ -110,6 +109,7 @@ lib/model/clinic_invoice.dart
 lib/model/clinic_read.dart
 lib/model/clinic_update.dart
 lib/model/consultant_create.dart
+lib/model/consultant_provider_pay_rate.dart
 lib/model/consultant_read.dart
 lib/model/consultant_update.dart
 lib/model/employee.dart
@@ -140,8 +140,6 @@ lib/model/processed_patient_entry_for_front_end.dart
 lib/model/processed_patient_entry_from_front_end.dart
 lib/model/provider_create.dart
 lib/model/provider_pay_rate.dart
-lib/model/provider_pay_rate_create.dart
-lib/model/provider_pay_rate_update.dart
 lib/model/provider_read.dart
 lib/model/provider_update.dart
 lib/model/temp_assignment.dart
@@ -151,3 +149,4 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
+test/consultant_provider_pay_rate_test.dart

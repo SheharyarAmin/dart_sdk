@@ -18,7 +18,8 @@ Name | Type | Description | Notes
 **portal** | [**Portal**](Portal.md) |  | [optional] 
 **region** | **String** |  | [optional] 
 **clinicid** | **String** |  | [optional] 
-**payrates** | [**List<ProviderPayRateUpdate>**](ProviderPayRateUpdate.md) |  | [optional] [default to const []]
+**payrates** | [**List<ProviderPayRate>**](ProviderPayRate.md) |  | [optional] [default to const []]
+**consultantPayrates** | [**List<ConsultantProviderPayRate>**](ConsultantProviderPayRate.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

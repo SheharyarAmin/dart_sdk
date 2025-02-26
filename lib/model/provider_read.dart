@@ -27,6 +27,7 @@ class ProviderRead {
     this.canbedeleted = true,
     this.clinicname,
     this.payrates = const [],
+    this.consultantPayrates = const [],
   });
 
   String doctorsname;
@@ -57,6 +58,8 @@ class ProviderRead {
 
   List<ProviderPayRate> payrates;
 
+  List<ConsultantProviderPayRate> consultantPayrates;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is ProviderRead &&
     other.doctorsname == doctorsname &&
@@ -72,7 +75,8 @@ class ProviderRead {
     other.id == id &&
     other.canbedeleted == canbedeleted &&
     other.clinicname == clinicname &&
-    _deepEquality.equals(other.payrates, payrates);
+    _deepEquality.equals(other.payrates, payrates) &&
+    _deepEquality.equals(other.consultantPayrates, consultantPayrates);
 
   @override
   int get hashCode =>
@@ -90,10 +94,11 @@ class ProviderRead {
     (id.hashCode) +
     (canbedeleted.hashCode) +
     (clinicname == null ? 0 : clinicname!.hashCode) +
-    (payrates.hashCode);
+    (payrates.hashCode) +
+    (consultantPayrates.hashCode);
 
   @override
-  String toString() => 'ProviderRead[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, id=$id, canbedeleted=$canbedeleted, clinicname=$clinicname, payrates=$payrates]';
+  String toString() => 'ProviderRead[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, id=$id, canbedeleted=$canbedeleted, clinicname=$clinicname, payrates=$payrates, consultantPayrates=$consultantPayrates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -119,6 +124,7 @@ class ProviderRead {
       json[r'clinicname'] = null;
     }
       json[r'payrates'] = this.payrates;
+      json[r'consultant_payrates'] = this.consultantPayrates;
     return json;
   }
 
@@ -155,6 +161,7 @@ class ProviderRead {
         canbedeleted: mapValueOfType<bool>(json, r'canbedeleted') ?? true,
         clinicname: mapValueOfType<String>(json, r'clinicname'),
         payrates: ProviderPayRate.listFromJson(json[r'payrates']),
+        consultantPayrates: ConsultantProviderPayRate.listFromJson(json[r'consultant_payrates']),
       );
     }
     return null;

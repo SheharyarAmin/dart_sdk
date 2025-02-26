@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut**
-> Map<String, String> changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut(providerId)
+> Map<String, String> changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut(providerId, usePostgres)
 
 Change Active Status
 
@@ -31,9 +31,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
+final usePostgres = true; // bool | 
 
 try {
-    final result = api_instance.changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut(providerId);
+    final result = api_instance.changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut(providerId, usePostgres);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut: $e\n');
@@ -45,6 +46,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerId** | **String**|  | 
+ **usePostgres** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -62,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut**
-> Map<String, String> changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut(providerId)
+> Map<String, String> changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut(providerId, usePostgres)
 
 Change Deleted Status
 
@@ -74,9 +76,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
+final usePostgres = true; // bool | 
 
 try {
-    final result = api_instance.changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut(providerId);
+    final result = api_instance.changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut(providerId, usePostgres);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut: $e\n');
@@ -88,6 +91,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerId** | **String**|  | 
+ **usePostgres** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -105,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createProviderApiV1ProvidersPost**
-> ProviderRead createProviderApiV1ProvidersPost(providerCreate)
+> ProviderRead createProviderApiV1ProvidersPost(providerCreate, usePostgres)
 
 Create Provider
 
@@ -117,9 +121,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = ProvidersApi();
 final providerCreate = ProviderCreate(); // ProviderCreate | 
+final usePostgres = true; // bool | 
 
 try {
-    final result = api_instance.createProviderApiV1ProvidersPost(providerCreate);
+    final result = api_instance.createProviderApiV1ProvidersPost(providerCreate, usePostgres);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->createProviderApiV1ProvidersPost: $e\n');
@@ -131,6 +136,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerCreate** | [**ProviderCreate**](ProviderCreate.md)|  | 
+ **usePostgres** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -148,7 +154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteProviderApiV1ProvidersProviderIdDelete**
-> Map<String, String> deleteProviderApiV1ProvidersProviderIdDelete(providerId)
+> Map<String, String> deleteProviderApiV1ProvidersProviderIdDelete(providerId, usePostgres)
 
 Delete Provider
 
@@ -160,9 +166,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
+final usePostgres = true; // bool | 
 
 try {
-    final result = api_instance.deleteProviderApiV1ProvidersProviderIdDelete(providerId);
+    final result = api_instance.deleteProviderApiV1ProvidersProviderIdDelete(providerId, usePostgres);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->deleteProviderApiV1ProvidersProviderIdDelete: $e\n');
@@ -174,6 +181,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerId** | **String**|  | 
+ **usePostgres** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -191,7 +199,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readProviderApiV1ProvidersProviderIdGet**
-> ProviderRead readProviderApiV1ProvidersProviderIdGet(providerId)
+> ProviderRead readProviderApiV1ProvidersProviderIdGet(providerId, usePostgres)
 
 Read Provider
 
@@ -203,9 +211,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
+final usePostgres = true; // bool | 
 
 try {
-    final result = api_instance.readProviderApiV1ProvidersProviderIdGet(providerId);
+    final result = api_instance.readProviderApiV1ProvidersProviderIdGet(providerId, usePostgres);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->readProviderApiV1ProvidersProviderIdGet: $e\n');
@@ -217,6 +226,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerId** | **String**|  | 
+ **usePostgres** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -234,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readProvidersApiV1ProvidersGet**
-> Map<String, ProviderRead> readProvidersApiV1ProvidersGet()
+> Map<String, ProviderRead> readProvidersApiV1ProvidersGet(usePostgres)
 
 Read Providers
 
@@ -243,9 +253,10 @@ Read Providers
 import 'package:openapi/api.dart';
 
 final api_instance = ProvidersApi();
+final usePostgres = true; // bool | 
 
 try {
-    final result = api_instance.readProvidersApiV1ProvidersGet();
+    final result = api_instance.readProvidersApiV1ProvidersGet(usePostgres);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->readProvidersApiV1ProvidersGet: $e\n');
@@ -253,7 +264,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **usePostgres** | **bool**|  | [optional] [default to true]
 
 ### Return type
 
@@ -271,7 +285,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateProviderApiV1ProvidersProviderIdPut**
-> ProviderRead updateProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate)
+> ProviderRead updateProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate, usePostgres)
 
 Update Provider
 
@@ -284,9 +298,10 @@ import 'package:openapi/api.dart';
 final api_instance = ProvidersApi();
 final providerId = providerId_example; // String | 
 final providerUpdate = ProviderUpdate(); // ProviderUpdate | 
+final usePostgres = true; // bool | 
 
 try {
-    final result = api_instance.updateProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate);
+    final result = api_instance.updateProviderApiV1ProvidersProviderIdPut(providerId, providerUpdate, usePostgres);
     print(result);
 } catch (e) {
     print('Exception when calling ProvidersApi->updateProviderApiV1ProvidersProviderIdPut: $e\n');
@@ -299,6 +314,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **providerId** | **String**|  | 
  **providerUpdate** | [**ProviderUpdate**](ProviderUpdate.md)|  | 
+ **usePostgres** | **bool**|  | [optional] [default to true]
 
 ### Return type
 

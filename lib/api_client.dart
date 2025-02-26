@@ -358,6 +358,8 @@ class ApiClient {
           return ClinicUpdate.fromJson(value);
         case 'ConsultantCreate':
           return ConsultantCreate.fromJson(value);
+        case 'ConsultantProviderPayRate':
+          return ConsultantProviderPayRate.fromJson(value);
         case 'ConsultantRead':
           return ConsultantRead.fromJson(value);
         case 'ConsultantUpdate':
@@ -418,10 +420,6 @@ class ApiClient {
           return ProviderCreate.fromJson(value);
         case 'ProviderPayRate':
           return ProviderPayRate.fromJson(value);
-        case 'ProviderPayRateCreate':
-          return ProviderPayRateCreate.fromJson(value);
-        case 'ProviderPayRateUpdate':
-          return ProviderPayRateUpdate.fromJson(value);
         case 'ProviderRead':
           return ProviderRead.fromJson(value);
         case 'ProviderUpdate':
