@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **optoutremarks** | **String** |  | [optional] 
 **region** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
-**ccmDetail** | [**Object**](.md) |  | [optional] 
-**pcmDetail** | [**Object**](.md) |  | [optional] 
+**ccmDetail** | [**CCMPatientCreate**](CCMPatientCreate.md) |  | [optional] 
+**pcmDetail** | [**PCMPatientCreate**](PCMPatientCreate.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

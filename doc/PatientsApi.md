@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **createPatientApiV1PatientsPost**
-> Patient createPatientApiV1PatientsPost(bodyCreatePatientApiV1PatientsPost)
+> Patient createPatientApiV1PatientsPost(patientCreate)
 
 Create Patient
 
@@ -30,10 +30,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = PatientsApi();
-final bodyCreatePatientApiV1PatientsPost = BodyCreatePatientApiV1PatientsPost(); // BodyCreatePatientApiV1PatientsPost | 
+final patientCreate = PatientCreate(); // PatientCreate | 
 
 try {
-    final result = api_instance.createPatientApiV1PatientsPost(bodyCreatePatientApiV1PatientsPost);
+    final result = api_instance.createPatientApiV1PatientsPost(patientCreate);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->createPatientApiV1PatientsPost: $e\n');
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bodyCreatePatientApiV1PatientsPost** | [**BodyCreatePatientApiV1PatientsPost**](BodyCreatePatientApiV1PatientsPost.md)|  | 
+ **patientCreate** | [**PatientCreate**](PatientCreate.md)|  | 
 
 ### Return type
 
@@ -265,7 +265,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updatePatientApiV1PatientsPatientIdPut**
-> Patient updatePatientApiV1PatientsPatientIdPut(patientId, bodyUpdatePatientApiV1PatientsPatientIdPut)
+> Patient updatePatientApiV1PatientsPatientIdPut(patientId, patientUpdate)
 
 Update Patient
 
@@ -277,10 +277,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = PatientsApi();
 final patientId = patientId_example; // String | 
-final bodyUpdatePatientApiV1PatientsPatientIdPut = BodyUpdatePatientApiV1PatientsPatientIdPut(); // BodyUpdatePatientApiV1PatientsPatientIdPut | 
+final patientUpdate = PatientUpdate(); // PatientUpdate | 
 
 try {
-    final result = api_instance.updatePatientApiV1PatientsPatientIdPut(patientId, bodyUpdatePatientApiV1PatientsPatientIdPut);
+    final result = api_instance.updatePatientApiV1PatientsPatientIdPut(patientId, patientUpdate);
     print(result);
 } catch (e) {
     print('Exception when calling PatientsApi->updatePatientApiV1PatientsPatientIdPut: $e\n');
@@ -292,7 +292,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **patientId** | **String**|  | 
- **bodyUpdatePatientApiV1PatientsPatientIdPut** | [**BodyUpdatePatientApiV1PatientsPatientIdPut**](BodyUpdatePatientApiV1PatientsPatientIdPut.md)|  | 
+ **patientUpdate** | [**PatientUpdate**](PatientUpdate.md)|  | 
 
 ### Return type
 

@@ -147,8 +147,6 @@ Class | Method | HTTP request | Description
 
  - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
- - [BodyCreatePatientApiV1PatientsPost](doc//BodyCreatePatientApiV1PatientsPost.md)
- - [BodyUpdatePatientApiV1PatientsPatientIdPut](doc//BodyUpdatePatientApiV1PatientsPatientIdPut.md)
  - [CCMPatientCreate](doc//CCMPatientCreate.md)
  - [CCMPatientUpdate](doc//CCMPatientUpdate.md)
  - [CarePlanEntry](doc//CarePlanEntry.md)

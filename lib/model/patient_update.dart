@@ -24,6 +24,8 @@ class PatientUpdate {
     this.optoutremarks,
     this.region,
     this.iv,
+    this.ccmDetail,
+    this.pcmDetail,
   });
 
   String? patientname;
@@ -48,6 +50,10 @@ class PatientUpdate {
 
   String? iv;
 
+  CCMPatientUpdate? ccmDetail;
+
+  PCMPatientUpdate? pcmDetail;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientUpdate &&
     other.patientname == patientname &&
@@ -60,7 +66,9 @@ class PatientUpdate {
     other.deceased == deceased &&
     other.optoutremarks == optoutremarks &&
     other.region == region &&
-    other.iv == iv;
+    other.iv == iv &&
+    other.ccmDetail == ccmDetail &&
+    other.pcmDetail == pcmDetail;
 
   @override
   int get hashCode =>
@@ -75,10 +83,12 @@ class PatientUpdate {
     (deceased == null ? 0 : deceased!.hashCode) +
     (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
     (region == null ? 0 : region!.hashCode) +
-    (iv == null ? 0 : iv!.hashCode);
+    (iv == null ? 0 : iv!.hashCode) +
+    (ccmDetail == null ? 0 : ccmDetail!.hashCode) +
+    (pcmDetail == null ? 0 : pcmDetail!.hashCode);
 
   @override
-  String toString() => 'PatientUpdate[patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, optoutremarks=$optoutremarks, region=$region, iv=$iv]';
+  String toString() => 'PatientUpdate[patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, optoutremarks=$optoutremarks, region=$region, iv=$iv, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -137,6 +147,16 @@ class PatientUpdate {
     } else {
       json[r'iv'] = null;
     }
+    if (this.ccmDetail != null) {
+      json[r'ccm_detail'] = this.ccmDetail;
+    } else {
+      json[r'ccm_detail'] = null;
+    }
+    if (this.pcmDetail != null) {
+      json[r'pcm_detail'] = this.pcmDetail;
+    } else {
+      json[r'pcm_detail'] = null;
+    }
     return json;
   }
 
@@ -170,6 +190,8 @@ class PatientUpdate {
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
         region: mapValueOfType<String>(json, r'region'),
         iv: mapValueOfType<String>(json, r'iv'),
+        ccmDetail: CCMPatientUpdate.fromJson(json[r'ccm_detail']),
+        pcmDetail: PCMPatientUpdate.fromJson(json[r'pcm_detail']),
       );
     }
     return null;

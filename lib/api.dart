@@ -50,8 +50,6 @@ part 'api/temp_assignments_api.dart';
 
 part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
-part 'model/body_create_patient_api_v1_patients_post.dart';
-part 'model/body_update_patient_api_v1_patients_patient_id_put.dart';
 part 'model/ccm_patient_create.dart';
 part 'model/ccm_patient_update.dart';
 part 'model/care_plan_entry.dart';

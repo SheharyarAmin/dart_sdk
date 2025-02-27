@@ -50,9 +50,9 @@ class PatientCreate {
 
   String? iv;
 
-  Object? ccmDetail;
+  CCMPatientCreate? ccmDetail;
 
-  Object? pcmDetail;
+  PCMPatientCreate? pcmDetail;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientCreate &&
@@ -182,8 +182,8 @@ class PatientCreate {
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
         region: mapValueOfType<String>(json, r'region'),
         iv: mapValueOfType<String>(json, r'iv'),
-        ccmDetail: mapValueOfType<Object>(json, r'ccm_detail'),
-        pcmDetail: mapValueOfType<Object>(json, r'pcm_detail'),
+        ccmDetail: CCMPatientCreate.fromJson(json[r'ccm_detail']),
+        pcmDetail: PCMPatientCreate.fromJson(json[r'pcm_detail']),
       );
     }
     return null;

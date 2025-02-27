@@ -4,8 +4,6 @@ README.md
 analysis_options.yaml
 doc/AssignedPatientScreenResponse.md
 doc/AuthenticationToken.md
-doc/BodyCreatePatientApiV1PatientsPost.md
-doc/BodyUpdatePatientApiV1PatientsPatientIdPut.md
 doc/CCMPatientCreate.md
 doc/CCMPatientUpdate.md
 doc/CarePlanEntry.md
@@ -100,8 +98,6 @@ lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
 lib/model/assigned_patient_screen_response.dart
 lib/model/authentication_token.dart
-lib/model/body_create_patient_api_v1_patients_post.dart
-lib/model/body_update_patient_api_v1_patients_patient_id_put.dart
 lib/model/care_plan_entry.dart
 lib/model/ccm_patient_create.dart
 lib/model/ccm_patient_update.dart
@@ -151,4 +147,3 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/consultant_provider_pay_rate_read_test.dart
