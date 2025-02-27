@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class PCMPatient {
-  /// Returns a new [PCMPatient] instance.
-  PCMPatient({
+class PCMPatientRead {
+  /// Returns a new [PCMPatientRead] instance.
+  PCMPatientRead({
     this.pcmclinicid,
     this.pcmproviderid,
     this.pcmemployeeid,
@@ -21,10 +21,15 @@ class PCMPatient {
     this.pcmmrnnumber,
     this.iv,
     this.lastprocessedpcm,
+    this.pcmcpsigndate,
     this.pcmoptindate,
     this.pcmoptoutdate,
     this.optoutremarks,
-    required this.patientId,
+    required this.patientid,
+    this.pcmclinicname,
+    this.pcmprovidername,
+    this.pcmemployeename,
+    this.pcmregemployeename,
   });
 
   String? pcmclinicid;
@@ -43,16 +48,26 @@ class PCMPatient {
 
   DateTime? lastprocessedpcm;
 
+  DateTime? pcmcpsigndate;
+
   DateTime? pcmoptindate;
 
   DateTime? pcmoptoutdate;
 
   String? optoutremarks;
 
-  String patientId;
+  String patientid;
+
+  String? pcmclinicname;
+
+  String? pcmprovidername;
+
+  String? pcmemployeename;
+
+  String? pcmregemployeename;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is PCMPatient &&
+  bool operator ==(Object other) => identical(this, other) || other is PCMPatientRead &&
     other.pcmclinicid == pcmclinicid &&
     other.pcmproviderid == pcmproviderid &&
     other.pcmemployeeid == pcmemployeeid &&
@@ -61,10 +76,15 @@ class PCMPatient {
     other.pcmmrnnumber == pcmmrnnumber &&
     other.iv == iv &&
     other.lastprocessedpcm == lastprocessedpcm &&
+    other.pcmcpsigndate == pcmcpsigndate &&
     other.pcmoptindate == pcmoptindate &&
     other.pcmoptoutdate == pcmoptoutdate &&
     other.optoutremarks == optoutremarks &&
-    other.patientId == patientId;
+    other.patientid == patientid &&
+    other.pcmclinicname == pcmclinicname &&
+    other.pcmprovidername == pcmprovidername &&
+    other.pcmemployeename == pcmemployeename &&
+    other.pcmregemployeename == pcmregemployeename;
 
   @override
   int get hashCode =>
@@ -77,13 +97,18 @@ class PCMPatient {
     (pcmmrnnumber == null ? 0 : pcmmrnnumber!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (lastprocessedpcm == null ? 0 : lastprocessedpcm!.hashCode) +
+    (pcmcpsigndate == null ? 0 : pcmcpsigndate!.hashCode) +
     (pcmoptindate == null ? 0 : pcmoptindate!.hashCode) +
     (pcmoptoutdate == null ? 0 : pcmoptoutdate!.hashCode) +
     (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
-    (patientId.hashCode);
+    (patientid.hashCode) +
+    (pcmclinicname == null ? 0 : pcmclinicname!.hashCode) +
+    (pcmprovidername == null ? 0 : pcmprovidername!.hashCode) +
+    (pcmemployeename == null ? 0 : pcmemployeename!.hashCode) +
+    (pcmregemployeename == null ? 0 : pcmregemployeename!.hashCode);
 
   @override
-  String toString() => 'PCMPatient[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks, patientId=$patientId]';
+  String toString() => 'PCMPatientRead[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks, patientid=$patientid, pcmclinicname=$pcmclinicname, pcmprovidername=$pcmprovidername, pcmemployeename=$pcmemployeename, pcmregemployeename=$pcmregemployeename]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -127,6 +152,11 @@ class PCMPatient {
     } else {
       json[r'lastprocessedpcm'] = null;
     }
+    if (this.pcmcpsigndate != null) {
+      json[r'pcmcpsigndate'] = _dateFormatter.format(this.pcmcpsigndate!.toUtc());
+    } else {
+      json[r'pcmcpsigndate'] = null;
+    }
     if (this.pcmoptindate != null) {
       json[r'pcmoptindate'] = this.pcmoptindate!.toUtc().toIso8601String();
     } else {
@@ -142,14 +172,34 @@ class PCMPatient {
     } else {
       json[r'optoutremarks'] = null;
     }
-      json[r'patient_id'] = this.patientId;
+      json[r'patientid'] = this.patientid;
+    if (this.pcmclinicname != null) {
+      json[r'pcmclinicname'] = this.pcmclinicname;
+    } else {
+      json[r'pcmclinicname'] = null;
+    }
+    if (this.pcmprovidername != null) {
+      json[r'pcmprovidername'] = this.pcmprovidername;
+    } else {
+      json[r'pcmprovidername'] = null;
+    }
+    if (this.pcmemployeename != null) {
+      json[r'pcmemployeename'] = this.pcmemployeename;
+    } else {
+      json[r'pcmemployeename'] = null;
+    }
+    if (this.pcmregemployeename != null) {
+      json[r'pcmregemployeename'] = this.pcmregemployeename;
+    } else {
+      json[r'pcmregemployeename'] = null;
+    }
     return json;
   }
 
-  /// Returns a new [PCMPatient] instance and imports its values from
+  /// Returns a new [PCMPatientRead] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PCMPatient? fromJson(dynamic value) {
+  static PCMPatientRead? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -158,13 +208,13 @@ class PCMPatient {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "PCMPatient[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "PCMPatient[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "PCMPatientRead[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PCMPatientRead[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return PCMPatient(
+      return PCMPatientRead(
         pcmclinicid: mapValueOfType<String>(json, r'pcmclinicid'),
         pcmproviderid: mapValueOfType<String>(json, r'pcmproviderid'),
         pcmemployeeid: mapValueOfType<String>(json, r'pcmemployeeid'),
@@ -173,20 +223,25 @@ class PCMPatient {
         pcmmrnnumber: mapValueOfType<String>(json, r'pcmmrnnumber'),
         iv: mapValueOfType<String>(json, r'iv'),
         lastprocessedpcm: mapDateTime(json, r'lastprocessedpcm', r''),
+        pcmcpsigndate: mapDateTime(json, r'pcmcpsigndate', r''),
         pcmoptindate: mapDateTime(json, r'pcmoptindate', r''),
         pcmoptoutdate: mapDateTime(json, r'pcmoptoutdate', r''),
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
-        patientId: mapValueOfType<String>(json, r'patient_id')!,
+        patientid: mapValueOfType<String>(json, r'patientid')!,
+        pcmclinicname: mapValueOfType<String>(json, r'pcmclinicname'),
+        pcmprovidername: mapValueOfType<String>(json, r'pcmprovidername'),
+        pcmemployeename: mapValueOfType<String>(json, r'pcmemployeename'),
+        pcmregemployeename: mapValueOfType<String>(json, r'pcmregemployeename'),
       );
     }
     return null;
   }
 
-  static List<PCMPatient> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <PCMPatient>[];
+  static List<PCMPatientRead> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PCMPatientRead>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = PCMPatient.fromJson(row);
+        final value = PCMPatientRead.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -195,12 +250,12 @@ class PCMPatient {
     return result.toList(growable: growable);
   }
 
-  static Map<String, PCMPatient> mapFromJson(dynamic json) {
-    final map = <String, PCMPatient>{};
+  static Map<String, PCMPatientRead> mapFromJson(dynamic json) {
+    final map = <String, PCMPatientRead>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = PCMPatient.fromJson(entry.value);
+        final value = PCMPatientRead.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -209,14 +264,14 @@ class PCMPatient {
     return map;
   }
 
-  // maps a json object with a list of PCMPatient-objects as value to a dart map
-  static Map<String, List<PCMPatient>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<PCMPatient>>{};
+  // maps a json object with a list of PCMPatientRead-objects as value to a dart map
+  static Map<String, List<PCMPatientRead>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PCMPatientRead>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = PCMPatient.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = PCMPatientRead.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -224,7 +279,7 @@ class PCMPatient {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'patient_id',
+    'patientid',
   };
 }
 

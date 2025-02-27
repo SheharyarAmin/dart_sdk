@@ -4,8 +4,8 @@ README.md
 analysis_options.yaml
 doc/AssignedPatientScreenResponse.md
 doc/AuthenticationToken.md
-doc/CCMPatient.md
 doc/CCMPatientCreate.md
+doc/CCMPatientRead.md
 doc/CCMPatientUpdate.md
 doc/CarePlanEntry.md
 doc/CareplansApi.md
@@ -40,8 +40,8 @@ doc/Notification.md
 doc/NotificationsApi.md
 doc/OptInEmployeeLogEntry.md
 doc/OptInEmployeeLogEntryBase.md
-doc/PCMPatient.md
 doc/PCMPatientCreate.md
+doc/PCMPatientRead.md
 doc/PCMPatientUpdate.md
 doc/PaginationMetadata.md
 doc/Patient.md
@@ -102,8 +102,8 @@ lib/auth/oauth.dart
 lib/model/assigned_patient_screen_response.dart
 lib/model/authentication_token.dart
 lib/model/care_plan_entry.dart
-lib/model/ccm_patient.dart
 lib/model/ccm_patient_create.dart
+lib/model/ccm_patient_read.dart
 lib/model/ccm_patient_update.dart
 lib/model/clinic_create.dart
 lib/model/clinic_invoice.dart
@@ -135,8 +135,8 @@ lib/model/patient_update.dart
 lib/model/patients_response.dart
 lib/model/payment_detail.dart
 lib/model/payments_response.dart
-lib/model/pcm_patient.dart
 lib/model/pcm_patient_create.dart
+lib/model/pcm_patient_read.dart
 lib/model/pcm_patient_update.dart
 lib/model/portal.dart
 lib/model/processed_patient_entry.dart
@@ -153,6 +153,5 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/ccm_patient_test.dart
-test/patient_read_test.dart
-test/pcm_patient_test.dart
+test/ccm_patient_read_test.dart
+test/pcm_patient_read_test.dart

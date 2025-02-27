@@ -1,4 +1,4 @@
-# openapi.model.PCMPatientUpdate
+# openapi.model.PCMPatientRead
 
 ## Load the model package
 ```dart
@@ -15,11 +15,16 @@ Name | Type | Description | Notes
 **pcmfinnumber** | **String** |  | [optional] 
 **pcmmrnnumber** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
-**pcmcpsigndate** | [**DateTime**](DateTime.md) |  | [optional] 
 **lastprocessedpcm** | [**DateTime**](DateTime.md) |  | [optional] 
+**pcmcpsigndate** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmoptindate** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmoptoutdate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optoutremarks** | **String** |  | [optional] 
+**patientid** | **String** |  | 
+**pcmclinicname** | **String** |  | [optional] 
+**pcmprovidername** | **String** |  | [optional] 
+**pcmemployeename** | **String** |  | [optional] 
+**pcmregemployeename** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

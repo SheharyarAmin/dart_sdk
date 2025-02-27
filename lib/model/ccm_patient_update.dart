@@ -21,6 +21,7 @@ class CCMPatientUpdate {
     this.mrnnumber,
     this.iv,
     this.lastprocessed,
+    this.cpsigndate,
     this.optindate,
     this.optoutdate,
     this.optoutremarks,
@@ -42,6 +43,8 @@ class CCMPatientUpdate {
 
   DateTime? lastprocessed;
 
+  DateTime? cpsigndate;
+
   DateTime? optindate;
 
   DateTime? optoutdate;
@@ -58,6 +61,7 @@ class CCMPatientUpdate {
     other.mrnnumber == mrnnumber &&
     other.iv == iv &&
     other.lastprocessed == lastprocessed &&
+    other.cpsigndate == cpsigndate &&
     other.optindate == optindate &&
     other.optoutdate == optoutdate &&
     other.optoutremarks == optoutremarks;
@@ -73,12 +77,13 @@ class CCMPatientUpdate {
     (mrnnumber == null ? 0 : mrnnumber!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
+    (cpsigndate == null ? 0 : cpsigndate!.hashCode) +
     (optindate == null ? 0 : optindate!.hashCode) +
     (optoutdate == null ? 0 : optoutdate!.hashCode) +
     (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'CCMPatientUpdate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'CCMPatientUpdate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -121,6 +126,11 @@ class CCMPatientUpdate {
       json[r'lastprocessed'] = _dateFormatter.format(this.lastprocessed!.toUtc());
     } else {
       json[r'lastprocessed'] = null;
+    }
+    if (this.cpsigndate != null) {
+      json[r'cpsigndate'] = _dateFormatter.format(this.cpsigndate!.toUtc());
+    } else {
+      json[r'cpsigndate'] = null;
     }
     if (this.optindate != null) {
       json[r'optindate'] = this.optindate!.toUtc().toIso8601String();
@@ -167,6 +177,7 @@ class CCMPatientUpdate {
         mrnnumber: mapValueOfType<String>(json, r'mrnnumber'),
         iv: mapValueOfType<String>(json, r'iv'),
         lastprocessed: mapDateTime(json, r'lastprocessed', r''),
+        cpsigndate: mapDateTime(json, r'cpsigndate', r''),
         optindate: mapDateTime(json, r'optindate', r''),
         optoutdate: mapDateTime(json, r'optoutdate', r''),
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),

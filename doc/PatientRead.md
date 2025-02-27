@@ -16,13 +16,12 @@ Name | Type | Description | Notes
 **primaryphone** | **String** |  | [optional] 
 **secondaryphone** | **String** |  | [optional] 
 **deceased** | **bool** |  | [optional] [default to false]
-**optoutremarks** | **String** |  | [optional] 
 **region** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
 **id** | **String** |  | 
 **canbedeleted** | **bool** |  | [optional] [default to true]
-**ccmDetail** | [**CCMPatient**](CCMPatient.md) |  | [optional] 
-**pcmDetail** | [**PCMPatient**](PCMPatient.md) |  | [optional] 
+**ccmDetail** | [**CCMPatientRead**](CCMPatientRead.md) |  | [optional] 
+**pcmDetail** | [**PCMPatientRead**](PCMPatientRead.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

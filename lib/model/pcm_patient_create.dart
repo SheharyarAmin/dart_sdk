@@ -21,6 +21,7 @@ class PCMPatientCreate {
     this.pcmmrnnumber,
     this.iv,
     this.lastprocessedpcm,
+    this.pcmcpsigndate,
     this.pcmoptindate,
     this.pcmoptoutdate,
     this.optoutremarks,
@@ -42,6 +43,8 @@ class PCMPatientCreate {
 
   DateTime? lastprocessedpcm;
 
+  DateTime? pcmcpsigndate;
+
   DateTime? pcmoptindate;
 
   DateTime? pcmoptoutdate;
@@ -58,6 +61,7 @@ class PCMPatientCreate {
     other.pcmmrnnumber == pcmmrnnumber &&
     other.iv == iv &&
     other.lastprocessedpcm == lastprocessedpcm &&
+    other.pcmcpsigndate == pcmcpsigndate &&
     other.pcmoptindate == pcmoptindate &&
     other.pcmoptoutdate == pcmoptoutdate &&
     other.optoutremarks == optoutremarks;
@@ -73,12 +77,13 @@ class PCMPatientCreate {
     (pcmmrnnumber == null ? 0 : pcmmrnnumber!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (lastprocessedpcm == null ? 0 : lastprocessedpcm!.hashCode) +
+    (pcmcpsigndate == null ? 0 : pcmcpsigndate!.hashCode) +
     (pcmoptindate == null ? 0 : pcmoptindate!.hashCode) +
     (pcmoptoutdate == null ? 0 : pcmoptoutdate!.hashCode) +
     (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'PCMPatientCreate[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'PCMPatientCreate[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -121,6 +126,11 @@ class PCMPatientCreate {
       json[r'lastprocessedpcm'] = _dateFormatter.format(this.lastprocessedpcm!.toUtc());
     } else {
       json[r'lastprocessedpcm'] = null;
+    }
+    if (this.pcmcpsigndate != null) {
+      json[r'pcmcpsigndate'] = _dateFormatter.format(this.pcmcpsigndate!.toUtc());
+    } else {
+      json[r'pcmcpsigndate'] = null;
     }
     if (this.pcmoptindate != null) {
       json[r'pcmoptindate'] = this.pcmoptindate!.toUtc().toIso8601String();
@@ -167,6 +177,7 @@ class PCMPatientCreate {
         pcmmrnnumber: mapValueOfType<String>(json, r'pcmmrnnumber'),
         iv: mapValueOfType<String>(json, r'iv'),
         lastprocessedpcm: mapDateTime(json, r'lastprocessedpcm', r''),
+        pcmcpsigndate: mapDateTime(json, r'pcmcpsigndate', r''),
         pcmoptindate: mapDateTime(json, r'pcmoptindate', r''),
         pcmoptoutdate: mapDateTime(json, r'pcmoptoutdate', r''),
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),

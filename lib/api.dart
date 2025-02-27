@@ -50,8 +50,8 @@ part 'api/temp_assignments_api.dart';
 
 part 'model/assigned_patient_screen_response.dart';
 part 'model/authentication_token.dart';
-part 'model/ccm_patient.dart';
 part 'model/ccm_patient_create.dart';
+part 'model/ccm_patient_read.dart';
 part 'model/ccm_patient_update.dart';
 part 'model/care_plan_entry.dart';
 part 'model/clinic_create.dart';
@@ -75,8 +75,8 @@ part 'model/manager_response.dart';
 part 'model/notification.dart';
 part 'model/opt_in_employee_log_entry.dart';
 part 'model/opt_in_employee_log_entry_base.dart';
-part 'model/pcm_patient.dart';
 part 'model/pcm_patient_create.dart';
+part 'model/pcm_patient_read.dart';
 part 'model/pcm_patient_update.dart';
 part 'model/pagination_metadata.dart';
 part 'model/patient.dart';
@@ -102,6 +102,7 @@ part 'model/token.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
 
+
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
 var defaultApiClient = ApiClient();
@@ -114,5 +115,4 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) =>
-    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

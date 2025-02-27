@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **mrnnumber** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
 **lastprocessed** | [**DateTime**](DateTime.md) |  | [optional] 
+**cpsigndate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optindate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optoutdate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optoutremarks** | **String** |  | [optional] 

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **pcmmrnnumber** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
 **lastprocessedpcm** | [**DateTime**](DateTime.md) |  | [optional] 
+**pcmcpsigndate** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmoptindate** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmoptoutdate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optoutremarks** | **String** |  | [optional] 

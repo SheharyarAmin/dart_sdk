@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **primaryphone** | **String** |  | [optional] 
 **secondaryphone** | **String** |  | [optional] 
 **deceased** | **bool** |  | [optional] [default to false]
-**optoutremarks** | **String** |  | [optional] 
 **region** | **String** |  | [optional] 
 **iv** | **String** |  | [optional] 
 **ccmDetail** | [**CCMPatientCreate**](CCMPatientCreate.md) |  | [optional] 

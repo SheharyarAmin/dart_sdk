@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class CCMPatient {
-  /// Returns a new [CCMPatient] instance.
-  CCMPatient({
+class CCMPatientRead {
+  /// Returns a new [CCMPatientRead] instance.
+  CCMPatientRead({
     this.clinicid,
     this.providerid,
     this.employeeid,
@@ -21,10 +21,15 @@ class CCMPatient {
     this.mrnnumber,
     this.iv,
     this.lastprocessed,
+    this.cpsigndate,
     this.optindate,
     this.optoutdate,
     this.optoutremarks,
-    required this.patientId,
+    required this.patientid,
+    this.clinicname,
+    this.providername,
+    this.employeename,
+    this.regemployeename,
   });
 
   String? clinicid;
@@ -43,16 +48,26 @@ class CCMPatient {
 
   DateTime? lastprocessed;
 
+  DateTime? cpsigndate;
+
   DateTime? optindate;
 
   DateTime? optoutdate;
 
   String? optoutremarks;
 
-  String patientId;
+  String patientid;
+
+  String? clinicname;
+
+  String? providername;
+
+  String? employeename;
+
+  String? regemployeename;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CCMPatient &&
+  bool operator ==(Object other) => identical(this, other) || other is CCMPatientRead &&
     other.clinicid == clinicid &&
     other.providerid == providerid &&
     other.employeeid == employeeid &&
@@ -61,10 +76,15 @@ class CCMPatient {
     other.mrnnumber == mrnnumber &&
     other.iv == iv &&
     other.lastprocessed == lastprocessed &&
+    other.cpsigndate == cpsigndate &&
     other.optindate == optindate &&
     other.optoutdate == optoutdate &&
     other.optoutremarks == optoutremarks &&
-    other.patientId == patientId;
+    other.patientid == patientid &&
+    other.clinicname == clinicname &&
+    other.providername == providername &&
+    other.employeename == employeename &&
+    other.regemployeename == regemployeename;
 
   @override
   int get hashCode =>
@@ -77,13 +97,18 @@ class CCMPatient {
     (mrnnumber == null ? 0 : mrnnumber!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
+    (cpsigndate == null ? 0 : cpsigndate!.hashCode) +
     (optindate == null ? 0 : optindate!.hashCode) +
     (optoutdate == null ? 0 : optoutdate!.hashCode) +
     (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
-    (patientId.hashCode);
+    (patientid.hashCode) +
+    (clinicname == null ? 0 : clinicname!.hashCode) +
+    (providername == null ? 0 : providername!.hashCode) +
+    (employeename == null ? 0 : employeename!.hashCode) +
+    (regemployeename == null ? 0 : regemployeename!.hashCode);
 
   @override
-  String toString() => 'CCMPatient[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientId=$patientId]';
+  String toString() => 'CCMPatientRead[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientid=$patientid, clinicname=$clinicname, providername=$providername, employeename=$employeename, regemployeename=$regemployeename]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -127,6 +152,11 @@ class CCMPatient {
     } else {
       json[r'lastprocessed'] = null;
     }
+    if (this.cpsigndate != null) {
+      json[r'cpsigndate'] = _dateFormatter.format(this.cpsigndate!.toUtc());
+    } else {
+      json[r'cpsigndate'] = null;
+    }
     if (this.optindate != null) {
       json[r'optindate'] = this.optindate!.toUtc().toIso8601String();
     } else {
@@ -142,14 +172,34 @@ class CCMPatient {
     } else {
       json[r'optoutremarks'] = null;
     }
-      json[r'patient_id'] = this.patientId;
+      json[r'patientid'] = this.patientid;
+    if (this.clinicname != null) {
+      json[r'clinicname'] = this.clinicname;
+    } else {
+      json[r'clinicname'] = null;
+    }
+    if (this.providername != null) {
+      json[r'providername'] = this.providername;
+    } else {
+      json[r'providername'] = null;
+    }
+    if (this.employeename != null) {
+      json[r'employeename'] = this.employeename;
+    } else {
+      json[r'employeename'] = null;
+    }
+    if (this.regemployeename != null) {
+      json[r'regemployeename'] = this.regemployeename;
+    } else {
+      json[r'regemployeename'] = null;
+    }
     return json;
   }
 
-  /// Returns a new [CCMPatient] instance and imports its values from
+  /// Returns a new [CCMPatientRead] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CCMPatient? fromJson(dynamic value) {
+  static CCMPatientRead? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -158,13 +208,13 @@ class CCMPatient {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "CCMPatient[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "CCMPatient[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CCMPatientRead[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CCMPatientRead[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return CCMPatient(
+      return CCMPatientRead(
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         providerid: mapValueOfType<String>(json, r'providerid'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
@@ -173,20 +223,25 @@ class CCMPatient {
         mrnnumber: mapValueOfType<String>(json, r'mrnnumber'),
         iv: mapValueOfType<String>(json, r'iv'),
         lastprocessed: mapDateTime(json, r'lastprocessed', r''),
+        cpsigndate: mapDateTime(json, r'cpsigndate', r''),
         optindate: mapDateTime(json, r'optindate', r''),
         optoutdate: mapDateTime(json, r'optoutdate', r''),
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
-        patientId: mapValueOfType<String>(json, r'patient_id')!,
+        patientid: mapValueOfType<String>(json, r'patientid')!,
+        clinicname: mapValueOfType<String>(json, r'clinicname'),
+        providername: mapValueOfType<String>(json, r'providername'),
+        employeename: mapValueOfType<String>(json, r'employeename'),
+        regemployeename: mapValueOfType<String>(json, r'regemployeename'),
       );
     }
     return null;
   }
 
-  static List<CCMPatient> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <CCMPatient>[];
+  static List<CCMPatientRead> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <CCMPatientRead>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = CCMPatient.fromJson(row);
+        final value = CCMPatientRead.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -195,12 +250,12 @@ class CCMPatient {
     return result.toList(growable: growable);
   }
 
-  static Map<String, CCMPatient> mapFromJson(dynamic json) {
-    final map = <String, CCMPatient>{};
+  static Map<String, CCMPatientRead> mapFromJson(dynamic json) {
+    final map = <String, CCMPatientRead>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CCMPatient.fromJson(entry.value);
+        final value = CCMPatientRead.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -209,14 +264,14 @@ class CCMPatient {
     return map;
   }
 
-  // maps a json object with a list of CCMPatient-objects as value to a dart map
-  static Map<String, List<CCMPatient>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<CCMPatient>>{};
+  // maps a json object with a list of CCMPatientRead-objects as value to a dart map
+  static Map<String, List<CCMPatientRead>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<CCMPatientRead>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CCMPatient.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = CCMPatientRead.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -224,7 +279,7 @@ class CCMPatient {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'patient_id',
+    'patientid',
   };
 }
 

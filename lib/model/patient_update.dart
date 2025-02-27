@@ -21,7 +21,6 @@ class PatientUpdate {
     this.primaryphone,
     this.secondaryphone,
     this.deceased,
-    this.optoutremarks,
     this.region,
     this.iv,
     this.ccmDetail,
@@ -44,8 +43,6 @@ class PatientUpdate {
 
   bool? deceased;
 
-  String? optoutremarks;
-
   String? region;
 
   String? iv;
@@ -64,7 +61,6 @@ class PatientUpdate {
     other.primaryphone == primaryphone &&
     other.secondaryphone == secondaryphone &&
     other.deceased == deceased &&
-    other.optoutremarks == optoutremarks &&
     other.region == region &&
     other.iv == iv &&
     other.ccmDetail == ccmDetail &&
@@ -81,14 +77,13 @@ class PatientUpdate {
     (primaryphone == null ? 0 : primaryphone!.hashCode) +
     (secondaryphone == null ? 0 : secondaryphone!.hashCode) +
     (deceased == null ? 0 : deceased!.hashCode) +
-    (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
     (region == null ? 0 : region!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (ccmDetail == null ? 0 : ccmDetail!.hashCode) +
     (pcmDetail == null ? 0 : pcmDetail!.hashCode);
 
   @override
-  String toString() => 'PatientUpdate[patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, optoutremarks=$optoutremarks, region=$region, iv=$iv, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
+  String toString() => 'PatientUpdate[patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, iv=$iv, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -131,11 +126,6 @@ class PatientUpdate {
       json[r'deceased'] = this.deceased;
     } else {
       json[r'deceased'] = null;
-    }
-    if (this.optoutremarks != null) {
-      json[r'optoutremarks'] = this.optoutremarks;
-    } else {
-      json[r'optoutremarks'] = null;
     }
     if (this.region != null) {
       json[r'region'] = this.region;
@@ -187,7 +177,6 @@ class PatientUpdate {
         primaryphone: mapValueOfType<String>(json, r'primaryphone'),
         secondaryphone: mapValueOfType<String>(json, r'secondaryphone'),
         deceased: mapValueOfType<bool>(json, r'deceased'),
-        optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
         region: mapValueOfType<String>(json, r'region'),
         iv: mapValueOfType<String>(json, r'iv'),
         ccmDetail: CCMPatientUpdate.fromJson(json[r'ccm_detail']),

@@ -21,7 +21,6 @@ class PatientRead {
     this.primaryphone,
     this.secondaryphone,
     this.deceased = false,
-    this.optoutremarks,
     this.region,
     this.iv,
     required this.id,
@@ -46,8 +45,6 @@ class PatientRead {
 
   bool deceased;
 
-  String? optoutremarks;
-
   String? region;
 
   String? iv;
@@ -56,9 +53,9 @@ class PatientRead {
 
   bool canbedeleted;
 
-  CCMPatient? ccmDetail;
+  CCMPatientRead? ccmDetail;
 
-  PCMPatient? pcmDetail;
+  PCMPatientRead? pcmDetail;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientRead &&
@@ -70,7 +67,6 @@ class PatientRead {
     other.primaryphone == primaryphone &&
     other.secondaryphone == secondaryphone &&
     other.deceased == deceased &&
-    other.optoutremarks == optoutremarks &&
     other.region == region &&
     other.iv == iv &&
     other.id == id &&
@@ -89,7 +85,6 @@ class PatientRead {
     (primaryphone == null ? 0 : primaryphone!.hashCode) +
     (secondaryphone == null ? 0 : secondaryphone!.hashCode) +
     (deceased.hashCode) +
-    (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
     (region == null ? 0 : region!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (id.hashCode) +
@@ -98,7 +93,7 @@ class PatientRead {
     (pcmDetail == null ? 0 : pcmDetail!.hashCode);
 
   @override
-  String toString() => 'PatientRead[patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, optoutremarks=$optoutremarks, region=$region, iv=$iv, id=$id, canbedeleted=$canbedeleted, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
+  String toString() => 'PatientRead[patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, iv=$iv, id=$id, canbedeleted=$canbedeleted, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -134,11 +129,6 @@ class PatientRead {
       json[r'secondaryphone'] = null;
     }
       json[r'deceased'] = this.deceased;
-    if (this.optoutremarks != null) {
-      json[r'optoutremarks'] = this.optoutremarks;
-    } else {
-      json[r'optoutremarks'] = null;
-    }
     if (this.region != null) {
       json[r'region'] = this.region;
     } else {
@@ -191,13 +181,12 @@ class PatientRead {
         primaryphone: mapValueOfType<String>(json, r'primaryphone'),
         secondaryphone: mapValueOfType<String>(json, r'secondaryphone'),
         deceased: mapValueOfType<bool>(json, r'deceased') ?? false,
-        optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
         region: mapValueOfType<String>(json, r'region'),
         iv: mapValueOfType<String>(json, r'iv'),
         id: mapValueOfType<String>(json, r'id')!,
         canbedeleted: mapValueOfType<bool>(json, r'canbedeleted') ?? true,
-        ccmDetail: CCMPatient.fromJson(json[r'ccm_detail']),
-        pcmDetail: PCMPatient.fromJson(json[r'pcm_detail']),
+        ccmDetail: CCMPatientRead.fromJson(json[r'ccm_detail']),
+        pcmDetail: PCMPatientRead.fromJson(json[r'pcm_detail']),
       );
     }
     return null;

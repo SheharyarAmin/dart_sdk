@@ -20,6 +20,7 @@ class PCMPatientUpdate {
     this.pcmfinnumber,
     this.pcmmrnnumber,
     this.iv,
+    this.pcmcpsigndate,
     this.lastprocessedpcm,
     this.pcmoptindate,
     this.pcmoptoutdate,
@@ -40,6 +41,8 @@ class PCMPatientUpdate {
 
   String? iv;
 
+  DateTime? pcmcpsigndate;
+
   DateTime? lastprocessedpcm;
 
   DateTime? pcmoptindate;
@@ -57,6 +60,7 @@ class PCMPatientUpdate {
     other.pcmfinnumber == pcmfinnumber &&
     other.pcmmrnnumber == pcmmrnnumber &&
     other.iv == iv &&
+    other.pcmcpsigndate == pcmcpsigndate &&
     other.lastprocessedpcm == lastprocessedpcm &&
     other.pcmoptindate == pcmoptindate &&
     other.pcmoptoutdate == pcmoptoutdate &&
@@ -72,13 +76,14 @@ class PCMPatientUpdate {
     (pcmfinnumber == null ? 0 : pcmfinnumber!.hashCode) +
     (pcmmrnnumber == null ? 0 : pcmmrnnumber!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
+    (pcmcpsigndate == null ? 0 : pcmcpsigndate!.hashCode) +
     (lastprocessedpcm == null ? 0 : lastprocessedpcm!.hashCode) +
     (pcmoptindate == null ? 0 : pcmoptindate!.hashCode) +
     (pcmoptoutdate == null ? 0 : pcmoptoutdate!.hashCode) +
     (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'PCMPatientUpdate[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'PCMPatientUpdate[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, pcmcpsigndate=$pcmcpsigndate, lastprocessedpcm=$lastprocessedpcm, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -116,6 +121,11 @@ class PCMPatientUpdate {
       json[r'iv'] = this.iv;
     } else {
       json[r'iv'] = null;
+    }
+    if (this.pcmcpsigndate != null) {
+      json[r'pcmcpsigndate'] = _dateFormatter.format(this.pcmcpsigndate!.toUtc());
+    } else {
+      json[r'pcmcpsigndate'] = null;
     }
     if (this.lastprocessedpcm != null) {
       json[r'lastprocessedpcm'] = _dateFormatter.format(this.lastprocessedpcm!.toUtc());
@@ -166,6 +176,7 @@ class PCMPatientUpdate {
         pcmfinnumber: mapValueOfType<String>(json, r'pcmfinnumber'),
         pcmmrnnumber: mapValueOfType<String>(json, r'pcmmrnnumber'),
         iv: mapValueOfType<String>(json, r'iv'),
+        pcmcpsigndate: mapDateTime(json, r'pcmcpsigndate', r''),
         lastprocessedpcm: mapDateTime(json, r'lastprocessedpcm', r''),
         pcmoptindate: mapDateTime(json, r'pcmoptindate', r''),
         pcmoptoutdate: mapDateTime(json, r'pcmoptoutdate', r''),
