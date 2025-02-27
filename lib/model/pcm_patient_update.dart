@@ -16,12 +16,14 @@ class PCMPatientUpdate {
     this.pcmclinicid,
     this.pcmproviderid,
     this.pcmemployeeid,
+    this.pcmregempid,
     this.pcmfinnumber,
     this.pcmmrnnumber,
     this.iv,
     this.lastprocessedpcm,
     this.pcmoptindate,
     this.pcmoptoutdate,
+    this.optoutremarks,
   });
 
   String? pcmclinicid;
@@ -29,6 +31,8 @@ class PCMPatientUpdate {
   String? pcmproviderid;
 
   String? pcmemployeeid;
+
+  String? pcmregempid;
 
   String? pcmfinnumber;
 
@@ -42,17 +46,21 @@ class PCMPatientUpdate {
 
   DateTime? pcmoptoutdate;
 
+  String? optoutremarks;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is PCMPatientUpdate &&
     other.pcmclinicid == pcmclinicid &&
     other.pcmproviderid == pcmproviderid &&
     other.pcmemployeeid == pcmemployeeid &&
+    other.pcmregempid == pcmregempid &&
     other.pcmfinnumber == pcmfinnumber &&
     other.pcmmrnnumber == pcmmrnnumber &&
     other.iv == iv &&
     other.lastprocessedpcm == lastprocessedpcm &&
     other.pcmoptindate == pcmoptindate &&
-    other.pcmoptoutdate == pcmoptoutdate;
+    other.pcmoptoutdate == pcmoptoutdate &&
+    other.optoutremarks == optoutremarks;
 
   @override
   int get hashCode =>
@@ -60,15 +68,17 @@ class PCMPatientUpdate {
     (pcmclinicid == null ? 0 : pcmclinicid!.hashCode) +
     (pcmproviderid == null ? 0 : pcmproviderid!.hashCode) +
     (pcmemployeeid == null ? 0 : pcmemployeeid!.hashCode) +
+    (pcmregempid == null ? 0 : pcmregempid!.hashCode) +
     (pcmfinnumber == null ? 0 : pcmfinnumber!.hashCode) +
     (pcmmrnnumber == null ? 0 : pcmmrnnumber!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (lastprocessedpcm == null ? 0 : lastprocessedpcm!.hashCode) +
     (pcmoptindate == null ? 0 : pcmoptindate!.hashCode) +
-    (pcmoptoutdate == null ? 0 : pcmoptoutdate!.hashCode);
+    (pcmoptoutdate == null ? 0 : pcmoptoutdate!.hashCode) +
+    (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'PCMPatientUpdate[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate]';
+  String toString() => 'PCMPatientUpdate[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -86,6 +96,11 @@ class PCMPatientUpdate {
       json[r'pcmemployeeid'] = this.pcmemployeeid;
     } else {
       json[r'pcmemployeeid'] = null;
+    }
+    if (this.pcmregempid != null) {
+      json[r'pcmregempid'] = this.pcmregempid;
+    } else {
+      json[r'pcmregempid'] = null;
     }
     if (this.pcmfinnumber != null) {
       json[r'pcmfinnumber'] = this.pcmfinnumber;
@@ -117,6 +132,11 @@ class PCMPatientUpdate {
     } else {
       json[r'pcmoptoutdate'] = null;
     }
+    if (this.optoutremarks != null) {
+      json[r'optoutremarks'] = this.optoutremarks;
+    } else {
+      json[r'optoutremarks'] = null;
+    }
     return json;
   }
 
@@ -142,12 +162,14 @@ class PCMPatientUpdate {
         pcmclinicid: mapValueOfType<String>(json, r'pcmclinicid'),
         pcmproviderid: mapValueOfType<String>(json, r'pcmproviderid'),
         pcmemployeeid: mapValueOfType<String>(json, r'pcmemployeeid'),
+        pcmregempid: mapValueOfType<String>(json, r'pcmregempid'),
         pcmfinnumber: mapValueOfType<String>(json, r'pcmfinnumber'),
         pcmmrnnumber: mapValueOfType<String>(json, r'pcmmrnnumber'),
         iv: mapValueOfType<String>(json, r'iv'),
         lastprocessedpcm: mapDateTime(json, r'lastprocessedpcm', r''),
         pcmoptindate: mapDateTime(json, r'pcmoptindate', r''),
         pcmoptoutdate: mapDateTime(json, r'pcmoptoutdate', r''),
+        optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
       );
     }
     return null;

@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**patients** | [**List<Patient>**](Patient.md) |  | [default to const []]
+**patients** | [**List<PatientRead>**](PatientRead.md) |  | [default to const []]
 **pagination** | [**PaginationMetadata**](PaginationMetadata.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

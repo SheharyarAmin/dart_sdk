@@ -338,6 +338,8 @@ class ApiClient {
           return AssignedPatientScreenResponse.fromJson(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
+        case 'CCMPatient':
+          return CCMPatient.fromJson(value);
         case 'CCMPatientCreate':
           return CCMPatientCreate.fromJson(value);
         case 'CCMPatientUpdate':
@@ -386,6 +388,8 @@ class ApiClient {
           return OptInEmployeeLogEntry.fromJson(value);
         case 'OptInEmployeeLogEntryBase':
           return OptInEmployeeLogEntryBase.fromJson(value);
+        case 'PCMPatient':
+          return PCMPatient.fromJson(value);
         case 'PCMPatientCreate':
           return PCMPatientCreate.fromJson(value);
         case 'PCMPatientUpdate':
@@ -398,6 +402,8 @@ class ApiClient {
           return PatientCreate.fromJson(value);
         case 'PatientPaymentEntry':
           return PatientPaymentEntry.fromJson(value);
+        case 'PatientRead':
+          return PatientRead.fromJson(value);
         case 'PatientUpdate':
           return PatientUpdate.fromJson(value);
         case 'PatientsResponse':

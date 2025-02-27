@@ -116,8 +116,6 @@ Create Provider
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ProvidersApi();
 final providerCreate = ProviderCreate(); // ProviderCreate | 
@@ -144,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -244,7 +242,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readProvidersApiV1ProvidersGet**
-> Map<String, ProviderRead> readProvidersApiV1ProvidersGet(usePostgres)
+> List<ProviderRead> readProvidersApiV1ProvidersGet(usePostgres)
 
 Read Providers
 
@@ -271,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, ProviderRead>**](ProviderRead.md)
+[**List<ProviderRead>**](ProviderRead.md)
 
 ### Authorization
 

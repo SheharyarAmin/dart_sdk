@@ -16,12 +16,14 @@ class CCMPatientUpdate {
     this.clinicid,
     this.providerid,
     this.employeeid,
+    this.regempid,
     this.finnumber,
     this.mrnnumber,
     this.iv,
     this.lastprocessed,
     this.optindate,
     this.optoutdate,
+    this.optoutremarks,
   });
 
   String? clinicid;
@@ -29,6 +31,8 @@ class CCMPatientUpdate {
   String? providerid;
 
   String? employeeid;
+
+  String? regempid;
 
   String? finnumber;
 
@@ -42,17 +46,21 @@ class CCMPatientUpdate {
 
   DateTime? optoutdate;
 
+  String? optoutremarks;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is CCMPatientUpdate &&
     other.clinicid == clinicid &&
     other.providerid == providerid &&
     other.employeeid == employeeid &&
+    other.regempid == regempid &&
     other.finnumber == finnumber &&
     other.mrnnumber == mrnnumber &&
     other.iv == iv &&
     other.lastprocessed == lastprocessed &&
     other.optindate == optindate &&
-    other.optoutdate == optoutdate;
+    other.optoutdate == optoutdate &&
+    other.optoutremarks == optoutremarks;
 
   @override
   int get hashCode =>
@@ -60,15 +68,17 @@ class CCMPatientUpdate {
     (clinicid == null ? 0 : clinicid!.hashCode) +
     (providerid == null ? 0 : providerid!.hashCode) +
     (employeeid == null ? 0 : employeeid!.hashCode) +
+    (regempid == null ? 0 : regempid!.hashCode) +
     (finnumber == null ? 0 : finnumber!.hashCode) +
     (mrnnumber == null ? 0 : mrnnumber!.hashCode) +
     (iv == null ? 0 : iv!.hashCode) +
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
     (optindate == null ? 0 : optindate!.hashCode) +
-    (optoutdate == null ? 0 : optoutdate!.hashCode);
+    (optoutdate == null ? 0 : optoutdate!.hashCode) +
+    (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'CCMPatientUpdate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, optindate=$optindate, optoutdate=$optoutdate]';
+  String toString() => 'CCMPatientUpdate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -86,6 +96,11 @@ class CCMPatientUpdate {
       json[r'employeeid'] = this.employeeid;
     } else {
       json[r'employeeid'] = null;
+    }
+    if (this.regempid != null) {
+      json[r'regempid'] = this.regempid;
+    } else {
+      json[r'regempid'] = null;
     }
     if (this.finnumber != null) {
       json[r'finnumber'] = this.finnumber;
@@ -117,6 +132,11 @@ class CCMPatientUpdate {
     } else {
       json[r'optoutdate'] = null;
     }
+    if (this.optoutremarks != null) {
+      json[r'optoutremarks'] = this.optoutremarks;
+    } else {
+      json[r'optoutremarks'] = null;
+    }
     return json;
   }
 
@@ -142,12 +162,14 @@ class CCMPatientUpdate {
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         providerid: mapValueOfType<String>(json, r'providerid'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
+        regempid: mapValueOfType<String>(json, r'regempid'),
         finnumber: mapValueOfType<String>(json, r'finnumber'),
         mrnnumber: mapValueOfType<String>(json, r'mrnnumber'),
         iv: mapValueOfType<String>(json, r'iv'),
         lastprocessed: mapDateTime(json, r'lastprocessed', r''),
         optindate: mapDateTime(json, r'optindate', r''),
         optoutdate: mapDateTime(json, r'optoutdate', r''),
+        optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
       );
     }
     return null;

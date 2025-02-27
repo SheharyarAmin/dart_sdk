@@ -361,7 +361,7 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [bool] usePostgres:
-  Future<Map<String, ProviderRead>?> readProvidersApiV1ProvidersGet({ bool? usePostgres, }) async {
+  Future<List<ProviderRead>?> readProvidersApiV1ProvidersGet({ bool? usePostgres, }) async {
     final response = await readProvidersApiV1ProvidersGetWithHttpInfo( usePostgres: usePostgres, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -370,7 +370,10 @@ class ProvidersApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return Map<String, ProviderRead>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, ProviderRead>'),);
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<ProviderRead>') as List)
+        .cast<ProviderRead>()
+        .toList(growable: false);
 
     }
     return null;

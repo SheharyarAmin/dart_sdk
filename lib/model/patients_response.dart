@@ -17,7 +17,7 @@ class PatientsResponse {
     required this.pagination,
   });
 
-  List<Patient> patients;
+  List<PatientRead> patients;
 
   PaginationMetadata pagination;
 
@@ -61,7 +61,7 @@ class PatientsResponse {
       }());
 
       return PatientsResponse(
-        patients: Patient.listFromJson(json[r'patients']),
+        patients: PatientRead.listFromJson(json[r'patients']),
         pagination: PaginationMetadata.fromJson(json[r'pagination'])!,
       );
     }

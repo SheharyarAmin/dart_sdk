@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class CCMPatientCreate {
-  /// Returns a new [CCMPatientCreate] instance.
-  CCMPatientCreate({
+class CCMPatient {
+  /// Returns a new [CCMPatient] instance.
+  CCMPatient({
     this.clinicid,
     this.providerid,
     this.employeeid,
@@ -24,6 +24,7 @@ class CCMPatientCreate {
     this.optindate,
     this.optoutdate,
     this.optoutremarks,
+    required this.patientId,
   });
 
   String? clinicid;
@@ -48,8 +49,10 @@ class CCMPatientCreate {
 
   String? optoutremarks;
 
+  String patientId;
+
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CCMPatientCreate &&
+  bool operator ==(Object other) => identical(this, other) || other is CCMPatient &&
     other.clinicid == clinicid &&
     other.providerid == providerid &&
     other.employeeid == employeeid &&
@@ -60,7 +63,8 @@ class CCMPatientCreate {
     other.lastprocessed == lastprocessed &&
     other.optindate == optindate &&
     other.optoutdate == optoutdate &&
-    other.optoutremarks == optoutremarks;
+    other.optoutremarks == optoutremarks &&
+    other.patientId == patientId;
 
   @override
   int get hashCode =>
@@ -75,10 +79,11 @@ class CCMPatientCreate {
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
     (optindate == null ? 0 : optindate!.hashCode) +
     (optoutdate == null ? 0 : optoutdate!.hashCode) +
-    (optoutremarks == null ? 0 : optoutremarks!.hashCode);
+    (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
+    (patientId.hashCode);
 
   @override
-  String toString() => 'CCMPatientCreate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'CCMPatient[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientId=$patientId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -137,13 +142,14 @@ class CCMPatientCreate {
     } else {
       json[r'optoutremarks'] = null;
     }
+      json[r'patient_id'] = this.patientId;
     return json;
   }
 
-  /// Returns a new [CCMPatientCreate] instance and imports its values from
+  /// Returns a new [CCMPatient] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CCMPatientCreate? fromJson(dynamic value) {
+  static CCMPatient? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -152,13 +158,13 @@ class CCMPatientCreate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "CCMPatientCreate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "CCMPatientCreate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CCMPatient[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CCMPatient[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return CCMPatientCreate(
+      return CCMPatient(
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         providerid: mapValueOfType<String>(json, r'providerid'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
@@ -170,16 +176,17 @@ class CCMPatientCreate {
         optindate: mapDateTime(json, r'optindate', r''),
         optoutdate: mapDateTime(json, r'optoutdate', r''),
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
+        patientId: mapValueOfType<String>(json, r'patient_id')!,
       );
     }
     return null;
   }
 
-  static List<CCMPatientCreate> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <CCMPatientCreate>[];
+  static List<CCMPatient> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <CCMPatient>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = CCMPatientCreate.fromJson(row);
+        final value = CCMPatient.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -188,12 +195,12 @@ class CCMPatientCreate {
     return result.toList(growable: growable);
   }
 
-  static Map<String, CCMPatientCreate> mapFromJson(dynamic json) {
-    final map = <String, CCMPatientCreate>{};
+  static Map<String, CCMPatient> mapFromJson(dynamic json) {
+    final map = <String, CCMPatient>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CCMPatientCreate.fromJson(entry.value);
+        final value = CCMPatient.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -202,14 +209,14 @@ class CCMPatientCreate {
     return map;
   }
 
-  // maps a json object with a list of CCMPatientCreate-objects as value to a dart map
-  static Map<String, List<CCMPatientCreate>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<CCMPatientCreate>>{};
+  // maps a json object with a list of CCMPatient-objects as value to a dart map
+  static Map<String, List<CCMPatient>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<CCMPatient>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CCMPatientCreate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = CCMPatient.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -217,6 +224,7 @@ class CCMPatientCreate {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'patient_id',
   };
 }
 

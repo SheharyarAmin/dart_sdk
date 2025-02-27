@@ -1,4 +1,4 @@
-# openapi.model.PCMPatientUpdate
+# openapi.model.PCMPatient
 
 ## Load the model package
 ```dart
@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **pcmoptindate** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmoptoutdate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optoutremarks** | **String** |  | [optional] 
+**patientId** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
