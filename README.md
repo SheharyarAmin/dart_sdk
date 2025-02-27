@@ -158,6 +158,7 @@ Class | Method | HTTP request | Description
  - [ClinicUpdate](doc//ClinicUpdate.md)
  - [ConsultantCreate](doc//ConsultantCreate.md)
  - [ConsultantProviderPayRate](doc//ConsultantProviderPayRate.md)
+ - [ConsultantProviderPayRateRead](doc//ConsultantProviderPayRateRead.md)
  - [ConsultantRead](doc//ConsultantRead.md)
  - [ConsultantUpdate](doc//ConsultantUpdate.md)
  - [Employee](doc//Employee.md)

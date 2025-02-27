@@ -18,6 +18,7 @@ doc/ClinicUpdate.md
 doc/ClinicsApi.md
 doc/ConsultantCreate.md
 doc/ConsultantProviderPayRate.md
+doc/ConsultantProviderPayRateRead.md
 doc/ConsultantRead.md
 doc/ConsultantUpdate.md
 doc/ConsultantsApi.md
@@ -110,6 +111,7 @@ lib/model/clinic_read.dart
 lib/model/clinic_update.dart
 lib/model/consultant_create.dart
 lib/model/consultant_provider_pay_rate.dart
+lib/model/consultant_provider_pay_rate_read.dart
 lib/model/consultant_read.dart
 lib/model/consultant_update.dart
 lib/model/employee.dart
@@ -149,4 +151,4 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/consultant_provider_pay_rate_test.dart
+test/consultant_provider_pay_rate_read_test.dart

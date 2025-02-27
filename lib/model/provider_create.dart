@@ -14,6 +14,7 @@ class ProviderCreate {
   /// Returns a new [ProviderCreate] instance.
   ProviderCreate({
     required this.doctorsname,
+    this.clinicid,
     required this.specialization,
     this.status = 'Active',
     required this.email,
@@ -22,12 +23,14 @@ class ProviderCreate {
     required this.faxnumber,
     this.portal = Portal.CCM,
     required this.region,
-    this.clinicid,
+    this.canbedeleted = true,
     this.payrates = const [],
     this.consultantPayrates = const [],
   });
 
   String doctorsname;
+
+  String? clinicid;
 
   String specialization;
 
@@ -45,7 +48,7 @@ class ProviderCreate {
 
   String region;
 
-  String? clinicid;
+  bool canbedeleted;
 
   List<ProviderPayRate> payrates;
 
@@ -54,6 +57,7 @@ class ProviderCreate {
   @override
   bool operator ==(Object other) => identical(this, other) || other is ProviderCreate &&
     other.doctorsname == doctorsname &&
+    other.clinicid == clinicid &&
     other.specialization == specialization &&
     other.status == status &&
     other.email == email &&
@@ -62,7 +66,7 @@ class ProviderCreate {
     other.faxnumber == faxnumber &&
     other.portal == portal &&
     other.region == region &&
-    other.clinicid == clinicid &&
+    other.canbedeleted == canbedeleted &&
     _deepEquality.equals(other.payrates, payrates) &&
     _deepEquality.equals(other.consultantPayrates, consultantPayrates);
 
@@ -70,6 +74,7 @@ class ProviderCreate {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (doctorsname.hashCode) +
+    (clinicid == null ? 0 : clinicid!.hashCode) +
     (specialization.hashCode) +
     (status.hashCode) +
     (email.hashCode) +
@@ -78,16 +83,21 @@ class ProviderCreate {
     (faxnumber.hashCode) +
     (portal.hashCode) +
     (region.hashCode) +
-    (clinicid == null ? 0 : clinicid!.hashCode) +
+    (canbedeleted.hashCode) +
     (payrates.hashCode) +
     (consultantPayrates.hashCode);
 
   @override
-  String toString() => 'ProviderCreate[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, payrates=$payrates, consultantPayrates=$consultantPayrates]';
+  String toString() => 'ProviderCreate[doctorsname=$doctorsname, clinicid=$clinicid, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, canbedeleted=$canbedeleted, payrates=$payrates, consultantPayrates=$consultantPayrates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'doctorsname'] = this.doctorsname;
+    if (this.clinicid != null) {
+      json[r'clinicid'] = this.clinicid;
+    } else {
+      json[r'clinicid'] = null;
+    }
       json[r'specialization'] = this.specialization;
       json[r'status'] = this.status;
       json[r'email'] = this.email;
@@ -96,11 +106,7 @@ class ProviderCreate {
       json[r'faxnumber'] = this.faxnumber;
       json[r'portal'] = this.portal;
       json[r'region'] = this.region;
-    if (this.clinicid != null) {
-      json[r'clinicid'] = this.clinicid;
-    } else {
-      json[r'clinicid'] = null;
-    }
+      json[r'canbedeleted'] = this.canbedeleted;
       json[r'payrates'] = this.payrates;
       json[r'consultant_payrates'] = this.consultantPayrates;
     return json;
@@ -126,6 +132,7 @@ class ProviderCreate {
 
       return ProviderCreate(
         doctorsname: mapValueOfType<String>(json, r'doctorsname')!,
+        clinicid: mapValueOfType<String>(json, r'clinicid'),
         specialization: mapValueOfType<String>(json, r'specialization')!,
         status: mapValueOfType<String>(json, r'status') ?? 'Active',
         email: mapValueOfType<String>(json, r'email')!,
@@ -134,7 +141,7 @@ class ProviderCreate {
         faxnumber: mapValueOfType<String>(json, r'faxnumber')!,
         portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         region: mapValueOfType<String>(json, r'region')!,
-        clinicid: mapValueOfType<String>(json, r'clinicid'),
+        canbedeleted: mapValueOfType<bool>(json, r'canbedeleted') ?? true,
         payrates: ProviderPayRate.listFromJson(json[r'payrates']),
         consultantPayrates: ConsultantProviderPayRate.listFromJson(json[r'consultant_payrates']),
       );

@@ -14,6 +14,7 @@ class ProviderRead {
   /// Returns a new [ProviderRead] instance.
   ProviderRead({
     required this.doctorsname,
+    this.clinicid,
     required this.specialization,
     this.status = 'Active',
     required this.email,
@@ -22,15 +23,16 @@ class ProviderRead {
     required this.faxnumber,
     this.portal = Portal.CCM,
     required this.region,
-    this.clinicid,
-    required this.id,
     this.canbedeleted = true,
+    required this.id,
     this.clinicname,
     this.payrates = const [],
     this.consultantPayrates = const [],
   });
 
   String doctorsname;
+
+  String? clinicid;
 
   String specialization;
 
@@ -48,21 +50,20 @@ class ProviderRead {
 
   String region;
 
-  String? clinicid;
+  bool canbedeleted;
 
   String id;
-
-  bool canbedeleted;
 
   String? clinicname;
 
   List<ProviderPayRate> payrates;
 
-  List<ConsultantProviderPayRate> consultantPayrates;
+  List<ConsultantProviderPayRateRead> consultantPayrates;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ProviderRead &&
     other.doctorsname == doctorsname &&
+    other.clinicid == clinicid &&
     other.specialization == specialization &&
     other.status == status &&
     other.email == email &&
@@ -71,9 +72,8 @@ class ProviderRead {
     other.faxnumber == faxnumber &&
     other.portal == portal &&
     other.region == region &&
-    other.clinicid == clinicid &&
-    other.id == id &&
     other.canbedeleted == canbedeleted &&
+    other.id == id &&
     other.clinicname == clinicname &&
     _deepEquality.equals(other.payrates, payrates) &&
     _deepEquality.equals(other.consultantPayrates, consultantPayrates);
@@ -82,6 +82,7 @@ class ProviderRead {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (doctorsname.hashCode) +
+    (clinicid == null ? 0 : clinicid!.hashCode) +
     (specialization.hashCode) +
     (status.hashCode) +
     (email.hashCode) +
@@ -90,19 +91,23 @@ class ProviderRead {
     (faxnumber.hashCode) +
     (portal.hashCode) +
     (region.hashCode) +
-    (clinicid == null ? 0 : clinicid!.hashCode) +
-    (id.hashCode) +
     (canbedeleted.hashCode) +
+    (id.hashCode) +
     (clinicname == null ? 0 : clinicname!.hashCode) +
     (payrates.hashCode) +
     (consultantPayrates.hashCode);
 
   @override
-  String toString() => 'ProviderRead[doctorsname=$doctorsname, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, clinicid=$clinicid, id=$id, canbedeleted=$canbedeleted, clinicname=$clinicname, payrates=$payrates, consultantPayrates=$consultantPayrates]';
+  String toString() => 'ProviderRead[doctorsname=$doctorsname, clinicid=$clinicid, specialization=$specialization, status=$status, email=$email, address=$address, phonenumber=$phonenumber, faxnumber=$faxnumber, portal=$portal, region=$region, canbedeleted=$canbedeleted, id=$id, clinicname=$clinicname, payrates=$payrates, consultantPayrates=$consultantPayrates]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'doctorsname'] = this.doctorsname;
+    if (this.clinicid != null) {
+      json[r'clinicid'] = this.clinicid;
+    } else {
+      json[r'clinicid'] = null;
+    }
       json[r'specialization'] = this.specialization;
       json[r'status'] = this.status;
       json[r'email'] = this.email;
@@ -111,13 +116,8 @@ class ProviderRead {
       json[r'faxnumber'] = this.faxnumber;
       json[r'portal'] = this.portal;
       json[r'region'] = this.region;
-    if (this.clinicid != null) {
-      json[r'clinicid'] = this.clinicid;
-    } else {
-      json[r'clinicid'] = null;
-    }
-      json[r'id'] = this.id;
       json[r'canbedeleted'] = this.canbedeleted;
+      json[r'id'] = this.id;
     if (this.clinicname != null) {
       json[r'clinicname'] = this.clinicname;
     } else {
@@ -148,6 +148,7 @@ class ProviderRead {
 
       return ProviderRead(
         doctorsname: mapValueOfType<String>(json, r'doctorsname')!,
+        clinicid: mapValueOfType<String>(json, r'clinicid'),
         specialization: mapValueOfType<String>(json, r'specialization')!,
         status: mapValueOfType<String>(json, r'status') ?? 'Active',
         email: mapValueOfType<String>(json, r'email')!,
@@ -156,12 +157,11 @@ class ProviderRead {
         faxnumber: mapValueOfType<String>(json, r'faxnumber')!,
         portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         region: mapValueOfType<String>(json, r'region')!,
-        clinicid: mapValueOfType<String>(json, r'clinicid'),
-        id: mapValueOfType<String>(json, r'id')!,
         canbedeleted: mapValueOfType<bool>(json, r'canbedeleted') ?? true,
+        id: mapValueOfType<String>(json, r'id')!,
         clinicname: mapValueOfType<String>(json, r'clinicname'),
         payrates: ProviderPayRate.listFromJson(json[r'payrates']),
-        consultantPayrates: ConsultantProviderPayRate.listFromJson(json[r'consultant_payrates']),
+        consultantPayrates: ConsultantProviderPayRateRead.listFromJson(json[r'consultant_payrates']),
       );
     }
     return null;

@@ -9,6 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **doctorsname** | **String** |  | 
+**clinicid** | **String** |  | [optional] 
 **specialization** | **String** |  | 
 **status** | **String** |  | [optional] [default to 'Active']
 **email** | **String** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 **faxnumber** | **String** |  | 
 **portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
 **region** | **String** |  | 
-**clinicid** | **String** |  | [optional] 
+**canbedeleted** | **bool** |  | [optional] [default to true]
 **payrates** | [**List<ProviderPayRate>**](ProviderPayRate.md) |  | [optional] [default to const []]
 **consultantPayrates** | [**List<ConsultantProviderPayRate>**](ConsultantProviderPayRate.md) |  | [optional] [default to const []]
 

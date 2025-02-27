@@ -61,6 +61,7 @@ part 'model/clinic_read.dart';
 part 'model/clinic_update.dart';
 part 'model/consultant_create.dart';
 part 'model/consultant_provider_pay_rate.dart';
+part 'model/consultant_provider_pay_rate_read.dart';
 part 'model/consultant_read.dart';
 part 'model/consultant_update.dart';
 part 'model/employee.dart';

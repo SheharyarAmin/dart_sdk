@@ -1,4 +1,4 @@
-# openapi.model.ConsultantProviderPayRate
+# openapi.model.ConsultantProviderPayRateRead
 
 ## Load the model package
 ```dart
@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **payCode** | **String** |  | 
 **rate** | **num** |  | [optional] [default to 0]
 **effectiveDate** | [**DateTime**](DateTime.md) |  | [optional] 
+**consultantName** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
