@@ -13,19 +13,21 @@ part of openapi.api;
 class PCMPatientCreate {
   /// Returns a new [PCMPatientCreate] instance.
   PCMPatientCreate({
+    this.iv,
     this.pcmclinicid,
     this.pcmproviderid,
     this.pcmemployeeid,
     this.pcmregempid,
     this.pcmfinnumber,
     this.pcmmrnnumber,
-    this.iv,
     this.lastprocessedpcm,
     this.pcmcpsigndate,
     this.pcmoptindate,
     this.pcmoptoutdate,
     this.optoutremarks,
   });
+
+  String? iv;
 
   String? pcmclinicid;
 
@@ -39,8 +41,6 @@ class PCMPatientCreate {
 
   String? pcmmrnnumber;
 
-  String? iv;
-
   DateTime? lastprocessedpcm;
 
   DateTime? pcmcpsigndate;
@@ -53,13 +53,13 @@ class PCMPatientCreate {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PCMPatientCreate &&
+    other.iv == iv &&
     other.pcmclinicid == pcmclinicid &&
     other.pcmproviderid == pcmproviderid &&
     other.pcmemployeeid == pcmemployeeid &&
     other.pcmregempid == pcmregempid &&
     other.pcmfinnumber == pcmfinnumber &&
     other.pcmmrnnumber == pcmmrnnumber &&
-    other.iv == iv &&
     other.lastprocessedpcm == lastprocessedpcm &&
     other.pcmcpsigndate == pcmcpsigndate &&
     other.pcmoptindate == pcmoptindate &&
@@ -69,13 +69,13 @@ class PCMPatientCreate {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (iv == null ? 0 : iv!.hashCode) +
     (pcmclinicid == null ? 0 : pcmclinicid!.hashCode) +
     (pcmproviderid == null ? 0 : pcmproviderid!.hashCode) +
     (pcmemployeeid == null ? 0 : pcmemployeeid!.hashCode) +
     (pcmregempid == null ? 0 : pcmregempid!.hashCode) +
     (pcmfinnumber == null ? 0 : pcmfinnumber!.hashCode) +
     (pcmmrnnumber == null ? 0 : pcmmrnnumber!.hashCode) +
-    (iv == null ? 0 : iv!.hashCode) +
     (lastprocessedpcm == null ? 0 : lastprocessedpcm!.hashCode) +
     (pcmcpsigndate == null ? 0 : pcmcpsigndate!.hashCode) +
     (pcmoptindate == null ? 0 : pcmoptindate!.hashCode) +
@@ -83,10 +83,15 @@ class PCMPatientCreate {
     (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'PCMPatientCreate[pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, iv=$iv, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'PCMPatientCreate[iv=$iv, pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.iv != null) {
+      json[r'iv'] = this.iv;
+    } else {
+      json[r'iv'] = null;
+    }
     if (this.pcmclinicid != null) {
       json[r'pcmclinicid'] = this.pcmclinicid;
     } else {
@@ -116,11 +121,6 @@ class PCMPatientCreate {
       json[r'pcmmrnnumber'] = this.pcmmrnnumber;
     } else {
       json[r'pcmmrnnumber'] = null;
-    }
-    if (this.iv != null) {
-      json[r'iv'] = this.iv;
-    } else {
-      json[r'iv'] = null;
     }
     if (this.lastprocessedpcm != null) {
       json[r'lastprocessedpcm'] = _dateFormatter.format(this.lastprocessedpcm!.toUtc());
@@ -169,13 +169,13 @@ class PCMPatientCreate {
       }());
 
       return PCMPatientCreate(
+        iv: mapValueOfType<String>(json, r'iv'),
         pcmclinicid: mapValueOfType<String>(json, r'pcmclinicid'),
         pcmproviderid: mapValueOfType<String>(json, r'pcmproviderid'),
         pcmemployeeid: mapValueOfType<String>(json, r'pcmemployeeid'),
         pcmregempid: mapValueOfType<String>(json, r'pcmregempid'),
         pcmfinnumber: mapValueOfType<String>(json, r'pcmfinnumber'),
         pcmmrnnumber: mapValueOfType<String>(json, r'pcmmrnnumber'),
-        iv: mapValueOfType<String>(json, r'iv'),
         lastprocessedpcm: mapDateTime(json, r'lastprocessedpcm', r''),
         pcmcpsigndate: mapDateTime(json, r'pcmcpsigndate', r''),
         pcmoptindate: mapDateTime(json, r'pcmoptindate', r''),

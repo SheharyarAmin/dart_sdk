@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **regempid** | **String** |  | [optional] 
 **finnumber** | **String** |  | [optional] 
 **mrnnumber** | **String** |  | [optional] 
-**iv** | **String** |  | [optional] 
 **lastprocessed** | [**DateTime**](DateTime.md) |  | [optional] 
 **cpsigndate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optindate** | [**DateTime**](DateTime.md) |  | [optional] 

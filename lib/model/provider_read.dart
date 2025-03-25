@@ -217,6 +217,7 @@ class ProviderRead {
     'faxnumber',
     'region',
     'id',
+    'consultant_payrates',
   };
 }
 

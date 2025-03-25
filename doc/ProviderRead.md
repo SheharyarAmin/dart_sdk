@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **clinicname** | **String** |  | [optional] 
 **payrates** | [**List<ProviderPayRate>**](ProviderPayRate.md) |  | [optional] [default to const []]
-**consultantPayrates** | [**List<ConsultantProviderPayRateRead>**](ConsultantProviderPayRateRead.md) |  | [optional] [default to const []]
+**consultantPayrates** | [**List<ConsultantProviderPayRateRead>**](ConsultantProviderPayRateRead.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

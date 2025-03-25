@@ -25,6 +25,7 @@ class EmployeeRead {
     this.payperhour = 0,
     this.managerid,
     this.managername,
+    this.assignedpatients,
     required this.id,
     this.canbedeleted = true,
   });
@@ -53,6 +54,8 @@ class EmployeeRead {
 
   String? managername;
 
+  int? assignedpatients;
+
   String id;
 
   bool canbedeleted;
@@ -71,6 +74,7 @@ class EmployeeRead {
     other.payperhour == payperhour &&
     other.managerid == managerid &&
     other.managername == managername &&
+    other.assignedpatients == assignedpatients &&
     other.id == id &&
     other.canbedeleted == canbedeleted;
 
@@ -89,11 +93,12 @@ class EmployeeRead {
     (payperhour.hashCode) +
     (managerid == null ? 0 : managerid!.hashCode) +
     (managername == null ? 0 : managername!.hashCode) +
+    (assignedpatients == null ? 0 : assignedpatients!.hashCode) +
     (id.hashCode) +
     (canbedeleted.hashCode);
 
   @override
-  String toString() => 'EmployeeRead[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername, id=$id, canbedeleted=$canbedeleted]';
+  String toString() => 'EmployeeRead[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername, assignedpatients=$assignedpatients, id=$id, canbedeleted=$canbedeleted]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -120,6 +125,11 @@ class EmployeeRead {
       json[r'managername'] = this.managername;
     } else {
       json[r'managername'] = null;
+    }
+    if (this.assignedpatients != null) {
+      json[r'assignedpatients'] = this.assignedpatients;
+    } else {
+      json[r'assignedpatients'] = null;
     }
       json[r'id'] = this.id;
       json[r'canbedeleted'] = this.canbedeleted;
@@ -157,6 +167,7 @@ class EmployeeRead {
         payperhour: num.parse('${json[r'payperhour']}'),
         managerid: mapValueOfType<String>(json, r'managerid'),
         managername: mapValueOfType<String>(json, r'managername'),
+        assignedpatients: mapValueOfType<int>(json, r'assignedpatients'),
         id: mapValueOfType<String>(json, r'id')!,
         canbedeleted: mapValueOfType<bool>(json, r'canbedeleted') ?? true,
       );

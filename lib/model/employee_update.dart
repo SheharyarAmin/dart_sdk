@@ -25,6 +25,7 @@ class EmployeeUpdate {
     this.payperhour,
     this.managerid,
     this.managername,
+    this.assignedpatients,
   });
 
   String? name;
@@ -51,6 +52,8 @@ class EmployeeUpdate {
 
   String? managername;
 
+  int? assignedpatients;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmployeeUpdate &&
     other.name == name &&
@@ -64,7 +67,8 @@ class EmployeeUpdate {
     other.payperccm == payperccm &&
     other.payperhour == payperhour &&
     other.managerid == managerid &&
-    other.managername == managername;
+    other.managername == managername &&
+    other.assignedpatients == assignedpatients;
 
   @override
   int get hashCode =>
@@ -80,10 +84,11 @@ class EmployeeUpdate {
     (payperccm == null ? 0 : payperccm!.hashCode) +
     (payperhour == null ? 0 : payperhour!.hashCode) +
     (managerid == null ? 0 : managerid!.hashCode) +
-    (managername == null ? 0 : managername!.hashCode);
+    (managername == null ? 0 : managername!.hashCode) +
+    (assignedpatients == null ? 0 : assignedpatients!.hashCode);
 
   @override
-  String toString() => 'EmployeeUpdate[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername]';
+  String toString() => 'EmployeeUpdate[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername, assignedpatients=$assignedpatients]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -147,6 +152,11 @@ class EmployeeUpdate {
     } else {
       json[r'managername'] = null;
     }
+    if (this.assignedpatients != null) {
+      json[r'assignedpatients'] = this.assignedpatients;
+    } else {
+      json[r'assignedpatients'] = null;
+    }
     return json;
   }
 
@@ -185,6 +195,7 @@ class EmployeeUpdate {
             : num.parse('${json[r'payperhour']}'),
         managerid: mapValueOfType<String>(json, r'managerid'),
         managername: mapValueOfType<String>(json, r'managername'),
+        assignedpatients: mapValueOfType<int>(json, r'assignedpatients'),
       );
     }
     return null;

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **payperhour** | **num** |  | [optional] 
 **managerid** | **String** |  | [optional] 
 **managername** | **String** |  | [optional] 
+**assignedpatients** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

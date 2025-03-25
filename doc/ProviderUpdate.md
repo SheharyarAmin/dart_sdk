@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **faxnumber** | **String** |  | [optional] 
 **portal** | [**Portal**](Portal.md) |  | [optional] 
 **region** | **String** |  | [optional] 
-**canbedeleted** | **bool** |  | [optional] 
 **payrates** | [**List<ProviderPayRate>**](ProviderPayRate.md) |  | [optional] [default to const []]
 **consultantPayrates** | [**List<ConsultantProviderPayRate>**](ConsultantProviderPayRate.md) |  | [optional] [default to const []]
 

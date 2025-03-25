@@ -8,13 +8,13 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**iv** | **String** |  | [optional] 
 **pcmclinicid** | **String** |  | [optional] 
 **pcmproviderid** | **String** |  | [optional] 
 **pcmemployeeid** | **String** |  | [optional] 
 **pcmregempid** | **String** |  | [optional] 
 **pcmfinnumber** | **String** |  | [optional] 
 **pcmmrnnumber** | **String** |  | [optional] 
-**iv** | **String** |  | [optional] 
 **lastprocessedpcm** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmcpsigndate** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmoptindate** | [**DateTime**](DateTime.md) |  | [optional] 

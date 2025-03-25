@@ -8,10 +8,10 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**patients** | [**List<PatientPaymentEntry>**](PatientPaymentEntry.md) |  | [default to const []]
-**allPatients** | [**List<PatientPaymentEntry>**](PatientPaymentEntry.md) |  | [default to const []]
-**grandTotal** | **num** |  | 
-**count** | **int** |  | 
+**patients** | [**List<PatientPaymentEntry>**](PatientPaymentEntry.md) |  | [optional] [default to const []]
+**allPatients** | [**List<PatientPaymentEntry>**](PatientPaymentEntry.md) |  | [optional] [default to const []]
+**grandTotal** | **num** |  | [optional] 
+**count** | **int** |  | [optional] 
 **nextPageToken** | **String** |  | [optional] 
 **prevPageToken** | **String** |  | [optional] 
 **totalPages** | **int** |  | [optional] [default to 0]

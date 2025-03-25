@@ -54,7 +54,7 @@ class Patient {
 
   String? optOutRemarks;
 
-  String? optInDate;
+  DateTime? optInDate;
 
   Portal portal;
 
@@ -72,7 +72,7 @@ class Patient {
 
   String? pcmClinicName;
 
-  String? optOutDate;
+  DateTime? optOutDate;
 
   String? finNumber;
 
@@ -98,9 +98,9 @@ class Patient {
 
   String? pcmclinicid;
 
-  String? lastProcessed;
+  DateTime? lastProcessed;
 
-  String? lastProcessedPCM;
+  DateTime? lastProcessedPCM;
 
   String? secandaryPayerName;
 
@@ -108,7 +108,7 @@ class Patient {
 
   bool? deceased;
 
-  String? dob;
+  DateTime? dob;
 
   String? iv;
 
@@ -120,9 +120,9 @@ class Patient {
 
   String? secondaryPhone;
 
-  String? cpSignDate;
+  DateTime? cpSignDate;
 
-  String? pcmcpSignDate;
+  DateTime? pcmcpSignDate;
 
   String id;
 
@@ -218,7 +218,7 @@ class Patient {
       json[r'optOutRemarks'] = null;
     }
     if (this.optInDate != null) {
-      json[r'optInDate'] = this.optInDate;
+      json[r'optInDate'] = _dateFormatter.format(this.optInDate!.toUtc());
     } else {
       json[r'optInDate'] = null;
     }
@@ -259,7 +259,7 @@ class Patient {
       json[r'pcmClinicName'] = null;
     }
     if (this.optOutDate != null) {
-      json[r'optOutDate'] = this.optOutDate;
+      json[r'optOutDate'] = _dateFormatter.format(this.optOutDate!.toUtc());
     } else {
       json[r'optOutDate'] = null;
     }
@@ -324,12 +324,12 @@ class Patient {
       json[r'pcmclinicid'] = null;
     }
     if (this.lastProcessed != null) {
-      json[r'lastProcessed'] = this.lastProcessed;
+      json[r'lastProcessed'] = _dateFormatter.format(this.lastProcessed!.toUtc());
     } else {
       json[r'lastProcessed'] = null;
     }
     if (this.lastProcessedPCM != null) {
-      json[r'lastProcessedPCM'] = this.lastProcessedPCM;
+      json[r'lastProcessedPCM'] = _dateFormatter.format(this.lastProcessedPCM!.toUtc());
     } else {
       json[r'lastProcessedPCM'] = null;
     }
@@ -349,7 +349,7 @@ class Patient {
       json[r'deceased'] = null;
     }
     if (this.dob != null) {
-      json[r'dob'] = this.dob;
+      json[r'dob'] = _dateFormatter.format(this.dob!.toUtc());
     } else {
       json[r'dob'] = null;
     }
@@ -379,12 +379,12 @@ class Patient {
       json[r'secondaryPhone'] = null;
     }
     if (this.cpSignDate != null) {
-      json[r'cpSignDate'] = this.cpSignDate;
+      json[r'cpSignDate'] = _dateFormatter.format(this.cpSignDate!.toUtc());
     } else {
       json[r'cpSignDate'] = null;
     }
     if (this.pcmcpSignDate != null) {
-      json[r'pcmcpSignDate'] = this.pcmcpSignDate;
+      json[r'pcmcpSignDate'] = _dateFormatter.format(this.pcmcpSignDate!.toUtc());
     } else {
       json[r'pcmcpSignDate'] = null;
     }
@@ -412,7 +412,7 @@ class Patient {
 
       return Patient(
         optOutRemarks: mapValueOfType<String>(json, r'optOutRemarks'),
-        optInDate: mapValueOfType<String>(json, r'optInDate'),
+        optInDate: mapDateTime(json, r'optInDate', r''),
         portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
         payerName: mapValueOfType<String>(json, r'payerName'),
         patientName: mapValueOfType<String>(json, r'patientName'),
@@ -421,7 +421,7 @@ class Patient {
         clinicName: mapValueOfType<String>(json, r'clinicName'),
         pcmProviderName: mapValueOfType<String>(json, r'pcmProviderName'),
         pcmClinicName: mapValueOfType<String>(json, r'pcmClinicName'),
-        optOutDate: mapValueOfType<String>(json, r'optOutDate'),
+        optOutDate: mapDateTime(json, r'optOutDate', r''),
         finNumber: mapValueOfType<String>(json, r'finNumber'),
         pcmFinNumber: mapValueOfType<String>(json, r'pcmFinNumber'),
         careTeamMemberName: mapValueOfType<String>(json, r'careTeamMemberName'),
@@ -434,19 +434,19 @@ class Patient {
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         pcmproviderid: mapValueOfType<String>(json, r'pcmproviderid'),
         pcmclinicid: mapValueOfType<String>(json, r'pcmclinicid'),
-        lastProcessed: mapValueOfType<String>(json, r'lastProcessed'),
-        lastProcessedPCM: mapValueOfType<String>(json, r'lastProcessedPCM'),
+        lastProcessed: mapDateTime(json, r'lastProcessed', r''),
+        lastProcessedPCM: mapDateTime(json, r'lastProcessedPCM', r''),
         secandaryPayerName: mapValueOfType<String>(json, r'secandaryPayerName'),
         region: mapValueOfType<String>(json, r'region'),
         deceased: mapValueOfType<bool>(json, r'deceased'),
-        dob: mapValueOfType<String>(json, r'dob'),
+        dob: mapDateTime(json, r'dob', r''),
         iv: mapValueOfType<String>(json, r'iv'),
         canBeDeleted: mapValueOfType<bool>(json, r'canBeDeleted'),
         address: mapValueOfType<String>(json, r'address'),
         primaryPhone: mapValueOfType<String>(json, r'primaryPhone'),
         secondaryPhone: mapValueOfType<String>(json, r'secondaryPhone'),
-        cpSignDate: mapValueOfType<String>(json, r'cpSignDate'),
-        pcmcpSignDate: mapValueOfType<String>(json, r'pcmcpSignDate'),
+        cpSignDate: mapDateTime(json, r'cpSignDate', r''),
+        pcmcpSignDate: mapDateTime(json, r'pcmcpSignDate', r''),
         id: mapValueOfType<String>(json, r'id')!,
       );
     }

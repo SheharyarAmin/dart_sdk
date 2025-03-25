@@ -25,7 +25,7 @@ class PaymentDetail {
     this.id,
   });
 
-  String? paymentDate;
+  DateTime? paymentDate;
 
   String clinicid;
 
@@ -78,7 +78,7 @@ class PaymentDetail {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     if (this.paymentDate != null) {
-      json[r'paymentDate'] = this.paymentDate;
+      json[r'paymentDate'] = this.paymentDate!.toUtc().toIso8601String();
     } else {
       json[r'paymentDate'] = null;
     }
@@ -137,7 +137,7 @@ class PaymentDetail {
       }());
 
       return PaymentDetail(
-        paymentDate: mapValueOfType<String>(json, r'paymentDate'),
+        paymentDate: mapDateTime(json, r'paymentDate', r''),
         clinicid: mapValueOfType<String>(json, r'clinicid')!,
         clinicName: mapValueOfType<String>(json, r'clinicName')!,
         invoiceNumber: mapValueOfType<String>(json, r'invoiceNumber')!,

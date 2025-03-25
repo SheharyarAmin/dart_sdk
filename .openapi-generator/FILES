@@ -153,5 +153,3 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/ccm_patient_read_test.dart
-test/pcm_patient_read_test.dart

@@ -13,6 +13,7 @@ part of openapi.api;
 class PatientCreate {
   /// Returns a new [PatientCreate] instance.
   PatientCreate({
+    this.iv,
     required this.patientname,
     this.payername,
     this.secandarypayername,
@@ -22,10 +23,11 @@ class PatientCreate {
     this.secondaryphone,
     this.deceased = false,
     this.region,
-    this.iv,
     this.ccmDetail,
     this.pcmDetail,
   });
+
+  String? iv;
 
   String patientname;
 
@@ -45,14 +47,13 @@ class PatientCreate {
 
   String? region;
 
-  String? iv;
-
   CCMPatientCreate? ccmDetail;
 
   PCMPatientCreate? pcmDetail;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientCreate &&
+    other.iv == iv &&
     other.patientname == patientname &&
     other.payername == payername &&
     other.secandarypayername == secandarypayername &&
@@ -62,13 +63,13 @@ class PatientCreate {
     other.secondaryphone == secondaryphone &&
     other.deceased == deceased &&
     other.region == region &&
-    other.iv == iv &&
     other.ccmDetail == ccmDetail &&
     other.pcmDetail == pcmDetail;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (iv == null ? 0 : iv!.hashCode) +
     (patientname.hashCode) +
     (payername == null ? 0 : payername!.hashCode) +
     (secandarypayername == null ? 0 : secandarypayername!.hashCode) +
@@ -78,15 +79,19 @@ class PatientCreate {
     (secondaryphone == null ? 0 : secondaryphone!.hashCode) +
     (deceased.hashCode) +
     (region == null ? 0 : region!.hashCode) +
-    (iv == null ? 0 : iv!.hashCode) +
     (ccmDetail == null ? 0 : ccmDetail!.hashCode) +
     (pcmDetail == null ? 0 : pcmDetail!.hashCode);
 
   @override
-  String toString() => 'PatientCreate[patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, iv=$iv, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
+  String toString() => 'PatientCreate[iv=$iv, patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.iv != null) {
+      json[r'iv'] = this.iv;
+    } else {
+      json[r'iv'] = null;
+    }
       json[r'patientname'] = this.patientname;
     if (this.payername != null) {
       json[r'payername'] = this.payername;
@@ -124,11 +129,6 @@ class PatientCreate {
     } else {
       json[r'region'] = null;
     }
-    if (this.iv != null) {
-      json[r'iv'] = this.iv;
-    } else {
-      json[r'iv'] = null;
-    }
     if (this.ccmDetail != null) {
       json[r'ccm_detail'] = this.ccmDetail;
     } else {
@@ -161,6 +161,7 @@ class PatientCreate {
       }());
 
       return PatientCreate(
+        iv: mapValueOfType<String>(json, r'iv'),
         patientname: mapValueOfType<String>(json, r'patientname')!,
         payername: mapValueOfType<String>(json, r'payername'),
         secandarypayername: mapValueOfType<String>(json, r'secandarypayername'),
@@ -170,7 +171,6 @@ class PatientCreate {
         secondaryphone: mapValueOfType<String>(json, r'secondaryphone'),
         deceased: mapValueOfType<bool>(json, r'deceased') ?? false,
         region: mapValueOfType<String>(json, r'region'),
-        iv: mapValueOfType<String>(json, r'iv'),
         ccmDetail: CCMPatientCreate.fromJson(json[r'ccm_detail']),
         pcmDetail: PCMPatientCreate.fromJson(json[r'pcm_detail']),
       );

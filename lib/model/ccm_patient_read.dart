@@ -13,13 +13,13 @@ part of openapi.api;
 class CCMPatientRead {
   /// Returns a new [CCMPatientRead] instance.
   CCMPatientRead({
+    this.iv,
     this.clinicid,
     this.providerid,
     this.employeeid,
     this.regempid,
     this.finnumber,
     this.mrnnumber,
-    this.iv,
     this.lastprocessed,
     this.cpsigndate,
     this.optindate,
@@ -32,6 +32,8 @@ class CCMPatientRead {
     this.regemployeename,
   });
 
+  String? iv;
+
   String? clinicid;
 
   String? providerid;
@@ -43,8 +45,6 @@ class CCMPatientRead {
   String? finnumber;
 
   String? mrnnumber;
-
-  String? iv;
 
   DateTime? lastprocessed;
 
@@ -68,13 +68,13 @@ class CCMPatientRead {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CCMPatientRead &&
+    other.iv == iv &&
     other.clinicid == clinicid &&
     other.providerid == providerid &&
     other.employeeid == employeeid &&
     other.regempid == regempid &&
     other.finnumber == finnumber &&
     other.mrnnumber == mrnnumber &&
-    other.iv == iv &&
     other.lastprocessed == lastprocessed &&
     other.cpsigndate == cpsigndate &&
     other.optindate == optindate &&
@@ -89,13 +89,13 @@ class CCMPatientRead {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (iv == null ? 0 : iv!.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
     (providerid == null ? 0 : providerid!.hashCode) +
     (employeeid == null ? 0 : employeeid!.hashCode) +
     (regempid == null ? 0 : regempid!.hashCode) +
     (finnumber == null ? 0 : finnumber!.hashCode) +
     (mrnnumber == null ? 0 : mrnnumber!.hashCode) +
-    (iv == null ? 0 : iv!.hashCode) +
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
     (cpsigndate == null ? 0 : cpsigndate!.hashCode) +
     (optindate == null ? 0 : optindate!.hashCode) +
@@ -108,10 +108,15 @@ class CCMPatientRead {
     (regemployeename == null ? 0 : regemployeename!.hashCode);
 
   @override
-  String toString() => 'CCMPatientRead[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientid=$patientid, clinicname=$clinicname, providername=$providername, employeename=$employeename, regemployeename=$regemployeename]';
+  String toString() => 'CCMPatientRead[iv=$iv, clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientid=$patientid, clinicname=$clinicname, providername=$providername, employeename=$employeename, regemployeename=$regemployeename]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.iv != null) {
+      json[r'iv'] = this.iv;
+    } else {
+      json[r'iv'] = null;
+    }
     if (this.clinicid != null) {
       json[r'clinicid'] = this.clinicid;
     } else {
@@ -141,11 +146,6 @@ class CCMPatientRead {
       json[r'mrnnumber'] = this.mrnnumber;
     } else {
       json[r'mrnnumber'] = null;
-    }
-    if (this.iv != null) {
-      json[r'iv'] = this.iv;
-    } else {
-      json[r'iv'] = null;
     }
     if (this.lastprocessed != null) {
       json[r'lastprocessed'] = _dateFormatter.format(this.lastprocessed!.toUtc());
@@ -215,13 +215,13 @@ class CCMPatientRead {
       }());
 
       return CCMPatientRead(
+        iv: mapValueOfType<String>(json, r'iv'),
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         providerid: mapValueOfType<String>(json, r'providerid'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
         regempid: mapValueOfType<String>(json, r'regempid'),
         finnumber: mapValueOfType<String>(json, r'finnumber'),
         mrnnumber: mapValueOfType<String>(json, r'mrnnumber'),
-        iv: mapValueOfType<String>(json, r'iv'),
         lastprocessed: mapDateTime(json, r'lastprocessed', r''),
         cpsigndate: mapDateTime(json, r'cpsigndate', r''),
         optindate: mapDateTime(json, r'optindate', r''),
