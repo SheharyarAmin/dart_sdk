@@ -8,13 +8,13 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**iv** | **String** |  | [optional] 
 **clinicid** | **String** |  | [optional] 
 **providerid** | **String** |  | [optional] 
 **employeeid** | **String** |  | [optional] 
 **regempid** | **String** |  | [optional] 
 **finnumber** | **String** |  | [optional] 
 **mrnnumber** | **String** |  | [optional] 
-**iv** | **String** |  | [optional] 
 **lastprocessed** | [**DateTime**](DateTime.md) |  | [optional] 
 **cpsigndate** | [**DateTime**](DateTime.md) |  | [optional] 
 **optindate** | [**DateTime**](DateTime.md) |  | [optional] 

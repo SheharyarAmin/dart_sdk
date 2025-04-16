@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **optOutRemarks** | **String** |  | [optional] 
-**optInDate** | **String** |  | [optional] 
+**optInDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **portal** | [**Portal**](Portal.md) |  | [optional] [default to Portal.CCM]
 **payerName** | **String** |  | [optional] 
 **patientName** | **String** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **clinicName** | **String** |  | [optional] 
 **pcmProviderName** | **String** |  | [optional] 
 **pcmClinicName** | **String** |  | [optional] 
-**optOutDate** | **String** |  | [optional] 
+**optOutDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **finNumber** | **String** |  | [optional] 
 **pcmFinNumber** | **String** |  | [optional] 
 **careTeamMemberName** | **String** |  | [optional] 
@@ -31,19 +31,19 @@ Name | Type | Description | Notes
 **clinicid** | **String** |  | [optional] 
 **pcmproviderid** | **String** |  | [optional] 
 **pcmclinicid** | **String** |  | [optional] 
-**lastProcessed** | **String** |  | [optional] 
-**lastProcessedPCM** | **String** |  | [optional] 
+**lastProcessed** | [**DateTime**](DateTime.md) |  | [optional] 
+**lastProcessedPCM** | [**DateTime**](DateTime.md) |  | [optional] 
 **secandaryPayerName** | **String** |  | [optional] 
 **region** | **String** |  | [optional] 
 **deceased** | **bool** |  | [optional] 
-**dob** | **String** |  | [optional] 
+**dob** | [**DateTime**](DateTime.md) |  | [optional] 
 **iv** | **String** |  | [optional] 
 **canBeDeleted** | **bool** |  | [optional] 
 **address** | **String** |  | [optional] 
 **primaryPhone** | **String** |  | [optional] 
 **secondaryPhone** | **String** |  | [optional] 
-**cpSignDate** | **String** |  | [optional] 
-**pcmcpSignDate** | **String** |  | [optional] 
+**cpSignDate** | [**DateTime**](DateTime.md) |  | [optional] 
+**pcmcpSignDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **id** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

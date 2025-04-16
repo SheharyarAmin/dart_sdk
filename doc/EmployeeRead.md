@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **payperhour** | **num** |  | [optional] [default to 0]
 **managerid** | **String** |  | [optional] 
 **managername** | **String** |  | [optional] 
+**assignedpatients** | **int** |  | [optional] 
 **id** | **String** |  | 
 **canbedeleted** | **bool** |  | [optional] [default to true]
 

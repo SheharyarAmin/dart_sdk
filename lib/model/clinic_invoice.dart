@@ -52,7 +52,7 @@ class ClinicInvoice {
 
   Portal portal;
 
-  int id;
+  String id;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ClinicInvoice &&
@@ -189,7 +189,7 @@ class ClinicInvoice {
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         clinicName: mapValueOfType<String>(json, r'clinicName'),
         portal: Portal.fromJson(json[r'portal']) ?? Portal.CCM,
-        id: mapValueOfType<int>(json, r'id')!,
+        id: mapValueOfType<String>(json, r'id')!,
       );
     }
     return null;

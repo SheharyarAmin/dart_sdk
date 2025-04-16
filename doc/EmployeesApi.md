@@ -199,8 +199,6 @@ Get Employee Role
 ### Example
 ```dart
 import 'package:openapi/api.dart';
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = EmployeesApi();
 final email = email_example; // String | 
@@ -225,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+No authorization required
 
 ### HTTP request headers
 

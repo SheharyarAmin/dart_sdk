@@ -8,6 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**iv** | **String** |  | [optional] 
 **patientname** | **String** |  | 
 **payername** | **String** |  | [optional] 
 **secandarypayername** | **String** |  | [optional] 
@@ -17,7 +18,6 @@ Name | Type | Description | Notes
 **secondaryphone** | **String** |  | [optional] 
 **deceased** | **bool** |  | [optional] [default to false]
 **region** | **String** |  | [optional] 
-**iv** | **String** |  | [optional] 
 **id** | **String** |  | 
 **canbedeleted** | **bool** |  | [optional] [default to true]
 **ccmDetail** | [**CCMPatientRead**](CCMPatientRead.md) |  | [optional] 

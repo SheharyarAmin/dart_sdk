@@ -14,30 +14,36 @@ class PatientsResponse {
   /// Returns a new [PatientsResponse] instance.
   PatientsResponse({
     this.patients = const [],
+    required this.totalCount,
     required this.pagination,
   });
 
   List<PatientRead> patients;
+
+  int totalCount;
 
   PaginationMetadata pagination;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientsResponse &&
     _deepEquality.equals(other.patients, patients) &&
+    other.totalCount == totalCount &&
     other.pagination == pagination;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (patients.hashCode) +
+    (totalCount.hashCode) +
     (pagination.hashCode);
 
   @override
-  String toString() => 'PatientsResponse[patients=$patients, pagination=$pagination]';
+  String toString() => 'PatientsResponse[patients=$patients, totalCount=$totalCount, pagination=$pagination]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'patients'] = this.patients;
+      json[r'total_count'] = this.totalCount;
       json[r'pagination'] = this.pagination;
     return json;
   }
@@ -62,6 +68,7 @@ class PatientsResponse {
 
       return PatientsResponse(
         patients: PatientRead.listFromJson(json[r'patients']),
+        totalCount: mapValueOfType<int>(json, r'total_count')!,
         pagination: PaginationMetadata.fromJson(json[r'pagination'])!,
       );
     }
@@ -111,6 +118,7 @@ class PatientsResponse {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'patients',
+    'total_count',
     'pagination',
   };
 }

@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentDate** | **String** |  | [optional] 
+**paymentDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **clinicid** | **String** |  | 
 **clinicName** | **String** |  | 
 **invoiceNumber** | **String** |  | 

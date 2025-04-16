@@ -13,19 +13,21 @@ part of openapi.api;
 class CCMPatientCreate {
   /// Returns a new [CCMPatientCreate] instance.
   CCMPatientCreate({
+    this.iv,
     this.clinicid,
     this.providerid,
     this.employeeid,
     this.regempid,
     this.finnumber,
     this.mrnnumber,
-    this.iv,
     this.lastprocessed,
     this.cpsigndate,
     this.optindate,
     this.optoutdate,
     this.optoutremarks,
   });
+
+  String? iv;
 
   String? clinicid;
 
@@ -39,8 +41,6 @@ class CCMPatientCreate {
 
   String? mrnnumber;
 
-  String? iv;
-
   DateTime? lastprocessed;
 
   DateTime? cpsigndate;
@@ -53,13 +53,13 @@ class CCMPatientCreate {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CCMPatientCreate &&
+    other.iv == iv &&
     other.clinicid == clinicid &&
     other.providerid == providerid &&
     other.employeeid == employeeid &&
     other.regempid == regempid &&
     other.finnumber == finnumber &&
     other.mrnnumber == mrnnumber &&
-    other.iv == iv &&
     other.lastprocessed == lastprocessed &&
     other.cpsigndate == cpsigndate &&
     other.optindate == optindate &&
@@ -69,13 +69,13 @@ class CCMPatientCreate {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (iv == null ? 0 : iv!.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
     (providerid == null ? 0 : providerid!.hashCode) +
     (employeeid == null ? 0 : employeeid!.hashCode) +
     (regempid == null ? 0 : regempid!.hashCode) +
     (finnumber == null ? 0 : finnumber!.hashCode) +
     (mrnnumber == null ? 0 : mrnnumber!.hashCode) +
-    (iv == null ? 0 : iv!.hashCode) +
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
     (cpsigndate == null ? 0 : cpsigndate!.hashCode) +
     (optindate == null ? 0 : optindate!.hashCode) +
@@ -83,10 +83,15 @@ class CCMPatientCreate {
     (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'CCMPatientCreate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, iv=$iv, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'CCMPatientCreate[iv=$iv, clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.iv != null) {
+      json[r'iv'] = this.iv;
+    } else {
+      json[r'iv'] = null;
+    }
     if (this.clinicid != null) {
       json[r'clinicid'] = this.clinicid;
     } else {
@@ -116,11 +121,6 @@ class CCMPatientCreate {
       json[r'mrnnumber'] = this.mrnnumber;
     } else {
       json[r'mrnnumber'] = null;
-    }
-    if (this.iv != null) {
-      json[r'iv'] = this.iv;
-    } else {
-      json[r'iv'] = null;
     }
     if (this.lastprocessed != null) {
       json[r'lastprocessed'] = _dateFormatter.format(this.lastprocessed!.toUtc());
@@ -169,13 +169,13 @@ class CCMPatientCreate {
       }());
 
       return CCMPatientCreate(
+        iv: mapValueOfType<String>(json, r'iv'),
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         providerid: mapValueOfType<String>(json, r'providerid'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
         regempid: mapValueOfType<String>(json, r'regempid'),
         finnumber: mapValueOfType<String>(json, r'finnumber'),
         mrnnumber: mapValueOfType<String>(json, r'mrnnumber'),
-        iv: mapValueOfType<String>(json, r'iv'),
         lastprocessed: mapDateTime(json, r'lastprocessed', r''),
         cpsigndate: mapDateTime(json, r'cpsigndate', r''),
         optindate: mapDateTime(json, r'optindate', r''),

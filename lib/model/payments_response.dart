@@ -15,8 +15,8 @@ class PaymentsResponse {
   PaymentsResponse({
     this.patients = const [],
     this.allPatients = const [],
-    required this.grandTotal,
-    required this.count,
+    this.grandTotal,
+    this.count,
     this.nextPageToken,
     this.prevPageToken,
     this.totalPages = 0,
@@ -195,10 +195,6 @@ class PaymentsResponse {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'patients',
-    'allPatients',
-    'grandTotal',
-    'count',
   };
 }
 
