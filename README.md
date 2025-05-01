@@ -99,17 +99,32 @@ Class | Method | HTTP request | Description
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
 *LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
 *ManagerApi* | [**getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet**](doc//ManagerApi.md#getmanagerdashboardformonthyearapiv1managerdashboardyearmonthget) | **GET** /api/v1/manager/dashboard/{year}/{month} | Get Manager Dashboard For Monthyear
-*MigrationApi* | [**migrateCareplansEndpointApiV1MigrationMigrationCareplansPost**](doc//MigrationApi.md#migratecareplansendpointapiv1migrationmigrationcareplanspost) | **POST** /api/v1/migration/migration/careplans | Migrate careplans from RTDB to Postgres
-*MigrationApi* | [**migrateClinicsEndpointApiV1MigrationMigrationClinicsPost**](doc//MigrationApi.md#migrateclinicsendpointapiv1migrationmigrationclinicspost) | **POST** /api/v1/migration/migration/clinics | Migrate clinics from RTDB to Postgres
-*MigrationApi* | [**migrateConsultantsEndpointApiV1MigrationMigrationConsultantsPost**](doc//MigrationApi.md#migrateconsultantsendpointapiv1migrationmigrationconsultantspost) | **POST** /api/v1/migration/migration/consultants | Migrate consultants from RTDB to Postgres
-*MigrationApi* | [**migrateEmployeeLogsEndpointApiV1MigrationMigrationEmployeeLogsPost**](doc//MigrationApi.md#migrateemployeelogsendpointapiv1migrationmigrationemployeelogspost) | **POST** /api/v1/migration/migration/employee-logs | Migrate employee logs (processor and optin) from RTDB to Postgres
-*MigrationApi* | [**migrateEmployeesEndpointApiV1MigrationMigrationEmployeesPost**](doc//MigrationApi.md#migrateemployeesendpointapiv1migrationmigrationemployeespost) | **POST** /api/v1/migration/migration/employees | Migrate employees from RTDB to Postgres
-*MigrationApi* | [**migrateInvoicesEndpointApiV1MigrationMigrationInvoicesPost**](doc//MigrationApi.md#migrateinvoicesendpointapiv1migrationmigrationinvoicespost) | **POST** /api/v1/migration/migration/invoices | Migrate invoices, provider paycodes, and payments from RTDB to Postgres
-*MigrationApi* | [**migrateLogsEndpointApiV1MigrationMigrationLogsPost**](doc//MigrationApi.md#migratelogsendpointapiv1migrationmigrationlogspost) | **POST** /api/v1/migration/migration/logs | Migrate application logs from RTDB to Postgres
-*MigrationApi* | [**migratePatientsEndpointApiV1MigrationMigrationPatientsPost**](doc//MigrationApi.md#migratepatientsendpointapiv1migrationmigrationpatientspost) | **POST** /api/v1/migration/migration/patients | Migrate patients from RTDB to Postgres
-*MigrationApi* | [**migrateProcessingReportsEndpointApiV1MigrationMigrationProcessingReportsPost**](doc//MigrationApi.md#migrateprocessingreportsendpointapiv1migrationmigrationprocessingreportspost) | **POST** /api/v1/migration/migration/processing-reports | Migrate processing reports from RTDB to Postgres
-*MigrationApi* | [**migrateProvidersEndpointApiV1MigrationMigrationProvidersPost**](doc//MigrationApi.md#migrateprovidersendpointapiv1migrationmigrationproviderspost) | **POST** /api/v1/migration/migration/providers | Migrate providers from RTDB to Postgres
-*MigrationApi* | [**migrateTempAssignmentsEndpointApiV1MigrationMigrationTempAssignmentsPost**](doc//MigrationApi.md#migratetempassignmentsendpointapiv1migrationmigrationtempassignmentspost) | **POST** /api/v1/migration/migration/temp-assignments | Migrate temporary assignments from RTDB to Postgres
+*MigrationApi* | [**migrateCareplansEndpointApiV1MigrationCareplansPost**](doc//MigrationApi.md#migratecareplansendpointapiv1migrationcareplanspost) | **POST** /api/v1/migration/careplans | Migrate careplans from RTDB to Postgres with verification
+*MigrationApi* | [**migrateClinicsEndpointApiV1MigrationClinicsPost**](doc//MigrationApi.md#migrateclinicsendpointapiv1migrationclinicspost) | **POST** /api/v1/migration/clinics | Migrate clinics from RTDB to Postgres with verification
+*MigrationApi* | [**migrateConsultantsEndpointApiV1MigrationConsultantsPost**](doc//MigrationApi.md#migrateconsultantsendpointapiv1migrationconsultantspost) | **POST** /api/v1/migration/consultants | Migrate consultants from RTDB to Postgres with verification
+*MigrationApi* | [**migrateEmployeeLogsEndpointApiV1MigrationEmployeeLogsPost**](doc//MigrationApi.md#migrateemployeelogsendpointapiv1migrationemployeelogspost) | **POST** /api/v1/migration/employee-logs | Migrate employee logs from RTDB to Postgres with verification
+*MigrationApi* | [**migrateEmployeesEndpointApiV1MigrationEmployeesPost**](doc//MigrationApi.md#migrateemployeesendpointapiv1migrationemployeespost) | **POST** /api/v1/migration/employees | Migrate employees from RTDB to Postgres with verification
+*MigrationApi* | [**migrateInvoicesEndpointApiV1MigrationInvoicesPost**](doc//MigrationApi.md#migrateinvoicesendpointapiv1migrationinvoicespost) | **POST** /api/v1/migration/invoices | Migrate invoices, provider paycodes, and payments from RTDB to Postgres with verification
+*MigrationApi* | [**migrateLogsEndpointApiV1MigrationLogsPost**](doc//MigrationApi.md#migratelogsendpointapiv1migrationlogspost) | **POST** /api/v1/migration/logs | Migrate application logs from RTDB to Postgres with verification
+*MigrationApi* | [**migratePatientsEndpointApiV1MigrationPatientsPost**](doc//MigrationApi.md#migratepatientsendpointapiv1migrationpatientspost) | **POST** /api/v1/migration/patients | Migrate patients from RTDB to Postgres with verification
+*MigrationApi* | [**migrateProcessingReportsEndpointApiV1MigrationProcessingReportsPost**](doc//MigrationApi.md#migrateprocessingreportsendpointapiv1migrationprocessingreportspost) | **POST** /api/v1/migration/processing-reports | Migrate processing reports from RTDB to Postgres with verification
+*MigrationApi* | [**migrateProvidersEndpointApiV1MigrationProvidersPost**](doc//MigrationApi.md#migrateprovidersendpointapiv1migrationproviderspost) | **POST** /api/v1/migration/providers | Migrate providers from RTDB to Postgres with verification
+*MigrationApi* | [**migrateTempAssignmentsEndpointApiV1MigrationTempAssignmentsPost**](doc//MigrationApi.md#migratetempassignmentsendpointapiv1migrationtempassignmentspost) | **POST** /api/v1/migration/temp-assignments | Migrate temporary assignments from RTDB to Postgres with verification
+*MigrationApi* | [**syncProcessingReportsEndpointApiV1SyncProcessingReportsPost**](doc//MigrationApi.md#syncprocessingreportsendpointapiv1syncprocessingreportspost) | **POST** /api/v1/sync/processing-reports | Synchronize missing processing reports from RTDB to PostgreSQL
+*MigrationApi* | [**syncTimeLogsEndpointApiV1SyncTimeLogsPost**](doc//MigrationApi.md#synctimelogsendpointapiv1synctimelogspost) | **POST** /api/v1/sync/time-logs | Synchronize missing time logs from RTDB to PostgreSQL
+*MigrationApi* | [**syncTimeLogsForEmployeeEndpointApiV1SyncTimeLogsEmployeeIdPost**](doc//MigrationApi.md#synctimelogsforemployeeendpointapiv1synctimelogsemployeeidpost) | **POST** /api/v1/sync/time-logs/{employee_id} | Synchronize time logs for a specific employee
+*MigrationApi* | [**verifyAllMigrationsEndpointApiV1VerifyAllGet**](doc//MigrationApi.md#verifyallmigrationsendpointapiv1verifyallget) | **GET** /api/v1/verify/all | Verify all migrations and generate a comprehensive report
+*MigrationApi* | [**verifyCareplansEndpointApiV1VerifyCareplansGet**](doc//MigrationApi.md#verifycareplansendpointapiv1verifycareplansget) | **GET** /api/v1/verify/careplans | Verify careplans migration
+*MigrationApi* | [**verifyClinicsEndpointApiV1VerifyClinicsGet**](doc//MigrationApi.md#verifyclinicsendpointapiv1verifyclinicsget) | **GET** /api/v1/verify/clinics | Verify clinic migration from RTDB to Postgres
+*MigrationApi* | [**verifyConsultantsEndpointApiV1VerifyConsultantsGet**](doc//MigrationApi.md#verifyconsultantsendpointapiv1verifyconsultantsget) | **GET** /api/v1/verify/consultants | Verify consultant migration and related data
+*MigrationApi* | [**verifyEmployeeLogsEndpointApiV1VerifyEmployeeLogsGet**](doc//MigrationApi.md#verifyemployeelogsendpointapiv1verifyemployeelogsget) | **GET** /api/v1/verify/employee-logs | Verify employee logs migration
+*MigrationApi* | [**verifyEmployeesEndpointApiV1VerifyEmployeesGet**](doc//MigrationApi.md#verifyemployeesendpointapiv1verifyemployeesget) | **GET** /api/v1/verify/employees | Verify employee migration from RTDB to Postgres
+*MigrationApi* | [**verifyInvoicesEndpointApiV1VerifyInvoicesGet**](doc//MigrationApi.md#verifyinvoicesendpointapiv1verifyinvoicesget) | **GET** /api/v1/verify/invoices | Verify invoice, payment and provider paycode migration
+*MigrationApi* | [**verifyLogsEndpointApiV1VerifyLogsGet**](doc//MigrationApi.md#verifylogsendpointapiv1verifylogsget) | **GET** /api/v1/verify/logs | Verify application logs migration
+*MigrationApi* | [**verifyPatientsEndpointApiV1VerifyPatientsGet**](doc//MigrationApi.md#verifypatientsendpointapiv1verifypatientsget) | **GET** /api/v1/verify/patients | Verify patient migration from RTDB to Postgres
+*MigrationApi* | [**verifyProcessingReportsEndpointApiV1VerifyProcessingReportsGet**](doc//MigrationApi.md#verifyprocessingreportsendpointapiv1verifyprocessingreportsget) | **GET** /api/v1/verify/processing-reports | Verify processing reports migration
+*MigrationApi* | [**verifyProvidersEndpointApiV1VerifyProvidersGet**](doc//MigrationApi.md#verifyprovidersendpointapiv1verifyprovidersget) | **GET** /api/v1/verify/providers | Verify provider and provider pay rates migration
+*MigrationApi* | [**verifyTempAssignmentsEndpointApiV1VerifyTempAssignmentsGet**](doc//MigrationApi.md#verifytempassignmentsendpointapiv1verifytempassignmentsget) | **GET** /api/v1/verify/temp-assignments | Verify temporary assignments migration
 *NotificationsApi* | [**deleteAllNotificationsApiV1NotificationsDeleteEmployeeIdDelete**](doc//NotificationsApi.md#deleteallnotificationsapiv1notificationsdeleteemployeeiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id} | Delete All Notifications
 *NotificationsApi* | [**deleteNotificationApiV1NotificationsDeleteEmployeeIdNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationapiv1notificationsdeleteemployeeidnotificationiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id}/{notification_id} | Delete Notification
 *NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
@@ -137,6 +152,15 @@ Class | Method | HTTP request | Description
 *ProvidersApi* | [**readProvidersApiV1ProvidersGet**](doc//ProvidersApi.md#readprovidersapiv1providersget) | **GET** /api/v1/providers/ | Read Providers
 *ProvidersApi* | [**updateProviderApiV1ProvidersProviderIdPut**](doc//ProvidersApi.md#updateproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Provider
 *ReportsApi* | [**generateReportApiV1ReportsGenerateReportPost**](doc//ReportsApi.md#generatereportapiv1reportsgeneratereportpost) | **POST** /api/v1/reports/generate-report | Generate Report
+*RpmApi* | [**getRpmPatientApiV1RpmPatientsPatientIdGet**](doc//RpmApi.md#getrpmpatientapiv1rpmpatientspatientidget) | **GET** /api/v1/rpm/patients/{patient_id} | Get Rpm Patient
+*RpmApi* | [**getRpmPatientsApiV1RpmPatientsGet**](doc//RpmApi.md#getrpmpatientsapiv1rpmpatientsget) | **GET** /api/v1/rpm/patients | Get Rpm Patients
+*RpmApi* | [**sendMultiplePatientsToRpmApiV1RpmSendMultipleToRpmPost**](doc//RpmApi.md#sendmultiplepatientstorpmapiv1rpmsendmultipletorpmpost) | **POST** /api/v1/rpm/send-multiple-to-rpm | Send Multiple Patients To Rpm
+*RpmApi* | [**sendPatientToRpmApiV1RpmSendToRpmPatientIdPost**](doc//RpmApi.md#sendpatienttorpmapiv1rpmsendtorpmpatientidpost) | **POST** /api/v1/rpm/send-to-rpm/{patient_id} | Send Patient To Rpm
+*SecureApi* | [**echoEncryptedApiV1SecureEchoEncryptedPost**](doc//SecureApi.md#echoencryptedapiv1secureechoencryptedpost) | **POST** /api/v1/secure/echo-encrypted | Echo Encrypted
+*SecureApi* | [**getPublicKeyApiV1SecurePublicKeyGet**](doc//SecureApi.md#getpublickeyapiv1securepublickeyget) | **GET** /api/v1/secure/public-key | Get Public Key
+*SecureApi* | [**initSecureConnectionApiV1SecureInitializePost**](doc//SecureApi.md#initsecureconnectionapiv1secureinitializepost) | **POST** /api/v1/secure/initialize | Init Secure Connection
+*SecureApi* | [**receiveEncryptedDataApiV1SecureReceiveEncryptedPost**](doc//SecureApi.md#receiveencrypteddataapiv1securereceiveencryptedpost) | **POST** /api/v1/secure/receive-encrypted | Receive Encrypted Data
+*SecureApi* | [**sendEncryptedDataApiV1SecureSendEncryptedPost**](doc//SecureApi.md#sendencrypteddataapiv1securesendencryptedpost) | **POST** /api/v1/secure/send-encrypted | Send Encrypted Data
 *TempAssignmentsApi* | [**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**](doc//TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempidportaldelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid}/{portal} | Assign Patients Back To Original Route
 *TempAssignmentsApi* | [**createTempAssignmentRouteApiV1TempAssignmentsPost**](doc//TempAssignmentsApi.md#createtempassignmentrouteapiv1tempassignmentspost) | **POST** /api/v1/temp-assignments/ | Create Temp Assignment Route
 *TempAssignmentsApi* | [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet**](doc//TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallemployeesget) | **GET** /api/v1/temp-assignments/all-employees | Fetch All From Emp Ids Route
@@ -160,6 +184,8 @@ Class | Method | HTTP request | Description
  - [ConsultantProviderPayRateRead](doc//ConsultantProviderPayRateRead.md)
  - [ConsultantRead](doc//ConsultantRead.md)
  - [ConsultantUpdate](doc//ConsultantUpdate.md)
+ - [E2EEncryptedMessage](doc//E2EEncryptedMessage.md)
+ - [E2EEncryptionConfig](doc//E2EEncryptionConfig.md)
  - [Employee](doc//Employee.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)
@@ -178,6 +204,7 @@ Class | Method | HTTP request | Description
  - [PaginationMetadata](doc//PaginationMetadata.md)
  - [Patient](doc//Patient.md)
  - [PatientCreate](doc//PatientCreate.md)
+ - [PatientIDsList](doc//PatientIDsList.md)
  - [PatientPaymentEntry](doc//PatientPaymentEntry.md)
  - [PatientRead](doc//PatientRead.md)
  - [PatientUpdate](doc//PatientUpdate.md)
@@ -192,6 +219,8 @@ Class | Method | HTTP request | Description
  - [ProviderPayRate](doc//ProviderPayRate.md)
  - [ProviderRead](doc//ProviderRead.md)
  - [ProviderUpdate](doc//ProviderUpdate.md)
+ - [RPMPatientData](doc//RPMPatientData.md)
+ - [RPMPatientsResponse](doc//RPMPatientsResponse.md)
  - [TempAssignment](doc//TempAssignment.md)
  - [TempAssignmentCreate](doc//TempAssignmentCreate.md)
  - [TempAssignmentEmpLists](doc//TempAssignmentEmpLists.md)

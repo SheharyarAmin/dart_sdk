@@ -27,6 +27,7 @@ class PatientRead {
     this.canbedeleted = true,
     this.ccmDetail,
     this.pcmDetail,
+    this.rpmRegistered = false,
   });
 
   String? iv;
@@ -57,6 +58,8 @@ class PatientRead {
 
   PCMPatientRead? pcmDetail;
 
+  bool rpmRegistered;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is PatientRead &&
     other.iv == iv &&
@@ -72,7 +75,8 @@ class PatientRead {
     other.id == id &&
     other.canbedeleted == canbedeleted &&
     other.ccmDetail == ccmDetail &&
-    other.pcmDetail == pcmDetail;
+    other.pcmDetail == pcmDetail &&
+    other.rpmRegistered == rpmRegistered;
 
   @override
   int get hashCode =>
@@ -90,10 +94,11 @@ class PatientRead {
     (id.hashCode) +
     (canbedeleted.hashCode) +
     (ccmDetail == null ? 0 : ccmDetail!.hashCode) +
-    (pcmDetail == null ? 0 : pcmDetail!.hashCode);
+    (pcmDetail == null ? 0 : pcmDetail!.hashCode) +
+    (rpmRegistered.hashCode);
 
   @override
-  String toString() => 'PatientRead[iv=$iv, patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, id=$id, canbedeleted=$canbedeleted, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
+  String toString() => 'PatientRead[iv=$iv, patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, id=$id, canbedeleted=$canbedeleted, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail, rpmRegistered=$rpmRegistered]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -151,6 +156,7 @@ class PatientRead {
     } else {
       json[r'pcm_detail'] = null;
     }
+      json[r'rpm_registered'] = this.rpmRegistered;
     return json;
   }
 
@@ -187,6 +193,7 @@ class PatientRead {
         canbedeleted: mapValueOfType<bool>(json, r'canbedeleted') ?? true,
         ccmDetail: CCMPatientRead.fromJson(json[r'ccm_detail']),
         pcmDetail: PCMPatientRead.fromJson(json[r'pcm_detail']),
+        rpmRegistered: mapValueOfType<bool>(json, r'rpm_registered') ?? false,
       );
     }
     return null;

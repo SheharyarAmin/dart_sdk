@@ -59,12 +59,12 @@ class ApiClient {
   }
 
   Future<Response> invokeAPI(
-      String path,
-      String method,
-      List<QueryParam> queryParams,
-      Object? body,
-      Map<String, String> headerParams,
-      Map<String, String> formParams,
+    String path,
+    String method,
+    List<QueryParam> queryParams,
+    Object? body,
+    Map<String, String> headerParams,
+    Map<String, String> formParams,
       String? contentType) async {
     // Add the access token to the headers if available
     if (token != null) {
@@ -273,51 +273,36 @@ class ApiClient {
           headers: headerParams,
         );
       default:
-        throw ApiException(
-          HttpStatus.badRequest,
+    throw ApiException(
+      HttpStatus.badRequest,
           'Invalid HTTP method: $method',
-        );
+    );
     }
   }
 
-  Future<dynamic> deserializeAsync(
-    String value,
-    String targetType, {
-    bool growable = false,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      deserialize(value, targetType, growable: growable);
+  Future<dynamic> deserializeAsync(String value, String targetType, {bool growable = false,}) async =>
+    // ignore: deprecated_member_use_from_same_package
+    deserialize(value, targetType, growable: growable);
 
-  @Deprecated(
-      'Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
-  dynamic deserialize(
-    String value,
-    String targetType, {
-    bool growable = false,
-  }) {
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
+  dynamic deserialize(String value, String targetType, {bool growable = false,}) {
     // Remove all spaces. Necessary for regular expressions as well.
-    targetType =
-        targetType.replaceAll(' ', ''); // ignore: parameter_assignments
+    targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
 
     // If the expected target type is String, nothing to do...
     return targetType == 'String'
-        ? value
-        : fromJson(json.decode(value), targetType, growable: growable);
+      ? value
+      : fromJson(json.decode(value), targetType, growable: growable);
   }
 
   // ignore: deprecated_member_use_from_same_package
   Future<String> serializeAsync(Object? value) async => serialize(value);
 
-  @Deprecated(
-      'Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
   String serialize(Object? value) => value == null ? '' : json.encode(value);
 
   /// Returns a native instance of an OpenAPI class matching the [specified type][targetType].
-  static dynamic fromJson(
-    dynamic value,
-    String targetType, {
-    bool growable = false,
-  }) {
+  static dynamic fromJson(dynamic value, String targetType, {bool growable = false,}) {
     try {
       switch (targetType) {
         case 'String':
@@ -442,50 +427,27 @@ class ApiClient {
           return ValidationErrorLocInner.fromJson(value);
         default:
           dynamic match;
-          if (value is List &&
-              (match = _regList.firstMatch(targetType)?.group(1)) != null) {
+          if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {
             return value
-                .map<dynamic>((dynamic v) => fromJson(
-                      v,
-                      match,
-                      growable: growable,
-                    ))
-                .toList(growable: growable);
+              .map<dynamic>((dynamic v) => fromJson(v, match, growable: growable,))
+              .toList(growable: growable);
           }
-          if (value is Set &&
-              (match = _regSet.firstMatch(targetType)?.group(1)) != null) {
+          if (value is Set && (match = _regSet.firstMatch(targetType)?.group(1)) != null) {
             return value
-                .map<dynamic>((dynamic v) => fromJson(
-                      v,
-                      match,
-                      growable: growable,
-                    ))
-                .toSet();
+              .map<dynamic>((dynamic v) => fromJson(v, match, growable: growable,))
+              .toSet();
           }
-          if (value is Map &&
-              (match = _regMap.firstMatch(targetType)?.group(1)) != null) {
+          if (value is Map && (match = _regMap.firstMatch(targetType)?.group(1)) != null) {
             return Map<String, dynamic>.fromIterables(
               value.keys.cast<String>(),
-              value.values.map<dynamic>((dynamic v) => fromJson(
-                    v,
-                    match,
-                    growable: growable,
-                  )),
+              value.values.map<dynamic>((dynamic v) => fromJson(v, match, growable: growable,)),
             );
           }
       }
     } on Exception catch (error, trace) {
-      throw ApiException.withInner(
-        HttpStatus.internalServerError,
-        'Exception during deserialization.',
-        error,
-        trace,
-      );
+      throw ApiException.withInner(HttpStatus.internalServerError, 'Exception during deserialization.', error, trace,);
     }
-    throw ApiException(
-      HttpStatus.internalServerError,
-      'Could not find a suitable class for deserialization',
-    );
+    throw ApiException(HttpStatus.internalServerError, 'Could not find a suitable class for deserialization',);
   }
 }
 
@@ -513,7 +475,9 @@ Future<dynamic> decodeAsync(DeserializationMessage message) async {
   final targetType = message.targetType.replaceAll(' ', '');
 
   // If the expected target type is String, nothing to do...
-  return targetType == 'String' ? message.json : json.decode(message.json);
+  return targetType == 'String'
+    ? message.json
+    : json.decode(message.json);
 }
 
 /// Primarily intended for use in an isolate.
@@ -523,14 +487,13 @@ Future<dynamic> deserializeAsync(DeserializationMessage message) async {
 
   // If the expected target type is String, nothing to do...
   return targetType == 'String'
-      ? message.json
-      : ApiClient.fromJson(
-          json.decode(message.json),
-          targetType,
-          growable: message.growable,
-        );
+    ? message.json
+    : ApiClient.fromJson(
+        json.decode(message.json),
+        targetType,
+        growable: message.growable,
+      );
 }
 
 /// Primarily intended for use in an isolate.
-Future<String> serializeAsync(Object? value) async =>
-    value == null ? '' : json.encode(value);
+Future<String> serializeAsync(Object? value) async => value == null ? '' : json.encode(value);

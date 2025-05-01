@@ -264,17 +264,11 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<Uint8List> getClinicStatementApiV1ClinicsClinicStatementPost(
-    Map<String, String> requestBody,
-  ) async {
-    final response =
-        await getClinicStatementApiV1ClinicsClinicStatementPostWithHttpInfo(
-      requestBody,
-    );
+  Future<void> getClinicStatementApiV1ClinicsClinicStatementPost(Map<String, String> requestBody,) async {
+    final response = await getClinicStatementApiV1ClinicsClinicStatementPostWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    return response.bodyBytes;
   }
 
   /// Read Clinic

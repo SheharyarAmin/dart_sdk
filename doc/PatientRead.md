@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **canbedeleted** | **bool** |  | [optional] [default to true]
 **ccmDetail** | [**CCMPatientRead**](CCMPatientRead.md) |  | [optional] 
 **pcmDetail** | [**PCMPatientRead**](PCMPatientRead.md) |  | [optional] 
+**rpmRegistered** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

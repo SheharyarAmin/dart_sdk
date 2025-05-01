@@ -1,4 +1,4 @@
-# openapi.model.PatientsResponse
+# openapi.model.PatientIDsList
 
 ## Load the model package
 ```dart
@@ -8,9 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**patients** | [**List<PatientRead>**](PatientRead.md) |  | [default to const []]
-**totalCount** | **int** |  | 
-**pagination** | [**PaginationMetadata**](PaginationMetadata.md) |  | 
+**patientIds** | **List<String>** |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

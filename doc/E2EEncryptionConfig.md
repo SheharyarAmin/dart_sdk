@@ -1,4 +1,4 @@
-# openapi.model.PatientsResponse
+# openapi.model.E2EEncryptionConfig
 
 ## Load the model package
 ```dart
@@ -8,9 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**patients** | [**List<PatientRead>**](PatientRead.md) |  | [default to const []]
-**totalCount** | **int** |  | 
-**pagination** | [**PaginationMetadata**](PaginationMetadata.md) |  | 
+**clientId** | **String** |  | 
+**encryptedSymmetricKey** | **String** |  | [optional] 
+**publicKey** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

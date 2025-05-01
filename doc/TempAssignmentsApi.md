@@ -153,7 +153,7 @@ This endpoint does not need any parameter.
 
 Update Temp Assignment Route
 
-Update a temporary assignment for a specific portal.  Args:     temp_assignment (TempAssignment): The updated assignment data     portal (Portal): The portal (CCM/PCM)     user (User): The current active user      Returns:     Dict[str, str]: A message indicating the result
+Update a temporary assignment for a specific portal.  Args:     temp_assignment (TempAssignment): The updated assignment data     portal (Portal): The portal (CCM/PCM)     user (User): The current active user  Returns:     Dict[str, str]: A message indicating the result
 
 ### Example
 ```dart

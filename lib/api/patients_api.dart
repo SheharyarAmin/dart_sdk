@@ -150,12 +150,11 @@ class PatientsApi {
   }
 
   /// Generate Report
-  Future<Uint8List> generateReportApiV1PatientsGenerateExcelsheetGet() async {
+  Future<void> generateReportApiV1PatientsGenerateExcelsheetGet() async {
     final response = await generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    return response.bodyBytes;
   }
 
   /// Read Patient
