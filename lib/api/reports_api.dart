@@ -53,10 +53,16 @@ class ReportsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<void> generateReportApiV1ReportsGenerateReportPost(Map<String, String> requestBody,) async {
-    final response = await generateReportApiV1ReportsGenerateReportPostWithHttpInfo(requestBody,);
+  Future<Uint8List> generateReportApiV1ReportsGenerateReportPost(
+    Map<String, String> requestBody,
+  ) async {
+    final response =
+        await generateReportApiV1ReportsGenerateReportPostWithHttpInfo(
+      requestBody,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    return response.bodyBytes;
   }
 }
