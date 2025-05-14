@@ -355,6 +355,12 @@ class ApiClient {
           return ConsultantRead.fromJson(value);
         case 'ConsultantUpdate':
           return ConsultantUpdate.fromJson(value);
+        case 'DiagnosisCreate':
+          return DiagnosisCreate.fromJson(value);
+        case 'DiagnosisRead':
+          return DiagnosisRead.fromJson(value);
+        case 'DiagnosisUpdate':
+          return DiagnosisUpdate.fromJson(value);
         case 'Employee':
           return Employee.fromJson(value);
         case 'EmployeeByProcessedPatients':
@@ -373,14 +379,18 @@ class ApiClient {
           return Log.fromJson(value);
         case 'ManagerResponse':
           return ManagerResponse.fromJson(value);
+        case 'MedicationCreate':
+          return MedicationCreate.fromJson(value);
+        case 'MedicationRead':
+          return MedicationRead.fromJson(value);
+        case 'MedicationUpdate':
+          return MedicationUpdate.fromJson(value);
         case 'Notification':
           return Notification.fromJson(value);
         case 'OptInEmployeeLogEntry':
           return OptInEmployeeLogEntry.fromJson(value);
         case 'OptInEmployeeLogEntryBase':
           return OptInEmployeeLogEntryBase.fromJson(value);
-        case 'PatientIDsList':
-          return PatientIDsList.fromJson(value);
         case 'PCMPatientCreate':
           return PCMPatientCreate.fromJson(value);
         case 'PCMPatientRead':
@@ -393,6 +403,8 @@ class ApiClient {
           return Patient.fromJson(value);
         case 'PatientCreate':
           return PatientCreate.fromJson(value);
+        case 'PatientIDsList':
+          return PatientIDsList.fromJson(value);
         case 'PatientPaymentEntry':
           return PatientPaymentEntry.fromJson(value);
         case 'PatientRead':

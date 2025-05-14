@@ -40,6 +40,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:openapi/api.dart';
 
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = CareCallsApi();
 final patientId = patientId_example; // String | Patient ID
@@ -91,6 +93,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**loginForAccessTokenAuthTokenPost**](doc//DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
 *DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 *DefaultApi* | [**refreshAccessTokenAuthRefreshPost**](doc//DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
+*DiagnosesApi* | [**createDiagnosisApiV1DiagnosesPost**](doc//DiagnosesApi.md#creatediagnosisapiv1diagnosespost) | **POST** /api/v1/diagnoses/ | Create Diagnosis
+*DiagnosesApi* | [**deleteDiagnosisApiV1DiagnosesDiagnosisIdDelete**](doc//DiagnosesApi.md#deletediagnosisapiv1diagnosesdiagnosisiddelete) | **DELETE** /api/v1/diagnoses/{diagnosis_id} | Delete Diagnosis
+*DiagnosesApi* | [**getDiagnosesApiV1DiagnosesGet**](doc//DiagnosesApi.md#getdiagnosesapiv1diagnosesget) | **GET** /api/v1/diagnoses/ | Get Diagnoses
+*DiagnosesApi* | [**getDiagnosisApiV1DiagnosesDiagnosisIdGet**](doc//DiagnosesApi.md#getdiagnosisapiv1diagnosesdiagnosisidget) | **GET** /api/v1/diagnoses/{diagnosis_id} | Get Diagnosis
+*DiagnosesApi* | [**updateDiagnosisApiV1DiagnosesDiagnosisIdPut**](doc//DiagnosesApi.md#updatediagnosisapiv1diagnosesdiagnosisidput) | **PUT** /api/v1/diagnoses/{diagnosis_id} | Update Diagnosis
 *EmplogApi* | [**createOptinLogApiV1EmplogOptinPost**](doc//EmplogApi.md#createoptinlogapiv1emplogoptinpost) | **POST** /api/v1/emplog/optin | Create Optin Log
 *EmployeesApi* | [**changeActiveStatusApiV1EmployeesEmployeeIdChangeActiveStatusPut**](doc//EmployeesApi.md#changeactivestatusapiv1employeesemployeeidchangeactivestatusput) | **PUT** /api/v1/employees/{employee_id}/change-active-status | Change Active Status
 *EmployeesApi* | [**changeDeletedStatusApiV1EmployeesEmployeeIdChangeDeletedStatusPut**](doc//EmployeesApi.md#changedeletedstatusapiv1employeesemployeeidchangedeletedstatusput) | **PUT** /api/v1/employees/{employee_id}/change-deleted-status | Change Deleted Status
@@ -103,6 +110,11 @@ Class | Method | HTTP request | Description
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
 *LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
 *ManagerApi* | [**getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet**](doc//ManagerApi.md#getmanagerdashboardformonthyearapiv1managerdashboardyearmonthget) | **GET** /api/v1/manager/dashboard/{year}/{month} | Get Manager Dashboard For Monthyear
+*MedicationsApi* | [**createMedicationApiV1MedicationsPost**](doc//MedicationsApi.md#createmedicationapiv1medicationspost) | **POST** /api/v1/medications/ | Create Medication
+*MedicationsApi* | [**deleteMedicationApiV1MedicationsMedicationIdDelete**](doc//MedicationsApi.md#deletemedicationapiv1medicationsmedicationiddelete) | **DELETE** /api/v1/medications/{medication_id} | Delete Medication
+*MedicationsApi* | [**getMedicationApiV1MedicationsMedicationIdGet**](doc//MedicationsApi.md#getmedicationapiv1medicationsmedicationidget) | **GET** /api/v1/medications/{medication_id} | Get Medication
+*MedicationsApi* | [**getMedicationsApiV1MedicationsGet**](doc//MedicationsApi.md#getmedicationsapiv1medicationsget) | **GET** /api/v1/medications/ | Get Medications
+*MedicationsApi* | [**updateMedicationApiV1MedicationsMedicationIdPut**](doc//MedicationsApi.md#updatemedicationapiv1medicationsmedicationidput) | **PUT** /api/v1/medications/{medication_id} | Update Medication
 *NotificationsApi* | [**deleteAllNotificationsApiV1NotificationsDeleteEmployeeIdDelete**](doc//NotificationsApi.md#deleteallnotificationsapiv1notificationsdeleteemployeeiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id} | Delete All Notifications
 *NotificationsApi* | [**deleteNotificationApiV1NotificationsDeleteEmployeeIdNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationapiv1notificationsdeleteemployeeidnotificationiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id}/{notification_id} | Delete Notification
 *NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
@@ -157,6 +169,9 @@ Class | Method | HTTP request | Description
  - [ConsultantProviderPayRateRead](doc//ConsultantProviderPayRateRead.md)
  - [ConsultantRead](doc//ConsultantRead.md)
  - [ConsultantUpdate](doc//ConsultantUpdate.md)
+ - [DiagnosisCreate](doc//DiagnosisCreate.md)
+ - [DiagnosisRead](doc//DiagnosisRead.md)
+ - [DiagnosisUpdate](doc//DiagnosisUpdate.md)
  - [Employee](doc//Employee.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)
@@ -166,6 +181,9 @@ Class | Method | HTTP request | Description
  - [InvoicesResponse](doc//InvoicesResponse.md)
  - [Log](doc//Log.md)
  - [ManagerResponse](doc//ManagerResponse.md)
+ - [MedicationCreate](doc//MedicationCreate.md)
+ - [MedicationRead](doc//MedicationRead.md)
+ - [MedicationUpdate](doc//MedicationUpdate.md)
  - [Notification](doc//Notification.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
