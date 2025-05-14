@@ -329,6 +329,12 @@ class ApiClient {
           return CCMPatientRead.fromJson(value);
         case 'CCMPatientUpdate':
           return CCMPatientUpdate.fromJson(value);
+        case 'CareManagementCallCreate':
+          return CareManagementCallCreate.fromJson(value);
+        case 'CareManagementCallRead':
+          return CareManagementCallRead.fromJson(value);
+        case 'CareManagementCallUpdate':
+          return CareManagementCallUpdate.fromJson(value);
         case 'CarePlanEntry':
           return CarePlanEntry.fromJson(value);
         case 'ClinicCreate':
@@ -373,6 +379,8 @@ class ApiClient {
           return OptInEmployeeLogEntry.fromJson(value);
         case 'OptInEmployeeLogEntryBase':
           return OptInEmployeeLogEntryBase.fromJson(value);
+        case 'PatientIDsList':
+          return PatientIDsList.fromJson(value);
         case 'PCMPatientCreate':
           return PCMPatientCreate.fromJson(value);
         case 'PCMPatientRead':

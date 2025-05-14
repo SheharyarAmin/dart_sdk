@@ -7,6 +7,10 @@ doc/AuthenticationToken.md
 doc/CCMPatientCreate.md
 doc/CCMPatientRead.md
 doc/CCMPatientUpdate.md
+doc/CareCallsApi.md
+doc/CareManagementCallCreate.md
+doc/CareManagementCallRead.md
+doc/CareManagementCallUpdate.md
 doc/CarePlanEntry.md
 doc/CareplansApi.md
 doc/ClinicCreate.md
@@ -22,8 +26,6 @@ doc/ConsultantRead.md
 doc/ConsultantUpdate.md
 doc/ConsultantsApi.md
 doc/DefaultApi.md
-doc/E2EEncryptedMessage.md
-doc/E2EEncryptionConfig.md
 doc/EmplogApi.md
 doc/Employee.md
 doc/EmployeeByProcessedPatients.md
@@ -37,7 +39,6 @@ doc/Log.md
 doc/LogsApi.md
 doc/ManagerApi.md
 doc/ManagerResponse.md
-doc/MigrationApi.md
 doc/Notification.md
 doc/NotificationsApi.md
 doc/OptInEmployeeLogEntry.md
@@ -67,11 +68,8 @@ doc/ProviderPayRate.md
 doc/ProviderRead.md
 doc/ProviderUpdate.md
 doc/ProvidersApi.md
-doc/RPMPatientData.md
-doc/RPMPatientsResponse.md
 doc/ReportsApi.md
 doc/RpmApi.md
-doc/SecureApi.md
 doc/TempAssignment.md
 doc/TempAssignmentCreate.md
 doc/TempAssignmentEmpLists.md
@@ -81,6 +79,7 @@ doc/ValidationError.md
 doc/ValidationErrorLocInner.md
 git_push.sh
 lib/api.dart
+lib/api/care_calls_api.dart
 lib/api/careplans_api.dart
 lib/api/clinic_invoice_api.dart
 lib/api/clinics_api.dart
@@ -90,7 +89,6 @@ lib/api/emplog_api.dart
 lib/api/employees_api.dart
 lib/api/logs_api.dart
 lib/api/manager_api.dart
-lib/api/migration_api.dart
 lib/api/notifications_api.dart
 lib/api/patients_api.dart
 lib/api/payment_details_api.dart
@@ -98,7 +96,6 @@ lib/api/processed_patient_api.dart
 lib/api/providers_api.dart
 lib/api/reports_api.dart
 lib/api/rpm_api.dart
-lib/api/secure_api.dart
 lib/api/temp_assignments_api.dart
 lib/api_client.dart
 lib/api_exception.dart
@@ -110,6 +107,9 @@ lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
 lib/model/assigned_patient_screen_response.dart
 lib/model/authentication_token.dart
+lib/model/care_management_call_create.dart
+lib/model/care_management_call_read.dart
+lib/model/care_management_call_update.dart
 lib/model/care_plan_entry.dart
 lib/model/ccm_patient_create.dart
 lib/model/ccm_patient_read.dart
@@ -123,8 +123,6 @@ lib/model/consultant_provider_pay_rate.dart
 lib/model/consultant_provider_pay_rate_read.dart
 lib/model/consultant_read.dart
 lib/model/consultant_update.dart
-lib/model/e2_e_encrypted_message.dart
-lib/model/e2_e_encryption_config.dart
 lib/model/employee.dart
 lib/model/employee_by_processed_patients.dart
 lib/model/employee_create.dart
@@ -158,8 +156,6 @@ lib/model/provider_create.dart
 lib/model/provider_pay_rate.dart
 lib/model/provider_read.dart
 lib/model/provider_update.dart
-lib/model/rpm_patient_data.dart
-lib/model/rpm_patients_response.dart
 lib/model/temp_assignment.dart
 lib/model/temp_assignment_create.dart
 lib/model/temp_assignment_emp_lists.dart
@@ -167,10 +163,7 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/e2_e_encrypted_message_test.dart
-test/e2_e_encryption_config_test.dart
-test/patient_ids_list_test.dart
-test/rpm_api_test.dart
-test/rpm_patient_data_test.dart
-test/rpm_patients_response_test.dart
-test/secure_api_test.dart
+test/care_calls_api_test.dart
+test/care_management_call_create_test.dart
+test/care_management_call_read_test.dart
+test/care_management_call_update_test.dart

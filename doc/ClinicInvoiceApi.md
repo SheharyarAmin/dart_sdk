@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **createClinicInvoiceApiV1ClinicInvoiceClinicidPost**
-> ClinicInvoice createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate)
+> ClinicInvoice createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate, session)
 
 Create Clinic Invoice
 
@@ -25,14 +25,17 @@ Create a new invoice for a clinic
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicInvoiceApi();
 final clinicid = clinicid_example; // String | 
 final date = date_example; // String | 
 final taxrate = 8.14; // num | 
+final session = ; // Object | 
 
 try {
-    final result = api_instance.createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate);
+    final result = api_instance.createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate, session);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicInvoiceApi->createClinicInvoiceApiV1ClinicInvoiceClinicidPost: $e\n');
@@ -46,6 +49,7 @@ Name | Type | Description  | Notes
  **clinicid** | **String**|  | 
  **date** | **String**|  | [optional] 
  **taxrate** | **num**|  | [optional] 
+ **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -53,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -63,7 +67,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**
-> Map<String, String> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber)
+> Map<String, String> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber, session)
 
 Delete Clinic Invoice
 
@@ -78,9 +82,10 @@ import 'package:openapi/api.dart';
 final api_instance = ClinicInvoiceApi();
 final clinicid = clinicid_example; // String | 
 final invoiceNumber = invoiceNumber_example; // String | 
+final session = ; // Object | 
 
 try {
-    final result = api_instance.deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber);
+    final result = api_instance.deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber, session);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicInvoiceApi->deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete: $e\n');
@@ -93,6 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicid** | **String**|  | 
  **invoiceNumber** | **String**|  | 
+ **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -119,6 +125,8 @@ Get all invoices with filtering, pagination and sorting
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicInvoiceApi();
 final pageSize = 56; // int | 
@@ -171,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

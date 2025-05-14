@@ -29,7 +29,9 @@ class ClinicInvoiceApi {
   /// * [String] date:
   ///
   /// * [num] taxrate:
-  Future<Response> createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(String clinicid, { String? date, num? taxrate, }) async {
+  ///
+  /// * [Object] session:
+  Future<Response> createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(String clinicid, { String? date, num? taxrate, Object? session, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/{clinicid}/'
       .replaceAll('{clinicid}', clinicid);
@@ -46,6 +48,9 @@ class ClinicInvoiceApi {
     }
     if (taxrate != null) {
       queryParams.addAll(_queryParams('', 'taxrate', taxrate));
+    }
+    if (session != null) {
+      queryParams.addAll(_queryParams('', 'session', session));
     }
 
     const contentTypes = <String>[];
@@ -73,8 +78,10 @@ class ClinicInvoiceApi {
   /// * [String] date:
   ///
   /// * [num] taxrate:
-  Future<ClinicInvoice?> createClinicInvoiceApiV1ClinicInvoiceClinicidPost(String clinicid, { String? date, num? taxrate, }) async {
-    final response = await createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(clinicid,  date: date, taxrate: taxrate, );
+  ///
+  /// * [Object] session:
+  Future<ClinicInvoice?> createClinicInvoiceApiV1ClinicInvoiceClinicidPost(String clinicid, { String? date, num? taxrate, Object? session, }) async {
+    final response = await createClinicInvoiceApiV1ClinicInvoiceClinicidPostWithHttpInfo(clinicid,  date: date, taxrate: taxrate, session: session, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -99,7 +106,9 @@ class ClinicInvoiceApi {
   /// * [String] clinicid (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<Response> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(String clinicid, String invoiceNumber,) async {
+  ///
+  /// * [Object] session:
+  Future<Response> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(String clinicid, String invoiceNumber, { Object? session, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinic-invoice/{clinicid}/{invoice_number}'
       .replaceAll('{clinicid}', clinicid)
@@ -111,6 +120,10 @@ class ClinicInvoiceApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (session != null) {
+      queryParams.addAll(_queryParams('', 'session', session));
+    }
 
     const contentTypes = <String>[];
 
@@ -135,8 +148,10 @@ class ClinicInvoiceApi {
   /// * [String] clinicid (required):
   ///
   /// * [String] invoiceNumber (required):
-  Future<Map<String, String>?> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(String clinicid, String invoiceNumber,) async {
-    final response = await deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(clinicid, invoiceNumber,);
+  ///
+  /// * [Object] session:
+  Future<Map<String, String>?> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(String clinicid, String invoiceNumber, { Object? session, }) async {
+    final response = await deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDeleteWithHttpInfo(clinicid, invoiceNumber,  session: session, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
