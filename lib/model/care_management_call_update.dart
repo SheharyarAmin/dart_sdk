@@ -32,6 +32,8 @@ class CareManagementCallUpdate {
     this.timeSpentMinutes,
     this.medications = const [],
     this.diagnoses = const [],
+    this.medicationModels = const [],
+    this.diagnosisModels = const [],
     this.ccmProviderId,
     this.ccmCareplanId,
     this.pcmProviderId,
@@ -76,6 +78,10 @@ class CareManagementCallUpdate {
 
   List<String>? diagnoses;
 
+  List<MedicationCreate>? medicationModels;
+
+  List<DiagnosisCreate>? diagnosisModels;
+
   String? ccmProviderId;
 
   String? ccmCareplanId;
@@ -105,6 +111,8 @@ class CareManagementCallUpdate {
     other.timeSpentMinutes == timeSpentMinutes &&
     _deepEquality.equals(other.medications, medications) &&
     _deepEquality.equals(other.diagnoses, diagnoses) &&
+    _deepEquality.equals(other.medicationModels, medicationModels) &&
+    _deepEquality.equals(other.diagnosisModels, diagnosisModels) &&
     other.ccmProviderId == ccmProviderId &&
     other.ccmCareplanId == ccmCareplanId &&
     other.pcmProviderId == pcmProviderId &&
@@ -132,13 +140,15 @@ class CareManagementCallUpdate {
     (timeSpentMinutes == null ? 0 : timeSpentMinutes!.hashCode) +
     (medications == null ? 0 : medications!.hashCode) +
     (diagnoses == null ? 0 : diagnoses!.hashCode) +
+    (medicationModels == null ? 0 : medicationModels!.hashCode) +
+    (diagnosisModels == null ? 0 : diagnosisModels!.hashCode) +
     (ccmProviderId == null ? 0 : ccmProviderId!.hashCode) +
     (ccmCareplanId == null ? 0 : ccmCareplanId!.hashCode) +
     (pcmProviderId == null ? 0 : pcmProviderId!.hashCode) +
     (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode);
 
   @override
-  String toString() => 'CareManagementCallUpdate[callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeBpReadings=$homeBpReadings, homeHeartRateReadings=$homeHeartRateReadings, homeCbgReadings=$homeCbgReadings, homeWeightReadings=$homeWeightReadings, homeDiet=$homeDiet, psychosocialStressors=$psychosocialStressors, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, medications=$medications, diagnoses=$diagnoses, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId]';
+  String toString() => 'CareManagementCallUpdate[callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeBpReadings=$homeBpReadings, homeHeartRateReadings=$homeHeartRateReadings, homeCbgReadings=$homeCbgReadings, homeWeightReadings=$homeWeightReadings, homeDiet=$homeDiet, psychosocialStressors=$psychosocialStressors, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, medications=$medications, diagnoses=$diagnoses, medicationModels=$medicationModels, diagnosisModels=$diagnosisModels, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -237,6 +247,16 @@ class CareManagementCallUpdate {
     } else {
       json[r'diagnoses'] = null;
     }
+    if (this.medicationModels != null) {
+      json[r'medication_models'] = this.medicationModels;
+    } else {
+      json[r'medication_models'] = null;
+    }
+    if (this.diagnosisModels != null) {
+      json[r'diagnosis_models'] = this.diagnosisModels;
+    } else {
+      json[r'diagnosis_models'] = null;
+    }
     if (this.ccmProviderId != null) {
       json[r'ccm_provider_id'] = this.ccmProviderId;
     } else {
@@ -310,6 +330,8 @@ class CareManagementCallUpdate {
         diagnoses: json[r'diagnoses'] is Iterable
             ? (json[r'diagnoses'] as Iterable).cast<String>().toList(growable: false)
             : const [],
+        medicationModels: MedicationCreate.listFromJson(json[r'medication_models']),
+        diagnosisModels: DiagnosisCreate.listFromJson(json[r'diagnosis_models']),
         ccmProviderId: mapValueOfType<String>(json, r'ccm_provider_id'),
         ccmCareplanId: mapValueOfType<String>(json, r'ccm_careplan_id'),
         pcmProviderId: mapValueOfType<String>(json, r'pcm_provider_id'),

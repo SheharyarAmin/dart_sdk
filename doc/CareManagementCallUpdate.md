@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **timeSpentMinutes** | **int** |  | [optional] 
 **medications** | **List<String>** |  | [optional] [default to const []]
 **diagnoses** | **List<String>** |  | [optional] [default to const []]
+**medicationModels** | [**List<MedicationCreate>**](MedicationCreate.md) |  | [optional] [default to const []]
+**diagnosisModels** | [**List<DiagnosisCreate>**](DiagnosisCreate.md) |  | [optional] [default to const []]
 **ccmProviderId** | **String** |  | [optional] 
 **ccmCareplanId** | **String** |  | [optional] 
 **pcmProviderId** | **String** |  | [optional] 

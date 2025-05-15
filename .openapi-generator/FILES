@@ -179,11 +179,3 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/diagnoses_api_test.dart
-test/diagnosis_create_test.dart
-test/diagnosis_read_test.dart
-test/diagnosis_update_test.dart
-test/medication_create_test.dart
-test/medication_read_test.dart
-test/medication_update_test.dart
-test/medications_api_test.dart

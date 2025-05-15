@@ -36,11 +36,17 @@ class CareManagementCallRead {
     required this.id,
     required this.portal,
     this.ccmProviderName,
+    this.ccmProviderId,
     this.ccmCareplanSignDate,
+    this.ccmCareplanId,
     this.pcmProviderName,
+    this.pcmProviderId,
     this.pcmCareplanSignDate,
+    this.pcmCareplanId,
     this.medications = const [],
+    this.medicationIds = const [],
     this.diagnoses = const [],
+    this.diagnosisIds = const [],
   });
 
   String? iv;
@@ -95,15 +101,27 @@ class CareManagementCallRead {
 
   String? ccmProviderName;
 
+  String? ccmProviderId;
+
   DateTime? ccmCareplanSignDate;
+
+  String? ccmCareplanId;
 
   String? pcmProviderName;
 
+  String? pcmProviderId;
+
   DateTime? pcmCareplanSignDate;
+
+  String? pcmCareplanId;
 
   List<String> medications;
 
+  List<int> medicationIds;
+
   List<String> diagnoses;
+
+  List<int> diagnosisIds;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CareManagementCallRead &&
@@ -130,11 +148,17 @@ class CareManagementCallRead {
     other.id == id &&
     other.portal == portal &&
     other.ccmProviderName == ccmProviderName &&
+    other.ccmProviderId == ccmProviderId &&
     other.ccmCareplanSignDate == ccmCareplanSignDate &&
+    other.ccmCareplanId == ccmCareplanId &&
     other.pcmProviderName == pcmProviderName &&
+    other.pcmProviderId == pcmProviderId &&
     other.pcmCareplanSignDate == pcmCareplanSignDate &&
+    other.pcmCareplanId == pcmCareplanId &&
     _deepEquality.equals(other.medications, medications) &&
-    _deepEquality.equals(other.diagnoses, diagnoses);
+    _deepEquality.equals(other.medicationIds, medicationIds) &&
+    _deepEquality.equals(other.diagnoses, diagnoses) &&
+    _deepEquality.equals(other.diagnosisIds, diagnosisIds);
 
   @override
   int get hashCode =>
@@ -162,14 +186,20 @@ class CareManagementCallRead {
     (id.hashCode) +
     (portal.hashCode) +
     (ccmProviderName == null ? 0 : ccmProviderName!.hashCode) +
+    (ccmProviderId == null ? 0 : ccmProviderId!.hashCode) +
     (ccmCareplanSignDate == null ? 0 : ccmCareplanSignDate!.hashCode) +
+    (ccmCareplanId == null ? 0 : ccmCareplanId!.hashCode) +
     (pcmProviderName == null ? 0 : pcmProviderName!.hashCode) +
+    (pcmProviderId == null ? 0 : pcmProviderId!.hashCode) +
     (pcmCareplanSignDate == null ? 0 : pcmCareplanSignDate!.hashCode) +
+    (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode) +
     (medications.hashCode) +
-    (diagnoses.hashCode);
+    (medicationIds.hashCode) +
+    (diagnoses.hashCode) +
+    (diagnosisIds.hashCode);
 
   @override
-  String toString() => 'CareManagementCallRead[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeBpReadings=$homeBpReadings, homeHeartRateReadings=$homeHeartRateReadings, homeCbgReadings=$homeCbgReadings, homeWeightReadings=$homeWeightReadings, homeDiet=$homeDiet, psychosocialStressors=$psychosocialStressors, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, createdAt=$createdAt, id=$id, portal=$portal, ccmProviderName=$ccmProviderName, ccmCareplanSignDate=$ccmCareplanSignDate, pcmProviderName=$pcmProviderName, pcmCareplanSignDate=$pcmCareplanSignDate, medications=$medications, diagnoses=$diagnoses]';
+  String toString() => 'CareManagementCallRead[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeBpReadings=$homeBpReadings, homeHeartRateReadings=$homeHeartRateReadings, homeCbgReadings=$homeCbgReadings, homeWeightReadings=$homeWeightReadings, homeDiet=$homeDiet, psychosocialStressors=$psychosocialStressors, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, createdAt=$createdAt, id=$id, portal=$portal, ccmProviderName=$ccmProviderName, ccmProviderId=$ccmProviderId, ccmCareplanSignDate=$ccmCareplanSignDate, ccmCareplanId=$ccmCareplanId, pcmProviderName=$pcmProviderName, pcmProviderId=$pcmProviderId, pcmCareplanSignDate=$pcmCareplanSignDate, pcmCareplanId=$pcmCareplanId, medications=$medications, medicationIds=$medicationIds, diagnoses=$diagnoses, diagnosisIds=$diagnosisIds]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -272,23 +302,45 @@ class CareManagementCallRead {
     } else {
       json[r'ccm_provider_name'] = null;
     }
+    if (this.ccmProviderId != null) {
+      json[r'ccm_provider_id'] = this.ccmProviderId;
+    } else {
+      json[r'ccm_provider_id'] = null;
+    }
     if (this.ccmCareplanSignDate != null) {
       json[r'ccm_careplan_sign_date'] = _dateFormatter.format(this.ccmCareplanSignDate!.toUtc());
     } else {
       json[r'ccm_careplan_sign_date'] = null;
+    }
+    if (this.ccmCareplanId != null) {
+      json[r'ccm_careplan_id'] = this.ccmCareplanId;
+    } else {
+      json[r'ccm_careplan_id'] = null;
     }
     if (this.pcmProviderName != null) {
       json[r'pcm_provider_name'] = this.pcmProviderName;
     } else {
       json[r'pcm_provider_name'] = null;
     }
+    if (this.pcmProviderId != null) {
+      json[r'pcm_provider_id'] = this.pcmProviderId;
+    } else {
+      json[r'pcm_provider_id'] = null;
+    }
     if (this.pcmCareplanSignDate != null) {
       json[r'pcm_careplan_sign_date'] = _dateFormatter.format(this.pcmCareplanSignDate!.toUtc());
     } else {
       json[r'pcm_careplan_sign_date'] = null;
     }
+    if (this.pcmCareplanId != null) {
+      json[r'pcm_careplan_id'] = this.pcmCareplanId;
+    } else {
+      json[r'pcm_careplan_id'] = null;
+    }
       json[r'medications'] = this.medications;
+      json[r'medication_ids'] = this.medicationIds;
       json[r'diagnoses'] = this.diagnoses;
+      json[r'diagnosis_ids'] = this.diagnosisIds;
     return json;
   }
 
@@ -342,14 +394,24 @@ class CareManagementCallRead {
         id: mapValueOfType<int>(json, r'id')!,
         portal: Portal.fromJson(json[r'portal'])!,
         ccmProviderName: mapValueOfType<String>(json, r'ccm_provider_name'),
+        ccmProviderId: mapValueOfType<String>(json, r'ccm_provider_id'),
         ccmCareplanSignDate: mapDateTime(json, r'ccm_careplan_sign_date', r''),
+        ccmCareplanId: mapValueOfType<String>(json, r'ccm_careplan_id'),
         pcmProviderName: mapValueOfType<String>(json, r'pcm_provider_name'),
+        pcmProviderId: mapValueOfType<String>(json, r'pcm_provider_id'),
         pcmCareplanSignDate: mapDateTime(json, r'pcm_careplan_sign_date', r''),
+        pcmCareplanId: mapValueOfType<String>(json, r'pcm_careplan_id'),
         medications: json[r'medications'] is Iterable
             ? (json[r'medications'] as Iterable).cast<String>().toList(growable: false)
             : const [],
+        medicationIds: json[r'medication_ids'] is Iterable
+            ? (json[r'medication_ids'] as Iterable).cast<int>().toList(growable: false)
+            : const [],
         diagnoses: json[r'diagnoses'] is Iterable
             ? (json[r'diagnoses'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
+        diagnosisIds: json[r'diagnosis_ids'] is Iterable
+            ? (json[r'diagnosis_ids'] as Iterable).cast<int>().toList(growable: false)
             : const [],
       );
     }
