@@ -47,6 +47,8 @@ Name | Type | Description | Notes
 **equipmentIds** | **List<int>** |  | [optional] [default to const []]
 **psychosocialStressors** | **List<String>** |  | [optional] [default to const []]
 **psychosocialStressorIds** | **List<int>** |  | [optional] [default to const []]
+**diets** | **List<String>** |  | [optional] [default to const []]
+**dietIds** | **List<int>** |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -367,6 +367,12 @@ class ApiClient {
           return DiagnosisRead.fromJson(value);
         case 'DiagnosisUpdate':
           return DiagnosisUpdate.fromJson(value);
+        case 'DietCreate':
+          return DietCreate.fromJson(value);
+        case 'DietRead':
+          return DietRead.fromJson(value);
+        case 'DietUpdate':
+          return DietUpdate.fromJson(value);
         case 'Employee':
           return Employee.fromJson(value);
         case 'EmployeeByProcessedPatients':

@@ -104,6 +104,12 @@ Class | Method | HTTP request | Description
 *DiagnosesApi* | [**reactivateDiagnosisApiV1DiagnosesDiagnosesDiagnosisIdReactivatePost**](doc//DiagnosesApi.md#reactivatediagnosisapiv1diagnosesdiagnosesdiagnosisidreactivatepost) | **POST** /api/v1/diagnoses/diagnoses/{diagnosis_id}/reactivate | Reactivate diagnosis
 *DiagnosesApi* | [**softDeleteDiagnosisApiV1DiagnosesDiagnosesDiagnosisIdDelete**](doc//DiagnosesApi.md#softdeletediagnosisapiv1diagnosesdiagnosesdiagnosisiddelete) | **DELETE** /api/v1/diagnoses/diagnoses/{diagnosis_id} | Soft delete diagnosis
 *DiagnosesApi* | [**updateDiagnosisApiV1DiagnosesDiagnosesDiagnosisIdPut**](doc//DiagnosesApi.md#updatediagnosisapiv1diagnosesdiagnosesdiagnosisidput) | **PUT** /api/v1/diagnoses/diagnoses/{diagnosis_id} | Update diagnosis
+*DietsApi* | [**createDietApiV1DietsDietsPost**](doc//DietsApi.md#createdietapiv1dietsdietspost) | **POST** /api/v1/diets/diets | Create a new diet
+*DietsApi* | [**getDietApiV1DietsDietsDietIdGet**](doc//DietsApi.md#getdietapiv1dietsdietsdietidget) | **GET** /api/v1/diets/diets/{diet_id} | Get diet by ID
+*DietsApi* | [**getDietsApiV1DietsDietsGet**](doc//DietsApi.md#getdietsapiv1dietsdietsget) | **GET** /api/v1/diets/diets | Get all diets
+*DietsApi* | [**reactivateDietApiV1DietsDietsDietIdReactivatePost**](doc//DietsApi.md#reactivatedietapiv1dietsdietsdietidreactivatepost) | **POST** /api/v1/diets/diets/{diet_id}/reactivate | Reactivate diet
+*DietsApi* | [**softDeleteDietApiV1DietsDietsDietIdDelete**](doc//DietsApi.md#softdeletedietapiv1dietsdietsdietiddelete) | **DELETE** /api/v1/diets/diets/{diet_id} | Soft delete diet
+*DietsApi* | [**updateDietApiV1DietsDietsDietIdPut**](doc//DietsApi.md#updatedietapiv1dietsdietsdietidput) | **PUT** /api/v1/diets/diets/{diet_id} | Update diet
 *EmplogApi* | [**createOptinLogApiV1EmplogOptinPost**](doc//EmplogApi.md#createoptinlogapiv1emplogoptinpost) | **POST** /api/v1/emplog/optin | Create Optin Log
 *EmployeesApi* | [**changeActiveStatusApiV1EmployeesEmployeeIdChangeActiveStatusPut**](doc//EmployeesApi.md#changeactivestatusapiv1employeesemployeeidchangeactivestatusput) | **PUT** /api/v1/employees/{employee_id}/change-active-status | Change Active Status
 *EmployeesApi* | [**changeDeletedStatusApiV1EmployeesEmployeeIdChangeDeletedStatusPut**](doc//EmployeesApi.md#changedeletedstatusapiv1employeesemployeeidchangedeletedstatusput) | **PUT** /api/v1/employees/{employee_id}/change-deleted-status | Change Deleted Status
@@ -195,6 +201,9 @@ Class | Method | HTTP request | Description
  - [DiagnosisCreate](doc//DiagnosisCreate.md)
  - [DiagnosisRead](doc//DiagnosisRead.md)
  - [DiagnosisUpdate](doc//DiagnosisUpdate.md)
+ - [DietCreate](doc//DietCreate.md)
+ - [DietRead](doc//DietRead.md)
+ - [DietUpdate](doc//DietUpdate.md)
  - [Employee](doc//Employee.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)

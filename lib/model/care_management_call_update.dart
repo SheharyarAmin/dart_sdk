@@ -30,11 +30,13 @@ class CareManagementCallUpdate {
     this.allergies = const [],
     this.equipment = const [],
     this.psychosocialStressors = const [],
+    this.diets = const [],
     this.medicationModels = const [],
     this.diagnosisModels = const [],
     this.allergyModels = const [],
     this.equipmentModels = const [],
     this.stressorModels = const [],
+    this.dietModels = const [],
     this.bpReadings = const [],
     this.heartRateReadings = const [],
     this.cbgReadings = const [],
@@ -79,6 +81,8 @@ class CareManagementCallUpdate {
 
   List<String>? psychosocialStressors;
 
+  List<String>? diets;
+
   List<MedicationCreate>? medicationModels;
 
   List<DiagnosisCreate>? diagnosisModels;
@@ -88,6 +92,8 @@ class CareManagementCallUpdate {
   List<EquipmentCreate>? equipmentModels;
 
   List<PsychosocialStressorCreate>? stressorModels;
+
+  List<DietCreate>? dietModels;
 
   List<Object>? bpReadings;
 
@@ -127,11 +133,13 @@ class CareManagementCallUpdate {
           _deepEquality.equals(other.equipment, equipment) &&
           _deepEquality.equals(
               other.psychosocialStressors, psychosocialStressors) &&
+          _deepEquality.equals(other.diets, diets) &&
           _deepEquality.equals(other.medicationModels, medicationModels) &&
           _deepEquality.equals(other.diagnosisModels, diagnosisModels) &&
           _deepEquality.equals(other.allergyModels, allergyModels) &&
           _deepEquality.equals(other.equipmentModels, equipmentModels) &&
           _deepEquality.equals(other.stressorModels, stressorModels) &&
+          _deepEquality.equals(other.dietModels, dietModels) &&
           _deepEquality.equals(other.bpReadings, bpReadings) &&
           _deepEquality.equals(other.heartRateReadings, heartRateReadings) &&
           _deepEquality.equals(other.cbgReadings, cbgReadings) &&
@@ -163,11 +171,13 @@ class CareManagementCallUpdate {
       (allergies == null ? 0 : allergies!.hashCode) +
       (equipment == null ? 0 : equipment!.hashCode) +
       (psychosocialStressors == null ? 0 : psychosocialStressors!.hashCode) +
+      (diets == null ? 0 : diets!.hashCode) +
       (medicationModels == null ? 0 : medicationModels!.hashCode) +
       (diagnosisModels == null ? 0 : diagnosisModels!.hashCode) +
       (allergyModels == null ? 0 : allergyModels!.hashCode) +
       (equipmentModels == null ? 0 : equipmentModels!.hashCode) +
       (stressorModels == null ? 0 : stressorModels!.hashCode) +
+      (dietModels == null ? 0 : dietModels!.hashCode) +
       (bpReadings == null ? 0 : bpReadings!.hashCode) +
       (heartRateReadings == null ? 0 : heartRateReadings!.hashCode) +
       (cbgReadings == null ? 0 : cbgReadings!.hashCode) +
@@ -179,7 +189,7 @@ class CareManagementCallUpdate {
 
   @override
   String toString() =>
-      'CareManagementCallUpdate[callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, medications=$medications, diagnoses=$diagnoses, allergies=$allergies, equipment=$equipment, psychosocialStressors=$psychosocialStressors, medicationModels=$medicationModels, diagnosisModels=$diagnosisModels, allergyModels=$allergyModels, equipmentModels=$equipmentModels, stressorModels=$stressorModels, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId]';
+      'CareManagementCallUpdate[callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, medications=$medications, diagnoses=$diagnoses, allergies=$allergies, equipment=$equipment, psychosocialStressors=$psychosocialStressors, diets=$diets, medicationModels=$medicationModels, diagnosisModels=$diagnosisModels, allergyModels=$allergyModels, equipmentModels=$equipmentModels, stressorModels=$stressorModels, dietModels=$dietModels, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -270,6 +280,11 @@ class CareManagementCallUpdate {
     } else {
       json[r'psychosocial_stressors'] = null;
     }
+    if (this.diets != null) {
+      json[r'diets'] = this.diets;
+    } else {
+      json[r'diets'] = null;
+    }
     if (this.medicationModels != null) {
       json[r'medication_models'] = this.medicationModels;
     } else {
@@ -294,6 +309,11 @@ class CareManagementCallUpdate {
       json[r'stressor_models'] = this.stressorModels;
     } else {
       json[r'stressor_models'] = null;
+    }
+    if (this.dietModels != null) {
+      json[r'diet_models'] = this.dietModels;
+    } else {
+      json[r'diet_models'] = null;
     }
     if (this.bpReadings != null) {
       json[r'bp_readings'] = this.bpReadings;
@@ -397,6 +417,11 @@ class CareManagementCallUpdate {
                 .cast<String>()
                 .toList(growable: false)
             : const [],
+        diets: json[r'diets'] is Iterable
+            ? (json[r'diets'] as Iterable)
+                .cast<String>()
+                .toList(growable: false)
+            : const [],
         medicationModels:
             MedicationCreate.listFromJson(json[r'medication_models']),
         diagnosisModels:
@@ -406,6 +431,7 @@ class CareManagementCallUpdate {
             EquipmentCreate.listFromJson(json[r'equipment_models']),
         stressorModels:
             PsychosocialStressorCreate.listFromJson(json[r'stressor_models']),
+        dietModels: DietCreate.listFromJson(json[r'diet_models']),
         bpReadings: json[r'bp_readings'] is List
             ? List<Object>.from(json[r'bp_readings'])
             : const [],
