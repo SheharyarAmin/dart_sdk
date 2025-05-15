@@ -319,6 +319,12 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'AllergyCreate':
+          return AllergyCreate.fromJson(value);
+        case 'AllergyRead':
+          return AllergyRead.fromJson(value);
+        case 'AllergyUpdate':
+          return AllergyUpdate.fromJson(value);
         case 'AssignedPatientScreenResponse':
           return AssignedPatientScreenResponse.fromJson(value);
         case 'AuthenticationToken':
@@ -371,6 +377,12 @@ class ApiClient {
           return EmployeeRead.fromJson(value);
         case 'EmployeeUpdate':
           return EmployeeUpdate.fromJson(value);
+        case 'EquipmentCreate':
+          return EquipmentCreate.fromJson(value);
+        case 'EquipmentRead':
+          return EquipmentRead.fromJson(value);
+        case 'EquipmentUpdate':
+          return EquipmentUpdate.fromJson(value);
         case 'HTTPValidationError':
           return HTTPValidationError.fromJson(value);
         case 'InvoicesResponse':
@@ -433,6 +445,12 @@ class ApiClient {
           return ProviderRead.fromJson(value);
         case 'ProviderUpdate':
           return ProviderUpdate.fromJson(value);
+        case 'PsychosocialStressorCreate':
+          return PsychosocialStressorCreate.fromJson(value);
+        case 'PsychosocialStressorRead':
+          return PsychosocialStressorRead.fromJson(value);
+        case 'PsychosocialStressorUpdate':
+          return PsychosocialStressorUpdate.fromJson(value);
         case 'TempAssignment':
           return TempAssignment.fromJson(value);
         case 'TempAssignmentCreate':
