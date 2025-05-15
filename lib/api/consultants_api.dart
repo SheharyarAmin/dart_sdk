@@ -264,11 +264,12 @@ class ConsultantsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<void> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost(Map<String, String> requestBody,) async {
+  Future<Uint8List> getConsultantInvoiceApiV1ConsultantsConsultantInvoicePost(Map<String, String> requestBody,) async {
     final response = await getConsultantInvoiceApiV1ConsultantsConsultantInvoicePostWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    return response.bodyBytes;
   }
 
   /// Read Consultant
