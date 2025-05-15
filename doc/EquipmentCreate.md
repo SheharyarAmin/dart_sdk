@@ -1,4 +1,4 @@
-# openapi.model.DiagnosisCreate
+# openapi.model.EquipmentCreate
 
 ## Load the model package
 ```dart

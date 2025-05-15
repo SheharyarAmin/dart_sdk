@@ -2,6 +2,10 @@
 .travis.yml
 README.md
 analysis_options.yaml
+doc/AllergiesApi.md
+doc/AllergyCreate.md
+doc/AllergyRead.md
+doc/AllergyUpdate.md
 doc/AssignedPatientScreenResponse.md
 doc/AuthenticationToken.md
 doc/CCMPatientCreate.md
@@ -37,6 +41,10 @@ doc/EmployeeCreate.md
 doc/EmployeeRead.md
 doc/EmployeeUpdate.md
 doc/EmployeesApi.md
+doc/EquipmentApi.md
+doc/EquipmentCreate.md
+doc/EquipmentRead.md
+doc/EquipmentUpdate.md
 doc/HTTPValidationError.md
 doc/InvoicesResponse.md
 doc/Log.md
@@ -76,6 +84,10 @@ doc/ProviderPayRate.md
 doc/ProviderRead.md
 doc/ProviderUpdate.md
 doc/ProvidersApi.md
+doc/PsychosocialStressorCreate.md
+doc/PsychosocialStressorRead.md
+doc/PsychosocialStressorUpdate.md
+doc/PsychosocialStressorsApi.md
 doc/ReportsApi.md
 doc/RpmApi.md
 doc/TempAssignment.md
@@ -87,6 +99,7 @@ doc/ValidationError.md
 doc/ValidationErrorLocInner.md
 git_push.sh
 lib/api.dart
+lib/api/allergies_api.dart
 lib/api/care_calls_api.dart
 lib/api/careplans_api.dart
 lib/api/clinic_invoice_api.dart
@@ -96,6 +109,7 @@ lib/api/default_api.dart
 lib/api/diagnoses_api.dart
 lib/api/emplog_api.dart
 lib/api/employees_api.dart
+lib/api/equipment_api.dart
 lib/api/logs_api.dart
 lib/api/manager_api.dart
 lib/api/medications_api.dart
@@ -104,6 +118,7 @@ lib/api/patients_api.dart
 lib/api/payment_details_api.dart
 lib/api/processed_patient_api.dart
 lib/api/providers_api.dart
+lib/api/psychosocial_stressors_api.dart
 lib/api/reports_api.dart
 lib/api/rpm_api.dart
 lib/api/temp_assignments_api.dart
@@ -115,6 +130,9 @@ lib/auth/authentication.dart
 lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
+lib/model/allergy_create.dart
+lib/model/allergy_read.dart
+lib/model/allergy_update.dart
 lib/model/assigned_patient_screen_response.dart
 lib/model/authentication_token.dart
 lib/model/care_management_call_create.dart
@@ -141,6 +159,9 @@ lib/model/employee_by_processed_patients.dart
 lib/model/employee_create.dart
 lib/model/employee_read.dart
 lib/model/employee_update.dart
+lib/model/equipment_create.dart
+lib/model/equipment_read.dart
+lib/model/equipment_update.dart
 lib/model/http_validation_error.dart
 lib/model/invoices_response.dart
 lib/model/log.dart
@@ -172,6 +193,9 @@ lib/model/provider_create.dart
 lib/model/provider_pay_rate.dart
 lib/model/provider_read.dart
 lib/model/provider_update.dart
+lib/model/psychosocial_stressor_create.dart
+lib/model/psychosocial_stressor_read.dart
+lib/model/psychosocial_stressor_update.dart
 lib/model/temp_assignment.dart
 lib/model/temp_assignment_create.dart
 lib/model/temp_assignment_emp_lists.dart
@@ -179,3 +203,15 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
+test/allergies_api_test.dart
+test/allergy_create_test.dart
+test/allergy_read_test.dart
+test/allergy_update_test.dart
+test/equipment_api_test.dart
+test/equipment_create_test.dart
+test/equipment_read_test.dart
+test/equipment_update_test.dart
+test/psychosocial_stressor_create_test.dart
+test/psychosocial_stressor_read_test.dart
+test/psychosocial_stressor_update_test.dart
+test/psychosocial_stressors_api_test.dart

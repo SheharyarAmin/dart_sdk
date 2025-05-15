@@ -10,42 +10,64 @@
 
 part of openapi.api;
 
-class MedicationCreate {
-  /// Returns a new [MedicationCreate] instance.
-  MedicationCreate({
+class AllergyRead {
+  /// Returns a new [AllergyRead] instance.
+  AllergyRead({
     required this.name,
     this.active = true,
+    required this.id,
+    required this.createdAt,
+    this.deletedAt,
   });
 
   String name;
 
   bool active;
 
+  int id;
+
+  DateTime createdAt;
+
+  DateTime? deletedAt;
+
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicationCreate &&
+  bool operator ==(Object other) => identical(this, other) || other is AllergyRead &&
     other.name == name &&
-    other.active == active;
+    other.active == active &&
+    other.id == id &&
+    other.createdAt == createdAt &&
+    other.deletedAt == deletedAt;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (name.hashCode) +
-    (active.hashCode);
+    (active.hashCode) +
+    (id.hashCode) +
+    (createdAt.hashCode) +
+    (deletedAt == null ? 0 : deletedAt!.hashCode);
 
   @override
-  String toString() => 'MedicationCreate[name=$name, active=$active]';
+  String toString() => 'AllergyRead[name=$name, active=$active, id=$id, createdAt=$createdAt, deletedAt=$deletedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'name'] = this.name;
       json[r'active'] = this.active;
+      json[r'id'] = this.id;
+      json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
+    if (this.deletedAt != null) {
+      json[r'deleted_at'] = this.deletedAt!.toUtc().toIso8601String();
+    } else {
+      json[r'deleted_at'] = null;
+    }
     return json;
   }
 
-  /// Returns a new [MedicationCreate] instance and imports its values from
+  /// Returns a new [AllergyRead] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MedicationCreate? fromJson(dynamic value) {
+  static AllergyRead? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -54,25 +76,28 @@ class MedicationCreate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MedicationCreate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MedicationCreate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "AllergyRead[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AllergyRead[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MedicationCreate(
+      return AllergyRead(
         name: mapValueOfType<String>(json, r'name')!,
         active: mapValueOfType<bool>(json, r'active') ?? true,
+        id: mapValueOfType<int>(json, r'id')!,
+        createdAt: mapDateTime(json, r'created_at', r'')!,
+        deletedAt: mapDateTime(json, r'deleted_at', r''),
       );
     }
     return null;
   }
 
-  static List<MedicationCreate> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <MedicationCreate>[];
+  static List<AllergyRead> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AllergyRead>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MedicationCreate.fromJson(row);
+        final value = AllergyRead.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +106,12 @@ class MedicationCreate {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MedicationCreate> mapFromJson(dynamic json) {
-    final map = <String, MedicationCreate>{};
+  static Map<String, AllergyRead> mapFromJson(dynamic json) {
+    final map = <String, AllergyRead>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedicationCreate.fromJson(entry.value);
+        final value = AllergyRead.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,14 +120,14 @@ class MedicationCreate {
     return map;
   }
 
-  // maps a json object with a list of MedicationCreate-objects as value to a dart map
-  static Map<String, List<MedicationCreate>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<MedicationCreate>>{};
+  // maps a json object with a list of AllergyRead-objects as value to a dart map
+  static Map<String, List<AllergyRead>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<AllergyRead>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MedicationCreate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AllergyRead.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -111,6 +136,8 @@ class MedicationCreate {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'name',
+    'id',
+    'created_at',
   };
 }
 

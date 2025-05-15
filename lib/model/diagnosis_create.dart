@@ -14,25 +14,31 @@ class DiagnosisCreate {
   /// Returns a new [DiagnosisCreate] instance.
   DiagnosisCreate({
     required this.name,
+    this.active = true,
   });
 
   String name;
 
+  bool active;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is DiagnosisCreate &&
-    other.name == name;
+    other.name == name &&
+    other.active == active;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (name.hashCode);
+    (name.hashCode) +
+    (active.hashCode);
 
   @override
-  String toString() => 'DiagnosisCreate[name=$name]';
+  String toString() => 'DiagnosisCreate[name=$name, active=$active]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'name'] = this.name;
+      json[r'active'] = this.active;
     return json;
   }
 
@@ -56,6 +62,7 @@ class DiagnosisCreate {
 
       return DiagnosisCreate(
         name: mapValueOfType<String>(json, r'name')!,
+        active: mapValueOfType<bool>(json, r'active') ?? true,
       );
     }
     return null;

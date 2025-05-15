@@ -43,15 +43,14 @@ import 'package:openapi/api.dart';
 // TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
 //defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
-final api_instance = CareCallsApi();
-final patientId = patientId_example; // String | Patient ID
-final careManagementCallCreate = CareManagementCallCreate(); // CareManagementCallCreate | 
+final api_instance = AllergiesApi();
+final allergyCreate = AllergyCreate(); // AllergyCreate | 
 
 try {
-    final result = api_instance.createCallApiV1CallsPatientsPatientIdCallsPost(patientId, careManagementCallCreate);
+    final result = api_instance.createAllergyApiV1AllergiesAllergiesPost(allergyCreate);
     print(result);
 } catch (e) {
-    print('Exception when calling CareCallsApi->createCallApiV1CallsPatientsPatientIdCallsPost: $e\n');
+    print('Exception when calling AllergiesApi->createAllergyApiV1AllergiesAllergiesPost: $e\n');
 }
 
 ```
@@ -62,6 +61,12 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AllergiesApi* | [**createAllergyApiV1AllergiesAllergiesPost**](doc//AllergiesApi.md#createallergyapiv1allergiesallergiespost) | **POST** /api/v1/allergies/allergies | Create a new allergy
+*AllergiesApi* | [**getAllergiesApiV1AllergiesAllergiesGet**](doc//AllergiesApi.md#getallergiesapiv1allergiesallergiesget) | **GET** /api/v1/allergies/allergies | Get all allergies
+*AllergiesApi* | [**getAllergyApiV1AllergiesAllergiesAllergyIdGet**](doc//AllergiesApi.md#getallergyapiv1allergiesallergiesallergyidget) | **GET** /api/v1/allergies/allergies/{allergy_id} | Get allergy by ID
+*AllergiesApi* | [**reactivateAllergyApiV1AllergiesAllergiesAllergyIdReactivatePost**](doc//AllergiesApi.md#reactivateallergyapiv1allergiesallergiesallergyidreactivatepost) | **POST** /api/v1/allergies/allergies/{allergy_id}/reactivate | Reactivate allergy
+*AllergiesApi* | [**softDeleteAllergyApiV1AllergiesAllergiesAllergyIdDelete**](doc//AllergiesApi.md#softdeleteallergyapiv1allergiesallergiesallergyiddelete) | **DELETE** /api/v1/allergies/allergies/{allergy_id} | Soft delete allergy
+*AllergiesApi* | [**updateAllergyApiV1AllergiesAllergiesAllergyIdPut**](doc//AllergiesApi.md#updateallergyapiv1allergiesallergiesallergyidput) | **PUT** /api/v1/allergies/allergies/{allergy_id} | Update allergy
 *CareCallsApi* | [**createCallApiV1CallsPatientsPatientIdCallsPost**](doc//CareCallsApi.md#createcallapiv1callspatientspatientidcallspost) | **POST** /api/v1/calls/patients/{patient_id}/calls | Create a new care management call record
 *CareCallsApi* | [**deleteCallApiV1CallsCallsCallIdDelete**](doc//CareCallsApi.md#deletecallapiv1callscallscalliddelete) | **DELETE** /api/v1/calls/calls/{call_id} | Delete a call record
 *CareCallsApi* | [**getCallApiV1CallsCallsCallIdGet**](doc//CareCallsApi.md#getcallapiv1callscallscallidget) | **GET** /api/v1/calls/calls/{call_id} | Get a specific call record
@@ -93,11 +98,12 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**loginForAccessTokenAuthTokenPost**](doc//DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
 *DefaultApi* | [**pingAuthPingGet**](doc//DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 *DefaultApi* | [**refreshAccessTokenAuthRefreshPost**](doc//DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
-*DiagnosesApi* | [**createDiagnosisApiV1DiagnosesPost**](doc//DiagnosesApi.md#creatediagnosisapiv1diagnosespost) | **POST** /api/v1/diagnoses/ | Create Diagnosis
-*DiagnosesApi* | [**deleteDiagnosisApiV1DiagnosesDiagnosisIdDelete**](doc//DiagnosesApi.md#deletediagnosisapiv1diagnosesdiagnosisiddelete) | **DELETE** /api/v1/diagnoses/{diagnosis_id} | Delete Diagnosis
-*DiagnosesApi* | [**getDiagnosesApiV1DiagnosesGet**](doc//DiagnosesApi.md#getdiagnosesapiv1diagnosesget) | **GET** /api/v1/diagnoses/ | Get Diagnoses
-*DiagnosesApi* | [**getDiagnosisApiV1DiagnosesDiagnosisIdGet**](doc//DiagnosesApi.md#getdiagnosisapiv1diagnosesdiagnosisidget) | **GET** /api/v1/diagnoses/{diagnosis_id} | Get Diagnosis
-*DiagnosesApi* | [**updateDiagnosisApiV1DiagnosesDiagnosisIdPut**](doc//DiagnosesApi.md#updatediagnosisapiv1diagnosesdiagnosisidput) | **PUT** /api/v1/diagnoses/{diagnosis_id} | Update Diagnosis
+*DiagnosesApi* | [**createDiagnosisApiV1DiagnosesDiagnosesPost**](doc//DiagnosesApi.md#creatediagnosisapiv1diagnosesdiagnosespost) | **POST** /api/v1/diagnoses/diagnoses | Create a new diagnosis
+*DiagnosesApi* | [**getDiagnosesApiV1DiagnosesDiagnosesGet**](doc//DiagnosesApi.md#getdiagnosesapiv1diagnosesdiagnosesget) | **GET** /api/v1/diagnoses/diagnoses | Get all diagnoses
+*DiagnosesApi* | [**getDiagnosisApiV1DiagnosesDiagnosesDiagnosisIdGet**](doc//DiagnosesApi.md#getdiagnosisapiv1diagnosesdiagnosesdiagnosisidget) | **GET** /api/v1/diagnoses/diagnoses/{diagnosis_id} | Get diagnosis by ID
+*DiagnosesApi* | [**reactivateDiagnosisApiV1DiagnosesDiagnosesDiagnosisIdReactivatePost**](doc//DiagnosesApi.md#reactivatediagnosisapiv1diagnosesdiagnosesdiagnosisidreactivatepost) | **POST** /api/v1/diagnoses/diagnoses/{diagnosis_id}/reactivate | Reactivate diagnosis
+*DiagnosesApi* | [**softDeleteDiagnosisApiV1DiagnosesDiagnosesDiagnosisIdDelete**](doc//DiagnosesApi.md#softdeletediagnosisapiv1diagnosesdiagnosesdiagnosisiddelete) | **DELETE** /api/v1/diagnoses/diagnoses/{diagnosis_id} | Soft delete diagnosis
+*DiagnosesApi* | [**updateDiagnosisApiV1DiagnosesDiagnosesDiagnosisIdPut**](doc//DiagnosesApi.md#updatediagnosisapiv1diagnosesdiagnosesdiagnosisidput) | **PUT** /api/v1/diagnoses/diagnoses/{diagnosis_id} | Update diagnosis
 *EmplogApi* | [**createOptinLogApiV1EmplogOptinPost**](doc//EmplogApi.md#createoptinlogapiv1emplogoptinpost) | **POST** /api/v1/emplog/optin | Create Optin Log
 *EmployeesApi* | [**changeActiveStatusApiV1EmployeesEmployeeIdChangeActiveStatusPut**](doc//EmployeesApi.md#changeactivestatusapiv1employeesemployeeidchangeactivestatusput) | **PUT** /api/v1/employees/{employee_id}/change-active-status | Change Active Status
 *EmployeesApi* | [**changeDeletedStatusApiV1EmployeesEmployeeIdChangeDeletedStatusPut**](doc//EmployeesApi.md#changedeletedstatusapiv1employeesemployeeidchangedeletedstatusput) | **PUT** /api/v1/employees/{employee_id}/change-deleted-status | Change Deleted Status
@@ -107,14 +113,22 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**readEmployeeApiV1EmployeesEmployeeIdGet**](doc//EmployeesApi.md#reademployeeapiv1employeesemployeeidget) | **GET** /api/v1/employees/{employee_id} | Read Employee
 *EmployeesApi* | [**readEmployeesApiV1EmployeesGet**](doc//EmployeesApi.md#reademployeesapiv1employeesget) | **GET** /api/v1/employees/ | Read Employees
 *EmployeesApi* | [**updateEmployeeApiV1EmployeesEmployeeIdPut**](doc//EmployeesApi.md#updateemployeeapiv1employeesemployeeidput) | **PUT** /api/v1/employees/{employee_id} | Update Employee
+*EquipmentApi* | [**createEquipmentApiV1EquipmentEquipmentPost**](doc//EquipmentApi.md#createequipmentapiv1equipmentequipmentpost) | **POST** /api/v1/equipment/equipment | Create new equipment
+*EquipmentApi* | [**getEquipmentApiV1EquipmentEquipmentEquipmentIdGet**](doc//EquipmentApi.md#getequipmentapiv1equipmentequipmentequipmentidget) | **GET** /api/v1/equipment/equipment/{equipment_id} | Get equipment by ID
+*EquipmentApi* | [**getEquipmentListApiV1EquipmentEquipmentGet**](doc//EquipmentApi.md#getequipmentlistapiv1equipmentequipmentget) | **GET** /api/v1/equipment/equipment | Get all equipment
+*EquipmentApi* | [**reactivateEquipmentApiV1EquipmentEquipmentEquipmentIdReactivatePost**](doc//EquipmentApi.md#reactivateequipmentapiv1equipmentequipmentequipmentidreactivatepost) | **POST** /api/v1/equipment/equipment/{equipment_id}/reactivate | Reactivate equipment
+*EquipmentApi* | [**softDeleteEquipmentApiV1EquipmentEquipmentEquipmentIdDelete**](doc//EquipmentApi.md#softdeleteequipmentapiv1equipmentequipmentequipmentiddelete) | **DELETE** /api/v1/equipment/equipment/{equipment_id} | Soft delete equipment
+*EquipmentApi* | [**updateEquipmentApiV1EquipmentEquipmentEquipmentIdPut**](doc//EquipmentApi.md#updateequipmentapiv1equipmentequipmentequipmentidput) | **PUT** /api/v1/equipment/equipment/{equipment_id} | Update equipment
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
 *LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
 *ManagerApi* | [**getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet**](doc//ManagerApi.md#getmanagerdashboardformonthyearapiv1managerdashboardyearmonthget) | **GET** /api/v1/manager/dashboard/{year}/{month} | Get Manager Dashboard For Monthyear
-*MedicationsApi* | [**createMedicationApiV1MedicationsPost**](doc//MedicationsApi.md#createmedicationapiv1medicationspost) | **POST** /api/v1/medications/ | Create Medication
-*MedicationsApi* | [**deleteMedicationApiV1MedicationsMedicationIdDelete**](doc//MedicationsApi.md#deletemedicationapiv1medicationsmedicationiddelete) | **DELETE** /api/v1/medications/{medication_id} | Delete Medication
-*MedicationsApi* | [**getMedicationApiV1MedicationsMedicationIdGet**](doc//MedicationsApi.md#getmedicationapiv1medicationsmedicationidget) | **GET** /api/v1/medications/{medication_id} | Get Medication
-*MedicationsApi* | [**getMedicationsApiV1MedicationsGet**](doc//MedicationsApi.md#getmedicationsapiv1medicationsget) | **GET** /api/v1/medications/ | Get Medications
-*MedicationsApi* | [**updateMedicationApiV1MedicationsMedicationIdPut**](doc//MedicationsApi.md#updatemedicationapiv1medicationsmedicationidput) | **PUT** /api/v1/medications/{medication_id} | Update Medication
+*MedicationsApi* | [**createMedicationApiV1MedicationsMedicationsPost**](doc//MedicationsApi.md#createmedicationapiv1medicationsmedicationspost) | **POST** /api/v1/medications/medications | Create a new medication
+*MedicationsApi* | [**getMedicationApiV1MedicationsMedicationsMedicationIdGet**](doc//MedicationsApi.md#getmedicationapiv1medicationsmedicationsmedicationidget) | **GET** /api/v1/medications/medications/{medication_id} | Get medication by ID
+*MedicationsApi* | [**getMedicationsApiV1MedicationsMedicationsGet**](doc//MedicationsApi.md#getmedicationsapiv1medicationsmedicationsget) | **GET** /api/v1/medications/medications | Get all medications
+*MedicationsApi* | [**reactivateMedicationApiV1MedicationsMedicationsMedicationIdReactivatePost**](doc//MedicationsApi.md#reactivatemedicationapiv1medicationsmedicationsmedicationidreactivatepost) | **POST** /api/v1/medications/medications/{medication_id}/reactivate | Reactivate medication
+*MedicationsApi* | [**softDeleteMedicationApiV1MedicationsMedicationsMedicationIdDelete**](doc//MedicationsApi.md#softdeletemedicationapiv1medicationsmedicationsmedicationiddelete) | **DELETE** /api/v1/medications/medications/{medication_id} | Soft delete medication
+*MedicationsApi* | [**softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDelete**](doc//MedicationsApi.md#softdeletemedicationapiv1medicationsmedicationsmedicationidharddelete) | **DELETE** /api/v1/medications/medications/{medication_id}/hard | Hard delete medication
+*MedicationsApi* | [**updateMedicationApiV1MedicationsMedicationsMedicationIdPut**](doc//MedicationsApi.md#updatemedicationapiv1medicationsmedicationsmedicationidput) | **PUT** /api/v1/medications/medications/{medication_id} | Update medication
 *NotificationsApi* | [**deleteAllNotificationsApiV1NotificationsDeleteEmployeeIdDelete**](doc//NotificationsApi.md#deleteallnotificationsapiv1notificationsdeleteemployeeiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id} | Delete All Notifications
 *NotificationsApi* | [**deleteNotificationApiV1NotificationsDeleteEmployeeIdNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationapiv1notificationsdeleteemployeeidnotificationiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id}/{notification_id} | Delete Notification
 *NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
@@ -141,6 +155,12 @@ Class | Method | HTTP request | Description
 *ProvidersApi* | [**readProviderApiV1ProvidersProviderIdGet**](doc//ProvidersApi.md#readproviderapiv1providersprovideridget) | **GET** /api/v1/providers/{provider_id} | Read Provider
 *ProvidersApi* | [**readProvidersApiV1ProvidersGet**](doc//ProvidersApi.md#readprovidersapiv1providersget) | **GET** /api/v1/providers/ | Read Providers
 *ProvidersApi* | [**updateProviderApiV1ProvidersProviderIdPut**](doc//ProvidersApi.md#updateproviderapiv1providersprovideridput) | **PUT** /api/v1/providers/{provider_id} | Update Provider
+*PsychosocialStressorsApi* | [**createPsychosocialStressorApiV1PsychosocialStressorsPsychosocialStressorsPost**](doc//PsychosocialStressorsApi.md#createpsychosocialstressorapiv1psychosocialstressorspsychosocialstressorspost) | **POST** /api/v1/psychosocial-stressors/psychosocial-stressors | Create a new psychosocial stressor
+*PsychosocialStressorsApi* | [**getPsychosocialStressorApiV1PsychosocialStressorsPsychosocialStressorsStressorIdGet**](doc//PsychosocialStressorsApi.md#getpsychosocialstressorapiv1psychosocialstressorspsychosocialstressorsstressoridget) | **GET** /api/v1/psychosocial-stressors/psychosocial-stressors/{stressor_id} | Get psychosocial stressor by ID
+*PsychosocialStressorsApi* | [**getPsychosocialStressorsApiV1PsychosocialStressorsPsychosocialStressorsGet**](doc//PsychosocialStressorsApi.md#getpsychosocialstressorsapiv1psychosocialstressorspsychosocialstressorsget) | **GET** /api/v1/psychosocial-stressors/psychosocial-stressors | Get all psychosocial stressors
+*PsychosocialStressorsApi* | [**reactivatePsychosocialStressorApiV1PsychosocialStressorsPsychosocialStressorsStressorIdReactivatePost**](doc//PsychosocialStressorsApi.md#reactivatepsychosocialstressorapiv1psychosocialstressorspsychosocialstressorsstressoridreactivatepost) | **POST** /api/v1/psychosocial-stressors/psychosocial-stressors/{stressor_id}/reactivate | Reactivate psychosocial stressor
+*PsychosocialStressorsApi* | [**softDeletePsychosocialStressorApiV1PsychosocialStressorsPsychosocialStressorsStressorIdDelete**](doc//PsychosocialStressorsApi.md#softdeletepsychosocialstressorapiv1psychosocialstressorspsychosocialstressorsstressoriddelete) | **DELETE** /api/v1/psychosocial-stressors/psychosocial-stressors/{stressor_id} | Soft delete psychosocial stressor
+*PsychosocialStressorsApi* | [**updatePsychosocialStressorApiV1PsychosocialStressorsPsychosocialStressorsStressorIdPut**](doc//PsychosocialStressorsApi.md#updatepsychosocialstressorapiv1psychosocialstressorspsychosocialstressorsstressoridput) | **PUT** /api/v1/psychosocial-stressors/psychosocial-stressors/{stressor_id} | Update psychosocial stressor
 *ReportsApi* | [**generateReportApiV1ReportsGenerateReportPost**](doc//ReportsApi.md#generatereportapiv1reportsgeneratereportpost) | **POST** /api/v1/reports/generate-report | Generate Report
 *RpmApi* | [**sendMultiplePatientsToRpmApiV1RpmSendMultipleToRpmPost**](doc//RpmApi.md#sendmultiplepatientstorpmapiv1rpmsendmultipletorpmpost) | **POST** /api/v1/rpm/send-multiple-to-rpm | Send Multiple Patients To Rpm
 *TempAssignmentsApi* | [**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**](doc//TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempidportaldelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid}/{portal} | Assign Patients Back To Original Route
@@ -151,6 +171,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AllergyCreate](doc//AllergyCreate.md)
+ - [AllergyRead](doc//AllergyRead.md)
+ - [AllergyUpdate](doc//AllergyUpdate.md)
  - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
  - [CCMPatientCreate](doc//CCMPatientCreate.md)
@@ -177,6 +200,9 @@ Class | Method | HTTP request | Description
  - [EmployeeCreate](doc//EmployeeCreate.md)
  - [EmployeeRead](doc//EmployeeRead.md)
  - [EmployeeUpdate](doc//EmployeeUpdate.md)
+ - [EquipmentCreate](doc//EquipmentCreate.md)
+ - [EquipmentRead](doc//EquipmentRead.md)
+ - [EquipmentUpdate](doc//EquipmentUpdate.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [InvoicesResponse](doc//InvoicesResponse.md)
  - [Log](doc//Log.md)
@@ -208,6 +234,9 @@ Class | Method | HTTP request | Description
  - [ProviderPayRate](doc//ProviderPayRate.md)
  - [ProviderRead](doc//ProviderRead.md)
  - [ProviderUpdate](doc//ProviderUpdate.md)
+ - [PsychosocialStressorCreate](doc//PsychosocialStressorCreate.md)
+ - [PsychosocialStressorRead](doc//PsychosocialStressorRead.md)
+ - [PsychosocialStressorUpdate](doc//PsychosocialStressorUpdate.md)
  - [TempAssignment](doc//TempAssignment.md)
  - [TempAssignmentCreate](doc//TempAssignmentCreate.md)
  - [TempAssignmentEmpLists](doc//TempAssignmentEmpLists.md)

@@ -13,26 +13,50 @@ part of openapi.api;
 class DiagnosisUpdate {
   /// Returns a new [DiagnosisUpdate] instance.
   DiagnosisUpdate({
-    required this.name,
+    this.name,
+    this.active,
+    this.deletedAt,
   });
 
-  String name;
+  String? name;
+
+  bool? active;
+
+  DateTime? deletedAt;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DiagnosisUpdate &&
-    other.name == name;
+    other.name == name &&
+    other.active == active &&
+    other.deletedAt == deletedAt;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (name.hashCode);
+    (name == null ? 0 : name!.hashCode) +
+    (active == null ? 0 : active!.hashCode) +
+    (deletedAt == null ? 0 : deletedAt!.hashCode);
 
   @override
-  String toString() => 'DiagnosisUpdate[name=$name]';
+  String toString() => 'DiagnosisUpdate[name=$name, active=$active, deletedAt=$deletedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.name != null) {
       json[r'name'] = this.name;
+    } else {
+      json[r'name'] = null;
+    }
+    if (this.active != null) {
+      json[r'active'] = this.active;
+    } else {
+      json[r'active'] = null;
+    }
+    if (this.deletedAt != null) {
+      json[r'deleted_at'] = this.deletedAt!.toUtc().toIso8601String();
+    } else {
+      json[r'deleted_at'] = null;
+    }
     return json;
   }
 
@@ -55,7 +79,9 @@ class DiagnosisUpdate {
       }());
 
       return DiagnosisUpdate(
-        name: mapValueOfType<String>(json, r'name')!,
+        name: mapValueOfType<String>(json, r'name'),
+        active: mapValueOfType<bool>(json, r'active'),
+        deletedAt: mapDateTime(json, r'deleted_at', r''),
       );
     }
     return null;
@@ -103,7 +129,6 @@ class DiagnosisUpdate {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'name',
   };
 }
 

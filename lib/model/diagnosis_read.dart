@@ -14,31 +14,53 @@ class DiagnosisRead {
   /// Returns a new [DiagnosisRead] instance.
   DiagnosisRead({
     required this.name,
+    this.active = true,
     required this.id,
+    required this.createdAt,
+    this.deletedAt,
   });
 
   String name;
 
+  bool active;
+
   int id;
+
+  DateTime createdAt;
+
+  DateTime? deletedAt;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is DiagnosisRead &&
     other.name == name &&
-    other.id == id;
+    other.active == active &&
+    other.id == id &&
+    other.createdAt == createdAt &&
+    other.deletedAt == deletedAt;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (name.hashCode) +
-    (id.hashCode);
+    (active.hashCode) +
+    (id.hashCode) +
+    (createdAt.hashCode) +
+    (deletedAt == null ? 0 : deletedAt!.hashCode);
 
   @override
-  String toString() => 'DiagnosisRead[name=$name, id=$id]';
+  String toString() => 'DiagnosisRead[name=$name, active=$active, id=$id, createdAt=$createdAt, deletedAt=$deletedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'name'] = this.name;
+      json[r'active'] = this.active;
       json[r'id'] = this.id;
+      json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
+    if (this.deletedAt != null) {
+      json[r'deleted_at'] = this.deletedAt!.toUtc().toIso8601String();
+    } else {
+      json[r'deleted_at'] = null;
+    }
     return json;
   }
 
@@ -62,7 +84,10 @@ class DiagnosisRead {
 
       return DiagnosisRead(
         name: mapValueOfType<String>(json, r'name')!,
+        active: mapValueOfType<bool>(json, r'active') ?? true,
         id: mapValueOfType<int>(json, r'id')!,
+        createdAt: mapDateTime(json, r'created_at', r'')!,
+        deletedAt: mapDateTime(json, r'deleted_at', r''),
       );
     }
     return null;
@@ -112,6 +137,7 @@ class DiagnosisRead {
   static const requiredKeys = <String>{
     'name',
     'id',
+    'created_at',
   };
 }
 

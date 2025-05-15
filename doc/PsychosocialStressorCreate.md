@@ -1,4 +1,4 @@
-# openapi.model.DiagnosisCreate
+# openapi.model.PsychosocialStressorCreate
 
 ## Load the model package
 ```dart

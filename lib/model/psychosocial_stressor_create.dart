@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class MedicationCreate {
-  /// Returns a new [MedicationCreate] instance.
-  MedicationCreate({
+class PsychosocialStressorCreate {
+  /// Returns a new [PsychosocialStressorCreate] instance.
+  PsychosocialStressorCreate({
     required this.name,
     this.active = true,
   });
@@ -22,7 +22,7 @@ class MedicationCreate {
   bool active;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicationCreate &&
+  bool operator ==(Object other) => identical(this, other) || other is PsychosocialStressorCreate &&
     other.name == name &&
     other.active == active;
 
@@ -33,7 +33,7 @@ class MedicationCreate {
     (active.hashCode);
 
   @override
-  String toString() => 'MedicationCreate[name=$name, active=$active]';
+  String toString() => 'PsychosocialStressorCreate[name=$name, active=$active]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -42,10 +42,10 @@ class MedicationCreate {
     return json;
   }
 
-  /// Returns a new [MedicationCreate] instance and imports its values from
+  /// Returns a new [PsychosocialStressorCreate] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MedicationCreate? fromJson(dynamic value) {
+  static PsychosocialStressorCreate? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -54,13 +54,13 @@ class MedicationCreate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MedicationCreate[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MedicationCreate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "PsychosocialStressorCreate[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PsychosocialStressorCreate[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MedicationCreate(
+      return PsychosocialStressorCreate(
         name: mapValueOfType<String>(json, r'name')!,
         active: mapValueOfType<bool>(json, r'active') ?? true,
       );
@@ -68,11 +68,11 @@ class MedicationCreate {
     return null;
   }
 
-  static List<MedicationCreate> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <MedicationCreate>[];
+  static List<PsychosocialStressorCreate> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PsychosocialStressorCreate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MedicationCreate.fromJson(row);
+        final value = PsychosocialStressorCreate.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +81,12 @@ class MedicationCreate {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MedicationCreate> mapFromJson(dynamic json) {
-    final map = <String, MedicationCreate>{};
+  static Map<String, PsychosocialStressorCreate> mapFromJson(dynamic json) {
+    final map = <String, PsychosocialStressorCreate>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedicationCreate.fromJson(entry.value);
+        final value = PsychosocialStressorCreate.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,14 +95,14 @@ class MedicationCreate {
     return map;
   }
 
-  // maps a json object with a list of MedicationCreate-objects as value to a dart map
-  static Map<String, List<MedicationCreate>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<MedicationCreate>>{};
+  // maps a json object with a list of PsychosocialStressorCreate-objects as value to a dart map
+  static Map<String, List<PsychosocialStressorCreate>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PsychosocialStressorCreate>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MedicationCreate.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = PsychosocialStressorCreate.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

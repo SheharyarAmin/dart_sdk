@@ -16,18 +16,18 @@ class MedicationsApi {
 
   final ApiClient apiClient;
 
-  /// Create Medication
+  /// Create a new medication
   ///
-  /// Create a new medication.
+  /// Create a new medication.  - **name**: Unique name of the medication - **active**: Whether the medication is active (default: true)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [MedicationCreate] medicationCreate (required):
-  Future<Response> createMedicationApiV1MedicationsPostWithHttpInfo(MedicationCreate medicationCreate,) async {
+  Future<Response> createMedicationApiV1MedicationsMedicationsPostWithHttpInfo(MedicationCreate medicationCreate,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/medications/';
+    final path = r'/api/v1/medications/medications';
 
     // ignore: prefer_final_locals
     Object? postBody = medicationCreate;
@@ -50,15 +50,15 @@ class MedicationsApi {
     );
   }
 
-  /// Create Medication
+  /// Create a new medication
   ///
-  /// Create a new medication.
+  /// Create a new medication.  - **name**: Unique name of the medication - **active**: Whether the medication is active (default: true)
   ///
   /// Parameters:
   ///
   /// * [MedicationCreate] medicationCreate (required):
-  Future<MedicationRead?> createMedicationApiV1MedicationsPost(MedicationCreate medicationCreate,) async {
-    final response = await createMedicationApiV1MedicationsPostWithHttpInfo(medicationCreate,);
+  Future<MedicationRead?> createMedicationApiV1MedicationsMedicationsPost(MedicationCreate medicationCreate,) async {
+    final response = await createMedicationApiV1MedicationsMedicationsPostWithHttpInfo(medicationCreate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -72,18 +72,225 @@ class MedicationsApi {
     return null;
   }
 
-  /// Delete Medication
+  /// Get medication by ID
   ///
-  /// Delete a medication.
+  /// Get a specific medication by ID.  - **medication_id**: ID of the medication
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [int] medicationId (required):
-  Future<Response> deleteMedicationApiV1MedicationsMedicationIdDeleteWithHttpInfo(int medicationId,) async {
+  ///   The ID of the medication
+  Future<Response> getMedicationApiV1MedicationsMedicationsMedicationIdGetWithHttpInfo(int medicationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/medications/{medication_id}'
+    final path = r'/api/v1/medications/medications/{medication_id}'
+      .replaceAll('{medication_id}', medicationId.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get medication by ID
+  ///
+  /// Get a specific medication by ID.  - **medication_id**: ID of the medication
+  ///
+  /// Parameters:
+  ///
+  /// * [int] medicationId (required):
+  ///   The ID of the medication
+  Future<MedicationRead?> getMedicationApiV1MedicationsMedicationsMedicationIdGet(int medicationId,) async {
+    final response = await getMedicationApiV1MedicationsMedicationsMedicationIdGetWithHttpInfo(medicationId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicationRead',) as MedicationRead;
+    
+    }
+    return null;
+  }
+
+  /// Get all medications
+  ///
+  /// Get all medications with optional filtering.  - **skip**: Number of items to skip - **limit**: Maximum number of items to return - **name**: Optional filter by name (case-insensitive partial match) - **active_only**: Only return active medications (default: true)
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] skip:
+  ///
+  /// * [int] limit:
+  ///
+  /// * [String] name:
+  ///   Filter by name (case-insensitive)
+  ///
+  /// * [bool] activeOnly:
+  ///   Only return active medications
+  Future<Response> getMedicationsApiV1MedicationsMedicationsGetWithHttpInfo({ int? skip, int? limit, String? name, bool? activeOnly, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/medications/medications';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (skip != null) {
+      queryParams.addAll(_queryParams('', 'skip', skip));
+    }
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (name != null) {
+      queryParams.addAll(_queryParams('', 'name', name));
+    }
+    if (activeOnly != null) {
+      queryParams.addAll(_queryParams('', 'active_only', activeOnly));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get all medications
+  ///
+  /// Get all medications with optional filtering.  - **skip**: Number of items to skip - **limit**: Maximum number of items to return - **name**: Optional filter by name (case-insensitive partial match) - **active_only**: Only return active medications (default: true)
+  ///
+  /// Parameters:
+  ///
+  /// * [int] skip:
+  ///
+  /// * [int] limit:
+  ///
+  /// * [String] name:
+  ///   Filter by name (case-insensitive)
+  ///
+  /// * [bool] activeOnly:
+  ///   Only return active medications
+  Future<List<MedicationRead>?> getMedicationsApiV1MedicationsMedicationsGet({ int? skip, int? limit, String? name, bool? activeOnly, }) async {
+    final response = await getMedicationsApiV1MedicationsMedicationsGetWithHttpInfo( skip: skip, limit: limit, name: name, activeOnly: activeOnly, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<MedicationRead>') as List)
+        .cast<MedicationRead>()
+        .toList(growable: false);
+
+    }
+    return null;
+  }
+
+  /// Reactivate medication
+  ///
+  /// Reactivate a previously deactivated medication.  - **medication_id**: ID of the medication to reactivate
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] medicationId (required):
+  ///   The ID of the medication
+  Future<Response> reactivateMedicationApiV1MedicationsMedicationsMedicationIdReactivatePostWithHttpInfo(int medicationId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/medications/medications/{medication_id}/reactivate'
+      .replaceAll('{medication_id}', medicationId.toString());
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Reactivate medication
+  ///
+  /// Reactivate a previously deactivated medication.  - **medication_id**: ID of the medication to reactivate
+  ///
+  /// Parameters:
+  ///
+  /// * [int] medicationId (required):
+  ///   The ID of the medication
+  Future<MedicationRead?> reactivateMedicationApiV1MedicationsMedicationsMedicationIdReactivatePost(int medicationId,) async {
+    final response = await reactivateMedicationApiV1MedicationsMedicationsMedicationIdReactivatePostWithHttpInfo(medicationId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicationRead',) as MedicationRead;
+    
+    }
+    return null;
+  }
+
+  /// Soft delete medication
+  ///
+  /// Mark a medication as inactive (soft delete).  This preserves its relationships with existing care calls.  - **medication_id**: ID of the medication to deactivate
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] medicationId (required):
+  ///   The ID of the medication
+  Future<Response> softDeleteMedicationApiV1MedicationsMedicationsMedicationIdDeleteWithHttpInfo(int medicationId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/medications/medications/{medication_id}'
       .replaceAll('{medication_id}', medicationId.toString());
 
     // ignore: prefer_final_locals
@@ -107,32 +314,42 @@ class MedicationsApi {
     );
   }
 
-  /// Delete Medication
+  /// Soft delete medication
   ///
-  /// Delete a medication.
+  /// Mark a medication as inactive (soft delete).  This preserves its relationships with existing care calls.  - **medication_id**: ID of the medication to deactivate
   ///
   /// Parameters:
   ///
   /// * [int] medicationId (required):
-  Future<void> deleteMedicationApiV1MedicationsMedicationIdDelete(int medicationId,) async {
-    final response = await deleteMedicationApiV1MedicationsMedicationIdDeleteWithHttpInfo(medicationId,);
+  ///   The ID of the medication
+  Future<MedicationRead?> softDeleteMedicationApiV1MedicationsMedicationsMedicationIdDelete(int medicationId,) async {
+    final response = await softDeleteMedicationApiV1MedicationsMedicationsMedicationIdDeleteWithHttpInfo(medicationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicationRead',) as MedicationRead;
+    
+    }
+    return null;
   }
 
-  /// Get Medication
+  /// Hard delete medication
   ///
-  /// Get a medication by ID.
+  /// Mark a medication as inactive (soft delete).  This preserves its relationships with existing care calls.  - **medication_id**: ID of the medication to deactivate
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [int] medicationId (required):
-  Future<Response> getMedicationApiV1MedicationsMedicationIdGetWithHttpInfo(int medicationId,) async {
+  ///   The ID of the medication
+  Future<Response> softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDeleteWithHttpInfo(int medicationId,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/medications/{medication_id}'
+    final path = r'/api/v1/medications/medications/{medication_id}/hard'
       .replaceAll('{medication_id}', medicationId.toString());
 
     // ignore: prefer_final_locals
@@ -147,7 +364,7 @@ class MedicationsApi {
 
     return apiClient.invokeAPI(
       path,
-      'GET',
+      'DELETE',
       queryParams,
       postBody,
       headerParams,
@@ -156,107 +373,36 @@ class MedicationsApi {
     );
   }
 
-  /// Get Medication
+  /// Hard delete medication
   ///
-  /// Get a medication by ID.
+  /// Mark a medication as inactive (soft delete).  This preserves its relationships with existing care calls.  - **medication_id**: ID of the medication to deactivate
   ///
   /// Parameters:
   ///
   /// * [int] medicationId (required):
-  Future<MedicationRead?> getMedicationApiV1MedicationsMedicationIdGet(int medicationId,) async {
-    final response = await getMedicationApiV1MedicationsMedicationIdGetWithHttpInfo(medicationId,);
+  ///   The ID of the medication
+  Future<void> softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDelete(int medicationId,) async {
+    final response = await softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDeleteWithHttpInfo(medicationId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MedicationRead',) as MedicationRead;
-    
-    }
-    return null;
   }
 
-  /// Get Medications
+  /// Update medication
   ///
-  /// Get all medications or search by name.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] query:
-  ///   Search medications by name
-  Future<Response> getMedicationsApiV1MedicationsGetWithHttpInfo({ String? query, }) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/medications/';
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    if (query != null) {
-      queryParams.addAll(_queryParams('', 'query', query));
-    }
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Get Medications
-  ///
-  /// Get all medications or search by name.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] query:
-  ///   Search medications by name
-  Future<List<MedicationRead>?> getMedicationsApiV1MedicationsGet({ String? query, }) async {
-    final response = await getMedicationsApiV1MedicationsGetWithHttpInfo( query: query, );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<MedicationRead>') as List)
-        .cast<MedicationRead>()
-        .toList(growable: false);
-
-    }
-    return null;
-  }
-
-  /// Update Medication
-  ///
-  /// Update a medication.
+  /// Update a medication.  - **medication_id**: ID of the medication to update - **name**: New name for the medication (optional) - **active**: Active status (optional)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [int] medicationId (required):
+  ///   The ID of the medication
   ///
   /// * [MedicationUpdate] medicationUpdate (required):
-  Future<Response> updateMedicationApiV1MedicationsMedicationIdPutWithHttpInfo(int medicationId, MedicationUpdate medicationUpdate,) async {
+  Future<Response> updateMedicationApiV1MedicationsMedicationsMedicationIdPutWithHttpInfo(int medicationId, MedicationUpdate medicationUpdate,) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/medications/{medication_id}'
+    final path = r'/api/v1/medications/medications/{medication_id}'
       .replaceAll('{medication_id}', medicationId.toString());
 
     // ignore: prefer_final_locals
@@ -280,17 +426,18 @@ class MedicationsApi {
     );
   }
 
-  /// Update Medication
+  /// Update medication
   ///
-  /// Update a medication.
+  /// Update a medication.  - **medication_id**: ID of the medication to update - **name**: New name for the medication (optional) - **active**: Active status (optional)
   ///
   /// Parameters:
   ///
   /// * [int] medicationId (required):
+  ///   The ID of the medication
   ///
   /// * [MedicationUpdate] medicationUpdate (required):
-  Future<MedicationRead?> updateMedicationApiV1MedicationsMedicationIdPut(int medicationId, MedicationUpdate medicationUpdate,) async {
-    final response = await updateMedicationApiV1MedicationsMedicationIdPutWithHttpInfo(medicationId, medicationUpdate,);
+  Future<MedicationRead?> updateMedicationApiV1MedicationsMedicationsMedicationIdPut(int medicationId, MedicationUpdate medicationUpdate,) async {
+    final response = await updateMedicationApiV1MedicationsMedicationsMedicationIdPutWithHttpInfo(medicationId, medicationUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

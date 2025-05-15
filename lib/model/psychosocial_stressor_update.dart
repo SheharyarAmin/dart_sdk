@@ -10,52 +10,48 @@
 
 part of openapi.api;
 
-class MedicationRead {
-  /// Returns a new [MedicationRead] instance.
-  MedicationRead({
-    required this.name,
-    this.active = true,
-    required this.id,
-    required this.createdAt,
+class PsychosocialStressorUpdate {
+  /// Returns a new [PsychosocialStressorUpdate] instance.
+  PsychosocialStressorUpdate({
+    this.name,
+    this.active,
     this.deletedAt,
   });
 
-  String name;
+  String? name;
 
-  bool active;
-
-  int id;
-
-  DateTime createdAt;
+  bool? active;
 
   DateTime? deletedAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MedicationRead &&
+  bool operator ==(Object other) => identical(this, other) || other is PsychosocialStressorUpdate &&
     other.name == name &&
     other.active == active &&
-    other.id == id &&
-    other.createdAt == createdAt &&
     other.deletedAt == deletedAt;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (active.hashCode) +
-    (id.hashCode) +
-    (createdAt.hashCode) +
+    (name == null ? 0 : name!.hashCode) +
+    (active == null ? 0 : active!.hashCode) +
     (deletedAt == null ? 0 : deletedAt!.hashCode);
 
   @override
-  String toString() => 'MedicationRead[name=$name, active=$active, id=$id, createdAt=$createdAt, deletedAt=$deletedAt]';
+  String toString() => 'PsychosocialStressorUpdate[name=$name, active=$active, deletedAt=$deletedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    if (this.name != null) {
       json[r'name'] = this.name;
+    } else {
+      json[r'name'] = null;
+    }
+    if (this.active != null) {
       json[r'active'] = this.active;
-      json[r'id'] = this.id;
-      json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
+    } else {
+      json[r'active'] = null;
+    }
     if (this.deletedAt != null) {
       json[r'deleted_at'] = this.deletedAt!.toUtc().toIso8601String();
     } else {
@@ -64,10 +60,10 @@ class MedicationRead {
     return json;
   }
 
-  /// Returns a new [MedicationRead] instance and imports its values from
+  /// Returns a new [PsychosocialStressorUpdate] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MedicationRead? fromJson(dynamic value) {
+  static PsychosocialStressorUpdate? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -76,28 +72,26 @@ class MedicationRead {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MedicationRead[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MedicationRead[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "PsychosocialStressorUpdate[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "PsychosocialStressorUpdate[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MedicationRead(
-        name: mapValueOfType<String>(json, r'name')!,
-        active: mapValueOfType<bool>(json, r'active') ?? true,
-        id: mapValueOfType<int>(json, r'id')!,
-        createdAt: mapDateTime(json, r'created_at', r'')!,
+      return PsychosocialStressorUpdate(
+        name: mapValueOfType<String>(json, r'name'),
+        active: mapValueOfType<bool>(json, r'active'),
         deletedAt: mapDateTime(json, r'deleted_at', r''),
       );
     }
     return null;
   }
 
-  static List<MedicationRead> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <MedicationRead>[];
+  static List<PsychosocialStressorUpdate> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PsychosocialStressorUpdate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MedicationRead.fromJson(row);
+        final value = PsychosocialStressorUpdate.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -106,12 +100,12 @@ class MedicationRead {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MedicationRead> mapFromJson(dynamic json) {
-    final map = <String, MedicationRead>{};
+  static Map<String, PsychosocialStressorUpdate> mapFromJson(dynamic json) {
+    final map = <String, PsychosocialStressorUpdate>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MedicationRead.fromJson(entry.value);
+        final value = PsychosocialStressorUpdate.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -120,14 +114,14 @@ class MedicationRead {
     return map;
   }
 
-  // maps a json object with a list of MedicationRead-objects as value to a dart map
-  static Map<String, List<MedicationRead>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<MedicationRead>>{};
+  // maps a json object with a list of PsychosocialStressorUpdate-objects as value to a dart map
+  static Map<String, List<PsychosocialStressorUpdate>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PsychosocialStressorUpdate>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MedicationRead.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = PsychosocialStressorUpdate.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -135,9 +129,6 @@ class MedicationRead {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'name',
-    'id',
-    'created_at',
   };
 }
 

@@ -1,4 +1,4 @@
-# openapi.model.DiagnosisCreate
+# openapi.model.AllergyCreate
 
 ## Load the model package
 ```dart
