@@ -41,11 +41,13 @@ class CareManagementCallRead {
     this.ccmCareplanSignDate,
     this.ccmCareplanId,
     this.additionalCcmProviderIds = const [],
+    this.additionalCcmProviderNames = const [],
     this.pcmProviderName,
     this.pcmProviderId,
     this.pcmCareplanSignDate,
     this.pcmCareplanId,
     this.additionalPcmProviderIds = const [],
+    this.additionalPcmProviderNames = const [],
     this.medications = const [],
     this.medicationIds = const [],
     this.diagnoses = const [],
@@ -122,6 +124,8 @@ class CareManagementCallRead {
 
   List<String> additionalCcmProviderIds;
 
+  List<String> additionalCcmProviderNames;
+
   String? pcmProviderName;
 
   String? pcmProviderId;
@@ -131,6 +135,8 @@ class CareManagementCallRead {
   String? pcmCareplanId;
 
   List<String> additionalPcmProviderIds;
+
+  List<String> additionalPcmProviderNames;
 
   List<String> medications;
 
@@ -186,11 +192,13 @@ class CareManagementCallRead {
     other.ccmCareplanSignDate == ccmCareplanSignDate &&
     other.ccmCareplanId == ccmCareplanId &&
     _deepEquality.equals(other.additionalCcmProviderIds, additionalCcmProviderIds) &&
+    _deepEquality.equals(other.additionalCcmProviderNames, additionalCcmProviderNames) &&
     other.pcmProviderName == pcmProviderName &&
     other.pcmProviderId == pcmProviderId &&
     other.pcmCareplanSignDate == pcmCareplanSignDate &&
     other.pcmCareplanId == pcmCareplanId &&
     _deepEquality.equals(other.additionalPcmProviderIds, additionalPcmProviderIds) &&
+    _deepEquality.equals(other.additionalPcmProviderNames, additionalPcmProviderNames) &&
     _deepEquality.equals(other.medications, medications) &&
     _deepEquality.equals(other.medicationIds, medicationIds) &&
     _deepEquality.equals(other.diagnoses, diagnoses) &&
@@ -235,11 +243,13 @@ class CareManagementCallRead {
     (ccmCareplanSignDate == null ? 0 : ccmCareplanSignDate!.hashCode) +
     (ccmCareplanId == null ? 0 : ccmCareplanId!.hashCode) +
     (additionalCcmProviderIds.hashCode) +
+    (additionalCcmProviderNames.hashCode) +
     (pcmProviderName == null ? 0 : pcmProviderName!.hashCode) +
     (pcmProviderId == null ? 0 : pcmProviderId!.hashCode) +
     (pcmCareplanSignDate == null ? 0 : pcmCareplanSignDate!.hashCode) +
     (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode) +
     (additionalPcmProviderIds.hashCode) +
+    (additionalPcmProviderNames.hashCode) +
     (medications.hashCode) +
     (medicationIds.hashCode) +
     (diagnoses.hashCode) +
@@ -254,7 +264,7 @@ class CareManagementCallRead {
     (dietIds.hashCode);
 
   @override
-  String toString() => 'CareManagementCallRead[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, psychosocialStressorNotes=$psychosocialStressorNotes, additionalNotes=$additionalNotes, createdAt=$createdAt, id=$id, portal=$portal, ccmProviderName=$ccmProviderName, ccmProviderId=$ccmProviderId, ccmCareplanSignDate=$ccmCareplanSignDate, ccmCareplanId=$ccmCareplanId, additionalCcmProviderIds=$additionalCcmProviderIds, pcmProviderName=$pcmProviderName, pcmProviderId=$pcmProviderId, pcmCareplanSignDate=$pcmCareplanSignDate, pcmCareplanId=$pcmCareplanId, additionalPcmProviderIds=$additionalPcmProviderIds, medications=$medications, medicationIds=$medicationIds, diagnoses=$diagnoses, diagnosisIds=$diagnosisIds, allergies=$allergies, allergyIds=$allergyIds, equipment=$equipment, equipmentIds=$equipmentIds, psychosocialStressors=$psychosocialStressors, psychosocialStressorIds=$psychosocialStressorIds, diets=$diets, dietIds=$dietIds]';
+  String toString() => 'CareManagementCallRead[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, psychosocialStressorNotes=$psychosocialStressorNotes, additionalNotes=$additionalNotes, createdAt=$createdAt, id=$id, portal=$portal, ccmProviderName=$ccmProviderName, ccmProviderId=$ccmProviderId, ccmCareplanSignDate=$ccmCareplanSignDate, ccmCareplanId=$ccmCareplanId, additionalCcmProviderIds=$additionalCcmProviderIds, additionalCcmProviderNames=$additionalCcmProviderNames, pcmProviderName=$pcmProviderName, pcmProviderId=$pcmProviderId, pcmCareplanSignDate=$pcmCareplanSignDate, pcmCareplanId=$pcmCareplanId, additionalPcmProviderIds=$additionalPcmProviderIds, additionalPcmProviderNames=$additionalPcmProviderNames, medications=$medications, medicationIds=$medicationIds, diagnoses=$diagnoses, diagnosisIds=$diagnosisIds, allergies=$allergies, allergyIds=$allergyIds, equipment=$equipment, equipmentIds=$equipmentIds, psychosocialStressors=$psychosocialStressors, psychosocialStressorIds=$psychosocialStressorIds, diets=$diets, dietIds=$dietIds]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -362,6 +372,7 @@ class CareManagementCallRead {
       json[r'ccm_careplan_id'] = null;
     }
       json[r'additional_ccm_provider_ids'] = this.additionalCcmProviderIds;
+      json[r'additional_ccm_provider_names'] = this.additionalCcmProviderNames;
     if (this.pcmProviderName != null) {
       json[r'pcm_provider_name'] = this.pcmProviderName;
     } else {
@@ -383,6 +394,7 @@ class CareManagementCallRead {
       json[r'pcm_careplan_id'] = null;
     }
       json[r'additional_pcm_provider_ids'] = this.additionalPcmProviderIds;
+      json[r'additional_pcm_provider_names'] = this.additionalPcmProviderNames;
       json[r'medications'] = this.medications;
       json[r'medication_ids'] = this.medicationIds;
       json[r'diagnoses'] = this.diagnoses;
@@ -455,12 +467,18 @@ class CareManagementCallRead {
         additionalCcmProviderIds: json[r'additional_ccm_provider_ids'] is Iterable
             ? (json[r'additional_ccm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
             : const [],
+        additionalCcmProviderNames: json[r'additional_ccm_provider_names'] is Iterable
+            ? (json[r'additional_ccm_provider_names'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         pcmProviderName: mapValueOfType<String>(json, r'pcm_provider_name'),
         pcmProviderId: mapValueOfType<String>(json, r'pcm_provider_id'),
         pcmCareplanSignDate: mapDateTime(json, r'pcm_careplan_sign_date', r''),
         pcmCareplanId: mapValueOfType<String>(json, r'pcm_careplan_id'),
         additionalPcmProviderIds: json[r'additional_pcm_provider_ids'] is Iterable
             ? (json[r'additional_pcm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
+        additionalPcmProviderNames: json[r'additional_pcm_provider_names'] is Iterable
+            ? (json[r'additional_pcm_provider_names'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         medications: json[r'medications'] is Iterable
             ? (json[r'medications'] as Iterable).cast<String>().toList(growable: false)
