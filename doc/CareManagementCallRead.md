@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **callSummary** | **String** |  | [optional] 
 **educationProvided** | **String** |  | [optional] 
 **timeSpentMinutes** | **int** |  | [optional] 
+**psychosocialStressorNotes** | **String** |  | [optional] 
+**additionalNotes** | **String** |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **id** | **int** |  | 
 **portal** | [**Portal**](Portal.md) |  | 
@@ -33,10 +35,12 @@ Name | Type | Description | Notes
 **ccmProviderId** | **String** |  | [optional] 
 **ccmCareplanSignDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **ccmCareplanId** | **String** |  | [optional] 
+**additionalCcmProviderIds** | **List<String>** |  | [optional] [default to const []]
 **pcmProviderName** | **String** |  | [optional] 
 **pcmProviderId** | **String** |  | [optional] 
 **pcmCareplanSignDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **pcmCareplanId** | **String** |  | [optional] 
+**additionalPcmProviderIds** | **List<String>** |  | [optional] [default to const []]
 **medications** | **List<String>** |  | [optional] [default to const []]
 **medicationIds** | **List<int>** |  | [optional] [default to const []]
 **diagnoses** | **List<String>** |  | [optional] [default to const []]

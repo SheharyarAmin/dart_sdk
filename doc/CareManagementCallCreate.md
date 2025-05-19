@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **callSummary** | **String** |  | [optional] 
 **educationProvided** | **String** |  | [optional] 
 **timeSpentMinutes** | **int** |  | [optional] 
+**psychosocialStressorNotes** | **String** |  | [optional] 
+**additionalNotes** | **String** |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **medications** | **List<String>** |  | [optional] [default to const []]
 **diagnoses** | **List<String>** |  | [optional] [default to const []]
@@ -33,16 +35,12 @@ Name | Type | Description | Notes
 **equipment** | **List<String>** |  | [optional] [default to const []]
 **psychosocialStressors** | **List<String>** |  | [optional] [default to const []]
 **diets** | **List<String>** |  | [optional] [default to const []]
-**medicationModels** | [**List<MedicationCreate>**](MedicationCreate.md) |  | [optional] [default to const []]
-**diagnosisModels** | [**List<DiagnosisCreate>**](DiagnosisCreate.md) |  | [optional] [default to const []]
-**allergyModels** | [**List<AllergyCreate>**](AllergyCreate.md) |  | [optional] [default to const []]
-**equipmentModels** | [**List<EquipmentCreate>**](EquipmentCreate.md) |  | [optional] [default to const []]
-**stressorModels** | [**List<PsychosocialStressorCreate>**](PsychosocialStressorCreate.md) |  | [optional] [default to const []]
-**dietModels** | [**List<DietCreate>**](DietCreate.md) |  | [optional] [default to const []]
 **ccmProviderId** | **String** |  | [optional] 
 **ccmCareplanId** | **String** |  | [optional] 
+**additionalCcmProviderIds** | **List<String>** |  | [optional] [default to const []]
 **pcmProviderId** | **String** |  | [optional] 
 **pcmCareplanId** | **String** |  | [optional] 
+**additionalPcmProviderIds** | **List<String>** |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

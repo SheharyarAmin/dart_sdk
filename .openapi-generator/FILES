@@ -211,7 +211,3 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
-test/diet_create_test.dart
-test/diet_read_test.dart
-test/diet_update_test.dart
-test/diets_api_test.dart

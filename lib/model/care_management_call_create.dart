@@ -31,6 +31,8 @@ class CareManagementCallCreate {
     this.callSummary,
     this.educationProvided,
     this.timeSpentMinutes,
+    this.psychosocialStressorNotes,
+    this.additionalNotes,
     this.createdAt,
     this.medications = const [],
     this.diagnoses = const [],
@@ -38,16 +40,12 @@ class CareManagementCallCreate {
     this.equipment = const [],
     this.psychosocialStressors = const [],
     this.diets = const [],
-    this.medicationModels = const [],
-    this.diagnosisModels = const [],
-    this.allergyModels = const [],
-    this.equipmentModels = const [],
-    this.stressorModels = const [],
-    this.dietModels = const [],
     this.ccmProviderId,
     this.ccmCareplanId,
+    this.additionalCcmProviderIds = const [],
     this.pcmProviderId,
     this.pcmCareplanId,
+    this.additionalPcmProviderIds = const [],
   });
 
   String? iv;
@@ -86,6 +84,10 @@ class CareManagementCallCreate {
 
   int? timeSpentMinutes;
 
+  String? psychosocialStressorNotes;
+
+  String? additionalNotes;
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -106,25 +108,17 @@ class CareManagementCallCreate {
 
   List<String>? diets;
 
-  List<MedicationCreate>? medicationModels;
-
-  List<DiagnosisCreate>? diagnosisModels;
-
-  List<AllergyCreate>? allergyModels;
-
-  List<EquipmentCreate>? equipmentModels;
-
-  List<PsychosocialStressorCreate>? stressorModels;
-
-  List<DietCreate>? dietModels;
-
   String? ccmProviderId;
 
   String? ccmCareplanId;
 
+  List<String>? additionalCcmProviderIds;
+
   String? pcmProviderId;
 
   String? pcmCareplanId;
+
+  List<String>? additionalPcmProviderIds;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is CareManagementCallCreate &&
@@ -146,6 +140,8 @@ class CareManagementCallCreate {
     other.callSummary == callSummary &&
     other.educationProvided == educationProvided &&
     other.timeSpentMinutes == timeSpentMinutes &&
+    other.psychosocialStressorNotes == psychosocialStressorNotes &&
+    other.additionalNotes == additionalNotes &&
     other.createdAt == createdAt &&
     _deepEquality.equals(other.medications, medications) &&
     _deepEquality.equals(other.diagnoses, diagnoses) &&
@@ -153,16 +149,12 @@ class CareManagementCallCreate {
     _deepEquality.equals(other.equipment, equipment) &&
     _deepEquality.equals(other.psychosocialStressors, psychosocialStressors) &&
     _deepEquality.equals(other.diets, diets) &&
-    _deepEquality.equals(other.medicationModels, medicationModels) &&
-    _deepEquality.equals(other.diagnosisModels, diagnosisModels) &&
-    _deepEquality.equals(other.allergyModels, allergyModels) &&
-    _deepEquality.equals(other.equipmentModels, equipmentModels) &&
-    _deepEquality.equals(other.stressorModels, stressorModels) &&
-    _deepEquality.equals(other.dietModels, dietModels) &&
     other.ccmProviderId == ccmProviderId &&
     other.ccmCareplanId == ccmCareplanId &&
+    _deepEquality.equals(other.additionalCcmProviderIds, additionalCcmProviderIds) &&
     other.pcmProviderId == pcmProviderId &&
-    other.pcmCareplanId == pcmCareplanId;
+    other.pcmCareplanId == pcmCareplanId &&
+    _deepEquality.equals(other.additionalPcmProviderIds, additionalPcmProviderIds);
 
   @override
   int get hashCode =>
@@ -185,6 +177,8 @@ class CareManagementCallCreate {
     (callSummary == null ? 0 : callSummary!.hashCode) +
     (educationProvided == null ? 0 : educationProvided!.hashCode) +
     (timeSpentMinutes == null ? 0 : timeSpentMinutes!.hashCode) +
+    (psychosocialStressorNotes == null ? 0 : psychosocialStressorNotes!.hashCode) +
+    (additionalNotes == null ? 0 : additionalNotes!.hashCode) +
     (createdAt == null ? 0 : createdAt!.hashCode) +
     (medications == null ? 0 : medications!.hashCode) +
     (diagnoses == null ? 0 : diagnoses!.hashCode) +
@@ -192,19 +186,15 @@ class CareManagementCallCreate {
     (equipment == null ? 0 : equipment!.hashCode) +
     (psychosocialStressors == null ? 0 : psychosocialStressors!.hashCode) +
     (diets == null ? 0 : diets!.hashCode) +
-    (medicationModels == null ? 0 : medicationModels!.hashCode) +
-    (diagnosisModels == null ? 0 : diagnosisModels!.hashCode) +
-    (allergyModels == null ? 0 : allergyModels!.hashCode) +
-    (equipmentModels == null ? 0 : equipmentModels!.hashCode) +
-    (stressorModels == null ? 0 : stressorModels!.hashCode) +
-    (dietModels == null ? 0 : dietModels!.hashCode) +
     (ccmProviderId == null ? 0 : ccmProviderId!.hashCode) +
     (ccmCareplanId == null ? 0 : ccmCareplanId!.hashCode) +
+    (additionalCcmProviderIds == null ? 0 : additionalCcmProviderIds!.hashCode) +
     (pcmProviderId == null ? 0 : pcmProviderId!.hashCode) +
-    (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode);
+    (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode) +
+    (additionalPcmProviderIds == null ? 0 : additionalPcmProviderIds!.hashCode);
 
   @override
-  String toString() => 'CareManagementCallCreate[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, createdAt=$createdAt, medications=$medications, diagnoses=$diagnoses, allergies=$allergies, equipment=$equipment, psychosocialStressors=$psychosocialStressors, diets=$diets, medicationModels=$medicationModels, diagnosisModels=$diagnosisModels, allergyModels=$allergyModels, equipmentModels=$equipmentModels, stressorModels=$stressorModels, dietModels=$dietModels, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId]';
+  String toString() => 'CareManagementCallCreate[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, psychosocialStressorNotes=$psychosocialStressorNotes, additionalNotes=$additionalNotes, createdAt=$createdAt, medications=$medications, diagnoses=$diagnoses, allergies=$allergies, equipment=$equipment, psychosocialStressors=$psychosocialStressors, diets=$diets, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, additionalCcmProviderIds=$additionalCcmProviderIds, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId, additionalPcmProviderIds=$additionalPcmProviderIds]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -274,6 +264,16 @@ class CareManagementCallCreate {
     } else {
       json[r'time_spent_minutes'] = null;
     }
+    if (this.psychosocialStressorNotes != null) {
+      json[r'psychosocial_stressor_notes'] = this.psychosocialStressorNotes;
+    } else {
+      json[r'psychosocial_stressor_notes'] = null;
+    }
+    if (this.additionalNotes != null) {
+      json[r'additional_notes'] = this.additionalNotes;
+    } else {
+      json[r'additional_notes'] = null;
+    }
     if (this.createdAt != null) {
       json[r'created_at'] = this.createdAt!.toUtc().toIso8601String();
     } else {
@@ -309,36 +309,6 @@ class CareManagementCallCreate {
     } else {
       json[r'diets'] = null;
     }
-    if (this.medicationModels != null) {
-      json[r'medication_models'] = this.medicationModels;
-    } else {
-      json[r'medication_models'] = null;
-    }
-    if (this.diagnosisModels != null) {
-      json[r'diagnosis_models'] = this.diagnosisModels;
-    } else {
-      json[r'diagnosis_models'] = null;
-    }
-    if (this.allergyModels != null) {
-      json[r'allergy_models'] = this.allergyModels;
-    } else {
-      json[r'allergy_models'] = null;
-    }
-    if (this.equipmentModels != null) {
-      json[r'equipment_models'] = this.equipmentModels;
-    } else {
-      json[r'equipment_models'] = null;
-    }
-    if (this.stressorModels != null) {
-      json[r'stressor_models'] = this.stressorModels;
-    } else {
-      json[r'stressor_models'] = null;
-    }
-    if (this.dietModels != null) {
-      json[r'diet_models'] = this.dietModels;
-    } else {
-      json[r'diet_models'] = null;
-    }
     if (this.ccmProviderId != null) {
       json[r'ccm_provider_id'] = this.ccmProviderId;
     } else {
@@ -349,6 +319,11 @@ class CareManagementCallCreate {
     } else {
       json[r'ccm_careplan_id'] = null;
     }
+    if (this.additionalCcmProviderIds != null) {
+      json[r'additional_ccm_provider_ids'] = this.additionalCcmProviderIds;
+    } else {
+      json[r'additional_ccm_provider_ids'] = null;
+    }
     if (this.pcmProviderId != null) {
       json[r'pcm_provider_id'] = this.pcmProviderId;
     } else {
@@ -358,6 +333,11 @@ class CareManagementCallCreate {
       json[r'pcm_careplan_id'] = this.pcmCareplanId;
     } else {
       json[r'pcm_careplan_id'] = null;
+    }
+    if (this.additionalPcmProviderIds != null) {
+      json[r'additional_pcm_provider_ids'] = this.additionalPcmProviderIds;
+    } else {
+      json[r'additional_pcm_provider_ids'] = null;
     }
     return json;
   }
@@ -407,6 +387,8 @@ class CareManagementCallCreate {
         callSummary: mapValueOfType<String>(json, r'call_summary'),
         educationProvided: mapValueOfType<String>(json, r'education_provided'),
         timeSpentMinutes: mapValueOfType<int>(json, r'time_spent_minutes'),
+        psychosocialStressorNotes: mapValueOfType<String>(json, r'psychosocial_stressor_notes'),
+        additionalNotes: mapValueOfType<String>(json, r'additional_notes'),
         createdAt: mapDateTime(json, r'created_at', r''),
         medications: json[r'medications'] is Iterable
             ? (json[r'medications'] as Iterable).cast<String>().toList(growable: false)
@@ -426,16 +408,16 @@ class CareManagementCallCreate {
         diets: json[r'diets'] is Iterable
             ? (json[r'diets'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        medicationModels: MedicationCreate.listFromJson(json[r'medication_models']),
-        diagnosisModels: DiagnosisCreate.listFromJson(json[r'diagnosis_models']),
-        allergyModels: AllergyCreate.listFromJson(json[r'allergy_models']),
-        equipmentModels: EquipmentCreate.listFromJson(json[r'equipment_models']),
-        stressorModels: PsychosocialStressorCreate.listFromJson(json[r'stressor_models']),
-        dietModels: DietCreate.listFromJson(json[r'diet_models']),
         ccmProviderId: mapValueOfType<String>(json, r'ccm_provider_id'),
         ccmCareplanId: mapValueOfType<String>(json, r'ccm_careplan_id'),
+        additionalCcmProviderIds: json[r'additional_ccm_provider_ids'] is Iterable
+            ? (json[r'additional_ccm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         pcmProviderId: mapValueOfType<String>(json, r'pcm_provider_id'),
         pcmCareplanId: mapValueOfType<String>(json, r'pcm_careplan_id'),
+        additionalPcmProviderIds: json[r'additional_pcm_provider_ids'] is Iterable
+            ? (json[r'additional_pcm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
       );
     }
     return null;

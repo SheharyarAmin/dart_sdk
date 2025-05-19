@@ -31,6 +31,8 @@ class CareManagementCallRead {
     this.callSummary,
     this.educationProvided,
     this.timeSpentMinutes,
+    this.psychosocialStressorNotes,
+    this.additionalNotes,
     this.createdAt,
     required this.id,
     required this.portal,
@@ -38,10 +40,12 @@ class CareManagementCallRead {
     this.ccmProviderId,
     this.ccmCareplanSignDate,
     this.ccmCareplanId,
+    this.additionalCcmProviderIds = const [],
     this.pcmProviderName,
     this.pcmProviderId,
     this.pcmCareplanSignDate,
     this.pcmCareplanId,
+    this.additionalPcmProviderIds = const [],
     this.medications = const [],
     this.medicationIds = const [],
     this.diagnoses = const [],
@@ -92,6 +96,10 @@ class CareManagementCallRead {
 
   int? timeSpentMinutes;
 
+  String? psychosocialStressorNotes;
+
+  String? additionalNotes;
+
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -112,6 +120,8 @@ class CareManagementCallRead {
 
   String? ccmCareplanId;
 
+  List<String> additionalCcmProviderIds;
+
   String? pcmProviderName;
 
   String? pcmProviderId;
@@ -119,6 +129,8 @@ class CareManagementCallRead {
   DateTime? pcmCareplanSignDate;
 
   String? pcmCareplanId;
+
+  List<String> additionalPcmProviderIds;
 
   List<String> medications;
 
@@ -164,6 +176,8 @@ class CareManagementCallRead {
     other.callSummary == callSummary &&
     other.educationProvided == educationProvided &&
     other.timeSpentMinutes == timeSpentMinutes &&
+    other.psychosocialStressorNotes == psychosocialStressorNotes &&
+    other.additionalNotes == additionalNotes &&
     other.createdAt == createdAt &&
     other.id == id &&
     other.portal == portal &&
@@ -171,10 +185,12 @@ class CareManagementCallRead {
     other.ccmProviderId == ccmProviderId &&
     other.ccmCareplanSignDate == ccmCareplanSignDate &&
     other.ccmCareplanId == ccmCareplanId &&
+    _deepEquality.equals(other.additionalCcmProviderIds, additionalCcmProviderIds) &&
     other.pcmProviderName == pcmProviderName &&
     other.pcmProviderId == pcmProviderId &&
     other.pcmCareplanSignDate == pcmCareplanSignDate &&
     other.pcmCareplanId == pcmCareplanId &&
+    _deepEquality.equals(other.additionalPcmProviderIds, additionalPcmProviderIds) &&
     _deepEquality.equals(other.medications, medications) &&
     _deepEquality.equals(other.medicationIds, medicationIds) &&
     _deepEquality.equals(other.diagnoses, diagnoses) &&
@@ -209,6 +225,8 @@ class CareManagementCallRead {
     (callSummary == null ? 0 : callSummary!.hashCode) +
     (educationProvided == null ? 0 : educationProvided!.hashCode) +
     (timeSpentMinutes == null ? 0 : timeSpentMinutes!.hashCode) +
+    (psychosocialStressorNotes == null ? 0 : psychosocialStressorNotes!.hashCode) +
+    (additionalNotes == null ? 0 : additionalNotes!.hashCode) +
     (createdAt == null ? 0 : createdAt!.hashCode) +
     (id.hashCode) +
     (portal.hashCode) +
@@ -216,10 +234,12 @@ class CareManagementCallRead {
     (ccmProviderId == null ? 0 : ccmProviderId!.hashCode) +
     (ccmCareplanSignDate == null ? 0 : ccmCareplanSignDate!.hashCode) +
     (ccmCareplanId == null ? 0 : ccmCareplanId!.hashCode) +
+    (additionalCcmProviderIds.hashCode) +
     (pcmProviderName == null ? 0 : pcmProviderName!.hashCode) +
     (pcmProviderId == null ? 0 : pcmProviderId!.hashCode) +
     (pcmCareplanSignDate == null ? 0 : pcmCareplanSignDate!.hashCode) +
     (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode) +
+    (additionalPcmProviderIds.hashCode) +
     (medications.hashCode) +
     (medicationIds.hashCode) +
     (diagnoses.hashCode) +
@@ -234,7 +254,7 @@ class CareManagementCallRead {
     (dietIds.hashCode);
 
   @override
-  String toString() => 'CareManagementCallRead[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, createdAt=$createdAt, id=$id, portal=$portal, ccmProviderName=$ccmProviderName, ccmProviderId=$ccmProviderId, ccmCareplanSignDate=$ccmCareplanSignDate, ccmCareplanId=$ccmCareplanId, pcmProviderName=$pcmProviderName, pcmProviderId=$pcmProviderId, pcmCareplanSignDate=$pcmCareplanSignDate, pcmCareplanId=$pcmCareplanId, medications=$medications, medicationIds=$medicationIds, diagnoses=$diagnoses, diagnosisIds=$diagnosisIds, allergies=$allergies, allergyIds=$allergyIds, equipment=$equipment, equipmentIds=$equipmentIds, psychosocialStressors=$psychosocialStressors, psychosocialStressorIds=$psychosocialStressorIds, diets=$diets, dietIds=$dietIds]';
+  String toString() => 'CareManagementCallRead[iv=$iv, patientId=$patientId, callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, psychosocialStressorNotes=$psychosocialStressorNotes, additionalNotes=$additionalNotes, createdAt=$createdAt, id=$id, portal=$portal, ccmProviderName=$ccmProviderName, ccmProviderId=$ccmProviderId, ccmCareplanSignDate=$ccmCareplanSignDate, ccmCareplanId=$ccmCareplanId, additionalCcmProviderIds=$additionalCcmProviderIds, pcmProviderName=$pcmProviderName, pcmProviderId=$pcmProviderId, pcmCareplanSignDate=$pcmCareplanSignDate, pcmCareplanId=$pcmCareplanId, additionalPcmProviderIds=$additionalPcmProviderIds, medications=$medications, medicationIds=$medicationIds, diagnoses=$diagnoses, diagnosisIds=$diagnosisIds, allergies=$allergies, allergyIds=$allergyIds, equipment=$equipment, equipmentIds=$equipmentIds, psychosocialStressors=$psychosocialStressors, psychosocialStressorIds=$psychosocialStressorIds, diets=$diets, dietIds=$dietIds]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -304,6 +324,16 @@ class CareManagementCallRead {
     } else {
       json[r'time_spent_minutes'] = null;
     }
+    if (this.psychosocialStressorNotes != null) {
+      json[r'psychosocial_stressor_notes'] = this.psychosocialStressorNotes;
+    } else {
+      json[r'psychosocial_stressor_notes'] = null;
+    }
+    if (this.additionalNotes != null) {
+      json[r'additional_notes'] = this.additionalNotes;
+    } else {
+      json[r'additional_notes'] = null;
+    }
     if (this.createdAt != null) {
       json[r'created_at'] = this.createdAt!.toUtc().toIso8601String();
     } else {
@@ -331,6 +361,7 @@ class CareManagementCallRead {
     } else {
       json[r'ccm_careplan_id'] = null;
     }
+      json[r'additional_ccm_provider_ids'] = this.additionalCcmProviderIds;
     if (this.pcmProviderName != null) {
       json[r'pcm_provider_name'] = this.pcmProviderName;
     } else {
@@ -351,6 +382,7 @@ class CareManagementCallRead {
     } else {
       json[r'pcm_careplan_id'] = null;
     }
+      json[r'additional_pcm_provider_ids'] = this.additionalPcmProviderIds;
       json[r'medications'] = this.medications;
       json[r'medication_ids'] = this.medicationIds;
       json[r'diagnoses'] = this.diagnoses;
@@ -411,6 +443,8 @@ class CareManagementCallRead {
         callSummary: mapValueOfType<String>(json, r'call_summary'),
         educationProvided: mapValueOfType<String>(json, r'education_provided'),
         timeSpentMinutes: mapValueOfType<int>(json, r'time_spent_minutes'),
+        psychosocialStressorNotes: mapValueOfType<String>(json, r'psychosocial_stressor_notes'),
+        additionalNotes: mapValueOfType<String>(json, r'additional_notes'),
         createdAt: mapDateTime(json, r'created_at', r''),
         id: mapValueOfType<int>(json, r'id')!,
         portal: Portal.fromJson(json[r'portal'])!,
@@ -418,10 +452,16 @@ class CareManagementCallRead {
         ccmProviderId: mapValueOfType<String>(json, r'ccm_provider_id'),
         ccmCareplanSignDate: mapDateTime(json, r'ccm_careplan_sign_date', r''),
         ccmCareplanId: mapValueOfType<String>(json, r'ccm_careplan_id'),
+        additionalCcmProviderIds: json[r'additional_ccm_provider_ids'] is Iterable
+            ? (json[r'additional_ccm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         pcmProviderName: mapValueOfType<String>(json, r'pcm_provider_name'),
         pcmProviderId: mapValueOfType<String>(json, r'pcm_provider_id'),
         pcmCareplanSignDate: mapDateTime(json, r'pcm_careplan_sign_date', r''),
         pcmCareplanId: mapValueOfType<String>(json, r'pcm_careplan_id'),
+        additionalPcmProviderIds: json[r'additional_pcm_provider_ids'] is Iterable
+            ? (json[r'additional_pcm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         medications: json[r'medications'] is Iterable
             ? (json[r'medications'] as Iterable).cast<String>().toList(growable: false)
             : const [],

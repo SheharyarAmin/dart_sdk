@@ -25,26 +25,24 @@ class CareManagementCallUpdate {
     this.callSummary,
     this.educationProvided,
     this.timeSpentMinutes,
+    this.psychosocialStressorNotes,
+    this.additionalNotes,
     this.medications = const [],
     this.diagnoses = const [],
     this.allergies = const [],
     this.equipment = const [],
     this.psychosocialStressors = const [],
     this.diets = const [],
-    this.medicationModels = const [],
-    this.diagnosisModels = const [],
-    this.allergyModels = const [],
-    this.equipmentModels = const [],
-    this.stressorModels = const [],
-    this.dietModels = const [],
     this.bpReadings = const [],
     this.heartRateReadings = const [],
     this.cbgReadings = const [],
     this.weightReadings = const [],
     this.ccmProviderId,
     this.ccmCareplanId,
+    this.additionalCcmProviderIds = const [],
     this.pcmProviderId,
     this.pcmCareplanId,
+    this.additionalPcmProviderIds = const [],
   });
 
   DateTime? callDate;
@@ -71,6 +69,10 @@ class CareManagementCallUpdate {
 
   int? timeSpentMinutes;
 
+  String? psychosocialStressorNotes;
+
+  String? additionalNotes;
+
   List<String>? medications;
 
   List<String>? diagnoses;
@@ -82,18 +84,6 @@ class CareManagementCallUpdate {
   List<String>? psychosocialStressors;
 
   List<String>? diets;
-
-  List<MedicationCreate>? medicationModels;
-
-  List<DiagnosisCreate>? diagnosisModels;
-
-  List<AllergyCreate>? allergyModels;
-
-  List<EquipmentCreate>? equipmentModels;
-
-  List<PsychosocialStressorCreate>? stressorModels;
-
-  List<DietCreate>? dietModels;
 
   List<Object>? bpReadings;
 
@@ -107,89 +97,83 @@ class CareManagementCallUpdate {
 
   String? ccmCareplanId;
 
+  List<String>? additionalCcmProviderIds;
+
   String? pcmProviderId;
 
   String? pcmCareplanId;
 
+  List<String>? additionalPcmProviderIds;
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CareManagementCallUpdate &&
-          other.callDate == callDate &&
-          other.callTime == callTime &&
-          other.infoGivenBy == infoGivenBy &&
-          other.allergiesReviewed == allergiesReviewed &&
-          other.medicationsReviewed == medicationsReviewed &&
-          other.lastOfficeBp == lastOfficeBp &&
-          other.homeDiet == homeDiet &&
-          other.copingEffectively == copingEffectively &&
-          other.emotionalSupportAvailable == emotionalSupportAvailable &&
-          other.callSummary == callSummary &&
-          other.educationProvided == educationProvided &&
-          other.timeSpentMinutes == timeSpentMinutes &&
-          _deepEquality.equals(other.medications, medications) &&
-          _deepEquality.equals(other.diagnoses, diagnoses) &&
-          _deepEquality.equals(other.allergies, allergies) &&
-          _deepEquality.equals(other.equipment, equipment) &&
-          _deepEquality.equals(
-              other.psychosocialStressors, psychosocialStressors) &&
-          _deepEquality.equals(other.diets, diets) &&
-          _deepEquality.equals(other.medicationModels, medicationModels) &&
-          _deepEquality.equals(other.diagnosisModels, diagnosisModels) &&
-          _deepEquality.equals(other.allergyModels, allergyModels) &&
-          _deepEquality.equals(other.equipmentModels, equipmentModels) &&
-          _deepEquality.equals(other.stressorModels, stressorModels) &&
-          _deepEquality.equals(other.dietModels, dietModels) &&
-          _deepEquality.equals(other.bpReadings, bpReadings) &&
-          _deepEquality.equals(other.heartRateReadings, heartRateReadings) &&
-          _deepEquality.equals(other.cbgReadings, cbgReadings) &&
-          _deepEquality.equals(other.weightReadings, weightReadings) &&
-          other.ccmProviderId == ccmProviderId &&
-          other.ccmCareplanId == ccmCareplanId &&
-          other.pcmProviderId == pcmProviderId &&
-          other.pcmCareplanId == pcmCareplanId;
+  bool operator ==(Object other) => identical(this, other) || other is CareManagementCallUpdate &&
+    other.callDate == callDate &&
+    other.callTime == callTime &&
+    other.infoGivenBy == infoGivenBy &&
+    other.allergiesReviewed == allergiesReviewed &&
+    other.medicationsReviewed == medicationsReviewed &&
+    other.lastOfficeBp == lastOfficeBp &&
+    other.homeDiet == homeDiet &&
+    other.copingEffectively == copingEffectively &&
+    other.emotionalSupportAvailable == emotionalSupportAvailable &&
+    other.callSummary == callSummary &&
+    other.educationProvided == educationProvided &&
+    other.timeSpentMinutes == timeSpentMinutes &&
+    other.psychosocialStressorNotes == psychosocialStressorNotes &&
+    other.additionalNotes == additionalNotes &&
+    _deepEquality.equals(other.medications, medications) &&
+    _deepEquality.equals(other.diagnoses, diagnoses) &&
+    _deepEquality.equals(other.allergies, allergies) &&
+    _deepEquality.equals(other.equipment, equipment) &&
+    _deepEquality.equals(other.psychosocialStressors, psychosocialStressors) &&
+    _deepEquality.equals(other.diets, diets) &&
+    _deepEquality.equals(other.bpReadings, bpReadings) &&
+    _deepEquality.equals(other.heartRateReadings, heartRateReadings) &&
+    _deepEquality.equals(other.cbgReadings, cbgReadings) &&
+    _deepEquality.equals(other.weightReadings, weightReadings) &&
+    other.ccmProviderId == ccmProviderId &&
+    other.ccmCareplanId == ccmCareplanId &&
+    _deepEquality.equals(other.additionalCcmProviderIds, additionalCcmProviderIds) &&
+    other.pcmProviderId == pcmProviderId &&
+    other.pcmCareplanId == pcmCareplanId &&
+    _deepEquality.equals(other.additionalPcmProviderIds, additionalPcmProviderIds);
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (callDate == null ? 0 : callDate!.hashCode) +
-      (callTime == null ? 0 : callTime!.hashCode) +
-      (infoGivenBy == null ? 0 : infoGivenBy!.hashCode) +
-      (allergiesReviewed == null ? 0 : allergiesReviewed!.hashCode) +
-      (medicationsReviewed == null ? 0 : medicationsReviewed!.hashCode) +
-      (lastOfficeBp == null ? 0 : lastOfficeBp!.hashCode) +
-      (homeDiet == null ? 0 : homeDiet!.hashCode) +
-      (copingEffectively == null ? 0 : copingEffectively!.hashCode) +
-      (emotionalSupportAvailable == null
-          ? 0
-          : emotionalSupportAvailable!.hashCode) +
-      (callSummary == null ? 0 : callSummary!.hashCode) +
-      (educationProvided == null ? 0 : educationProvided!.hashCode) +
-      (timeSpentMinutes == null ? 0 : timeSpentMinutes!.hashCode) +
-      (medications == null ? 0 : medications!.hashCode) +
-      (diagnoses == null ? 0 : diagnoses!.hashCode) +
-      (allergies == null ? 0 : allergies!.hashCode) +
-      (equipment == null ? 0 : equipment!.hashCode) +
-      (psychosocialStressors == null ? 0 : psychosocialStressors!.hashCode) +
-      (diets == null ? 0 : diets!.hashCode) +
-      (medicationModels == null ? 0 : medicationModels!.hashCode) +
-      (diagnosisModels == null ? 0 : diagnosisModels!.hashCode) +
-      (allergyModels == null ? 0 : allergyModels!.hashCode) +
-      (equipmentModels == null ? 0 : equipmentModels!.hashCode) +
-      (stressorModels == null ? 0 : stressorModels!.hashCode) +
-      (dietModels == null ? 0 : dietModels!.hashCode) +
-      (bpReadings == null ? 0 : bpReadings!.hashCode) +
-      (heartRateReadings == null ? 0 : heartRateReadings!.hashCode) +
-      (cbgReadings == null ? 0 : cbgReadings!.hashCode) +
-      (weightReadings == null ? 0 : weightReadings!.hashCode) +
-      (ccmProviderId == null ? 0 : ccmProviderId!.hashCode) +
-      (ccmCareplanId == null ? 0 : ccmCareplanId!.hashCode) +
-      (pcmProviderId == null ? 0 : pcmProviderId!.hashCode) +
-      (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode);
+    // ignore: unnecessary_parenthesis
+    (callDate == null ? 0 : callDate!.hashCode) +
+    (callTime == null ? 0 : callTime!.hashCode) +
+    (infoGivenBy == null ? 0 : infoGivenBy!.hashCode) +
+    (allergiesReviewed == null ? 0 : allergiesReviewed!.hashCode) +
+    (medicationsReviewed == null ? 0 : medicationsReviewed!.hashCode) +
+    (lastOfficeBp == null ? 0 : lastOfficeBp!.hashCode) +
+    (homeDiet == null ? 0 : homeDiet!.hashCode) +
+    (copingEffectively == null ? 0 : copingEffectively!.hashCode) +
+    (emotionalSupportAvailable == null ? 0 : emotionalSupportAvailable!.hashCode) +
+    (callSummary == null ? 0 : callSummary!.hashCode) +
+    (educationProvided == null ? 0 : educationProvided!.hashCode) +
+    (timeSpentMinutes == null ? 0 : timeSpentMinutes!.hashCode) +
+    (psychosocialStressorNotes == null ? 0 : psychosocialStressorNotes!.hashCode) +
+    (additionalNotes == null ? 0 : additionalNotes!.hashCode) +
+    (medications == null ? 0 : medications!.hashCode) +
+    (diagnoses == null ? 0 : diagnoses!.hashCode) +
+    (allergies == null ? 0 : allergies!.hashCode) +
+    (equipment == null ? 0 : equipment!.hashCode) +
+    (psychosocialStressors == null ? 0 : psychosocialStressors!.hashCode) +
+    (diets == null ? 0 : diets!.hashCode) +
+    (bpReadings == null ? 0 : bpReadings!.hashCode) +
+    (heartRateReadings == null ? 0 : heartRateReadings!.hashCode) +
+    (cbgReadings == null ? 0 : cbgReadings!.hashCode) +
+    (weightReadings == null ? 0 : weightReadings!.hashCode) +
+    (ccmProviderId == null ? 0 : ccmProviderId!.hashCode) +
+    (ccmCareplanId == null ? 0 : ccmCareplanId!.hashCode) +
+    (additionalCcmProviderIds == null ? 0 : additionalCcmProviderIds!.hashCode) +
+    (pcmProviderId == null ? 0 : pcmProviderId!.hashCode) +
+    (pcmCareplanId == null ? 0 : pcmCareplanId!.hashCode) +
+    (additionalPcmProviderIds == null ? 0 : additionalPcmProviderIds!.hashCode);
 
   @override
-  String toString() =>
-      'CareManagementCallUpdate[callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, medications=$medications, diagnoses=$diagnoses, allergies=$allergies, equipment=$equipment, psychosocialStressors=$psychosocialStressors, diets=$diets, medicationModels=$medicationModels, diagnosisModels=$diagnosisModels, allergyModels=$allergyModels, equipmentModels=$equipmentModels, stressorModels=$stressorModels, dietModels=$dietModels, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId]';
+  String toString() => 'CareManagementCallUpdate[callDate=$callDate, callTime=$callTime, infoGivenBy=$infoGivenBy, allergiesReviewed=$allergiesReviewed, medicationsReviewed=$medicationsReviewed, lastOfficeBp=$lastOfficeBp, homeDiet=$homeDiet, copingEffectively=$copingEffectively, emotionalSupportAvailable=$emotionalSupportAvailable, callSummary=$callSummary, educationProvided=$educationProvided, timeSpentMinutes=$timeSpentMinutes, psychosocialStressorNotes=$psychosocialStressorNotes, additionalNotes=$additionalNotes, medications=$medications, diagnoses=$diagnoses, allergies=$allergies, equipment=$equipment, psychosocialStressors=$psychosocialStressors, diets=$diets, bpReadings=$bpReadings, heartRateReadings=$heartRateReadings, cbgReadings=$cbgReadings, weightReadings=$weightReadings, ccmProviderId=$ccmProviderId, ccmCareplanId=$ccmCareplanId, additionalCcmProviderIds=$additionalCcmProviderIds, pcmProviderId=$pcmProviderId, pcmCareplanId=$pcmCareplanId, additionalPcmProviderIds=$additionalPcmProviderIds]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -209,14 +193,12 @@ class CareManagementCallUpdate {
       json[r'info_given_by'] = null;
     }
     if (this.allergiesReviewed != null) {
-      json[r'allergies_reviewed'] =
-          this.allergiesReviewed!.toUtc().toIso8601String();
+      json[r'allergies_reviewed'] = this.allergiesReviewed!.toUtc().toIso8601String();
     } else {
       json[r'allergies_reviewed'] = null;
     }
     if (this.medicationsReviewed != null) {
-      json[r'medications_reviewed'] =
-          this.medicationsReviewed!.toUtc().toIso8601String();
+      json[r'medications_reviewed'] = this.medicationsReviewed!.toUtc().toIso8601String();
     } else {
       json[r'medications_reviewed'] = null;
     }
@@ -255,6 +237,16 @@ class CareManagementCallUpdate {
     } else {
       json[r'time_spent_minutes'] = null;
     }
+    if (this.psychosocialStressorNotes != null) {
+      json[r'psychosocial_stressor_notes'] = this.psychosocialStressorNotes;
+    } else {
+      json[r'psychosocial_stressor_notes'] = null;
+    }
+    if (this.additionalNotes != null) {
+      json[r'additional_notes'] = this.additionalNotes;
+    } else {
+      json[r'additional_notes'] = null;
+    }
     if (this.medications != null) {
       json[r'medications'] = this.medications;
     } else {
@@ -284,36 +276,6 @@ class CareManagementCallUpdate {
       json[r'diets'] = this.diets;
     } else {
       json[r'diets'] = null;
-    }
-    if (this.medicationModels != null) {
-      json[r'medication_models'] = this.medicationModels;
-    } else {
-      json[r'medication_models'] = null;
-    }
-    if (this.diagnosisModels != null) {
-      json[r'diagnosis_models'] = this.diagnosisModels;
-    } else {
-      json[r'diagnosis_models'] = null;
-    }
-    if (this.allergyModels != null) {
-      json[r'allergy_models'] = this.allergyModels;
-    } else {
-      json[r'allergy_models'] = null;
-    }
-    if (this.equipmentModels != null) {
-      json[r'equipment_models'] = this.equipmentModels;
-    } else {
-      json[r'equipment_models'] = null;
-    }
-    if (this.stressorModels != null) {
-      json[r'stressor_models'] = this.stressorModels;
-    } else {
-      json[r'stressor_models'] = null;
-    }
-    if (this.dietModels != null) {
-      json[r'diet_models'] = this.dietModels;
-    } else {
-      json[r'diet_models'] = null;
     }
     if (this.bpReadings != null) {
       json[r'bp_readings'] = this.bpReadings;
@@ -345,6 +307,11 @@ class CareManagementCallUpdate {
     } else {
       json[r'ccm_careplan_id'] = null;
     }
+    if (this.additionalCcmProviderIds != null) {
+      json[r'additional_ccm_provider_ids'] = this.additionalCcmProviderIds;
+    } else {
+      json[r'additional_ccm_provider_ids'] = null;
+    }
     if (this.pcmProviderId != null) {
       json[r'pcm_provider_id'] = this.pcmProviderId;
     } else {
@@ -354,6 +321,11 @@ class CareManagementCallUpdate {
       json[r'pcm_careplan_id'] = this.pcmCareplanId;
     } else {
       json[r'pcm_careplan_id'] = null;
+    }
+    if (this.additionalPcmProviderIds != null) {
+      json[r'additional_pcm_provider_ids'] = this.additionalPcmProviderIds;
+    } else {
+      json[r'additional_pcm_provider_ids'] = null;
     }
     return json;
   }
@@ -370,10 +342,8 @@ class CareManagementCallUpdate {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CareManagementCallUpdate[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CareManagementCallUpdate[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CareManagementCallUpdate[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CareManagementCallUpdate[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -387,51 +357,30 @@ class CareManagementCallUpdate {
         lastOfficeBp: mapValueOfType<Object>(json, r'last_office_bp'),
         homeDiet: mapValueOfType<String>(json, r'home_diet'),
         copingEffectively: mapValueOfType<String>(json, r'coping_effectively'),
-        emotionalSupportAvailable:
-            mapValueOfType<String>(json, r'emotional_support_available'),
+        emotionalSupportAvailable: mapValueOfType<String>(json, r'emotional_support_available'),
         callSummary: mapValueOfType<String>(json, r'call_summary'),
         educationProvided: mapValueOfType<String>(json, r'education_provided'),
         timeSpentMinutes: mapValueOfType<int>(json, r'time_spent_minutes'),
+        psychosocialStressorNotes: mapValueOfType<String>(json, r'psychosocial_stressor_notes'),
+        additionalNotes: mapValueOfType<String>(json, r'additional_notes'),
         medications: json[r'medications'] is Iterable
-            ? (json[r'medications'] as Iterable)
-                .cast<String>()
-                .toList(growable: false)
+            ? (json[r'medications'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         diagnoses: json[r'diagnoses'] is Iterable
-            ? (json[r'diagnoses'] as Iterable)
-                .cast<String>()
-                .toList(growable: false)
+            ? (json[r'diagnoses'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         allergies: json[r'allergies'] is Iterable
-            ? (json[r'allergies'] as Iterable)
-                .cast<String>()
-                .toList(growable: false)
+            ? (json[r'allergies'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         equipment: json[r'equipment'] is Iterable
-            ? (json[r'equipment'] as Iterable)
-                .cast<String>()
-                .toList(growable: false)
+            ? (json[r'equipment'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         psychosocialStressors: json[r'psychosocial_stressors'] is Iterable
-            ? (json[r'psychosocial_stressors'] as Iterable)
-                .cast<String>()
-                .toList(growable: false)
+            ? (json[r'psychosocial_stressors'] as Iterable).cast<String>().toList(growable: false)
             : const [],
         diets: json[r'diets'] is Iterable
-            ? (json[r'diets'] as Iterable)
-                .cast<String>()
-                .toList(growable: false)
+            ? (json[r'diets'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        medicationModels:
-            MedicationCreate.listFromJson(json[r'medication_models']),
-        diagnosisModels:
-            DiagnosisCreate.listFromJson(json[r'diagnosis_models']),
-        allergyModels: AllergyCreate.listFromJson(json[r'allergy_models']),
-        equipmentModels:
-            EquipmentCreate.listFromJson(json[r'equipment_models']),
-        stressorModels:
-            PsychosocialStressorCreate.listFromJson(json[r'stressor_models']),
-        dietModels: DietCreate.listFromJson(json[r'diet_models']),
         bpReadings: json[r'bp_readings'] is List
             ? List<Object>.from(json[r'bp_readings'])
             : const [],
@@ -446,17 +395,20 @@ class CareManagementCallUpdate {
             : const [],
         ccmProviderId: mapValueOfType<String>(json, r'ccm_provider_id'),
         ccmCareplanId: mapValueOfType<String>(json, r'ccm_careplan_id'),
+        additionalCcmProviderIds: json[r'additional_ccm_provider_ids'] is Iterable
+            ? (json[r'additional_ccm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
         pcmProviderId: mapValueOfType<String>(json, r'pcm_provider_id'),
         pcmCareplanId: mapValueOfType<String>(json, r'pcm_careplan_id'),
+        additionalPcmProviderIds: json[r'additional_pcm_provider_ids'] is Iterable
+            ? (json[r'additional_pcm_provider_ids'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
       );
     }
     return null;
   }
 
-  static List<CareManagementCallUpdate> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CareManagementCallUpdate> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CareManagementCallUpdate>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -484,24 +436,20 @@ class CareManagementCallUpdate {
   }
 
   // maps a json object with a list of CareManagementCallUpdate-objects as value to a dart map
-  static Map<String, List<CareManagementCallUpdate>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CareManagementCallUpdate>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CareManagementCallUpdate>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CareManagementCallUpdate.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CareManagementCallUpdate.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+  };
 }
+
