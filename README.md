@@ -29,6 +29,22 @@ dependencies:
     path: /path/to/openapi
 ```
 
+## App Check Token Integration
+
+The API client supports Firebase App Check token integration to secure API requests from authorized app instances:
+
+```dart
+// Initialize with a token
+final apiClient = ApiClient(
+  appCheckToken: 'your-app-check-token',
+);
+
+// Or set the token later
+apiClient.setAppCheckToken('your-app-check-token');
+```
+
+For more details, see [App Check Token Documentation](lib/README_APP_CHECK.md).
+
 ## Tests
 
 TODO
