@@ -31,6 +31,9 @@ class ProcessedPatientEntry {
     this.paycode1 = false,
     this.paycode2 = false,
     this.paycode12 = false,
+    this.paycode12AssignedDate,
+    this.paycode2AssignedDate,
+    this.paycode1AssignedDate,
     this.clinicid,
     this.clinincName,
     this.providerid,
@@ -50,6 +53,8 @@ class ProcessedPatientEntry {
     this.pcmProviderName,
     this.paycode99426 = false,
     this.paycode99427 = false,
+    this.paycode99426AssignedDate,
+    this.paycode99427AssignedDate,
     this.pcmRemarks,
     this.timestamp,
     this.currentTime,
@@ -92,6 +97,12 @@ class ProcessedPatientEntry {
 
   bool paycode12;
 
+  DateTime? paycode12AssignedDate;
+
+  DateTime? paycode2AssignedDate;
+
+  DateTime? paycode1AssignedDate;
+
   String? clinicid;
 
   String? clinincName;
@@ -130,6 +141,10 @@ class ProcessedPatientEntry {
 
   bool paycode99427;
 
+  DateTime? paycode99426AssignedDate;
+
+  DateTime? paycode99427AssignedDate;
+
   String? pcmRemarks;
 
   String? timestamp;
@@ -158,6 +173,9 @@ class ProcessedPatientEntry {
     other.paycode1 == paycode1 &&
     other.paycode2 == paycode2 &&
     other.paycode12 == paycode12 &&
+    other.paycode12AssignedDate == paycode12AssignedDate &&
+    other.paycode2AssignedDate == paycode2AssignedDate &&
+    other.paycode1AssignedDate == paycode1AssignedDate &&
     other.clinicid == clinicid &&
     other.clinincName == clinincName &&
     other.providerid == providerid &&
@@ -177,6 +195,8 @@ class ProcessedPatientEntry {
     other.pcmProviderName == pcmProviderName &&
     other.paycode99426 == paycode99426 &&
     other.paycode99427 == paycode99427 &&
+    other.paycode99426AssignedDate == paycode99426AssignedDate &&
+    other.paycode99427AssignedDate == paycode99427AssignedDate &&
     other.pcmRemarks == pcmRemarks &&
     other.timestamp == timestamp &&
     other.currentTime == currentTime &&
@@ -203,6 +223,9 @@ class ProcessedPatientEntry {
     (paycode1.hashCode) +
     (paycode2.hashCode) +
     (paycode12.hashCode) +
+    (paycode12AssignedDate == null ? 0 : paycode12AssignedDate!.hashCode) +
+    (paycode2AssignedDate == null ? 0 : paycode2AssignedDate!.hashCode) +
+    (paycode1AssignedDate == null ? 0 : paycode1AssignedDate!.hashCode) +
     (clinicid == null ? 0 : clinicid!.hashCode) +
     (clinincName == null ? 0 : clinincName!.hashCode) +
     (providerid == null ? 0 : providerid!.hashCode) +
@@ -222,13 +245,15 @@ class ProcessedPatientEntry {
     (pcmProviderName == null ? 0 : pcmProviderName!.hashCode) +
     (paycode99426.hashCode) +
     (paycode99427.hashCode) +
+    (paycode99426AssignedDate == null ? 0 : paycode99426AssignedDate!.hashCode) +
+    (paycode99427AssignedDate == null ? 0 : paycode99427AssignedDate!.hashCode) +
     (pcmRemarks == null ? 0 : pcmRemarks!.hashCode) +
     (timestamp == null ? 0 : timestamp!.hashCode) +
     (currentTime == null ? 0 : currentTime!.hashCode) +
     (id.hashCode);
 
   @override
-  String toString() => 'ProcessedPatientEntry[patientId=$patientId, patientName=$patientName, mrnNumber=$mrnNumber, year=$year, month=$month, day=$day, portal=$portal, finNumber=$finNumber, processedDate=$processedDate, empid=$empid, action=$action, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, remarks=$remarks, pcmfinNumber=$pcmfinNumber, pcmprocessedDate=$pcmprocessedDate, pcmEmpid=$pcmEmpid, pcmAction=$pcmAction, pcmHospitalRehabStatus=$pcmHospitalRehabStatus, pcmUnableToProcess=$pcmUnableToProcess, pcmCarePlanStatus=$pcmCarePlanStatus, pcmInCompleteCarePlanStatus=$pcmInCompleteCarePlanStatus, pcmClinicid=$pcmClinicid, pcmClinicName=$pcmClinicName, pcmProviderid=$pcmProviderid, pcmProviderName=$pcmProviderName, paycode99426=$paycode99426, paycode99427=$paycode99427, pcmRemarks=$pcmRemarks, timestamp=$timestamp, currentTime=$currentTime, id=$id]';
+  String toString() => 'ProcessedPatientEntry[patientId=$patientId, patientName=$patientName, mrnNumber=$mrnNumber, year=$year, month=$month, day=$day, portal=$portal, finNumber=$finNumber, processedDate=$processedDate, empid=$empid, action=$action, hospitalRehabStatus=$hospitalRehabStatus, unableToProcess=$unableToProcess, carePlanStatus=$carePlanStatus, inCompleteCarePlanStatus=$inCompleteCarePlanStatus, paycode1=$paycode1, paycode2=$paycode2, paycode12=$paycode12, paycode12AssignedDate=$paycode12AssignedDate, paycode2AssignedDate=$paycode2AssignedDate, paycode1AssignedDate=$paycode1AssignedDate, clinicid=$clinicid, clinincName=$clinincName, providerid=$providerid, providerName=$providerName, remarks=$remarks, pcmfinNumber=$pcmfinNumber, pcmprocessedDate=$pcmprocessedDate, pcmEmpid=$pcmEmpid, pcmAction=$pcmAction, pcmHospitalRehabStatus=$pcmHospitalRehabStatus, pcmUnableToProcess=$pcmUnableToProcess, pcmCarePlanStatus=$pcmCarePlanStatus, pcmInCompleteCarePlanStatus=$pcmInCompleteCarePlanStatus, pcmClinicid=$pcmClinicid, pcmClinicName=$pcmClinicName, pcmProviderid=$pcmProviderid, pcmProviderName=$pcmProviderName, paycode99426=$paycode99426, paycode99427=$paycode99427, paycode99426AssignedDate=$paycode99426AssignedDate, paycode99427AssignedDate=$paycode99427AssignedDate, pcmRemarks=$pcmRemarks, timestamp=$timestamp, currentTime=$currentTime, id=$id]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -294,6 +319,21 @@ class ProcessedPatientEntry {
       json[r'paycode1'] = this.paycode1;
       json[r'paycode2'] = this.paycode2;
       json[r'paycode1_2'] = this.paycode12;
+    if (this.paycode12AssignedDate != null) {
+      json[r'paycode1_2_assigned_date'] = this.paycode12AssignedDate!.toUtc().toIso8601String();
+    } else {
+      json[r'paycode1_2_assigned_date'] = null;
+    }
+    if (this.paycode2AssignedDate != null) {
+      json[r'paycode2_assigned_date'] = this.paycode2AssignedDate!.toUtc().toIso8601String();
+    } else {
+      json[r'paycode2_assigned_date'] = null;
+    }
+    if (this.paycode1AssignedDate != null) {
+      json[r'paycode1_assigned_date'] = this.paycode1AssignedDate!.toUtc().toIso8601String();
+    } else {
+      json[r'paycode1_assigned_date'] = null;
+    }
     if (this.clinicid != null) {
       json[r'clinicid'] = this.clinicid;
     } else {
@@ -369,6 +409,16 @@ class ProcessedPatientEntry {
     }
       json[r'paycode99426'] = this.paycode99426;
       json[r'paycode99427'] = this.paycode99427;
+    if (this.paycode99426AssignedDate != null) {
+      json[r'paycode99426_assigned_date'] = this.paycode99426AssignedDate!.toUtc().toIso8601String();
+    } else {
+      json[r'paycode99426_assigned_date'] = null;
+    }
+    if (this.paycode99427AssignedDate != null) {
+      json[r'paycode99427_assigned_date'] = this.paycode99427AssignedDate!.toUtc().toIso8601String();
+    } else {
+      json[r'paycode99427_assigned_date'] = null;
+    }
     if (this.pcmRemarks != null) {
       json[r'pcmRemarks'] = this.pcmRemarks;
     } else {
@@ -425,6 +475,9 @@ class ProcessedPatientEntry {
         paycode1: mapValueOfType<bool>(json, r'paycode1') ?? false,
         paycode2: mapValueOfType<bool>(json, r'paycode2') ?? false,
         paycode12: mapValueOfType<bool>(json, r'paycode1_2') ?? false,
+        paycode12AssignedDate: mapDateTime(json, r'paycode1_2_assigned_date', r''),
+        paycode2AssignedDate: mapDateTime(json, r'paycode2_assigned_date', r''),
+        paycode1AssignedDate: mapDateTime(json, r'paycode1_assigned_date', r''),
         clinicid: mapValueOfType<String>(json, r'clinicid'),
         clinincName: mapValueOfType<String>(json, r'clinincName'),
         providerid: mapValueOfType<String>(json, r'providerid'),
@@ -444,6 +497,8 @@ class ProcessedPatientEntry {
         pcmProviderName: mapValueOfType<String>(json, r'pcmProviderName'),
         paycode99426: mapValueOfType<bool>(json, r'paycode99426') ?? false,
         paycode99427: mapValueOfType<bool>(json, r'paycode99427') ?? false,
+        paycode99426AssignedDate: mapDateTime(json, r'paycode99426_assigned_date', r''),
+        paycode99427AssignedDate: mapDateTime(json, r'paycode99427_assigned_date', r''),
         pcmRemarks: mapValueOfType<String>(json, r'pcmRemarks'),
         timestamp: mapValueOfType<String>(json, r'timestamp'),
         currentTime: mapValueOfType<String>(json, r'currentTime'),
