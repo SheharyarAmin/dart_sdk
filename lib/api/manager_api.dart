@@ -18,6 +18,8 @@ class ManagerApi {
 
   /// Get Manager Dashboard For Monthyear
   ///
+  /// Get manager dashboard stats for specified month/year and portal.  Args:     year: Year to get stats for     month: Month to get stats for (1-12)     portal: Optional portal filter (CCM, PCM, or ALL)     user: Current authenticated manager      Returns:     ManagerResponse with filtered stats based on portal access      Raises:     HTTPException: If user doesn't have access to requested portal
+  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -25,7 +27,10 @@ class ManagerApi {
   /// * [int] year (required):
   ///
   /// * [int] month (required):
-  Future<Response> getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGetWithHttpInfo(int year, int month,) async {
+  ///
+  /// * [Portal] portal:
+  ///   Portal to filter data (CCM, or PCM). Defaults to user's portal if not specified.
+  Future<Response> getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGetWithHttpInfo(int year, int month, { Portal? portal, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/manager/dashboard/{year}/{month}'
       .replaceAll('{year}', year.toString())
@@ -37,6 +42,10 @@ class ManagerApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (portal != null) {
+      queryParams.addAll(_queryParams('', 'portal', portal));
+    }
 
     const contentTypes = <String>[];
 
@@ -54,13 +63,18 @@ class ManagerApi {
 
   /// Get Manager Dashboard For Monthyear
   ///
+  /// Get manager dashboard stats for specified month/year and portal.  Args:     year: Year to get stats for     month: Month to get stats for (1-12)     portal: Optional portal filter (CCM, PCM, or ALL)     user: Current authenticated manager      Returns:     ManagerResponse with filtered stats based on portal access      Raises:     HTTPException: If user doesn't have access to requested portal
+  ///
   /// Parameters:
   ///
   /// * [int] year (required):
   ///
   /// * [int] month (required):
-  Future<ManagerResponse?> getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet(int year, int month,) async {
-    final response = await getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGetWithHttpInfo(year, month,);
+  ///
+  /// * [Portal] portal:
+  ///   Portal to filter data (CCM, or PCM). Defaults to user's portal if not specified.
+  Future<ManagerResponse?> getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet(int year, int month, { Portal? portal, }) async {
+    final response = await getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGetWithHttpInfo(year, month,  portal: portal, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
