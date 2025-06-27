@@ -17,6 +17,7 @@ class EmployeeByProcessedPatients {
     required this.processedPatients,
     required this.assignedPatients,
     required this.unprocessedPatients,
+    required this.unableToProcess,
     required this.daysNeeded,
   });
 
@@ -28,6 +29,8 @@ class EmployeeByProcessedPatients {
 
   int unprocessedPatients;
 
+  int unableToProcess;
+
   int daysNeeded;
 
   @override
@@ -36,6 +39,7 @@ class EmployeeByProcessedPatients {
     other.processedPatients == processedPatients &&
     other.assignedPatients == assignedPatients &&
     other.unprocessedPatients == unprocessedPatients &&
+    other.unableToProcess == unableToProcess &&
     other.daysNeeded == daysNeeded;
 
   @override
@@ -45,10 +49,11 @@ class EmployeeByProcessedPatients {
     (processedPatients.hashCode) +
     (assignedPatients.hashCode) +
     (unprocessedPatients.hashCode) +
+    (unableToProcess.hashCode) +
     (daysNeeded.hashCode);
 
   @override
-  String toString() => 'EmployeeByProcessedPatients[employeeName=$employeeName, processedPatients=$processedPatients, assignedPatients=$assignedPatients, unprocessedPatients=$unprocessedPatients, daysNeeded=$daysNeeded]';
+  String toString() => 'EmployeeByProcessedPatients[employeeName=$employeeName, processedPatients=$processedPatients, assignedPatients=$assignedPatients, unprocessedPatients=$unprocessedPatients, unableToProcess=$unableToProcess, daysNeeded=$daysNeeded]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -56,6 +61,7 @@ class EmployeeByProcessedPatients {
       json[r'processedPatients'] = this.processedPatients;
       json[r'assignedPatients'] = this.assignedPatients;
       json[r'unprocessedPatients'] = this.unprocessedPatients;
+      json[r'unableToProcess'] = this.unableToProcess;
       json[r'daysNeeded'] = this.daysNeeded;
     return json;
   }
@@ -83,6 +89,7 @@ class EmployeeByProcessedPatients {
         processedPatients: mapValueOfType<int>(json, r'processedPatients')!,
         assignedPatients: mapValueOfType<int>(json, r'assignedPatients')!,
         unprocessedPatients: mapValueOfType<int>(json, r'unprocessedPatients')!,
+        unableToProcess: mapValueOfType<int>(json, r'unableToProcess')!,
         daysNeeded: mapValueOfType<int>(json, r'daysNeeded')!,
       );
     }
@@ -135,6 +142,7 @@ class EmployeeByProcessedPatients {
     'processedPatients',
     'assignedPatients',
     'unprocessedPatients',
+    'unableToProcess',
     'daysNeeded',
   };
 }

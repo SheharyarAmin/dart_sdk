@@ -45,6 +45,7 @@ part 'api/equipment_api.dart';
 part 'api/logs_api.dart';
 part 'api/manager_api.dart';
 part 'api/medications_api.dart';
+part 'api/mrn_migration_api.dart';
 part 'api/notifications_api.dart';
 part 'api/patients_api.dart';
 part 'api/payment_details_api.dart';

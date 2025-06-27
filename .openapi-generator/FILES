@@ -59,6 +59,7 @@ doc/MedicationCreate.md
 doc/MedicationRead.md
 doc/MedicationUpdate.md
 doc/MedicationsApi.md
+doc/MrnMigrationApi.md
 doc/Notification.md
 doc/NotificationsApi.md
 doc/OptInEmployeeLogEntry.md
@@ -118,6 +119,7 @@ lib/api/equipment_api.dart
 lib/api/logs_api.dart
 lib/api/manager_api.dart
 lib/api/medications_api.dart
+lib/api/mrn_migration_api.dart
 lib/api/notifications_api.dart
 lib/api/patients_api.dart
 lib/api/payment_details_api.dart
@@ -211,3 +213,4 @@ lib/model/token.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
 pubspec.yaml
+test/mrn_migration_api_test.dart

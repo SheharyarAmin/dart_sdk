@@ -17,6 +17,7 @@ class PatientCreate {
     required this.patientname,
     this.payername,
     this.secandarypayername,
+    this.mrn,
     this.address,
     this.dob,
     this.primaryphone,
@@ -34,6 +35,8 @@ class PatientCreate {
   String? payername;
 
   String? secandarypayername;
+
+  String? mrn;
 
   String? address;
 
@@ -57,6 +60,7 @@ class PatientCreate {
     other.patientname == patientname &&
     other.payername == payername &&
     other.secandarypayername == secandarypayername &&
+    other.mrn == mrn &&
     other.address == address &&
     other.dob == dob &&
     other.primaryphone == primaryphone &&
@@ -73,6 +77,7 @@ class PatientCreate {
     (patientname.hashCode) +
     (payername == null ? 0 : payername!.hashCode) +
     (secandarypayername == null ? 0 : secandarypayername!.hashCode) +
+    (mrn == null ? 0 : mrn!.hashCode) +
     (address == null ? 0 : address!.hashCode) +
     (dob == null ? 0 : dob!.hashCode) +
     (primaryphone == null ? 0 : primaryphone!.hashCode) +
@@ -83,7 +88,7 @@ class PatientCreate {
     (pcmDetail == null ? 0 : pcmDetail!.hashCode);
 
   @override
-  String toString() => 'PatientCreate[iv=$iv, patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
+  String toString() => 'PatientCreate[iv=$iv, patientname=$patientname, payername=$payername, secandarypayername=$secandarypayername, mrn=$mrn, address=$address, dob=$dob, primaryphone=$primaryphone, secondaryphone=$secondaryphone, deceased=$deceased, region=$region, ccmDetail=$ccmDetail, pcmDetail=$pcmDetail]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -102,6 +107,11 @@ class PatientCreate {
       json[r'secandarypayername'] = this.secandarypayername;
     } else {
       json[r'secandarypayername'] = null;
+    }
+    if (this.mrn != null) {
+      json[r'mrn'] = this.mrn;
+    } else {
+      json[r'mrn'] = null;
     }
     if (this.address != null) {
       json[r'address'] = this.address;
@@ -165,6 +175,7 @@ class PatientCreate {
         patientname: mapValueOfType<String>(json, r'patientname')!,
         payername: mapValueOfType<String>(json, r'payername'),
         secandarypayername: mapValueOfType<String>(json, r'secandarypayername'),
+        mrn: mapValueOfType<String>(json, r'mrn'),
         address: mapValueOfType<String>(json, r'address'),
         dob: mapDateTime(json, r'dob', r''),
         primaryphone: mapValueOfType<String>(json, r'primaryphone'),

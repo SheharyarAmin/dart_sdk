@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **totalProcessedPatients** | **int** |  | 
 **totalAssignedPatients** | **int** |  | 
 **totalUnprocessedPatients** | **int** |  | 
+**totalUnableToProcess** | **int** |  | 
 **onTrackToComplete** | **bool** |  | [optional] [default to false]
 **daysNeeded** | **int** |  | 
 **daysLeft** | **int** |  | 

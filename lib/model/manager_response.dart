@@ -20,6 +20,7 @@ class ManagerResponse {
     required this.totalProcessedPatients,
     required this.totalAssignedPatients,
     required this.totalUnprocessedPatients,
+    required this.totalUnableToProcess,
     this.onTrackToComplete = false,
     required this.daysNeeded,
     required this.daysLeft,
@@ -41,6 +42,8 @@ class ManagerResponse {
 
   int totalUnprocessedPatients;
 
+  int totalUnableToProcess;
+
   bool onTrackToComplete;
 
   int daysNeeded;
@@ -60,6 +63,7 @@ class ManagerResponse {
     other.totalProcessedPatients == totalProcessedPatients &&
     other.totalAssignedPatients == totalAssignedPatients &&
     other.totalUnprocessedPatients == totalUnprocessedPatients &&
+    other.totalUnableToProcess == totalUnableToProcess &&
     other.onTrackToComplete == onTrackToComplete &&
     other.daysNeeded == daysNeeded &&
     other.daysLeft == daysLeft &&
@@ -76,6 +80,7 @@ class ManagerResponse {
     (totalProcessedPatients.hashCode) +
     (totalAssignedPatients.hashCode) +
     (totalUnprocessedPatients.hashCode) +
+    (totalUnableToProcess.hashCode) +
     (onTrackToComplete.hashCode) +
     (daysNeeded.hashCode) +
     (daysLeft.hashCode) +
@@ -83,7 +88,7 @@ class ManagerResponse {
     (employeesByProcessedPatients.hashCode);
 
   @override
-  String toString() => 'ManagerResponse[name=$name, id=$id, greeting=$greeting, assignedEmployees=$assignedEmployees, totalProcessedPatients=$totalProcessedPatients, totalAssignedPatients=$totalAssignedPatients, totalUnprocessedPatients=$totalUnprocessedPatients, onTrackToComplete=$onTrackToComplete, daysNeeded=$daysNeeded, daysLeft=$daysLeft, overallAveragePatientsProcessed=$overallAveragePatientsProcessed, employeesByProcessedPatients=$employeesByProcessedPatients]';
+  String toString() => 'ManagerResponse[name=$name, id=$id, greeting=$greeting, assignedEmployees=$assignedEmployees, totalProcessedPatients=$totalProcessedPatients, totalAssignedPatients=$totalAssignedPatients, totalUnprocessedPatients=$totalUnprocessedPatients, totalUnableToProcess=$totalUnableToProcess, onTrackToComplete=$onTrackToComplete, daysNeeded=$daysNeeded, daysLeft=$daysLeft, overallAveragePatientsProcessed=$overallAveragePatientsProcessed, employeesByProcessedPatients=$employeesByProcessedPatients]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -94,6 +99,7 @@ class ManagerResponse {
       json[r'totalProcessedPatients'] = this.totalProcessedPatients;
       json[r'totalAssignedPatients'] = this.totalAssignedPatients;
       json[r'totalUnprocessedPatients'] = this.totalUnprocessedPatients;
+      json[r'totalUnableToProcess'] = this.totalUnableToProcess;
       json[r'onTrackToComplete'] = this.onTrackToComplete;
       json[r'daysNeeded'] = this.daysNeeded;
       json[r'daysLeft'] = this.daysLeft;
@@ -128,6 +134,7 @@ class ManagerResponse {
         totalProcessedPatients: mapValueOfType<int>(json, r'totalProcessedPatients')!,
         totalAssignedPatients: mapValueOfType<int>(json, r'totalAssignedPatients')!,
         totalUnprocessedPatients: mapValueOfType<int>(json, r'totalUnprocessedPatients')!,
+        totalUnableToProcess: mapValueOfType<int>(json, r'totalUnableToProcess')!,
         onTrackToComplete: mapValueOfType<bool>(json, r'onTrackToComplete') ?? false,
         daysNeeded: mapValueOfType<int>(json, r'daysNeeded')!,
         daysLeft: mapValueOfType<int>(json, r'daysLeft')!,
@@ -187,6 +194,7 @@ class ManagerResponse {
     'totalProcessedPatients',
     'totalAssignedPatients',
     'totalUnprocessedPatients',
+    'totalUnableToProcess',
     'daysNeeded',
     'daysLeft',
     'overall_average_patients_processed',

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **patientname** | **String** |  | 
 **payername** | **String** |  | [optional] 
 **secandarypayername** | **String** |  | [optional] 
+**mrn** | **String** |  | [optional] 
 **address** | **String** |  | [optional] 
 **dob** | [**DateTime**](DateTime.md) |  | [optional] 
 **primaryphone** | **String** |  | [optional] 
