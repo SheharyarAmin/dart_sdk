@@ -18,6 +18,7 @@ class PCMPatientRead {
     this.pcmproviderid,
     this.pcmemployeeid,
     this.pcmregempid,
+    this.homeEmployeeId,
     this.pcmfinnumber,
     this.pcmmrnnumber,
     this.lastprocessedpcm,
@@ -30,6 +31,7 @@ class PCMPatientRead {
     this.pcmprovidername,
     this.pcmemployeename,
     this.pcmregemployeename,
+    this.homeEmployeeName,
   });
 
   String? iv;
@@ -41,6 +43,8 @@ class PCMPatientRead {
   String? pcmemployeeid;
 
   String? pcmregempid;
+
+  String? homeEmployeeId;
 
   String? pcmfinnumber;
 
@@ -66,6 +70,8 @@ class PCMPatientRead {
 
   String? pcmregemployeename;
 
+  String? homeEmployeeName;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is PCMPatientRead &&
     other.iv == iv &&
@@ -73,6 +79,7 @@ class PCMPatientRead {
     other.pcmproviderid == pcmproviderid &&
     other.pcmemployeeid == pcmemployeeid &&
     other.pcmregempid == pcmregempid &&
+    other.homeEmployeeId == homeEmployeeId &&
     other.pcmfinnumber == pcmfinnumber &&
     other.pcmmrnnumber == pcmmrnnumber &&
     other.lastprocessedpcm == lastprocessedpcm &&
@@ -84,7 +91,8 @@ class PCMPatientRead {
     other.pcmclinicname == pcmclinicname &&
     other.pcmprovidername == pcmprovidername &&
     other.pcmemployeename == pcmemployeename &&
-    other.pcmregemployeename == pcmregemployeename;
+    other.pcmregemployeename == pcmregemployeename &&
+    other.homeEmployeeName == homeEmployeeName;
 
   @override
   int get hashCode =>
@@ -94,6 +102,7 @@ class PCMPatientRead {
     (pcmproviderid == null ? 0 : pcmproviderid!.hashCode) +
     (pcmemployeeid == null ? 0 : pcmemployeeid!.hashCode) +
     (pcmregempid == null ? 0 : pcmregempid!.hashCode) +
+    (homeEmployeeId == null ? 0 : homeEmployeeId!.hashCode) +
     (pcmfinnumber == null ? 0 : pcmfinnumber!.hashCode) +
     (pcmmrnnumber == null ? 0 : pcmmrnnumber!.hashCode) +
     (lastprocessedpcm == null ? 0 : lastprocessedpcm!.hashCode) +
@@ -105,10 +114,11 @@ class PCMPatientRead {
     (pcmclinicname == null ? 0 : pcmclinicname!.hashCode) +
     (pcmprovidername == null ? 0 : pcmprovidername!.hashCode) +
     (pcmemployeename == null ? 0 : pcmemployeename!.hashCode) +
-    (pcmregemployeename == null ? 0 : pcmregemployeename!.hashCode);
+    (pcmregemployeename == null ? 0 : pcmregemployeename!.hashCode) +
+    (homeEmployeeName == null ? 0 : homeEmployeeName!.hashCode);
 
   @override
-  String toString() => 'PCMPatientRead[iv=$iv, pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks, patientid=$patientid, pcmclinicname=$pcmclinicname, pcmprovidername=$pcmprovidername, pcmemployeename=$pcmemployeename, pcmregemployeename=$pcmregemployeename]';
+  String toString() => 'PCMPatientRead[iv=$iv, pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, homeEmployeeId=$homeEmployeeId, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks, patientid=$patientid, pcmclinicname=$pcmclinicname, pcmprovidername=$pcmprovidername, pcmemployeename=$pcmemployeename, pcmregemployeename=$pcmregemployeename, homeEmployeeName=$homeEmployeeName]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -136,6 +146,11 @@ class PCMPatientRead {
       json[r'pcmregempid'] = this.pcmregempid;
     } else {
       json[r'pcmregempid'] = null;
+    }
+    if (this.homeEmployeeId != null) {
+      json[r'home_employee_id'] = this.homeEmployeeId;
+    } else {
+      json[r'home_employee_id'] = null;
     }
     if (this.pcmfinnumber != null) {
       json[r'pcmfinnumber'] = this.pcmfinnumber;
@@ -193,6 +208,11 @@ class PCMPatientRead {
     } else {
       json[r'pcmregemployeename'] = null;
     }
+    if (this.homeEmployeeName != null) {
+      json[r'home_employee_name'] = this.homeEmployeeName;
+    } else {
+      json[r'home_employee_name'] = null;
+    }
     return json;
   }
 
@@ -220,6 +240,7 @@ class PCMPatientRead {
         pcmproviderid: mapValueOfType<String>(json, r'pcmproviderid'),
         pcmemployeeid: mapValueOfType<String>(json, r'pcmemployeeid'),
         pcmregempid: mapValueOfType<String>(json, r'pcmregempid'),
+        homeEmployeeId: mapValueOfType<String>(json, r'home_employee_id'),
         pcmfinnumber: mapValueOfType<String>(json, r'pcmfinnumber'),
         pcmmrnnumber: mapValueOfType<String>(json, r'pcmmrnnumber'),
         lastprocessedpcm: mapDateTime(json, r'lastprocessedpcm', r''),
@@ -232,6 +253,7 @@ class PCMPatientRead {
         pcmprovidername: mapValueOfType<String>(json, r'pcmprovidername'),
         pcmemployeename: mapValueOfType<String>(json, r'pcmemployeename'),
         pcmregemployeename: mapValueOfType<String>(json, r'pcmregemployeename'),
+        homeEmployeeName: mapValueOfType<String>(json, r'home_employee_name'),
       );
     }
     return null;

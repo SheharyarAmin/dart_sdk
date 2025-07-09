@@ -350,6 +350,8 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'ActorType':
+          return ActorTypeTypeTransformer().decode(value);
         case 'AllergyCreate':
           return AllergyCreate.fromJson(value);
         case 'AllergyRead':
@@ -358,8 +360,14 @@ class ApiClient {
           return AllergyUpdate.fromJson(value);
         case 'AssignedPatientScreenResponse':
           return AssignedPatientScreenResponse.fromJson(value);
+        case 'AssignmentAction':
+          return AssignmentActionTypeTransformer().decode(value);
+        case 'AssignmentResponse':
+          return AssignmentResponse.fromJson(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
+        case 'BatchAssignmentRequest':
+          return BatchAssignmentRequest.fromJson(value);
         case 'CCMPatientCreate':
           return CCMPatientCreate.fromJson(value);
         case 'CCMPatientRead':
@@ -382,6 +390,8 @@ class ApiClient {
           return ClinicRead.fromJson(value);
         case 'ClinicUpdate':
           return ClinicUpdate.fromJson(value);
+        case 'ClinicUpdateRequest':
+          return ClinicUpdateRequest.fromJson(value);
         case 'ConsultantCreate':
           return ConsultantCreate.fromJson(value);
         case 'ConsultantProviderPayRate':
@@ -392,6 +402,8 @@ class ApiClient {
           return ConsultantRead.fromJson(value);
         case 'ConsultantUpdate':
           return ConsultantUpdate.fromJson(value);
+        case 'DailyCompletionRate':
+          return DailyCompletionRate.fromJson(value);
         case 'DiagnosisCreate':
           return DiagnosisCreate.fromJson(value);
         case 'DiagnosisRead':
@@ -406,14 +418,22 @@ class ApiClient {
           return DietUpdate.fromJson(value);
         case 'Employee':
           return Employee.fromJson(value);
+        case 'EmployeeAssignmentStats':
+          return EmployeeAssignmentStats.fromJson(value);
         case 'EmployeeByProcessedPatients':
           return EmployeeByProcessedPatients.fromJson(value);
+        case 'EmployeeCreate':
+          return EmployeeCreate.fromJson(value);
+        case 'EmployeePerformanceAnalytics':
+          return EmployeePerformanceAnalytics.fromJson(value);
         case 'EmployeeCreate':
           return EmployeeCreate.fromJson(value);
         case 'EmployeeRead':
           return EmployeeRead.fromJson(value);
         case 'EmployeeUpdate':
           return EmployeeUpdate.fromJson(value);
+        case 'EmployeeWithTempAssignments':
+          return EmployeeWithTempAssignments.fromJson(value);
         case 'EquipmentCreate':
           return EquipmentCreate.fromJson(value);
         case 'EquipmentRead':
@@ -426,6 +446,8 @@ class ApiClient {
           return InvoicesResponse.fromJson(value);
         case 'Log':
           return Log.fromJson(value);
+        case 'ManagerAnalyticsResponse':
+          return ManagerAnalyticsResponse.fromJson(value);
         case 'ManagerResponse':
           return ManagerResponse.fromJson(value);
         case 'MedicationCreate':
@@ -450,6 +472,10 @@ class ApiClient {
           return PaginationMetadata.fromJson(value);
         case 'Patient':
           return Patient.fromJson(value);
+        case 'PatientAssignmentHistoryResponse':
+          return PatientAssignmentHistoryResponse.fromJson(value);
+        case 'PatientAssignmentOutboxRead':
+          return PatientAssignmentOutboxRead.fromJson(value);
         case 'PatientCreate':
           return PatientCreate.fromJson(value);
         case 'PatientIDsList':
@@ -466,8 +492,12 @@ class ApiClient {
           return PaymentDetail.fromJson(value);
         case 'PaymentsResponse':
           return PaymentsResponse.fromJson(value);
+        case 'PerformanceInsight':
+          return PerformanceInsight.fromJson(value);
         case 'Portal':
           return PortalTypeTransformer().decode(value);
+        case 'PredictiveAnalytics':
+          return PredictiveAnalytics.fromJson(value);
         case 'ProcessedPatientEntry':
           return ProcessedPatientEntry.fromJson(value);
         case 'ProcessedPatientEntryForFrontEnd':
@@ -482,12 +512,20 @@ class ApiClient {
           return ProviderRead.fromJson(value);
         case 'ProviderUpdate':
           return ProviderUpdate.fromJson(value);
+        case 'ProviderUpdateRequest':
+          return ProviderUpdateRequest.fromJson(value);
         case 'PsychosocialStressorCreate':
           return PsychosocialStressorCreate.fromJson(value);
         case 'PsychosocialStressorRead':
           return PsychosocialStressorRead.fromJson(value);
         case 'PsychosocialStressorUpdate':
           return PsychosocialStressorUpdate.fromJson(value);
+        case 'RevertAssignmentsRequest':
+          return RevertAssignmentsRequest.fromJson(value);
+        case 'RevertAssignmentsResponse':
+          return RevertAssignmentsResponse.fromJson(value);
+        case 'TeamAnalytics':
+          return TeamAnalytics.fromJson(value);
         case 'TempAssignment':
           return TempAssignment.fromJson(value);
         case 'TempAssignmentCreate':
@@ -500,6 +538,8 @@ class ApiClient {
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':
           return ValidationErrorLocInner.fromJson(value);
+        case 'WeeklyPattern':
+          return WeeklyPattern.fromJson(value);
         default:
           dynamic match;
           if (value is List &&

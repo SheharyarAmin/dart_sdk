@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **providerid** | **String** |  | [optional] 
 **employeeid** | **String** |  | [optional] 
 **regempid** | **String** |  | [optional] 
+**homeEmployeeId** | **String** |  | [optional] 
 **finnumber** | **String** |  | [optional] 
 **mrnnumber** | **String** |  | [optional] 
 **lastprocessed** | [**DateTime**](DateTime.md) |  | [optional] 

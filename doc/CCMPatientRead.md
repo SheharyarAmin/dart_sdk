@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **providerid** | **String** |  | [optional] 
 **employeeid** | **String** |  | [optional] 
 **regempid** | **String** |  | [optional] 
+**homeEmployeeId** | **String** |  | [optional] 
 **finnumber** | **String** |  | [optional] 
 **mrnnumber** | **String** |  | [optional] 
 **lastprocessed** | [**DateTime**](DateTime.md) |  | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **providername** | **String** |  | [optional] 
 **employeename** | **String** |  | [optional] 
 **regemployeename** | **String** |  | [optional] 
+**homeEmployeeName** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

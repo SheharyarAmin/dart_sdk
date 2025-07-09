@@ -18,6 +18,7 @@ class CCMPatientRead {
     this.providerid,
     this.employeeid,
     this.regempid,
+    this.homeEmployeeId,
     this.finnumber,
     this.mrnnumber,
     this.lastprocessed,
@@ -30,6 +31,7 @@ class CCMPatientRead {
     this.providername,
     this.employeename,
     this.regemployeename,
+    this.homeEmployeeName,
   });
 
   String? iv;
@@ -41,6 +43,8 @@ class CCMPatientRead {
   String? employeeid;
 
   String? regempid;
+
+  String? homeEmployeeId;
 
   String? finnumber;
 
@@ -66,6 +70,8 @@ class CCMPatientRead {
 
   String? regemployeename;
 
+  String? homeEmployeeName;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is CCMPatientRead &&
     other.iv == iv &&
@@ -73,6 +79,7 @@ class CCMPatientRead {
     other.providerid == providerid &&
     other.employeeid == employeeid &&
     other.regempid == regempid &&
+    other.homeEmployeeId == homeEmployeeId &&
     other.finnumber == finnumber &&
     other.mrnnumber == mrnnumber &&
     other.lastprocessed == lastprocessed &&
@@ -84,7 +91,8 @@ class CCMPatientRead {
     other.clinicname == clinicname &&
     other.providername == providername &&
     other.employeename == employeename &&
-    other.regemployeename == regemployeename;
+    other.regemployeename == regemployeename &&
+    other.homeEmployeeName == homeEmployeeName;
 
   @override
   int get hashCode =>
@@ -94,6 +102,7 @@ class CCMPatientRead {
     (providerid == null ? 0 : providerid!.hashCode) +
     (employeeid == null ? 0 : employeeid!.hashCode) +
     (regempid == null ? 0 : regempid!.hashCode) +
+    (homeEmployeeId == null ? 0 : homeEmployeeId!.hashCode) +
     (finnumber == null ? 0 : finnumber!.hashCode) +
     (mrnnumber == null ? 0 : mrnnumber!.hashCode) +
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
@@ -105,10 +114,11 @@ class CCMPatientRead {
     (clinicname == null ? 0 : clinicname!.hashCode) +
     (providername == null ? 0 : providername!.hashCode) +
     (employeename == null ? 0 : employeename!.hashCode) +
-    (regemployeename == null ? 0 : regemployeename!.hashCode);
+    (regemployeename == null ? 0 : regemployeename!.hashCode) +
+    (homeEmployeeName == null ? 0 : homeEmployeeName!.hashCode);
 
   @override
-  String toString() => 'CCMPatientRead[iv=$iv, clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientid=$patientid, clinicname=$clinicname, providername=$providername, employeename=$employeename, regemployeename=$regemployeename]';
+  String toString() => 'CCMPatientRead[iv=$iv, clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, homeEmployeeId=$homeEmployeeId, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientid=$patientid, clinicname=$clinicname, providername=$providername, employeename=$employeename, regemployeename=$regemployeename, homeEmployeeName=$homeEmployeeName]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -136,6 +146,11 @@ class CCMPatientRead {
       json[r'regempid'] = this.regempid;
     } else {
       json[r'regempid'] = null;
+    }
+    if (this.homeEmployeeId != null) {
+      json[r'home_employee_id'] = this.homeEmployeeId;
+    } else {
+      json[r'home_employee_id'] = null;
     }
     if (this.finnumber != null) {
       json[r'finnumber'] = this.finnumber;
@@ -193,6 +208,11 @@ class CCMPatientRead {
     } else {
       json[r'regemployeename'] = null;
     }
+    if (this.homeEmployeeName != null) {
+      json[r'home_employee_name'] = this.homeEmployeeName;
+    } else {
+      json[r'home_employee_name'] = null;
+    }
     return json;
   }
 
@@ -220,6 +240,7 @@ class CCMPatientRead {
         providerid: mapValueOfType<String>(json, r'providerid'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
         regempid: mapValueOfType<String>(json, r'regempid'),
+        homeEmployeeId: mapValueOfType<String>(json, r'home_employee_id'),
         finnumber: mapValueOfType<String>(json, r'finnumber'),
         mrnnumber: mapValueOfType<String>(json, r'mrnnumber'),
         lastprocessed: mapDateTime(json, r'lastprocessed', r''),
@@ -232,6 +253,7 @@ class CCMPatientRead {
         providername: mapValueOfType<String>(json, r'providername'),
         employeename: mapValueOfType<String>(json, r'employeename'),
         regemployeename: mapValueOfType<String>(json, r'regemployeename'),
+        homeEmployeeName: mapValueOfType<String>(json, r'home_employee_name'),
       );
     }
     return null;

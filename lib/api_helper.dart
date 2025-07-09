@@ -55,6 +55,12 @@ String parameterToString(dynamic value) {
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
+  if (value is ActorType) {
+    return ActorTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is AssignmentAction) {
+    return AssignmentActionTypeTransformer().encode(value).toString();
+  }
   if (value is Portal) {
     return PortalTypeTransformer().encode(value).toString();
   }

@@ -18,6 +18,7 @@ class PCMPatientCreate {
     this.pcmproviderid,
     this.pcmemployeeid,
     this.pcmregempid,
+    this.homeEmployeeId,
     this.pcmfinnumber,
     this.pcmmrnnumber,
     this.lastprocessedpcm,
@@ -36,6 +37,8 @@ class PCMPatientCreate {
   String? pcmemployeeid;
 
   String? pcmregempid;
+
+  String? homeEmployeeId;
 
   String? pcmfinnumber;
 
@@ -58,6 +61,7 @@ class PCMPatientCreate {
     other.pcmproviderid == pcmproviderid &&
     other.pcmemployeeid == pcmemployeeid &&
     other.pcmregempid == pcmregempid &&
+    other.homeEmployeeId == homeEmployeeId &&
     other.pcmfinnumber == pcmfinnumber &&
     other.pcmmrnnumber == pcmmrnnumber &&
     other.lastprocessedpcm == lastprocessedpcm &&
@@ -74,6 +78,7 @@ class PCMPatientCreate {
     (pcmproviderid == null ? 0 : pcmproviderid!.hashCode) +
     (pcmemployeeid == null ? 0 : pcmemployeeid!.hashCode) +
     (pcmregempid == null ? 0 : pcmregempid!.hashCode) +
+    (homeEmployeeId == null ? 0 : homeEmployeeId!.hashCode) +
     (pcmfinnumber == null ? 0 : pcmfinnumber!.hashCode) +
     (pcmmrnnumber == null ? 0 : pcmmrnnumber!.hashCode) +
     (lastprocessedpcm == null ? 0 : lastprocessedpcm!.hashCode) +
@@ -83,7 +88,7 @@ class PCMPatientCreate {
     (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'PCMPatientCreate[iv=$iv, pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'PCMPatientCreate[iv=$iv, pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, homeEmployeeId=$homeEmployeeId, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -111,6 +116,11 @@ class PCMPatientCreate {
       json[r'pcmregempid'] = this.pcmregempid;
     } else {
       json[r'pcmregempid'] = null;
+    }
+    if (this.homeEmployeeId != null) {
+      json[r'home_employee_id'] = this.homeEmployeeId;
+    } else {
+      json[r'home_employee_id'] = null;
     }
     if (this.pcmfinnumber != null) {
       json[r'pcmfinnumber'] = this.pcmfinnumber;
@@ -174,6 +184,7 @@ class PCMPatientCreate {
         pcmproviderid: mapValueOfType<String>(json, r'pcmproviderid'),
         pcmemployeeid: mapValueOfType<String>(json, r'pcmemployeeid'),
         pcmregempid: mapValueOfType<String>(json, r'pcmregempid'),
+        homeEmployeeId: mapValueOfType<String>(json, r'home_employee_id'),
         pcmfinnumber: mapValueOfType<String>(json, r'pcmfinnumber'),
         pcmmrnnumber: mapValueOfType<String>(json, r'pcmmrnnumber'),
         lastprocessedpcm: mapDateTime(json, r'lastprocessedpcm', r''),

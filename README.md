@@ -128,6 +128,7 @@ Class | Method | HTTP request | Description
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
 *LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
 *ManagerApi* | [**getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet**](doc//ManagerApi.md#getmanagerdashboardformonthyearapiv1managerdashboardyearmonthget) | **GET** /api/v1/manager/dashboard/{year}/{month} | Get Manager Dashboard For Monthyear
+*ManagerApi* | [**getManagerEnhancedAnalyticsApiV1ManagerAnalyticsYearMonthGet**](doc//ManagerApi.md#getmanagerenhancedanalyticsapiv1manageranalyticsyearmonthget) | **GET** /api/v1/manager/analytics/{year}/{month} | Get Manager Enhanced Analytics
 *MedicationsApi* | [**createMedicationApiV1MedicationsMedicationsPost**](doc//MedicationsApi.md#createmedicationapiv1medicationsmedicationspost) | **POST** /api/v1/medications/medications | Create a new medication
 *MedicationsApi* | [**getMedicationApiV1MedicationsMedicationsMedicationIdGet**](doc//MedicationsApi.md#getmedicationapiv1medicationsmedicationsmedicationidget) | **GET** /api/v1/medications/medications/{medication_id} | Get medication by ID
 *MedicationsApi* | [**getMedicationsApiV1MedicationsMedicationsGet**](doc//MedicationsApi.md#getmedicationsapiv1medicationsmedicationsget) | **GET** /api/v1/medications/medications | Get all medications
@@ -142,6 +143,16 @@ Class | Method | HTTP request | Description
 *NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
 *NotificationsApi* | [**markNotificationAsReadApiV1NotificationsReadEmployeeIdNotificationIdPut**](doc//NotificationsApi.md#marknotificationasreadapiv1notificationsreademployeeidnotificationidput) | **PUT** /api/v1/notifications/read/{employee_id}/{notification_id} | Mark Notification As Read
 *NotificationsApi* | [**readNotificationsByEmpidApiV1NotificationsEmployeeIdGet**](doc//NotificationsApi.md#readnotificationsbyempidapiv1notificationsemployeeidget) | **GET** /api/v1/notifications/{employee_id} | Read Notifications By Empid
+*PatientAssignmentsApi* | [**assignPatientsToEmployeeApiV1PatientAssignmentsEmployeesAssignPost**](doc//PatientAssignmentsApi.md#assignpatientstoemployeeapiv1patientassignmentsemployeesassignpost) | **POST** /api/v1/patient-assignments/employees/assign | Assign Patients To Employee
+*PatientAssignmentsApi* | [**getAssignmentHistoryByPatientApiV1PatientAssignmentsPatientsPatientIdHistoryPortalGet**](doc//PatientAssignmentsApi.md#getassignmenthistorybypatientapiv1patientassignmentspatientspatientidhistoryportalget) | **GET** /api/v1/patient-assignments/patients/{patient_id}/history/{portal} | Get Assignment History By Patient
+*PatientAssignmentsApi* | [**getEmployeeAssignmentStatsApiV1PatientAssignmentsEmployeesEmployeeIdAssignmentStatsGet**](doc//PatientAssignmentsApi.md#getemployeeassignmentstatsapiv1patientassignmentsemployeesemployeeidassignmentstatsget) | **GET** /api/v1/patient-assignments/employees/{employee_id}/assignment-stats | Get Employee Assignment Stats
+*PatientAssignmentsApi* | [**getEmployeeTempAssignmentsApiV1PatientAssignmentsEmployeesEmployeeIdTempAssignmentsGet**](doc//PatientAssignmentsApi.md#getemployeetempassignmentsapiv1patientassignmentsemployeesemployeeidtempassignmentsget) | **GET** /api/v1/patient-assignments/employees/{employee_id}/temp-assignments | Get Employee Temp Assignments
+*PatientAssignmentsApi* | [**getTempAssignmentDashboardApiV1PatientAssignmentsEmployeesTempAssignmentDashboardGet**](doc//PatientAssignmentsApi.md#gettempassignmentdashboardapiv1patientassignmentsemployeestempassignmentdashboardget) | **GET** /api/v1/patient-assignments/employees/temp-assignment-dashboard | Get Temp Assignment Dashboard
+*PatientAssignmentsApi* | [**getTempAssignmentsFromEmployeeApiV1PatientAssignmentsEmployeesEmployeeIdTempAssignmentsFromGet**](doc//PatientAssignmentsApi.md#gettempassignmentsfromemployeeapiv1patientassignmentsemployeesemployeeidtempassignmentsfromget) | **GET** /api/v1/patient-assignments/employees/{employee_id}/temp-assignments-from | Get Temp Assignments From Employee
+*PatientAssignmentsApi* | [**getTempAssignmentsToEmployeeApiV1PatientAssignmentsEmployeesEmployeeIdTempAssignmentsToGet**](doc//PatientAssignmentsApi.md#gettempassignmentstoemployeeapiv1patientassignmentsemployeesemployeeidtempassignmentstoget) | **GET** /api/v1/patient-assignments/employees/{employee_id}/temp-assignments-to | Get Temp Assignments To Employee
+*PatientAssignmentsApi* | [**revertAllTempAssignmentsToOriginalApiV1PatientAssignmentsEmployeesEmployeeIdRevertTempAssignmentsPost**](doc//PatientAssignmentsApi.md#revertalltempassignmentstooriginalapiv1patientassignmentsemployeesemployeeidreverttempassignmentspost) | **POST** /api/v1/patient-assignments/employees/{employee_id}/revert-temp-assignments | Revert All Temp Assignments To Original
+*PatientAssignmentsApi* | [**updatePatientClinicsApiV1PatientAssignmentsClinicsUpdatePost**](doc//PatientAssignmentsApi.md#updatepatientclinicsapiv1patientassignmentsclinicsupdatepost) | **POST** /api/v1/patient-assignments/clinics/update | Update Patient Clinics
+*PatientAssignmentsApi* | [**updatePatientProvidersApiV1PatientAssignmentsProvidersUpdatePost**](doc//PatientAssignmentsApi.md#updatepatientprovidersapiv1patientassignmentsprovidersupdatepost) | **POST** /api/v1/patient-assignments/providers/update | Update Patient Providers
 *PatientsApi* | [**createPatientApiV1PatientsPost**](doc//PatientsApi.md#createpatientapiv1patientspost) | **POST** /api/v1/patients/ | Create Patient
 *PatientsApi* | [**deletePatientApiV1PatientsPatientIdDelete**](doc//PatientsApi.md#deletepatientapiv1patientspatientiddelete) | **DELETE** /api/v1/patients/{patient_id} | Delete Patient
 *PatientsApi* | [**generateReportApiV1PatientsGenerateExcelsheetGet**](doc//PatientsApi.md#generatereportapiv1patientsgenerateexcelsheetget) | **GET** /api/v1/patients/generate-excelsheet | Generate Report
@@ -179,11 +190,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ActorType](doc//ActorType.md)
  - [AllergyCreate](doc//AllergyCreate.md)
  - [AllergyRead](doc//AllergyRead.md)
  - [AllergyUpdate](doc//AllergyUpdate.md)
  - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
+ - [AssignmentAction](doc//AssignmentAction.md)
+ - [AssignmentResponse](doc//AssignmentResponse.md)
  - [AuthenticationToken](doc//AuthenticationToken.md)
+ - [BatchAssignmentRequest](doc//BatchAssignmentRequest.md)
  - [CCMPatientCreate](doc//CCMPatientCreate.md)
  - [CCMPatientRead](doc//CCMPatientRead.md)
  - [CCMPatientUpdate](doc//CCMPatientUpdate.md)
@@ -195,11 +210,13 @@ Class | Method | HTTP request | Description
  - [ClinicInvoice](doc//ClinicInvoice.md)
  - [ClinicRead](doc//ClinicRead.md)
  - [ClinicUpdate](doc//ClinicUpdate.md)
+ - [ClinicUpdateRequest](doc//ClinicUpdateRequest.md)
  - [ConsultantCreate](doc//ConsultantCreate.md)
  - [ConsultantProviderPayRate](doc//ConsultantProviderPayRate.md)
  - [ConsultantProviderPayRateRead](doc//ConsultantProviderPayRateRead.md)
  - [ConsultantRead](doc//ConsultantRead.md)
  - [ConsultantUpdate](doc//ConsultantUpdate.md)
+ - [DailyCompletionRate](doc//DailyCompletionRate.md)
  - [DiagnosisCreate](doc//DiagnosisCreate.md)
  - [DiagnosisRead](doc//DiagnosisRead.md)
  - [DiagnosisUpdate](doc//DiagnosisUpdate.md)
@@ -207,16 +224,20 @@ Class | Method | HTTP request | Description
  - [DietRead](doc//DietRead.md)
  - [DietUpdate](doc//DietUpdate.md)
  - [Employee](doc//Employee.md)
+ - [EmployeeAssignmentStats](doc//EmployeeAssignmentStats.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)
+ - [EmployeePerformanceAnalytics](doc//EmployeePerformanceAnalytics.md)
  - [EmployeeRead](doc//EmployeeRead.md)
  - [EmployeeUpdate](doc//EmployeeUpdate.md)
+ - [EmployeeWithTempAssignments](doc//EmployeeWithTempAssignments.md)
  - [EquipmentCreate](doc//EquipmentCreate.md)
  - [EquipmentRead](doc//EquipmentRead.md)
  - [EquipmentUpdate](doc//EquipmentUpdate.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [InvoicesResponse](doc//InvoicesResponse.md)
  - [Log](doc//Log.md)
+ - [ManagerAnalyticsResponse](doc//ManagerAnalyticsResponse.md)
  - [ManagerResponse](doc//ManagerResponse.md)
  - [MedicationCreate](doc//MedicationCreate.md)
  - [MedicationRead](doc//MedicationRead.md)
@@ -229,6 +250,8 @@ Class | Method | HTTP request | Description
  - [PCMPatientUpdate](doc//PCMPatientUpdate.md)
  - [PaginationMetadata](doc//PaginationMetadata.md)
  - [Patient](doc//Patient.md)
+ - [PatientAssignmentHistoryResponse](doc//PatientAssignmentHistoryResponse.md)
+ - [PatientAssignmentOutboxRead](doc//PatientAssignmentOutboxRead.md)
  - [PatientCreate](doc//PatientCreate.md)
  - [PatientIDsList](doc//PatientIDsList.md)
  - [PatientPaymentEntry](doc//PatientPaymentEntry.md)
@@ -237,7 +260,9 @@ Class | Method | HTTP request | Description
  - [PatientsResponse](doc//PatientsResponse.md)
  - [PaymentDetail](doc//PaymentDetail.md)
  - [PaymentsResponse](doc//PaymentsResponse.md)
+ - [PerformanceInsight](doc//PerformanceInsight.md)
  - [Portal](doc//Portal.md)
+ - [PredictiveAnalytics](doc//PredictiveAnalytics.md)
  - [ProcessedPatientEntry](doc//ProcessedPatientEntry.md)
  - [ProcessedPatientEntryForFrontEnd](doc//ProcessedPatientEntryForFrontEnd.md)
  - [ProcessedPatientEntryFromFrontEnd](doc//ProcessedPatientEntryFromFrontEnd.md)
@@ -245,15 +270,20 @@ Class | Method | HTTP request | Description
  - [ProviderPayRate](doc//ProviderPayRate.md)
  - [ProviderRead](doc//ProviderRead.md)
  - [ProviderUpdate](doc//ProviderUpdate.md)
+ - [ProviderUpdateRequest](doc//ProviderUpdateRequest.md)
  - [PsychosocialStressorCreate](doc//PsychosocialStressorCreate.md)
  - [PsychosocialStressorRead](doc//PsychosocialStressorRead.md)
  - [PsychosocialStressorUpdate](doc//PsychosocialStressorUpdate.md)
+ - [RevertAssignmentsRequest](doc//RevertAssignmentsRequest.md)
+ - [RevertAssignmentsResponse](doc//RevertAssignmentsResponse.md)
+ - [TeamAnalytics](doc//TeamAnalytics.md)
  - [TempAssignment](doc//TempAssignment.md)
  - [TempAssignmentCreate](doc//TempAssignmentCreate.md)
  - [TempAssignmentEmpLists](doc//TempAssignmentEmpLists.md)
  - [Token](doc//Token.md)
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)
+ - [WeeklyPattern](doc//WeeklyPattern.md)
 
 
 ## Documentation For Authorization

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **pcmproviderid** | **String** |  | [optional] 
 **pcmemployeeid** | **String** |  | [optional] 
 **pcmregempid** | **String** |  | [optional] 
+**homeEmployeeId** | **String** |  | [optional] 
 **pcmfinnumber** | **String** |  | [optional] 
 **pcmmrnnumber** | **String** |  | [optional] 
 **lastprocessedpcm** | [**DateTime**](DateTime.md) |  | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **pcmprovidername** | **String** |  | [optional] 
 **pcmemployeename** | **String** |  | [optional] 
 **pcmregemployeename** | **String** |  | [optional] 
+**homeEmployeeName** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,6 +17,7 @@ class CCMPatientUpdate {
     this.providerid,
     this.employeeid,
     this.regempid,
+    this.homeEmployeeId,
     this.finnumber,
     this.mrnnumber,
     this.lastprocessed,
@@ -33,6 +34,8 @@ class CCMPatientUpdate {
   String? employeeid;
 
   String? regempid;
+
+  String? homeEmployeeId;
 
   String? finnumber;
 
@@ -54,6 +57,7 @@ class CCMPatientUpdate {
     other.providerid == providerid &&
     other.employeeid == employeeid &&
     other.regempid == regempid &&
+    other.homeEmployeeId == homeEmployeeId &&
     other.finnumber == finnumber &&
     other.mrnnumber == mrnnumber &&
     other.lastprocessed == lastprocessed &&
@@ -69,6 +73,7 @@ class CCMPatientUpdate {
     (providerid == null ? 0 : providerid!.hashCode) +
     (employeeid == null ? 0 : employeeid!.hashCode) +
     (regempid == null ? 0 : regempid!.hashCode) +
+    (homeEmployeeId == null ? 0 : homeEmployeeId!.hashCode) +
     (finnumber == null ? 0 : finnumber!.hashCode) +
     (mrnnumber == null ? 0 : mrnnumber!.hashCode) +
     (lastprocessed == null ? 0 : lastprocessed!.hashCode) +
@@ -78,7 +83,7 @@ class CCMPatientUpdate {
     (optoutremarks == null ? 0 : optoutremarks!.hashCode);
 
   @override
-  String toString() => 'CCMPatientUpdate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'CCMPatientUpdate[clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, homeEmployeeId=$homeEmployeeId, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -101,6 +106,11 @@ class CCMPatientUpdate {
       json[r'regempid'] = this.regempid;
     } else {
       json[r'regempid'] = null;
+    }
+    if (this.homeEmployeeId != null) {
+      json[r'home_employee_id'] = this.homeEmployeeId;
+    } else {
+      json[r'home_employee_id'] = null;
     }
     if (this.finnumber != null) {
       json[r'finnumber'] = this.finnumber;
@@ -163,6 +173,7 @@ class CCMPatientUpdate {
         providerid: mapValueOfType<String>(json, r'providerid'),
         employeeid: mapValueOfType<String>(json, r'employeeid'),
         regempid: mapValueOfType<String>(json, r'regempid'),
+        homeEmployeeId: mapValueOfType<String>(json, r'home_employee_id'),
         finnumber: mapValueOfType<String>(json, r'finnumber'),
         mrnnumber: mapValueOfType<String>(json, r'mrnnumber'),
         lastprocessed: mapDateTime(json, r'lastprocessed', r''),

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **pcmproviderid** | **String** |  | [optional] 
 **pcmemployeeid** | **String** |  | [optional] 
 **pcmregempid** | **String** |  | [optional] 
+**homeEmployeeId** | **String** |  | [optional] 
 **pcmfinnumber** | **String** |  | [optional] 
 **pcmmrnnumber** | **String** |  | [optional] 
 **lastprocessedpcm** | [**DateTime**](DateTime.md) |  | [optional] 
