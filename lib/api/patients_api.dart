@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-
 class PatientsApi {
-  PatientsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  PatientsApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -23,7 +23,9 @@ class PatientsApi {
   /// Parameters:
   ///
   /// * [PatientCreate] patientCreate (required):
-  Future<Response> createPatientApiV1PatientsPostWithHttpInfo(PatientCreate patientCreate,) async {
+  Future<Response> createPatientApiV1PatientsPostWithHttpInfo(
+    PatientCreate patientCreate,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/';
 
@@ -35,7 +37,6 @@ class PatientsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -53,17 +54,24 @@ class PatientsApi {
   /// Parameters:
   ///
   /// * [PatientCreate] patientCreate (required):
-  Future<Patient?> createPatientApiV1PatientsPost(PatientCreate patientCreate,) async {
-    final response = await createPatientApiV1PatientsPostWithHttpInfo(patientCreate,);
+  Future<Patient?> createPatientApiV1PatientsPost(
+    PatientCreate patientCreate,
+  ) async {
+    final response = await createPatientApiV1PatientsPostWithHttpInfo(
+      patientCreate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Patient',) as Patient;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Patient',
+      ) as Patient;
     }
     return null;
   }
@@ -75,10 +83,12 @@ class PatientsApi {
   /// Parameters:
   ///
   /// * [String] patientId (required):
-  Future<Response> deletePatientApiV1PatientsPatientIdDeleteWithHttpInfo(String patientId,) async {
+  Future<Response> deletePatientApiV1PatientsPatientIdDeleteWithHttpInfo(
+    String patientId,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/patients/{patient_id}'
-      .replaceAll('{patient_id}', patientId);
+    final path =
+        r'/api/v1/patients/{patient_id}'.replaceAll('{patient_id}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -88,7 +98,6 @@ class PatientsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -106,17 +115,25 @@ class PatientsApi {
   /// Parameters:
   ///
   /// * [String] patientId (required):
-  Future<Patient?> deletePatientApiV1PatientsPatientIdDelete(String patientId,) async {
-    final response = await deletePatientApiV1PatientsPatientIdDeleteWithHttpInfo(patientId,);
+  Future<Patient?> deletePatientApiV1PatientsPatientIdDelete(
+    String patientId,
+  ) async {
+    final response =
+        await deletePatientApiV1PatientsPatientIdDeleteWithHttpInfo(
+      patientId,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Patient',) as Patient;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Patient',
+      ) as Patient;
     }
     return null;
   }
@@ -124,7 +141,8 @@ class PatientsApi {
   /// Generate Report
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo() async {
+  Future<Response>
+      generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/generate-excelsheet';
 
@@ -136,7 +154,6 @@ class PatientsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -150,11 +167,13 @@ class PatientsApi {
   }
 
   /// Generate Report
-  Future<void> generateReportApiV1PatientsGenerateExcelsheetGet() async {
-    final response = await generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo();
+  Future<Uint8List> generateReportApiV1PatientsGenerateExcelsheetGet() async {
+    final response =
+        await generateReportApiV1PatientsGenerateExcelsheetGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    return response.bodyBytes;
   }
 
   /// Read Patient
@@ -168,10 +187,14 @@ class PatientsApi {
   /// * [bool] includeCCM:
   ///
   /// * [bool] includePCM:
-  Future<Response> readPatientApiV1PatientsPatientIdGetWithHttpInfo(String patientId, { bool? includeCCM, bool? includePCM, }) async {
+  Future<Response> readPatientApiV1PatientsPatientIdGetWithHttpInfo(
+    String patientId, {
+    bool? includeCCM,
+    bool? includePCM,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/patients/{patient_id}'
-      .replaceAll('{patient_id}', patientId);
+    final path =
+        r'/api/v1/patients/{patient_id}'.replaceAll('{patient_id}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -189,7 +212,6 @@ class PatientsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -210,17 +232,28 @@ class PatientsApi {
   /// * [bool] includeCCM:
   ///
   /// * [bool] includePCM:
-  Future<Patient?> readPatientApiV1PatientsPatientIdGet(String patientId, { bool? includeCCM, bool? includePCM, }) async {
-    final response = await readPatientApiV1PatientsPatientIdGetWithHttpInfo(patientId,  includeCCM: includeCCM, includePCM: includePCM, );
+  Future<Patient?> readPatientApiV1PatientsPatientIdGet(
+    String patientId, {
+    bool? includeCCM,
+    bool? includePCM,
+  }) async {
+    final response = await readPatientApiV1PatientsPatientIdGetWithHttpInfo(
+      patientId,
+      includeCCM: includeCCM,
+      includePCM: includePCM,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Patient',) as Patient;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Patient',
+      ) as Patient;
     }
     return null;
   }
@@ -266,7 +299,26 @@ class PatientsApi {
   /// * [bool] refreshCurrentDataset:
   ///
   /// * [Portal] portal:
-  Future<Response> readPatientsApiV1PatientsGetWithHttpInfo({ String? patientName, String? clinicId, String? pcmClinicId, String? employeeId, String? pcmEmployeeId, String? providerId, String? pcmProviderId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, Portal? portal, }) async {
+  Future<Response> readPatientsApiV1PatientsGetWithHttpInfo({
+    String? patientName,
+    String? clinicId,
+    String? pcmClinicId,
+    String? employeeId,
+    String? pcmEmployeeId,
+    String? providerId,
+    String? pcmProviderId,
+    String? regemployeeid,
+    String? assignmentStatus,
+    String? processedStatus,
+    String? processingDate,
+    String? sortBy,
+    bool? ascending,
+    int? pageSize,
+    String? pageToken,
+    String? prevPageToken,
+    bool? refreshCurrentDataset,
+    Portal? portal,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/';
 
@@ -302,7 +354,8 @@ class PatientsApi {
       queryParams.addAll(_queryParams('', 'regemployeeid', regemployeeid));
     }
     if (assignmentStatus != null) {
-      queryParams.addAll(_queryParams('', 'assignmentStatus', assignmentStatus));
+      queryParams
+          .addAll(_queryParams('', 'assignmentStatus', assignmentStatus));
     }
     if (processedStatus != null) {
       queryParams.addAll(_queryParams('', 'processedStatus', processedStatus));
@@ -326,14 +379,14 @@ class PatientsApi {
       queryParams.addAll(_queryParams('', 'prevPageToken', prevPageToken));
     }
     if (refreshCurrentDataset != null) {
-      queryParams.addAll(_queryParams('', 'refreshCurrentDataset', refreshCurrentDataset));
+      queryParams.addAll(
+          _queryParams('', 'refreshCurrentDataset', refreshCurrentDataset));
     }
     if (portal != null) {
       queryParams.addAll(_queryParams('', 'portal', portal));
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -385,17 +438,58 @@ class PatientsApi {
   /// * [bool] refreshCurrentDataset:
   ///
   /// * [Portal] portal:
-  Future<PatientsResponse?> readPatientsApiV1PatientsGet({ String? patientName, String? clinicId, String? pcmClinicId, String? employeeId, String? pcmEmployeeId, String? providerId, String? pcmProviderId, String? regemployeeid, String? assignmentStatus, String? processedStatus, String? processingDate, String? sortBy, bool? ascending, int? pageSize, String? pageToken, String? prevPageToken, bool? refreshCurrentDataset, Portal? portal, }) async {
-    final response = await readPatientsApiV1PatientsGetWithHttpInfo( patientName: patientName, clinicId: clinicId, pcmClinicId: pcmClinicId, employeeId: employeeId, pcmEmployeeId: pcmEmployeeId, providerId: providerId, pcmProviderId: pcmProviderId, regemployeeid: regemployeeid, assignmentStatus: assignmentStatus, processedStatus: processedStatus, processingDate: processingDate, sortBy: sortBy, ascending: ascending, pageSize: pageSize, pageToken: pageToken, prevPageToken: prevPageToken, refreshCurrentDataset: refreshCurrentDataset, portal: portal, );
+  Future<PatientsResponse?> readPatientsApiV1PatientsGet({
+    String? patientName,
+    String? clinicId,
+    String? pcmClinicId,
+    String? employeeId,
+    String? pcmEmployeeId,
+    String? providerId,
+    String? pcmProviderId,
+    String? regemployeeid,
+    String? assignmentStatus,
+    String? processedStatus,
+    String? processingDate,
+    String? sortBy,
+    bool? ascending,
+    int? pageSize,
+    String? pageToken,
+    String? prevPageToken,
+    bool? refreshCurrentDataset,
+    Portal? portal,
+  }) async {
+    final response = await readPatientsApiV1PatientsGetWithHttpInfo(
+      patientName: patientName,
+      clinicId: clinicId,
+      pcmClinicId: pcmClinicId,
+      employeeId: employeeId,
+      pcmEmployeeId: pcmEmployeeId,
+      providerId: providerId,
+      pcmProviderId: pcmProviderId,
+      regemployeeid: regemployeeid,
+      assignmentStatus: assignmentStatus,
+      processedStatus: processedStatus,
+      processingDate: processingDate,
+      sortBy: sortBy,
+      ascending: ascending,
+      pageSize: pageSize,
+      pageToken: pageToken,
+      prevPageToken: prevPageToken,
+      refreshCurrentDataset: refreshCurrentDataset,
+      portal: portal,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PatientsResponse',) as PatientsResponse;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'PatientsResponse',
+      ) as PatientsResponse;
     }
     return null;
   }
@@ -409,10 +503,13 @@ class PatientsApi {
   /// * [String] patientId (required):
   ///
   /// * [PatientUpdate] patientUpdate (required):
-  Future<Response> updatePatientApiV1PatientsPatientIdPutWithHttpInfo(String patientId, PatientUpdate patientUpdate,) async {
+  Future<Response> updatePatientApiV1PatientsPatientIdPutWithHttpInfo(
+    String patientId,
+    PatientUpdate patientUpdate,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/api/v1/patients/{patient_id}'
-      .replaceAll('{patient_id}', patientId);
+    final path =
+        r'/api/v1/patients/{patient_id}'.replaceAll('{patient_id}', patientId);
 
     // ignore: prefer_final_locals
     Object? postBody = patientUpdate;
@@ -423,7 +520,6 @@ class PatientsApi {
 
     const contentTypes = <String>['application/json'];
 
-
     return apiClient.invokeAPI(
       path,
       'PUT',
@@ -442,17 +538,26 @@ class PatientsApi {
   /// * [String] patientId (required):
   ///
   /// * [PatientUpdate] patientUpdate (required):
-  Future<Patient?> updatePatientApiV1PatientsPatientIdPut(String patientId, PatientUpdate patientUpdate,) async {
-    final response = await updatePatientApiV1PatientsPatientIdPutWithHttpInfo(patientId, patientUpdate,);
+  Future<Patient?> updatePatientApiV1PatientsPatientIdPut(
+    String patientId,
+    PatientUpdate patientUpdate,
+  ) async {
+    final response = await updatePatientApiV1PatientsPatientIdPutWithHttpInfo(
+      patientId,
+      patientUpdate,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Patient',) as Patient;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Patient',
+      ) as Patient;
     }
     return null;
   }
@@ -468,11 +573,16 @@ class PatientsApi {
   /// * [Portal] portal (required):
   ///
   /// * [String] finNumber (required):
-  Future<Response> updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPutWithHttpInfo(String patientId, Portal portal, String finNumber,) async {
+  Future<Response>
+      updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPutWithHttpInfo(
+    String patientId,
+    Portal portal,
+    String finNumber,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/patients/update-fin/{patient_id}/{portal}'
-      .replaceAll('{patient_id}', patientId)
-      .replaceAll('{portal}', portal.toString());
+        .replaceAll('{patient_id}', patientId)
+        .replaceAll('{portal}', portal.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -481,10 +591,9 @@ class PatientsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_queryParams('', 'finNumber', finNumber));
+    queryParams.addAll(_queryParams('', 'finNumber', finNumber));
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -506,17 +615,30 @@ class PatientsApi {
   /// * [Portal] portal (required):
   ///
   /// * [String] finNumber (required):
-  Future<Patient?> updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut(String patientId, Portal portal, String finNumber,) async {
-    final response = await updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPutWithHttpInfo(patientId, portal, finNumber,);
+  Future<Patient?>
+      updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPut(
+    String patientId,
+    Portal portal,
+    String finNumber,
+  ) async {
+    final response =
+        await updatePatientFinancialsApiV1PatientsUpdateFinPatientIdPortalPutWithHttpInfo(
+      patientId,
+      portal,
+      finNumber,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Patient',) as Patient;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'Patient',
+      ) as Patient;
     }
     return null;
   }
