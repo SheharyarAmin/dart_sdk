@@ -61,6 +61,9 @@ String parameterToString(dynamic value) {
   if (value is AssignmentAction) {
     return AssignmentActionTypeTransformer().encode(value).toString();
   }
+  if (value is PerformanceCategory) {
+    return PerformanceCategoryTypeTransformer().encode(value).toString();
+  }
   if (value is Portal) {
     return PortalTypeTransformer().encode(value).toString();
   }

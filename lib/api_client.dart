@@ -352,6 +352,10 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'ActorType':
           return ActorTypeTypeTransformer().decode(value);
+        case 'AddEmployeeToIgnoreRequest':
+          return AddEmployeeToIgnoreRequest.fromJson(value);
+        case 'AddPatientToIgnoreRequest':
+          return AddPatientToIgnoreRequest.fromJson(value);
         case 'AllergyCreate':
           return AllergyCreate.fromJson(value);
         case 'AllergyRead':
@@ -562,6 +566,8 @@ class ApiClient {
           return PerformanceDistribution.fromJson(value);
         case 'PerformanceDistributionCounts':
           return PerformanceDistributionCounts.fromJson(value);
+        case 'PerformanceIgnoreListRead':
+          return PerformanceIgnoreListRead.fromJson(value);
         case 'PerformanceMetricsBreakdown':
           return PerformanceMetricsBreakdown.fromJson(value);
         case 'PerformanceSummaryResponse':
@@ -604,6 +610,8 @@ class ApiClient {
           return RecentScoreData.fromJson(value);
         case 'RegionalPerformance':
           return RegionalPerformance.fromJson(value);
+        case 'RemoveFromIgnoreRequest':
+          return RemoveFromIgnoreRequest.fromJson(value);
         case 'RevertAssignmentsRequest':
           return RevertAssignmentsRequest.fromJson(value);
         case 'RevertAssignmentsResponse':

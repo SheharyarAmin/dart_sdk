@@ -13,13 +13,13 @@ part of openapi.api;
 class PredictiveAnalytics {
   /// Returns a new [PredictiveAnalytics] instance.
   PredictiveAnalytics({
-    this.completionForecast = const {},
+    this.completionForecast = const [],
     this.estimatedCompletionDate,
     this.bottleneckDays = const [],
     this.resourceRecommendations = const [],
   });
 
-  Map<String, num> completionForecast;
+  List<CompletionForecast> completionForecast;
 
   DateTime? estimatedCompletionDate;
 
@@ -77,7 +77,7 @@ class PredictiveAnalytics {
       }());
 
       return PredictiveAnalytics(
-        completionForecast: mapCastOfType<String, num>(json, r'completion_forecast')!,
+        completionForecast: CompletionForecast.listFromJson(json[r'completion_forecast']),
         estimatedCompletionDate: mapDateTime(json, r'estimated_completion_date', r''),
         bottleneckDays: json[r'bottleneck_days'] is List
             ? (json[r'bottleneck_days'] as List).map((item) => mapDateTime(item, '', '')!).toList(growable: false)
