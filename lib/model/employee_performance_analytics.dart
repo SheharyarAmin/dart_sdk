@@ -37,7 +37,7 @@ class EmployeePerformanceAnalytics {
 
   num monthlyAverage;
 
-  List<PerformanceInsight> performanceInsights;
+  List<AppSchemasManagerAnalyticsPerformanceInsight> performanceInsights;
 
   num consistencyScore;
 
@@ -115,7 +115,7 @@ class EmployeePerformanceAnalytics {
         dailyCompletionRates: DailyCompletionRate.listFromJson(json[r'daily_completion_rates']),
         weeklyPatterns: WeeklyPattern.listFromJson(json[r'weekly_patterns']),
         monthlyAverage: num.parse('${json[r'monthly_average']}'),
-        performanceInsights: PerformanceInsight.listFromJson(json[r'performance_insights']),
+        performanceInsights: AppSchemasManagerAnalyticsPerformanceInsight.listFromJson(json[r'performance_insights']),
         consistencyScore: num.parse('${json[r'consistency_score']}'),
         rankAmongPeers: mapValueOfType<int>(json, r'rank_among_peers')!,
         percentileRank: num.parse('${json[r'percentile_rank']}'),

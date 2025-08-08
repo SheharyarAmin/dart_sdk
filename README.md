@@ -115,7 +115,9 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**changeDeletedStatusApiV1EmployeesEmployeeIdChangeDeletedStatusPut**](doc//EmployeesApi.md#changedeletedstatusapiv1employeesemployeeidchangedeletedstatusput) | **PUT** /api/v1/employees/{employee_id}/change-deleted-status | Change Deleted Status
 *EmployeesApi* | [**createEmployeeApiV1EmployeesPost**](doc//EmployeesApi.md#createemployeeapiv1employeespost) | **POST** /api/v1/employees/ | Create Employee
 *EmployeesApi* | [**deleteEmployeeApiV1EmployeesEmployeeIdDelete**](doc//EmployeesApi.md#deleteemployeeapiv1employeesemployeeiddelete) | **DELETE** /api/v1/employees/{employee_id} | Delete Employee
+*EmployeesApi* | [**getEmployeePerformanceDetailApiV1EmployeesEmployeeIdPerformanceGet**](doc//EmployeesApi.md#getemployeeperformancedetailapiv1employeesemployeeidperformanceget) | **GET** /api/v1/employees/{employee_id}/performance | Get Employee Performance Detail
 *EmployeesApi* | [**getEmployeeRoleApiV1EmployeesRoleEmailGet**](doc//EmployeesApi.md#getemployeeroleapiv1employeesroleemailget) | **GET** /api/v1/employees/role/{email} | Get Employee Role
+*EmployeesApi* | [**getEmployeesWithPerformanceApiV1EmployeesWithPerformanceGet**](doc//EmployeesApi.md#getemployeeswithperformanceapiv1employeeswithperformanceget) | **GET** /api/v1/employees/with-performance | Get Employees With Performance
 *EmployeesApi* | [**readEmployeeApiV1EmployeesEmployeeIdGet**](doc//EmployeesApi.md#reademployeeapiv1employeesemployeeidget) | **GET** /api/v1/employees/{employee_id} | Read Employee
 *EmployeesApi* | [**readEmployeesApiV1EmployeesGet**](doc//EmployeesApi.md#reademployeesapiv1employeesget) | **GET** /api/v1/employees/ | Read Employees
 *EmployeesApi* | [**updateEmployeeApiV1EmployeesEmployeeIdPut**](doc//EmployeesApi.md#updateemployeeapiv1employeesemployeeidput) | **PUT** /api/v1/employees/{employee_id} | Update Employee
@@ -127,8 +129,10 @@ Class | Method | HTTP request | Description
 *EquipmentApi* | [**updateEquipmentApiV1EquipmentEquipmentEquipmentIdPut**](doc//EquipmentApi.md#updateequipmentapiv1equipmentequipmentequipmentidput) | **PUT** /api/v1/equipment/equipment/{equipment_id} | Update equipment
 *LogsApi* | [**addLogApiV1LogsPost**](doc//LogsApi.md#addlogapiv1logspost) | **POST** /api/v1/logs/ | Add Log
 *LogsApi* | [**readLogsApiV1LogsYearMonthGet**](doc//LogsApi.md#readlogsapiv1logsyearmonthget) | **GET** /api/v1/logs/{year}/{month} | Read Logs
+*ManagerApi* | [**getDetailedTeamPerformanceApiV1ManagerTeamPerformanceDetailedGet**](doc//ManagerApi.md#getdetailedteamperformanceapiv1managerteamperformancedetailedget) | **GET** /api/v1/manager/team-performance/detailed | Get Detailed Team Performance
 *ManagerApi* | [**getManagerDashboardForMonthyearApiV1ManagerDashboardYearMonthGet**](doc//ManagerApi.md#getmanagerdashboardformonthyearapiv1managerdashboardyearmonthget) | **GET** /api/v1/manager/dashboard/{year}/{month} | Get Manager Dashboard For Monthyear
 *ManagerApi* | [**getManagerEnhancedAnalyticsApiV1ManagerAnalyticsYearMonthGet**](doc//ManagerApi.md#getmanagerenhancedanalyticsapiv1manageranalyticsyearmonthget) | **GET** /api/v1/manager/analytics/{year}/{month} | Get Manager Enhanced Analytics
+*ManagerApi* | [**getTeamPerformanceSummaryApiV1ManagerTeamPerformanceSummaryGet**](doc//ManagerApi.md#getteamperformancesummaryapiv1managerteamperformancesummaryget) | **GET** /api/v1/manager/team-performance/summary | Get Team Performance Summary
 *MedicationsApi* | [**createMedicationApiV1MedicationsMedicationsPost**](doc//MedicationsApi.md#createmedicationapiv1medicationsmedicationspost) | **POST** /api/v1/medications/medications | Create a new medication
 *MedicationsApi* | [**getMedicationApiV1MedicationsMedicationsMedicationIdGet**](doc//MedicationsApi.md#getmedicationapiv1medicationsmedicationsmedicationidget) | **GET** /api/v1/medications/medications/{medication_id} | Get medication by ID
 *MedicationsApi* | [**getMedicationsApiV1MedicationsMedicationsGet**](doc//MedicationsApi.md#getmedicationsapiv1medicationsmedicationsget) | **GET** /api/v1/medications/medications | Get all medications
@@ -164,6 +168,11 @@ Class | Method | HTTP request | Description
 *PaymentDetailsApi* | [**deletePaymentDetailApiV1PaymentDetailsClinicIdInvoiceNumberPaymentDetailIdDelete**](doc//PaymentDetailsApi.md#deletepaymentdetailapiv1paymentdetailsclinicidinvoicenumberpaymentdetailiddelete) | **DELETE** /api/v1/payment-details/{clinic_id}/{invoice_number}/{payment_detail_id} | Delete Payment Detail
 *PaymentDetailsApi* | [**getUnpaidPatientsApiV1PaymentDetailsUnpaidPatientsClinicIdInvoiceNumberGet**](doc//PaymentDetailsApi.md#getunpaidpatientsapiv1paymentdetailsunpaidpatientsclinicidinvoicenumberget) | **GET** /api/v1/payment-details/unpaid_patients/{clinic_id}/{invoice_number} | Get Unpaid Patients
 *PaymentDetailsApi* | [**readPaymentDetailsApiV1PaymentDetailsClinicIdInvoiceNumberGet**](doc//PaymentDetailsApi.md#readpaymentdetailsapiv1paymentdetailsclinicidinvoicenumberget) | **GET** /api/v1/payment-details/{clinic_id}/{invoice_number} | Read Payment Details
+*PerformanceApi* | [**getBottleneckAnalysisApiV1PerformanceBottleneckAnalysisGet**](doc//PerformanceApi.md#getbottleneckanalysisapiv1performancebottleneckanalysisget) | **GET** /api/v1/performance/bottleneck-analysis | Get Bottleneck Analysis
+*PerformanceApi* | [**getCalculationStatusApiV1PerformanceCalculationStatusGet**](doc//PerformanceApi.md#getcalculationstatusapiv1performancecalculationstatusget) | **GET** /api/v1/performance/calculation-status | Get Calculation Status
+*PerformanceApi* | [**getMyPerformanceApiV1PerformanceMyPerformanceGet**](doc//PerformanceApi.md#getmyperformanceapiv1performancemyperformanceget) | **GET** /api/v1/performance/my-performance | Get My Performance
+*PerformanceApi* | [**getOrganizationalDashboardApiV1PerformanceOrganizationalDashboardGet**](doc//PerformanceApi.md#getorganizationaldashboardapiv1performanceorganizationaldashboardget) | **GET** /api/v1/performance/organizational-dashboard | Get Organizational Dashboard
+*PerformanceApi* | [**triggerPerformanceCalculationApiV1PerformanceCalculatePost**](doc//PerformanceApi.md#triggerperformancecalculationapiv1performancecalculatepost) | **POST** /api/v1/performance/calculate | Trigger Performance Calculation
 *ProcessedPatientApi* | [**createProcessedPatientEntryApiV1ProcessedPatientPost**](doc//ProcessedPatientApi.md#createprocessedpatiententryapiv1processedpatientpost) | **POST** /api/v1/processed-patient/ | Create Processed Patient Entry
 *ProcessedPatientApi* | [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidPortalGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidportalget) | **GET** /api/v1/processed-patient/process/{year}/{month}/{empid}/{portal} | Read Processed Patient Entries For Monthyear Empid
 *ProcessedPatientApi* | [**readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdPortalGet**](doc//ProcessedPatientApi.md#readprocessedpatiententryforpatientinmonthyearapiv1processedpatientyearmonthpatientidportalget) | **GET** /api/v1/processed-patient/{year}/{month}/{patient_id}/{portal} | Read Processed Patient Entry For Patient In Monthyear
@@ -194,6 +203,8 @@ Class | Method | HTTP request | Description
  - [AllergyCreate](doc//AllergyCreate.md)
  - [AllergyRead](doc//AllergyRead.md)
  - [AllergyUpdate](doc//AllergyUpdate.md)
+ - [AppSchemasEmployeePerformancePerformanceInsight](doc//AppSchemasEmployeePerformancePerformanceInsight.md)
+ - [AppSchemasManagerAnalyticsPerformanceInsight](doc//AppSchemasManagerAnalyticsPerformanceInsight.md)
  - [AssignedPatientScreenResponse](doc//AssignedPatientScreenResponse.md)
  - [AssignmentAction](doc//AssignmentAction.md)
  - [AssignmentResponse](doc//AssignmentResponse.md)
@@ -202,6 +213,7 @@ Class | Method | HTTP request | Description
  - [CCMPatientCreate](doc//CCMPatientCreate.md)
  - [CCMPatientRead](doc//CCMPatientRead.md)
  - [CCMPatientUpdate](doc//CCMPatientUpdate.md)
+ - [CalculationResult](doc//CalculationResult.md)
  - [CareManagementCallCreate](doc//CareManagementCallCreate.md)
  - [CareManagementCallRead](doc//CareManagementCallRead.md)
  - [CareManagementCallUpdate](doc//CareManagementCallUpdate.md)
@@ -211,6 +223,9 @@ Class | Method | HTTP request | Description
  - [ClinicRead](doc//ClinicRead.md)
  - [ClinicUpdate](doc//ClinicUpdate.md)
  - [ClinicUpdateRequest](doc//ClinicUpdateRequest.md)
+ - [CompletionForecast](doc//CompletionForecast.md)
+ - [ComponentPerformance](doc//ComponentPerformance.md)
+ - [ComponentPerformanceData](doc//ComponentPerformanceData.md)
  - [ConsultantCreate](doc//ConsultantCreate.md)
  - [ConsultantProviderPayRate](doc//ConsultantProviderPayRate.md)
  - [ConsultantProviderPayRateRead](doc//ConsultantProviderPayRateRead.md)
@@ -227,24 +242,44 @@ Class | Method | HTTP request | Description
  - [EmployeeAssignmentStats](doc//EmployeeAssignmentStats.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)
+ - [EmployeeDetail](doc//EmployeeDetail.md)
+ - [EmployeeListWithPerformance](doc//EmployeeListWithPerformance.md)
+ - [EmployeeNeedsAttention](doc//EmployeeNeedsAttention.md)
  - [EmployeePerformanceAnalytics](doc//EmployeePerformanceAnalytics.md)
+ - [EmployeePerformanceDashboard](doc//EmployeePerformanceDashboard.md)
+ - [EmployeePerformanceDetail](doc//EmployeePerformanceDetail.md)
+ - [EmployeePerformanceScoreEmployee](doc//EmployeePerformanceScoreEmployee.md)
+ - [EmployeePerformanceSummary](doc//EmployeePerformanceSummary.md)
  - [EmployeeRead](doc//EmployeeRead.md)
  - [EmployeeUpdate](doc//EmployeeUpdate.md)
+ - [EmployeeWithPerformance](doc//EmployeeWithPerformance.md)
  - [EmployeeWithTempAssignments](doc//EmployeeWithTempAssignments.md)
  - [EquipmentCreate](doc//EquipmentCreate.md)
  - [EquipmentRead](doc//EquipmentRead.md)
  - [EquipmentUpdate](doc//EquipmentUpdate.md)
+ - [ExpansionOpportunity](doc//ExpansionOpportunity.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
+ - [HighPerformerDetail](doc//HighPerformerDetail.md)
+ - [ImprovementCandidate](doc//ImprovementCandidate.md)
+ - [ImprovementPotential](doc//ImprovementPotential.md)
  - [InvoicesResponse](doc//InvoicesResponse.md)
+ - [KPIMetrics](doc//KPIMetrics.md)
  - [Log](doc//Log.md)
  - [ManagerAnalyticsResponse](doc//ManagerAnalyticsResponse.md)
+ - [ManagerPerformance](doc//ManagerPerformance.md)
  - [ManagerResponse](doc//ManagerResponse.md)
+ - [ManagerTeamPerformance](doc//ManagerTeamPerformance.md)
  - [MedicationCreate](doc//MedicationCreate.md)
  - [MedicationRead](doc//MedicationRead.md)
  - [MedicationUpdate](doc//MedicationUpdate.md)
+ - [MonthlyTrend](doc//MonthlyTrend.md)
  - [Notification](doc//Notification.md)
+ - [OperationalInsights](doc//OperationalInsights.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
+ - [OrganizationalDashboard](doc//OrganizationalDashboard.md)
+ - [OrganizationalTrends](doc//OrganizationalTrends.md)
+ - [OverAssignedEmployee](doc//OverAssignedEmployee.md)
  - [PCMPatientCreate](doc//PCMPatientCreate.md)
  - [PCMPatientRead](doc//PCMPatientRead.md)
  - [PCMPatientUpdate](doc//PCMPatientUpdate.md)
@@ -260,8 +295,20 @@ Class | Method | HTTP request | Description
  - [PatientsResponse](doc//PatientsResponse.md)
  - [PaymentDetail](doc//PaymentDetail.md)
  - [PaymentsResponse](doc//PaymentsResponse.md)
- - [PerformanceInsight](doc//PerformanceInsight.md)
+ - [PerformanceBreakdown](doc//PerformanceBreakdown.md)
+ - [PerformanceCalculationRequest](doc//PerformanceCalculationRequest.md)
+ - [PerformanceCalculationResponse](doc//PerformanceCalculationResponse.md)
+ - [PerformanceCategory](doc//PerformanceCategory.md)
+ - [PerformanceComponentBreakdown](doc//PerformanceComponentBreakdown.md)
+ - [PerformanceDistribution](doc//PerformanceDistribution.md)
+ - [PerformanceDistributionCounts](doc//PerformanceDistributionCounts.md)
+ - [PerformanceMetricsBreakdown](doc//PerformanceMetricsBreakdown.md)
+ - [PerformanceSummaryResponse](doc//PerformanceSummaryResponse.md)
+ - [PerformanceSummaryStats](doc//PerformanceSummaryStats.md)
+ - [PerformanceTrend](doc//PerformanceTrend.md)
  - [Portal](doc//Portal.md)
+ - [PortalComparison](doc//PortalComparison.md)
+ - [PortalPerformance](doc//PortalPerformance.md)
  - [PredictiveAnalytics](doc//PredictiveAnalytics.md)
  - [ProcessedPatientEntry](doc//ProcessedPatientEntry.md)
  - [ProcessedPatientEntryForFrontEnd](doc//ProcessedPatientEntryForFrontEnd.md)
@@ -274,16 +321,31 @@ Class | Method | HTTP request | Description
  - [PsychosocialStressorCreate](doc//PsychosocialStressorCreate.md)
  - [PsychosocialStressorRead](doc//PsychosocialStressorRead.md)
  - [PsychosocialStressorUpdate](doc//PsychosocialStressorUpdate.md)
+ - [RecentScoreData](doc//RecentScoreData.md)
+ - [RegionalPerformance](doc//RegionalPerformance.md)
  - [RevertAssignmentsRequest](doc//RevertAssignmentsRequest.md)
  - [RevertAssignmentsResponse](doc//RevertAssignmentsResponse.md)
+ - [ScoreDistribution](doc//ScoreDistribution.md)
  - [TeamAnalytics](doc//TeamAnalytics.md)
+ - [TeamComparison](doc//TeamComparison.md)
+ - [TeamPerformanceSummary](doc//TeamPerformanceSummary.md)
+ - [TeamStats](doc//TeamStats.md)
  - [TempAssignment](doc//TempAssignment.md)
  - [TempAssignmentCreate](doc//TempAssignmentCreate.md)
  - [TempAssignmentEmpLists](doc//TempAssignmentEmpLists.md)
  - [Token](doc//Token.md)
+ - [TopPerformer](doc//TopPerformer.md)
+ - [TopPerformerInfo](doc//TopPerformerInfo.md)
+ - [TrainingNeed](doc//TrainingNeed.md)
+ - [UnderAssignedEmployee](doc//UnderAssignedEmployee.md)
+ - [UnderPerformerDetail](doc//UnderPerformerDetail.md)
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)
  - [WeeklyPattern](doc//WeeklyPattern.md)
+ - [WorkloadAnalysis](doc//WorkloadAnalysis.md)
+ - [WorkloadDistribution](doc//WorkloadDistribution.md)
+ - [WorkloadDistributionCounts](doc//WorkloadDistributionCounts.md)
+ - [WorkloadOptimization](doc//WorkloadOptimization.md)
 
 
 ## Documentation For Authorization

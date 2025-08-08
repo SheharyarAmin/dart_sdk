@@ -28,6 +28,7 @@ class ManagerAnalyticsResponse {
     required this.currentCompletionRate,
     required this.targetCompletionRate,
     required this.completionRateTrend,
+    this.teamPerformance,
     this.employeeAnalytics = const [],
     required this.teamAnalytics,
     required this.predictiveAnalytics,
@@ -65,13 +66,15 @@ class ManagerAnalyticsResponse {
 
   String completionRateTrend;
 
+  ManagerTeamPerformance? teamPerformance;
+
   List<EmployeePerformanceAnalytics> employeeAnalytics;
 
   TeamAnalytics teamAnalytics;
 
   PredictiveAnalytics predictiveAnalytics;
 
-  List<PerformanceInsight> performanceInsights;
+  List<AppSchemasManagerAnalyticsPerformanceInsight> performanceInsights;
 
   List<DailyCompletionRate> dailyCompletionTracking;
 
@@ -92,6 +95,7 @@ class ManagerAnalyticsResponse {
     other.currentCompletionRate == currentCompletionRate &&
     other.targetCompletionRate == targetCompletionRate &&
     other.completionRateTrend == completionRateTrend &&
+    other.teamPerformance == teamPerformance &&
     _deepEquality.equals(other.employeeAnalytics, employeeAnalytics) &&
     other.teamAnalytics == teamAnalytics &&
     other.predictiveAnalytics == predictiveAnalytics &&
@@ -116,6 +120,7 @@ class ManagerAnalyticsResponse {
     (currentCompletionRate.hashCode) +
     (targetCompletionRate.hashCode) +
     (completionRateTrend.hashCode) +
+    (teamPerformance == null ? 0 : teamPerformance!.hashCode) +
     (employeeAnalytics.hashCode) +
     (teamAnalytics.hashCode) +
     (predictiveAnalytics.hashCode) +
@@ -123,7 +128,7 @@ class ManagerAnalyticsResponse {
     (dailyCompletionTracking.hashCode);
 
   @override
-  String toString() => 'ManagerAnalyticsResponse[name=$name, id=$id, greeting=$greeting, assignedEmployees=$assignedEmployees, totalProcessedPatients=$totalProcessedPatients, totalAssignedPatients=$totalAssignedPatients, totalUnprocessedPatients=$totalUnprocessedPatients, totalUnableToProcess=$totalUnableToProcess, onTrackToComplete=$onTrackToComplete, daysNeeded=$daysNeeded, daysLeft=$daysLeft, overallAveragePatientsProcessed=$overallAveragePatientsProcessed, currentCompletionRate=$currentCompletionRate, targetCompletionRate=$targetCompletionRate, completionRateTrend=$completionRateTrend, employeeAnalytics=$employeeAnalytics, teamAnalytics=$teamAnalytics, predictiveAnalytics=$predictiveAnalytics, performanceInsights=$performanceInsights, dailyCompletionTracking=$dailyCompletionTracking]';
+  String toString() => 'ManagerAnalyticsResponse[name=$name, id=$id, greeting=$greeting, assignedEmployees=$assignedEmployees, totalProcessedPatients=$totalProcessedPatients, totalAssignedPatients=$totalAssignedPatients, totalUnprocessedPatients=$totalUnprocessedPatients, totalUnableToProcess=$totalUnableToProcess, onTrackToComplete=$onTrackToComplete, daysNeeded=$daysNeeded, daysLeft=$daysLeft, overallAveragePatientsProcessed=$overallAveragePatientsProcessed, currentCompletionRate=$currentCompletionRate, targetCompletionRate=$targetCompletionRate, completionRateTrend=$completionRateTrend, teamPerformance=$teamPerformance, employeeAnalytics=$employeeAnalytics, teamAnalytics=$teamAnalytics, predictiveAnalytics=$predictiveAnalytics, performanceInsights=$performanceInsights, dailyCompletionTracking=$dailyCompletionTracking]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -142,6 +147,11 @@ class ManagerAnalyticsResponse {
       json[r'current_completion_rate'] = this.currentCompletionRate;
       json[r'target_completion_rate'] = this.targetCompletionRate;
       json[r'completion_rate_trend'] = this.completionRateTrend;
+    if (this.teamPerformance != null) {
+      json[r'team_performance'] = this.teamPerformance;
+    } else {
+      json[r'team_performance'] = null;
+    }
       json[r'employee_analytics'] = this.employeeAnalytics;
       json[r'team_analytics'] = this.teamAnalytics;
       json[r'predictive_analytics'] = this.predictiveAnalytics;
@@ -184,10 +194,11 @@ class ManagerAnalyticsResponse {
         currentCompletionRate: num.parse('${json[r'current_completion_rate']}'),
         targetCompletionRate: num.parse('${json[r'target_completion_rate']}'),
         completionRateTrend: mapValueOfType<String>(json, r'completion_rate_trend')!,
+        teamPerformance: ManagerTeamPerformance.fromJson(json[r'team_performance']),
         employeeAnalytics: EmployeePerformanceAnalytics.listFromJson(json[r'employee_analytics']),
         teamAnalytics: TeamAnalytics.fromJson(json[r'team_analytics'])!,
         predictiveAnalytics: PredictiveAnalytics.fromJson(json[r'predictive_analytics'])!,
-        performanceInsights: PerformanceInsight.listFromJson(json[r'performance_insights']),
+        performanceInsights: AppSchemasManagerAnalyticsPerformanceInsight.listFromJson(json[r'performance_insights']),
         dailyCompletionTracking: DailyCompletionRate.listFromJson(json[r'daily_completion_tracking']),
       );
     }

@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**completionForecast** | **Map<String, num>** |  | [default to const {}]
+**completionForecast** | [**List<CompletionForecast>**](CompletionForecast.md) |  | [default to const []]
 **estimatedCompletionDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **bottleneckDays** | [**List<DateTime>**](DateTime.md) |  | [default to const []]
 **resourceRecommendations** | **List<String>** |  | [default to const []]

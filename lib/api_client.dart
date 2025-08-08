@@ -358,6 +358,10 @@ class ApiClient {
           return AllergyRead.fromJson(value);
         case 'AllergyUpdate':
           return AllergyUpdate.fromJson(value);
+        case 'AppSchemasEmployeePerformancePerformanceInsight':
+          return AppSchemasEmployeePerformancePerformanceInsight.fromJson(value);
+        case 'AppSchemasManagerAnalyticsPerformanceInsight':
+          return AppSchemasManagerAnalyticsPerformanceInsight.fromJson(value);
         case 'AssignedPatientScreenResponse':
           return AssignedPatientScreenResponse.fromJson(value);
         case 'AssignmentAction':
@@ -374,6 +378,8 @@ class ApiClient {
           return CCMPatientRead.fromJson(value);
         case 'CCMPatientUpdate':
           return CCMPatientUpdate.fromJson(value);
+        case 'CalculationResult':
+          return CalculationResult.fromJson(value);
         case 'CareManagementCallCreate':
           return CareManagementCallCreate.fromJson(value);
         case 'CareManagementCallRead':
@@ -392,6 +398,12 @@ class ApiClient {
           return ClinicUpdate.fromJson(value);
         case 'ClinicUpdateRequest':
           return ClinicUpdateRequest.fromJson(value);
+        case 'CompletionForecast':
+          return CompletionForecast.fromJson(value);
+        case 'ComponentPerformance':
+          return ComponentPerformance.fromJson(value);
+        case 'ComponentPerformanceData':
+          return ComponentPerformanceData.fromJson(value);
         case 'ConsultantCreate':
           return ConsultantCreate.fromJson(value);
         case 'ConsultantProviderPayRate':
@@ -424,14 +436,28 @@ class ApiClient {
           return EmployeeByProcessedPatients.fromJson(value);
         case 'EmployeeCreate':
           return EmployeeCreate.fromJson(value);
+        case 'EmployeeDetail':
+          return EmployeeDetail.fromJson(value);
+        case 'EmployeeListWithPerformance':
+          return EmployeeListWithPerformance.fromJson(value);
+        case 'EmployeeNeedsAttention':
+          return EmployeeNeedsAttention.fromJson(value);
         case 'EmployeePerformanceAnalytics':
           return EmployeePerformanceAnalytics.fromJson(value);
-        case 'EmployeeCreate':
-          return EmployeeCreate.fromJson(value);
+        case 'EmployeePerformanceDashboard':
+          return EmployeePerformanceDashboard.fromJson(value);
+        case 'EmployeePerformanceDetail':
+          return EmployeePerformanceDetail.fromJson(value);
+        case 'EmployeePerformanceScoreEmployee':
+          return EmployeePerformanceScoreEmployee.fromJson(value);
+        case 'EmployeePerformanceSummary':
+          return EmployeePerformanceSummary.fromJson(value);
         case 'EmployeeRead':
           return EmployeeRead.fromJson(value);
         case 'EmployeeUpdate':
           return EmployeeUpdate.fromJson(value);
+        case 'EmployeeWithPerformance':
+          return EmployeeWithPerformance.fromJson(value);
         case 'EmployeeWithTempAssignments':
           return EmployeeWithTempAssignments.fromJson(value);
         case 'EquipmentCreate':
@@ -440,28 +466,58 @@ class ApiClient {
           return EquipmentRead.fromJson(value);
         case 'EquipmentUpdate':
           return EquipmentUpdate.fromJson(value);
+        case 'ExpansionOpportunity':
+          return ExpansionOpportunity.fromJson(value);
         case 'HTTPValidationError':
           return HTTPValidationError.fromJson(value);
+        case 'HighPerformerDetail':
+          return HighPerformerDetail.fromJson(value);
+        case 'ImprovementCandidate':
+          return ImprovementCandidate.fromJson(value);
+        case 'ImprovementPotential':
+          return ImprovementPotential.fromJson(value);
         case 'InvoicesResponse':
           return InvoicesResponse.fromJson(value);
+        case 'KPIMetrics':
+          return KPIMetrics.fromJson(value);
         case 'Log':
           return Log.fromJson(value);
         case 'ManagerAnalyticsResponse':
           return ManagerAnalyticsResponse.fromJson(value);
+        case 'ManagerPerformance':
+          return ManagerPerformance.fromJson(value);
         case 'ManagerResponse':
           return ManagerResponse.fromJson(value);
+        case 'ManagerTeamPerformance':
+          return ManagerTeamPerformance.fromJson(value);
         case 'MedicationCreate':
           return MedicationCreate.fromJson(value);
         case 'MedicationRead':
           return MedicationRead.fromJson(value);
         case 'MedicationUpdate':
           return MedicationUpdate.fromJson(value);
+        case 'MonthlyTrend':
+          return MonthlyTrend.fromJson(value);
         case 'Notification':
           return Notification.fromJson(value);
+        case 'Object':
+          // Handle Object type to return Map<dynamic, dynamic>
+          if (value is Map) {
+            return value.cast<dynamic, dynamic>();
+          }
+          return value;
+        case 'OperationalInsights':
+          return OperationalInsights.fromJson(value);
         case 'OptInEmployeeLogEntry':
           return OptInEmployeeLogEntry.fromJson(value);
         case 'OptInEmployeeLogEntryBase':
           return OptInEmployeeLogEntryBase.fromJson(value);
+        case 'OrganizationalDashboard':
+          return OrganizationalDashboard.fromJson(value);
+        case 'OrganizationalTrends':
+          return OrganizationalTrends.fromJson(value);
+        case 'OverAssignedEmployee':
+          return OverAssignedEmployee.fromJson(value);
         case 'PCMPatientCreate':
           return PCMPatientCreate.fromJson(value);
         case 'PCMPatientRead':
@@ -492,10 +548,34 @@ class ApiClient {
           return PaymentDetail.fromJson(value);
         case 'PaymentsResponse':
           return PaymentsResponse.fromJson(value);
-        case 'PerformanceInsight':
-          return PerformanceInsight.fromJson(value);
+        case 'PerformanceBreakdown':
+          return PerformanceBreakdown.fromJson(value);
+        case 'PerformanceCalculationRequest':
+          return PerformanceCalculationRequest.fromJson(value);
+        case 'PerformanceCalculationResponse':
+          return PerformanceCalculationResponse.fromJson(value);
+        case 'PerformanceCategory':
+          return PerformanceCategoryTypeTransformer().decode(value);
+        case 'PerformanceComponentBreakdown':
+          return PerformanceComponentBreakdown.fromJson(value);
+        case 'PerformanceDistribution':
+          return PerformanceDistribution.fromJson(value);
+        case 'PerformanceDistributionCounts':
+          return PerformanceDistributionCounts.fromJson(value);
+        case 'PerformanceMetricsBreakdown':
+          return PerformanceMetricsBreakdown.fromJson(value);
+        case 'PerformanceSummaryResponse':
+          return PerformanceSummaryResponse.fromJson(value);
+        case 'PerformanceSummaryStats':
+          return PerformanceSummaryStats.fromJson(value);
+        case 'PerformanceTrend':
+          return PerformanceTrend.fromJson(value);
         case 'Portal':
           return PortalTypeTransformer().decode(value);
+        case 'PortalComparison':
+          return PortalComparison.fromJson(value);
+        case 'PortalPerformance':
+          return PortalPerformance.fromJson(value);
         case 'PredictiveAnalytics':
           return PredictiveAnalytics.fromJson(value);
         case 'ProcessedPatientEntry':
@@ -520,12 +600,24 @@ class ApiClient {
           return PsychosocialStressorRead.fromJson(value);
         case 'PsychosocialStressorUpdate':
           return PsychosocialStressorUpdate.fromJson(value);
+        case 'RecentScoreData':
+          return RecentScoreData.fromJson(value);
+        case 'RegionalPerformance':
+          return RegionalPerformance.fromJson(value);
         case 'RevertAssignmentsRequest':
           return RevertAssignmentsRequest.fromJson(value);
         case 'RevertAssignmentsResponse':
           return RevertAssignmentsResponse.fromJson(value);
+        case 'ScoreDistribution':
+          return ScoreDistribution.fromJson(value);
         case 'TeamAnalytics':
           return TeamAnalytics.fromJson(value);
+        case 'TeamComparison':
+          return TeamComparison.fromJson(value);
+        case 'TeamPerformanceSummary':
+          return TeamPerformanceSummary.fromJson(value);
+        case 'TeamStats':
+          return TeamStats.fromJson(value);
         case 'TempAssignment':
           return TempAssignment.fromJson(value);
         case 'TempAssignmentCreate':
@@ -534,12 +626,30 @@ class ApiClient {
           return TempAssignmentEmpLists.fromJson(value);
         case 'Token':
           return Token.fromJson(value);
+        case 'TopPerformer':
+          return TopPerformer.fromJson(value);
+        case 'TopPerformerInfo':
+          return TopPerformerInfo.fromJson(value);
+        case 'TrainingNeed':
+          return TrainingNeed.fromJson(value);
+        case 'UnderAssignedEmployee':
+          return UnderAssignedEmployee.fromJson(value);
+        case 'UnderPerformerDetail':
+          return UnderPerformerDetail.fromJson(value);
         case 'ValidationError':
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':
           return ValidationErrorLocInner.fromJson(value);
         case 'WeeklyPattern':
           return WeeklyPattern.fromJson(value);
+        case 'WorkloadAnalysis':
+          return WorkloadAnalysis.fromJson(value);
+        case 'WorkloadDistribution':
+          return WorkloadDistribution.fromJson(value);
+        case 'WorkloadDistributionCounts':
+          return WorkloadDistributionCounts.fromJson(value);
+        case 'WorkloadOptimization':
+          return WorkloadOptimization.fromJson(value);
         default:
           dynamic match;
           if (value is List &&

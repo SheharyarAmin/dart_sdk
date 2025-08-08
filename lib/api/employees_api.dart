@@ -18,6 +18,8 @@ class EmployeesApi {
 
   /// Change Active Status
   ///
+  /// Change employee active status
+  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -51,6 +53,8 @@ class EmployeesApi {
 
   /// Change Active Status
   ///
+  /// Change employee active status
+  ///
   /// Parameters:
   ///
   /// * [String] employeeId (required):
@@ -70,6 +74,8 @@ class EmployeesApi {
   }
 
   /// Change Deleted Status
+  ///
+  /// Change employee deletion status
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -104,6 +110,8 @@ class EmployeesApi {
 
   /// Change Deleted Status
   ///
+  /// Change employee deletion status
+  ///
   /// Parameters:
   ///
   /// * [String] employeeId (required):
@@ -123,6 +131,8 @@ class EmployeesApi {
   }
 
   /// Create Employee
+  ///
+  /// Create a new employee
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -156,6 +166,8 @@ class EmployeesApi {
 
   /// Create Employee
   ///
+  /// Create a new employee
+  ///
   /// Parameters:
   ///
   /// * [EmployeeCreate] employeeCreate (required):
@@ -175,6 +187,8 @@ class EmployeesApi {
   }
 
   /// Delete Employee
+  ///
+  /// Delete an employee
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -209,6 +223,8 @@ class EmployeesApi {
 
   /// Delete Employee
   ///
+  /// Delete an employee
+  ///
   /// Parameters:
   ///
   /// * [String] employeeId (required):
@@ -227,7 +243,78 @@ class EmployeesApi {
     return null;
   }
 
+  /// Get Employee Performance Detail
+  ///
+  /// Get detailed performance view for a specific employee. This replaces/enhances the employee detail view with performance data.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] employeeId (required):
+  ///   Employee ID
+  ///
+  /// * [int] weeksBack:
+  ///   Number of weeks of history to include
+  Future<Response> getEmployeePerformanceDetailApiV1EmployeesEmployeeIdPerformanceGetWithHttpInfo(String employeeId, { int? weeksBack, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/employees/{employee_id}/performance'
+      .replaceAll('{employee_id}', employeeId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (weeksBack != null) {
+      queryParams.addAll(_queryParams('', 'weeks_back', weeksBack));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Employee Performance Detail
+  ///
+  /// Get detailed performance view for a specific employee. This replaces/enhances the employee detail view with performance data.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] employeeId (required):
+  ///   Employee ID
+  ///
+  /// * [int] weeksBack:
+  ///   Number of weeks of history to include
+  Future<EmployeePerformanceDetail?> getEmployeePerformanceDetailApiV1EmployeesEmployeeIdPerformanceGet(String employeeId, { int? weeksBack, }) async {
+    final response = await getEmployeePerformanceDetailApiV1EmployeesEmployeeIdPerformanceGetWithHttpInfo(employeeId,  weeksBack: weeksBack, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeePerformanceDetail',) as EmployeePerformanceDetail;
+    
+    }
+    return null;
+  }
+
   /// Get Employee Role
+  ///
+  /// Get employee by email
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -262,6 +349,8 @@ class EmployeesApi {
 
   /// Get Employee Role
   ///
+  /// Get employee by email
+  ///
   /// Parameters:
   ///
   /// * [String] email (required):
@@ -280,7 +369,134 @@ class EmployeesApi {
     return null;
   }
 
+  /// Get Employees With Performance
+  ///
+  /// Get employees list with integrated performance data. This endpoint replaces the basic employee list for management screens.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [Portal] portal:
+  ///   Filter by portal
+  ///
+  /// * [String] managerId:
+  ///   Filter by manager
+  ///
+  /// * [String] region:
+  ///   Filter by region
+  ///
+  /// * [String] performanceCategory:
+  ///   Filter by performance category
+  ///
+  /// * [bool] underAssignedOnly:
+  ///   Show only under-assigned employees
+  ///
+  /// * [bool] overAssignedOnly:
+  ///   Show only over-assigned employees
+  ///
+  /// * [int] limit:
+  ///   Number of employees to return
+  ///
+  /// * [int] offset:
+  ///   Offset for pagination
+  Future<Response> getEmployeesWithPerformanceApiV1EmployeesWithPerformanceGetWithHttpInfo({ Portal? portal, String? managerId, String? region, String? performanceCategory, bool? underAssignedOnly, bool? overAssignedOnly, int? limit, int? offset, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/employees/with-performance';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (portal != null) {
+      queryParams.addAll(_queryParams('', 'portal', portal));
+    }
+    if (managerId != null) {
+      queryParams.addAll(_queryParams('', 'manager_id', managerId));
+    }
+    if (region != null) {
+      queryParams.addAll(_queryParams('', 'region', region));
+    }
+    if (performanceCategory != null) {
+      queryParams.addAll(_queryParams('', 'performance_category', performanceCategory));
+    }
+    if (underAssignedOnly != null) {
+      queryParams.addAll(_queryParams('', 'under_assigned_only', underAssignedOnly));
+    }
+    if (overAssignedOnly != null) {
+      queryParams.addAll(_queryParams('', 'over_assigned_only', overAssignedOnly));
+    }
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Employees With Performance
+  ///
+  /// Get employees list with integrated performance data. This endpoint replaces the basic employee list for management screens.
+  ///
+  /// Parameters:
+  ///
+  /// * [Portal] portal:
+  ///   Filter by portal
+  ///
+  /// * [String] managerId:
+  ///   Filter by manager
+  ///
+  /// * [String] region:
+  ///   Filter by region
+  ///
+  /// * [String] performanceCategory:
+  ///   Filter by performance category
+  ///
+  /// * [bool] underAssignedOnly:
+  ///   Show only under-assigned employees
+  ///
+  /// * [bool] overAssignedOnly:
+  ///   Show only over-assigned employees
+  ///
+  /// * [int] limit:
+  ///   Number of employees to return
+  ///
+  /// * [int] offset:
+  ///   Offset for pagination
+  Future<EmployeeListWithPerformance?> getEmployeesWithPerformanceApiV1EmployeesWithPerformanceGet({ Portal? portal, String? managerId, String? region, String? performanceCategory, bool? underAssignedOnly, bool? overAssignedOnly, int? limit, int? offset, }) async {
+    final response = await getEmployeesWithPerformanceApiV1EmployeesWithPerformanceGetWithHttpInfo( portal: portal, managerId: managerId, region: region, performanceCategory: performanceCategory, underAssignedOnly: underAssignedOnly, overAssignedOnly: overAssignedOnly, limit: limit, offset: offset, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeListWithPerformance',) as EmployeeListWithPerformance;
+    
+    }
+    return null;
+  }
+
   /// Read Employee
+  ///
+  /// Get basic employee data by ID
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -315,6 +531,8 @@ class EmployeesApi {
 
   /// Read Employee
   ///
+  /// Get basic employee data by ID
+  ///
   /// Parameters:
   ///
   /// * [String] employeeId (required):
@@ -334,6 +552,8 @@ class EmployeesApi {
   }
 
   /// Read Employees
+  ///
+  /// Legacy endpoint - returns basic employee data without performance metrics
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> readEmployeesApiV1EmployeesGetWithHttpInfo() async {
@@ -362,6 +582,8 @@ class EmployeesApi {
   }
 
   /// Read Employees
+  ///
+  /// Legacy endpoint - returns basic employee data without performance metrics
   Future<Map<String, EmployeeRead>?> readEmployeesApiV1EmployeesGet() async {
     final response = await readEmployeesApiV1EmployeesGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -378,6 +600,8 @@ class EmployeesApi {
   }
 
   /// Update Employee
+  ///
+  /// Update an employee
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -413,6 +637,8 @@ class EmployeesApi {
   }
 
   /// Update Employee
+  ///
+  /// Update an employee
   ///
   /// Parameters:
   ///

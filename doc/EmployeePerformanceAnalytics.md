@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **dailyCompletionRates** | [**List<DailyCompletionRate>**](DailyCompletionRate.md) |  | [default to const []]
 **weeklyPatterns** | [**List<WeeklyPattern>**](WeeklyPattern.md) |  | [default to const []]
 **monthlyAverage** | **num** |  | 
-**performanceInsights** | [**List<PerformanceInsight>**](PerformanceInsight.md) |  | [default to const []]
+**performanceInsights** | [**List<AppSchemasManagerAnalyticsPerformanceInsight>**](AppSchemasManagerAnalyticsPerformanceInsight.md) |  | [default to const []]
 **consistencyScore** | **num** |  | 
 **rankAmongPeers** | **int** |  | 
 **percentileRank** | **num** |  | 
