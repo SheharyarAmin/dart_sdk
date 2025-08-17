@@ -15,9 +15,7 @@ class PerformanceMetricsBreakdown {
   PerformanceMetricsBreakdown({
     this.avgProcessingEfficiency = 0,
     this.avgQualityMetrics = 0,
-    this.avgWorkloadManagement = 0,
-    this.avgAssignmentHandling = 0,
-    this.avgEngagement = 0,
+    this.avgEngagementConsistency = 0,
     required this.componentPerformance,
     this.primaryBottlenecks = const [],
     required this.improvementPotential,
@@ -27,11 +25,7 @@ class PerformanceMetricsBreakdown {
 
   num avgQualityMetrics;
 
-  num avgWorkloadManagement;
-
-  num avgAssignmentHandling;
-
-  num avgEngagement;
+  num avgEngagementConsistency;
 
   ComponentPerformance componentPerformance;
 
@@ -43,9 +37,7 @@ class PerformanceMetricsBreakdown {
   bool operator ==(Object other) => identical(this, other) || other is PerformanceMetricsBreakdown &&
     other.avgProcessingEfficiency == avgProcessingEfficiency &&
     other.avgQualityMetrics == avgQualityMetrics &&
-    other.avgWorkloadManagement == avgWorkloadManagement &&
-    other.avgAssignmentHandling == avgAssignmentHandling &&
-    other.avgEngagement == avgEngagement &&
+    other.avgEngagementConsistency == avgEngagementConsistency &&
     other.componentPerformance == componentPerformance &&
     _deepEquality.equals(other.primaryBottlenecks, primaryBottlenecks) &&
     other.improvementPotential == improvementPotential;
@@ -55,23 +47,19 @@ class PerformanceMetricsBreakdown {
     // ignore: unnecessary_parenthesis
     (avgProcessingEfficiency.hashCode) +
     (avgQualityMetrics.hashCode) +
-    (avgWorkloadManagement.hashCode) +
-    (avgAssignmentHandling.hashCode) +
-    (avgEngagement.hashCode) +
+    (avgEngagementConsistency.hashCode) +
     (componentPerformance.hashCode) +
     (primaryBottlenecks.hashCode) +
     (improvementPotential.hashCode);
 
   @override
-  String toString() => 'PerformanceMetricsBreakdown[avgProcessingEfficiency=$avgProcessingEfficiency, avgQualityMetrics=$avgQualityMetrics, avgWorkloadManagement=$avgWorkloadManagement, avgAssignmentHandling=$avgAssignmentHandling, avgEngagement=$avgEngagement, componentPerformance=$componentPerformance, primaryBottlenecks=$primaryBottlenecks, improvementPotential=$improvementPotential]';
+  String toString() => 'PerformanceMetricsBreakdown[avgProcessingEfficiency=$avgProcessingEfficiency, avgQualityMetrics=$avgQualityMetrics, avgEngagementConsistency=$avgEngagementConsistency, componentPerformance=$componentPerformance, primaryBottlenecks=$primaryBottlenecks, improvementPotential=$improvementPotential]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'avg_processing_efficiency'] = this.avgProcessingEfficiency;
       json[r'avg_quality_metrics'] = this.avgQualityMetrics;
-      json[r'avg_workload_management'] = this.avgWorkloadManagement;
-      json[r'avg_assignment_handling'] = this.avgAssignmentHandling;
-      json[r'avg_engagement'] = this.avgEngagement;
+      json[r'avg_engagement_consistency'] = this.avgEngagementConsistency;
       json[r'component_performance'] = this.componentPerformance;
       json[r'primary_bottlenecks'] = this.primaryBottlenecks;
       json[r'improvement_potential'] = this.improvementPotential;
@@ -99,9 +87,7 @@ class PerformanceMetricsBreakdown {
       return PerformanceMetricsBreakdown(
         avgProcessingEfficiency: num.parse('${json[r'avg_processing_efficiency']}'),
         avgQualityMetrics: num.parse('${json[r'avg_quality_metrics']}'),
-        avgWorkloadManagement: num.parse('${json[r'avg_workload_management']}'),
-        avgAssignmentHandling: num.parse('${json[r'avg_assignment_handling']}'),
-        avgEngagement: num.parse('${json[r'avg_engagement']}'),
+        avgEngagementConsistency: num.parse('${json[r'avg_engagement_consistency']}'),
         componentPerformance: ComponentPerformance.fromJson(json[r'component_performance'])!,
         primaryBottlenecks: json[r'primary_bottlenecks'] is Iterable
             ? (json[r'primary_bottlenecks'] as Iterable).cast<String>().toList(growable: false)

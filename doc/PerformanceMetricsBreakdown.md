@@ -10,9 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **avgProcessingEfficiency** | **num** |  | [optional] [default to 0]
 **avgQualityMetrics** | **num** |  | [optional] [default to 0]
-**avgWorkloadManagement** | **num** |  | [optional] [default to 0]
-**avgAssignmentHandling** | **num** |  | [optional] [default to 0]
-**avgEngagement** | **num** |  | [optional] [default to 0]
+**avgEngagementConsistency** | **num** |  | [optional] [default to 0]
 **componentPerformance** | [**ComponentPerformance**](ComponentPerformance.md) |  | 
 **primaryBottlenecks** | **List<String>** |  | [optional] [default to const []]
 **improvementPotential** | [**ImprovementPotential**](ImprovementPotential.md) |  | 

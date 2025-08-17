@@ -18,8 +18,6 @@ class EmployeesApi {
 
   /// Change Active Status
   ///
-  /// Change employee active status
-  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -52,8 +50,6 @@ class EmployeesApi {
   }
 
   /// Change Active Status
-  ///
-  /// Change employee active status
   ///
   /// Parameters:
   ///
@@ -314,8 +310,6 @@ class EmployeesApi {
 
   /// Get Employee Role
   ///
-  /// Get employee by email
-  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -348,8 +342,6 @@ class EmployeesApi {
   }
 
   /// Get Employee Role
-  ///
-  /// Get employee by email
   ///
   /// Parameters:
   ///

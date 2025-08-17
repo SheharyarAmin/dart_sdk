@@ -21,7 +21,7 @@ class TeamAnalytics {
     this.peakPerformanceDays = const [],
     this.bottleneckDays = const [],
     required this.workloadDistributionScore,
-    this.monthlyTrends = const {},
+    this.monthlyTrends = const [],
     this.seasonalPatterns = const [],
   });
 
@@ -41,7 +41,7 @@ class TeamAnalytics {
 
   num workloadDistributionScore;
 
-  Map<String, num> monthlyTrends;
+  List<MonthlyTrend> monthlyTrends;
 
   List<String> seasonalPatterns;
 
@@ -121,7 +121,7 @@ class TeamAnalytics {
             ? (json[r'bottleneck_days'] as Iterable).map((item) => DateTime.parse(item.toString())).toList()
             : const [],
         workloadDistributionScore: num.parse('${json[r'workload_distribution_score']}'),
-        monthlyTrends: mapCastOfType<String, num>(json, r'monthly_trends')!,
+        monthlyTrends: MonthlyTrend.listFromJson(json[r'monthly_trends']),
         seasonalPatterns: json[r'seasonal_patterns'] is Iterable
             ? (json[r'seasonal_patterns'] as Iterable).cast<String>().toList(growable: false)
             : const [],

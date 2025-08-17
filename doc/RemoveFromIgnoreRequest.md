@@ -1,4 +1,4 @@
-# openapi.model.ComponentPerformance
+# openapi.model.RemoveFromIgnoreRequest
 
 ## Load the model package
 ```dart
@@ -8,9 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**processingEfficiency** | [**ComponentPerformanceData**](ComponentPerformanceData.md) |  | 
-**qualityMetrics** | [**ComponentPerformanceData**](ComponentPerformanceData.md) |  | 
-**engagementConsistency** | [**ComponentPerformanceData**](ComponentPerformanceData.md) |  | 
+**ignoreIds** | **List<String>** |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

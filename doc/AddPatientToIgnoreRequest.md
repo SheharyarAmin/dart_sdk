@@ -1,4 +1,4 @@
-# openapi.model.ComponentPerformance
+# openapi.model.AddPatientToIgnoreRequest
 
 ## Load the model package
 ```dart
@@ -8,9 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**processingEfficiency** | [**ComponentPerformanceData**](ComponentPerformanceData.md) |  | 
-**qualityMetrics** | [**ComponentPerformanceData**](ComponentPerformanceData.md) |  | 
-**engagementConsistency** | [**ComponentPerformanceData**](ComponentPerformanceData.md) |  | 
+**patientIds** | **List<String>** |  | [default to const []]
+**reason** | **String** |  | 
+**portal** | [**Portal**](Portal.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

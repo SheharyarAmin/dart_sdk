@@ -26,8 +26,6 @@ Method | HTTP request | Description
 
 Change Active Status
 
-Change employee active status
-
 ### Example
 ```dart
 import 'package:openapi/api.dart';
@@ -252,8 +250,6 @@ Name | Type | Description  | Notes
 > EmployeeRead getEmployeeRoleApiV1EmployeesRoleEmailGet(email)
 
 Get Employee Role
-
-Get employee by email
 
 ### Example
 ```dart

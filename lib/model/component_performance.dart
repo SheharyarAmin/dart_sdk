@@ -15,48 +15,36 @@ class ComponentPerformance {
   ComponentPerformance({
     required this.processingEfficiency,
     required this.qualityMetrics,
-    required this.workloadManagement,
-    required this.assignmentHandling,
-    required this.engagement,
+    required this.engagementConsistency,
   });
 
   ComponentPerformanceData processingEfficiency;
 
   ComponentPerformanceData qualityMetrics;
 
-  ComponentPerformanceData workloadManagement;
-
-  ComponentPerformanceData assignmentHandling;
-
-  ComponentPerformanceData engagement;
+  ComponentPerformanceData engagementConsistency;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ComponentPerformance &&
     other.processingEfficiency == processingEfficiency &&
     other.qualityMetrics == qualityMetrics &&
-    other.workloadManagement == workloadManagement &&
-    other.assignmentHandling == assignmentHandling &&
-    other.engagement == engagement;
+    other.engagementConsistency == engagementConsistency;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (processingEfficiency.hashCode) +
     (qualityMetrics.hashCode) +
-    (workloadManagement.hashCode) +
-    (assignmentHandling.hashCode) +
-    (engagement.hashCode);
+    (engagementConsistency.hashCode);
 
   @override
-  String toString() => 'ComponentPerformance[processingEfficiency=$processingEfficiency, qualityMetrics=$qualityMetrics, workloadManagement=$workloadManagement, assignmentHandling=$assignmentHandling, engagement=$engagement]';
+  String toString() => 'ComponentPerformance[processingEfficiency=$processingEfficiency, qualityMetrics=$qualityMetrics, engagementConsistency=$engagementConsistency]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'processing_efficiency'] = this.processingEfficiency;
       json[r'quality_metrics'] = this.qualityMetrics;
-      json[r'workload_management'] = this.workloadManagement;
-      json[r'assignment_handling'] = this.assignmentHandling;
-      json[r'engagement'] = this.engagement;
+      json[r'engagement_consistency'] = this.engagementConsistency;
     return json;
   }
 
@@ -81,9 +69,7 @@ class ComponentPerformance {
       return ComponentPerformance(
         processingEfficiency: ComponentPerformanceData.fromJson(json[r'processing_efficiency'])!,
         qualityMetrics: ComponentPerformanceData.fromJson(json[r'quality_metrics'])!,
-        workloadManagement: ComponentPerformanceData.fromJson(json[r'workload_management'])!,
-        assignmentHandling: ComponentPerformanceData.fromJson(json[r'assignment_handling'])!,
-        engagement: ComponentPerformanceData.fromJson(json[r'engagement'])!,
+        engagementConsistency: ComponentPerformanceData.fromJson(json[r'engagement_consistency'])!,
       );
     }
     return null;
@@ -133,9 +119,7 @@ class ComponentPerformance {
   static const requiredKeys = <String>{
     'processing_efficiency',
     'quality_metrics',
-    'workload_management',
-    'assignment_handling',
-    'engagement',
+    'engagement_consistency',
   };
 }
 

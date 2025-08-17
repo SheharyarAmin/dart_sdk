@@ -173,6 +173,12 @@ Class | Method | HTTP request | Description
 *PerformanceApi* | [**getMyPerformanceApiV1PerformanceMyPerformanceGet**](doc//PerformanceApi.md#getmyperformanceapiv1performancemyperformanceget) | **GET** /api/v1/performance/my-performance | Get My Performance
 *PerformanceApi* | [**getOrganizationalDashboardApiV1PerformanceOrganizationalDashboardGet**](doc//PerformanceApi.md#getorganizationaldashboardapiv1performanceorganizationaldashboardget) | **GET** /api/v1/performance/organizational-dashboard | Get Organizational Dashboard
 *PerformanceApi* | [**triggerPerformanceCalculationApiV1PerformanceCalculatePost**](doc//PerformanceApi.md#triggerperformancecalculationapiv1performancecalculatepost) | **POST** /api/v1/performance/calculate | Trigger Performance Calculation
+*PerformanceIgnoreApi* | [**addEmployeesToIgnoreListApiV1PerformanceIgnoreEmployeesIgnorePost**](doc//PerformanceIgnoreApi.md#addemployeestoignorelistapiv1performanceignoreemployeesignorepost) | **POST** /api/v1/performance-ignore/employees/ignore | Add Employees To Ignore List
+*PerformanceIgnoreApi* | [**addPatientsToIgnoreListApiV1PerformanceIgnorePatientsIgnorePost**](doc//PerformanceIgnoreApi.md#addpatientstoignorelistapiv1performanceignorepatientsignorepost) | **POST** /api/v1/performance-ignore/patients/ignore | Add Patients To Ignore List
+*PerformanceIgnoreApi* | [**getIgnoreListApiV1PerformanceIgnoreListGet**](doc//PerformanceIgnoreApi.md#getignorelistapiv1performanceignorelistget) | **GET** /api/v1/performance-ignore/list | Get Ignore List
+*PerformanceIgnoreApi* | [**getIgnoredEmployeesApiV1PerformanceIgnoreEmployeesIgnoredGet**](doc//PerformanceIgnoreApi.md#getignoredemployeesapiv1performanceignoreemployeesignoredget) | **GET** /api/v1/performance-ignore/employees/ignored | Get Ignored Employees
+*PerformanceIgnoreApi* | [**getIgnoredPatientsApiV1PerformanceIgnorePatientsIgnoredGet**](doc//PerformanceIgnoreApi.md#getignoredpatientsapiv1performanceignorepatientsignoredget) | **GET** /api/v1/performance-ignore/patients/ignored | Get Ignored Patients
+*PerformanceIgnoreApi* | [**removeFromIgnoreListApiV1PerformanceIgnoreRemoveDelete**](doc//PerformanceIgnoreApi.md#removefromignorelistapiv1performanceignoreremovedelete) | **DELETE** /api/v1/performance-ignore/remove | Remove From Ignore List
 *ProcessedPatientApi* | [**createProcessedPatientEntryApiV1ProcessedPatientPost**](doc//ProcessedPatientApi.md#createprocessedpatiententryapiv1processedpatientpost) | **POST** /api/v1/processed-patient/ | Create Processed Patient Entry
 *ProcessedPatientApi* | [**readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidPortalGet**](doc//ProcessedPatientApi.md#readprocessedpatiententriesformonthyearempidapiv1processedpatientprocessyearmonthempidportalget) | **GET** /api/v1/processed-patient/process/{year}/{month}/{empid}/{portal} | Read Processed Patient Entries For Monthyear Empid
 *ProcessedPatientApi* | [**readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdPortalGet**](doc//ProcessedPatientApi.md#readprocessedpatiententryforpatientinmonthyearapiv1processedpatientyearmonthpatientidportalget) | **GET** /api/v1/processed-patient/{year}/{month}/{patient_id}/{portal} | Read Processed Patient Entry For Patient In Monthyear
@@ -200,6 +206,8 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ActorType](doc//ActorType.md)
+ - [AddEmployeeToIgnoreRequest](doc//AddEmployeeToIgnoreRequest.md)
+ - [AddPatientToIgnoreRequest](doc//AddPatientToIgnoreRequest.md)
  - [AllergyCreate](doc//AllergyCreate.md)
  - [AllergyRead](doc//AllergyRead.md)
  - [AllergyUpdate](doc//AllergyUpdate.md)
@@ -302,6 +310,7 @@ Class | Method | HTTP request | Description
  - [PerformanceComponentBreakdown](doc//PerformanceComponentBreakdown.md)
  - [PerformanceDistribution](doc//PerformanceDistribution.md)
  - [PerformanceDistributionCounts](doc//PerformanceDistributionCounts.md)
+ - [PerformanceIgnoreListRead](doc//PerformanceIgnoreListRead.md)
  - [PerformanceMetricsBreakdown](doc//PerformanceMetricsBreakdown.md)
  - [PerformanceSummaryResponse](doc//PerformanceSummaryResponse.md)
  - [PerformanceSummaryStats](doc//PerformanceSummaryStats.md)
@@ -323,6 +332,7 @@ Class | Method | HTTP request | Description
  - [PsychosocialStressorUpdate](doc//PsychosocialStressorUpdate.md)
  - [RecentScoreData](doc//RecentScoreData.md)
  - [RegionalPerformance](doc//RegionalPerformance.md)
+ - [RemoveFromIgnoreRequest](doc//RemoveFromIgnoreRequest.md)
  - [RevertAssignmentsRequest](doc//RevertAssignmentsRequest.md)
  - [RevertAssignmentsResponse](doc//RevertAssignmentsResponse.md)
  - [ScoreDistribution](doc//ScoreDistribution.md)

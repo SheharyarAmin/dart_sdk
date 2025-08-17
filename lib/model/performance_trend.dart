@@ -84,7 +84,7 @@ class PerformanceTrend {
             ? (json[r'scores'] as Iterable).cast<num>().toList(growable: false)
             : const [],
         dates: json[r'dates'] is Iterable
-            ? (json[r'dates'] as Iterable).map((item) => mapDateTime(item, '', '')!).toList(growable: false)
+            ? (json[r'dates'] as Iterable).map((item) => _parseDate(item)!).toList(growable: false)
             : const [],
         trendDirection: mapValueOfType<String>(json, r'trend_direction')!,
         trendPercentage: num.parse('${json[r'trend_percentage']}'),
@@ -141,5 +141,25 @@ class PerformanceTrend {
     'trend_direction',
     'trend_percentage',
   };
+
+  /// Helper function to parse date strings, handling both date-only and datetime formats
+  static DateTime? _parseDate(dynamic value) {
+    if (value == null) return null;
+    if (value is String) {
+      // Try parsing as-is first
+      DateTime? parsed = DateTime.tryParse(value);
+      if (parsed != null) return parsed;
+      
+      // If it's a date-only string like "2025-07-28", convert it to datetime
+      if (value.length == 10 && value.contains('-')) {
+        try {
+          return DateTime.parse('${value}T00:00:00Z');
+        } catch (e) {
+          return null;
+        }
+      }
+    }
+    return null;
+  }
 }
 

@@ -15,48 +15,36 @@ class ImprovementPotential {
   ImprovementPotential({
     required this.processingEfficiency,
     required this.qualityMetrics,
-    required this.workloadManagement,
-    required this.assignmentHandling,
-    required this.engagement,
+    required this.engagementConsistency,
   });
 
   num processingEfficiency;
 
   num qualityMetrics;
 
-  num workloadManagement;
-
-  num assignmentHandling;
-
-  num engagement;
+  num engagementConsistency;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ImprovementPotential &&
     other.processingEfficiency == processingEfficiency &&
     other.qualityMetrics == qualityMetrics &&
-    other.workloadManagement == workloadManagement &&
-    other.assignmentHandling == assignmentHandling &&
-    other.engagement == engagement;
+    other.engagementConsistency == engagementConsistency;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (processingEfficiency.hashCode) +
     (qualityMetrics.hashCode) +
-    (workloadManagement.hashCode) +
-    (assignmentHandling.hashCode) +
-    (engagement.hashCode);
+    (engagementConsistency.hashCode);
 
   @override
-  String toString() => 'ImprovementPotential[processingEfficiency=$processingEfficiency, qualityMetrics=$qualityMetrics, workloadManagement=$workloadManagement, assignmentHandling=$assignmentHandling, engagement=$engagement]';
+  String toString() => 'ImprovementPotential[processingEfficiency=$processingEfficiency, qualityMetrics=$qualityMetrics, engagementConsistency=$engagementConsistency]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'processing_efficiency'] = this.processingEfficiency;
       json[r'quality_metrics'] = this.qualityMetrics;
-      json[r'workload_management'] = this.workloadManagement;
-      json[r'assignment_handling'] = this.assignmentHandling;
-      json[r'engagement'] = this.engagement;
+      json[r'engagement_consistency'] = this.engagementConsistency;
     return json;
   }
 
@@ -81,9 +69,7 @@ class ImprovementPotential {
       return ImprovementPotential(
         processingEfficiency: num.parse('${json[r'processing_efficiency']}'),
         qualityMetrics: num.parse('${json[r'quality_metrics']}'),
-        workloadManagement: num.parse('${json[r'workload_management']}'),
-        assignmentHandling: num.parse('${json[r'assignment_handling']}'),
-        engagement: num.parse('${json[r'engagement']}'),
+        engagementConsistency: num.parse('${json[r'engagement_consistency']}'),
       );
     }
     return null;
@@ -133,9 +119,7 @@ class ImprovementPotential {
   static const requiredKeys = <String>{
     'processing_efficiency',
     'quality_metrics',
-    'workload_management',
-    'assignment_handling',
-    'engagement',
+    'engagement_consistency',
   };
 }
 
