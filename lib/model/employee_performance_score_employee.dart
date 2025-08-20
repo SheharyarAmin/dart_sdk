@@ -119,8 +119,8 @@ class EmployeePerformanceScoreEmployee {
       }());
 
       return EmployeePerformanceScoreEmployee(
-        scorePeriodStart: _parseDate(json[r'score_period_start'])!,
-        scorePeriodEnd: _parseDate(json[r'score_period_end'])!,
+        scorePeriodStart: mapDateTime(json, r'score_period_start', r'')!,
+        scorePeriodEnd: mapDateTime(json, r'score_period_end', r'')!,
         portal: Portal.fromJson(json[r'portal'])!,
         totalScore: num.parse('${json[r'total_score']}'),
         performanceCategory: PerformanceCategory.fromJson(json[r'performance_category'])!,
@@ -190,25 +190,5 @@ class EmployeePerformanceScoreEmployee {
     'engagement_score',
     'calculated_at',
   };
-
-  /// Helper function to parse date strings, handling both date-only and datetime formats
-  static DateTime? _parseDate(dynamic value) {
-    if (value == null) return null;
-    if (value is String) {
-      // Try parsing as-is first
-      DateTime? parsed = DateTime.tryParse(value);
-      if (parsed != null) return parsed;
-      
-      // If it's a date-only string like "2025-07-28", convert it to datetime
-      if (value.length == 10 && value.contains('-')) {
-        try {
-          return DateTime.parse('${value}T00:00:00Z');
-        } catch (e) {
-          return null;
-        }
-      }
-    }
-    return null;
-  }
 }
 

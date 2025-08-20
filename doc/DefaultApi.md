@@ -9,42 +9,40 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**loginForAccessTokenAuthTokenPost**](DefaultApi.md#loginforaccesstokenauthtokenpost) | **POST** /auth/token | Login For Access Token
+[**getUserContextAuthUserContextGet**](DefaultApi.md#getusercontextauthusercontextget) | **GET** /auth/user-context | Get User Context
+[**healthCheckHealthGet**](DefaultApi.md#healthcheckhealthget) | **GET** /health | Health Check
+[**loginUserAuthLoginPost**](DefaultApi.md#loginuserauthloginpost) | **POST** /auth/login | Login User
 [**pingAuthPingGet**](DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 [**refreshAccessTokenAuthRefreshPost**](DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
 
 
-# **loginForAccessTokenAuthTokenPost**
-> Token loginForAccessTokenAuthTokenPost(authenticationToken)
+# **getUserContextAuthUserContextGet**
+> AuthUserContextResponse getUserContextAuthUserContextGet()
 
-Login For Access Token
+Get User Context
 
-Endpoint to login and get an access token.  Args:     request (AuthenticationToken): The request body containing the ID token.  Returns:     Token: The access token and token type.
+Get user's current context including selected tenant and available tenants. Uses the new user-based multi-tenant system.
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
-final authenticationToken = AuthenticationToken(); // AuthenticationToken | 
 
 try {
-    final result = api_instance.loginForAccessTokenAuthTokenPost(authenticationToken);
+    final result = api_instance.getUserContextAuthUserContextGet();
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->loginForAccessTokenAuthTokenPost: $e\n');
+    print('Exception when calling DefaultApi->getUserContextAuthUserContextGet: $e\n');
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authenticationToken** | [**AuthenticationToken**](AuthenticationToken.md)|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**Token**](Token.md)
+[**AuthUserContextResponse**](AuthUserContextResponse.md)
 
 ### Authorization
 
@@ -52,17 +50,17 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **pingAuthPingGet**
-> Object pingAuthPingGet()
+# **healthCheckHealthGet**
+> Object healthCheckHealthGet()
 
-Ping
+Health Check
 
-Endpoint to check if the server is running.  Returns:     dict: A message indicating that the server is running.
+Health check endpoint
 
 ### Example
 ```dart
@@ -71,10 +69,10 @@ import 'package:openapi/api.dart';
 final api_instance = DefaultApi();
 
 try {
-    final result = api_instance.pingAuthPingGet();
+    final result = api_instance.healthCheckHealthGet();
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->pingAuthPingGet: $e\n');
+    print('Exception when calling DefaultApi->healthCheckHealthGet: $e\n');
 }
 ```
 
@@ -96,10 +94,94 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **loginUserAuthLoginPost**
+> LoginResponse loginUserAuthLoginPost(authenticationToken)
+
+Login User
+
+User login for multi-tenant system. Handles users that can belong to multiple tenants.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+final authenticationToken = AuthenticationToken(); // AuthenticationToken | 
+
+try {
+    final result = api_instance.loginUserAuthLoginPost(authenticationToken);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->loginUserAuthLoginPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authenticationToken** | [**AuthenticationToken**](AuthenticationToken.md)|  | 
+
+### Return type
+
+[**LoginResponse**](LoginResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **pingAuthPingGet**
+> MessageResponse pingAuthPingGet()
+
+Ping
+
+Endpoint to check if the server is running.  Returns:     MessageResponse: A message indicating that the server is running.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+try {
+    final result = api_instance.pingAuthPingGet();
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pingAuthPingGet: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MessageResponse**](MessageResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **refreshAccessTokenAuthRefreshPost**
 > Token refreshAccessTokenAuthRefreshPost(refreshToken)
 
 Refresh Access Token
+
+Refresh access token using the new user-based authentication system.
 
 ### Example
 ```dart

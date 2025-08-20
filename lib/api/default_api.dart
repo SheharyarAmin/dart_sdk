@@ -16,18 +16,114 @@ class DefaultApi {
 
   final ApiClient apiClient;
 
-  /// Login For Access Token
+  /// Get User Context
   ///
-  /// Endpoint to login and get an access token.  Args:     request (AuthenticationToken): The request body containing the ID token.  Returns:     Token: The access token and token type.
+  /// Get user's current context including selected tenant and available tenants. Uses the new user-based multi-tenant system.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getUserContextAuthUserContextGetWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/auth/user-context';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get User Context
+  ///
+  /// Get user's current context including selected tenant and available tenants. Uses the new user-based multi-tenant system.
+  Future<AuthUserContextResponse?> getUserContextAuthUserContextGet() async {
+    final response = await getUserContextAuthUserContextGetWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuthUserContextResponse',) as AuthUserContextResponse;
+    
+    }
+    return null;
+  }
+
+  /// Health Check
+  ///
+  /// Health check endpoint
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> healthCheckHealthGetWithHttpInfo() async {
+    // ignore: prefer_const_declarations
+    final path = r'/health';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Health Check
+  ///
+  /// Health check endpoint
+  Future<Object?> healthCheckHealthGet() async {
+    final response = await healthCheckHealthGetWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+    
+    }
+    return null;
+  }
+
+  /// Login User
+  ///
+  /// User login for multi-tenant system. Handles users that can belong to multiple tenants.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [AuthenticationToken] authenticationToken (required):
-  Future<Response> loginForAccessTokenAuthTokenPostWithHttpInfo(AuthenticationToken authenticationToken,) async {
+  Future<Response> loginUserAuthLoginPostWithHttpInfo(AuthenticationToken authenticationToken,) async {
     // ignore: prefer_const_declarations
-    final path = r'/auth/token';
+    final path = r'/auth/login';
 
     // ignore: prefer_final_locals
     Object? postBody = authenticationToken;
@@ -50,15 +146,15 @@ class DefaultApi {
     );
   }
 
-  /// Login For Access Token
+  /// Login User
   ///
-  /// Endpoint to login and get an access token.  Args:     request (AuthenticationToken): The request body containing the ID token.  Returns:     Token: The access token and token type.
+  /// User login for multi-tenant system. Handles users that can belong to multiple tenants.
   ///
   /// Parameters:
   ///
   /// * [AuthenticationToken] authenticationToken (required):
-  Future<Token?> loginForAccessTokenAuthTokenPost(AuthenticationToken authenticationToken,) async {
-    final response = await loginForAccessTokenAuthTokenPostWithHttpInfo(authenticationToken,);
+  Future<LoginResponse?> loginUserAuthLoginPost(AuthenticationToken authenticationToken,) async {
+    final response = await loginUserAuthLoginPostWithHttpInfo(authenticationToken,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -66,7 +162,7 @@ class DefaultApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Token',) as Token;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'LoginResponse',) as LoginResponse;
     
     }
     return null;
@@ -74,7 +170,7 @@ class DefaultApi {
 
   /// Ping
   ///
-  /// Endpoint to check if the server is running.  Returns:     dict: A message indicating that the server is running.
+  /// Endpoint to check if the server is running.  Returns:     MessageResponse: A message indicating that the server is running.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> pingAuthPingGetWithHttpInfo() async {
@@ -104,8 +200,8 @@ class DefaultApi {
 
   /// Ping
   ///
-  /// Endpoint to check if the server is running.  Returns:     dict: A message indicating that the server is running.
-  Future<Object?> pingAuthPingGet() async {
+  /// Endpoint to check if the server is running.  Returns:     MessageResponse: A message indicating that the server is running.
+  Future<MessageResponse?> pingAuthPingGet() async {
     final response = await pingAuthPingGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -114,13 +210,15 @@ class DefaultApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageResponse',) as MessageResponse;
     
     }
     return null;
   }
 
   /// Refresh Access Token
+  ///
+  /// Refresh access token using the new user-based authentication system.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -155,6 +253,8 @@ class DefaultApi {
   }
 
   /// Refresh Access Token
+  ///
+  /// Refresh access token using the new user-based authentication system.
   ///
   /// Parameters:
   ///

@@ -368,14 +368,28 @@ class ApiClient {
           return AppSchemasManagerAnalyticsPerformanceInsight.fromJson(value);
         case 'AssignedPatientScreenResponse':
           return AssignedPatientScreenResponse.fromJson(value);
+        case 'AssignedPatientsResponse':
+          return AssignedPatientsResponse.fromJson(value);
         case 'AssignmentAction':
           return AssignmentActionTypeTransformer().decode(value);
         case 'AssignmentResponse':
           return AssignmentResponse.fromJson(value);
+        case 'AuthUserContextResponse':
+          return AuthUserContextResponse.fromJson(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
+        case 'AvailableTenant':
+          return AvailableTenant.fromJson(value);
+        case 'BatchAssignedPatientsResponse':
+          return BatchAssignedPatientsResponse.fromJson(value);
         case 'BatchAssignmentRequest':
           return BatchAssignmentRequest.fromJson(value);
+        case 'BodySelectTenantApiV1AuthSelectTenantPost':
+          return BodySelectTenantApiV1AuthSelectTenantPost.fromJson(value);
+        case 'BulkInvitationRequest':
+          return BulkInvitationRequest.fromJson(value);
+        case 'BulkInvitationResponse':
+          return BulkInvitationResponse.fromJson(value);
         case 'CCMPatientCreate':
           return CCMPatientCreate.fromJson(value);
         case 'CCMPatientRead':
@@ -472,6 +486,12 @@ class ApiClient {
           return EquipmentUpdate.fromJson(value);
         case 'ExpansionOpportunity':
           return ExpansionOpportunity.fromJson(value);
+        case 'FailedInvitation':
+          return FailedInvitation.fromJson(value);
+        case 'Feature':
+          return Feature.fromJson(value);
+        case 'GlobalUserRead':
+          return GlobalUserRead.fromJson(value);
         case 'HTTPValidationError':
           return HTTPValidationError.fromJson(value);
         case 'HighPerformerDetail':
@@ -480,12 +500,22 @@ class ApiClient {
           return ImprovementCandidate.fromJson(value);
         case 'ImprovementPotential':
           return ImprovementPotential.fromJson(value);
+        case 'InvitationAcceptRequest':
+          return InvitationAcceptRequest.fromJson(value);
+        case 'InvitationDetailsResponse':
+          return InvitationDetailsResponse.fromJson(value);
+        case 'InvitationStatus':
+          return InvitationStatusTypeTransformer().decode(value);
         case 'InvoicesResponse':
           return InvoicesResponse.fromJson(value);
         case 'KPIMetrics':
           return KPIMetrics.fromJson(value);
         case 'Log':
           return Log.fromJson(value);
+        case 'LoginResponse':
+          return LoginResponse.fromJson(value);
+        case 'LoginUser':
+          return LoginUser.fromJson(value);
         case 'ManagerAnalyticsResponse':
           return ManagerAnalyticsResponse.fromJson(value);
         case 'ManagerPerformance':
@@ -500,6 +530,12 @@ class ApiClient {
           return MedicationRead.fromJson(value);
         case 'MedicationUpdate':
           return MedicationUpdate.fromJson(value);
+        case 'MembershipRole':
+          return MembershipRoleTypeTransformer().decode(value);
+        case 'MembershipStatus':
+          return MembershipStatusTypeTransformer().decode(value);
+        case 'MessageResponse':
+          return MessageResponse.fromJson(value);
         case 'MonthlyTrend':
           return MonthlyTrend.fromJson(value);
         case 'Notification':
@@ -552,6 +588,10 @@ class ApiClient {
           return PaymentDetail.fromJson(value);
         case 'PaymentsResponse':
           return PaymentsResponse.fromJson(value);
+        case 'PendingInvitation':
+          return PendingInvitation.fromJson(value);
+        case 'PendingInvitationsResponse':
+          return PendingInvitationsResponse.fromJson(value);
         case 'PerformanceBreakdown':
           return PerformanceBreakdown.fromJson(value);
         case 'PerformanceCalculationRequest':
@@ -618,6 +658,12 @@ class ApiClient {
           return RevertAssignmentsResponse.fromJson(value);
         case 'ScoreDistribution':
           return ScoreDistribution.fromJson(value);
+        case 'SelectedTenant':
+          return SelectedTenant.fromJson(value);
+        case 'SubscriptionTier':
+          return SubscriptionTier.fromJson(value);
+        case 'SuccessfulInvitation':
+          return SuccessfulInvitation.fromJson(value);
         case 'TeamAnalytics':
           return TeamAnalytics.fromJson(value);
         case 'TeamComparison':
@@ -632,6 +678,34 @@ class ApiClient {
           return TempAssignmentCreate.fromJson(value);
         case 'TempAssignmentEmpLists':
           return TempAssignmentEmpLists.fromJson(value);
+        case 'TenantContextData':
+          return TenantContextData.fromJson(value);
+        case 'TenantCreate':
+          return TenantCreate.fromJson(value);
+        case 'TenantInvitationCreate':
+          return TenantInvitationCreate.fromJson(value);
+        case 'TenantInvitationRead':
+          return TenantInvitationRead.fromJson(value);
+        case 'TenantLimit':
+          return TenantLimit.fromJson(value);
+        case 'TenantMemberResponse':
+          return TenantMemberResponse.fromJson(value);
+        case 'TenantMemberUpdate':
+          return TenantMemberUpdate.fromJson(value);
+        case 'TenantRead':
+          return TenantRead.fromJson(value);
+        case 'TenantSelectionRequest':
+          return TenantSelectionRequest.fromJson(value);
+        case 'TenantStatus':
+          return TenantStatusTypeTransformer().decode(value);
+        case 'TenantUpdate':
+          return TenantUpdate.fromJson(value);
+        case 'TestDataCreate':
+          return TestDataCreate.fromJson(value);
+        case 'TestTenantCreate':
+          return TestTenantCreate.fromJson(value);
+        case 'TestUserCreate':
+          return TestUserCreate.fromJson(value);
         case 'Token':
           return Token.fromJson(value);
         case 'TopPerformer':
@@ -644,6 +718,18 @@ class ApiClient {
           return UnderAssignedEmployee.fromJson(value);
         case 'UnderPerformerDetail':
           return UnderPerformerDetail.fromJson(value);
+        case 'UpdateFeaturesRequest':
+          return UpdateFeaturesRequest.fromJson(value);
+        case 'UserContextResponse':
+          return UserContextResponse.fromJson(value);
+        case 'UserContextUser':
+          return UserContextUser.fromJson(value);
+        case 'UserStatus':
+          return UserStatusTypeTransformer().decode(value);
+        case 'UserTenant':
+          return UserTenant.fromJson(value);
+        case 'UserTenantsResponse':
+          return UserTenantsResponse.fromJson(value);
         case 'ValidationError':
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':

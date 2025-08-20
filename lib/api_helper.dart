@@ -61,11 +61,26 @@ String parameterToString(dynamic value) {
   if (value is AssignmentAction) {
     return AssignmentActionTypeTransformer().encode(value).toString();
   }
+  if (value is InvitationStatus) {
+    return InvitationStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is MembershipRole) {
+    return MembershipRoleTypeTransformer().encode(value).toString();
+  }
+  if (value is MembershipStatus) {
+    return MembershipStatusTypeTransformer().encode(value).toString();
+  }
   if (value is PerformanceCategory) {
     return PerformanceCategoryTypeTransformer().encode(value).toString();
   }
   if (value is Portal) {
     return PortalTypeTransformer().encode(value).toString();
+  }
+  if (value is TenantStatus) {
+    return TenantStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is UserStatus) {
+    return UserStatusTypeTransformer().encode(value).toString();
   }
   return value.toString();
 }

@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**getEmployeesWithPerformanceApiV1EmployeesWithPerformanceGet**](EmployeesApi.md#getemployeeswithperformanceapiv1employeeswithperformanceget) | **GET** /api/v1/employees/with-performance | Get Employees With Performance
 [**readEmployeeApiV1EmployeesEmployeeIdGet**](EmployeesApi.md#reademployeeapiv1employeesemployeeidget) | **GET** /api/v1/employees/{employee_id} | Read Employee
 [**readEmployeesApiV1EmployeesGet**](EmployeesApi.md#reademployeesapiv1employeesget) | **GET** /api/v1/employees/ | Read Employees
+[**refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPost**](EmployeesApi.md#refreshallassignedpatientscountapiv1employeesrefreshallassignedpatientspost) | **POST** /api/v1/employees/refresh-all-assigned-patients | Refresh All Assigned Patients Count
 [**updateEmployeeApiV1EmployeesEmployeeIdPut**](EmployeesApi.md#updateemployeeapiv1employeesemployeeidput) | **PUT** /api/v1/employees/{employee_id} | Update Employee
 
 
@@ -351,7 +352,7 @@ Name | Type | Description  | Notes
 
 Read Employee
 
-Get basic employee data by ID
+Get basic employee data by ID - TESTING: includes refresh all assigned patients
 
 ### Example
 ```dart
@@ -420,6 +421,51 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Map<String, EmployeeRead>**](EmployeeRead.md)
+
+### Authorization
+
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPost**
+> BatchAssignedPatientsResponse refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPost(portal)
+
+Refresh All Assigned Patients Count
+
+Refresh assigned patients count for ALL employees at once.  This endpoint: - Recalculates real-time assigned patient counts for all active employees - Uses batch processing for optimal performance - Excludes deceased patients, opted-out patients, and ignored patients - Returns detailed breakdown by employee with CCM/PCM counts - Requires Admin/Owner permissions
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
+
+final api_instance = EmployeesApi();
+final portal = ; // Portal | Filter by portal (CCM/PCM), or None for all portals
+
+try {
+    final result = api_instance.refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPost(portal);
+    print(result);
+} catch (e) {
+    print('Exception when calling EmployeesApi->refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portal** | [**Portal**](.md)| Filter by portal (CCM/PCM), or None for all portals | [optional] 
+
+### Return type
+
+[**BatchAssignedPatientsResponse**](BatchAssignedPatientsResponse.md)
 
 ### Authorization
 
