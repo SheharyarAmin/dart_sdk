@@ -16,6 +16,9 @@ Method | HTTP request | Description
 [**refreshAccessTokenApiV1AuthRefreshPost**](UserAuthApi.md#refreshaccesstokenapiv1authrefreshpost) | **POST** /api/v1/auth/refresh | Refresh Access Token
 [**selectTenantApiV1AuthSelectTenantPost**](UserAuthApi.md#selecttenantapiv1authselecttenantpost) | **POST** /api/v1/auth/select-tenant | Select Tenant
 [**switchTenantApiV1AuthSwitchTenantPost**](UserAuthApi.md#switchtenantapiv1authswitchtenantpost) | **POST** /api/v1/auth/switch-tenant | Switch Tenant
+[**testJwtTokenApiV1AuthTestJwtTokenGet**](UserAuthApi.md#testjwttokenapiv1authtestjwttokenget) | **GET** /api/v1/auth/test-jwt-token | Test Jwt Token
+[**testLoginResponseApiV1AuthTestLoginResponseGet**](UserAuthApi.md#testloginresponseapiv1authtestloginresponseget) | **GET** /api/v1/auth/test-login-response | Test Login Response
+[**testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet**](UserAuthApi.md#testusertenantsdirectapiv1authtestusertenantsuseremailget) | **GET** /api/v1/auth/test-user-tenants/{user_email} | Test User Tenants Direct
 
 
 # **getUserContextApiV1AuthUserContextGet**
@@ -58,20 +61,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserTenantsApiV1AuthUserTenantsGet**
-> UserTenantsResponse getUserTenantsApiV1AuthUserTenantsGet()
+> UserTenantsResponse getUserTenantsApiV1AuthUserTenantsGet(currentUserId)
 
 Get User Tenants
 
-Get all tenants that the current user has access to.
+Get all tenants that the current user has access to. Supports both JWT tokens (for authenticated users) and Firebase ID tokens (for tenant selection).
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
 
 final api_instance = UserAuthApi();
+final currentUserId = currentUserId_example; // String | 
 
 try {
-    final result = api_instance.getUserTenantsApiV1AuthUserTenantsGet();
+    final result = api_instance.getUserTenantsApiV1AuthUserTenantsGet(currentUserId);
     print(result);
 } catch (e) {
     print('Exception when calling UserAuthApi->getUserTenantsApiV1AuthUserTenantsGet: $e\n');
@@ -79,7 +83,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currentUserId** | **String**|  | [optional] 
 
 ### Return type
 
@@ -303,6 +310,127 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **testJwtTokenApiV1AuthTestJwtTokenGet**
+> MessageResponse testJwtTokenApiV1AuthTestJwtTokenGet()
+
+Test Jwt Token
+
+Test endpoint to create a JWT token for testing purposes
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserAuthApi();
+
+try {
+    final result = api_instance.testJwtTokenApiV1AuthTestJwtTokenGet();
+    print(result);
+} catch (e) {
+    print('Exception when calling UserAuthApi->testJwtTokenApiV1AuthTestJwtTokenGet: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MessageResponse**](MessageResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **testLoginResponseApiV1AuthTestLoginResponseGet**
+> LoginResponse testLoginResponseApiV1AuthTestLoginResponseGet()
+
+Test Login Response
+
+Test endpoint to verify LoginResponse structure works correctly
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserAuthApi();
+
+try {
+    final result = api_instance.testLoginResponseApiV1AuthTestLoginResponseGet();
+    print(result);
+} catch (e) {
+    print('Exception when calling UserAuthApi->testLoginResponseApiV1AuthTestLoginResponseGet: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**LoginResponse**](LoginResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet**
+> LoginResponse testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet(userEmail)
+
+Test User Tenants Direct
+
+Test endpoint to check what tenants a specific user has access to
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserAuthApi();
+final userEmail = userEmail_example; // String | 
+
+try {
+    final result = api_instance.testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet(userEmail);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserAuthApi->testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userEmail** | **String**|  | 
+
+### Return type
+
+[**LoginResponse**](LoginResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

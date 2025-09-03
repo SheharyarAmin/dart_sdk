@@ -9,14 +9,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addUsersToEmployeeTablesApiV1DebugAddUsersToEmployeeTablesPost**](DebugMultitenantApi.md#adduserstoemployeetablesapiv1debugadduserstoemployeetablespost) | **POST** /api/v1/debug/add-users-to-employee-tables | Add Users To Employee Tables
 [**debugAddUserToTenantApiV1DebugUserUserIdTenantTenantIdMembershipPost**](DebugMultitenantApi.md#debugaddusertotenantapiv1debuguseruseridtenanttenantidmembershippost) | **POST** /api/v1/debug/user/{user_id}/tenant/{tenant_id}/membership | Debug Add User To Tenant
+[**debugCleanupOrphanedDatabasesApiV1DebugDatabaseCleanupOrphanedPost**](DebugMultitenantApi.md#debugcleanuporphaneddatabasesapiv1debugdatabasecleanuporphanedpost) | **POST** /api/v1/debug/database/cleanup-orphaned | Debug Cleanup Orphaned Databases
 [**debugCreateDefaultFeaturesApiV1DebugFeaturesCreateDefaultsPost**](DebugMultitenantApi.md#debugcreatedefaultfeaturesapiv1debugfeaturescreatedefaultspost) | **POST** /api/v1/debug/features/create-defaults | Debug Create Default Features
 [**debugCreateProfessionalTierApiV1DebugSubscriptionTiersCreateProfessionalPost**](DebugMultitenantApi.md#debugcreateprofessionaltierapiv1debugsubscriptiontierscreateprofessionalpost) | **POST** /api/v1/debug/subscription-tiers/create-professional | Debug Create Professional Tier
+[**debugCreateStarterTierApiV1DebugSubscriptionTiersCreateStarterPost**](DebugMultitenantApi.md#debugcreatestartertierapiv1debugsubscriptiontierscreatestarterpost) | **POST** /api/v1/debug/subscription-tiers/create-starter | Debug Create Starter Tier
 [**debugCreateTenantApiV1DebugTenantCreatePost**](DebugMultitenantApi.md#debugcreatetenantapiv1debugtenantcreatepost) | **POST** /api/v1/debug/tenant/create | Debug Create Tenant
 [**debugCreateTenantTestDataApiV1DebugIsolationTenantTenantIdTestDataPost**](DebugMultitenantApi.md#debugcreatetenanttestdataapiv1debugisolationtenanttenantidtestdatapost) | **POST** /api/v1/debug/isolation/tenant/{tenant_id}/test-data | Debug Create Tenant Test Data
 [**debugCreateTestTokenApiV1DebugAuthCreateTestTokenPost**](DebugMultitenantApi.md#debugcreatetesttokenapiv1debugauthcreatetesttokenpost) | **POST** /api/v1/debug/auth/create-test-token | Debug Create Test Token
 [**debugCreateUserApiV1DebugUserCreatePost**](DebugMultitenantApi.md#debugcreateuserapiv1debugusercreatepost) | **POST** /api/v1/debug/user/create | Debug Create User
 [**debugDatabaseHealthApiV1DebugHealthDatabasesGet**](DebugMultitenantApi.md#debugdatabasehealthapiv1debughealthdatabasesget) | **GET** /api/v1/debug/health/databases | Debug Database Health
+[**debugDropTenantDatabaseApiV1DebugDatabaseDropDatabaseNameDelete**](DebugMultitenantApi.md#debugdroptenantdatabaseapiv1debugdatabasedropdatabasenamedelete) | **DELETE** /api/v1/debug/database/drop/{database_name} | Debug Drop Tenant Database
 [**debugGetTenantApiV1DebugTenantTenantIdGet**](DebugMultitenantApi.md#debuggettenantapiv1debugtenanttenantidget) | **GET** /api/v1/debug/tenant/{tenant_id} | Debug Get Tenant
 [**debugGetTenantTestDataApiV1DebugIsolationTenantTenantIdTestDataGet**](DebugMultitenantApi.md#debuggettenanttestdataapiv1debugisolationtenanttenantidtestdataget) | **GET** /api/v1/debug/isolation/tenant/{tenant_id}/test-data | Debug Get Tenant Test Data
 [**debugGetUserTenantsApiV1DebugUserUserIdTenantsGet**](DebugMultitenantApi.md#debuggetusertenantsapiv1debuguseruseridtenantsget) | **GET** /api/v1/debug/user/{user_id}/tenants | Debug Get User Tenants
@@ -43,6 +47,45 @@ Method | HTTP request | Description
 [**testTenantDatabaseIsolationApiV1DebugIsolationTestDatabaseSeparationPost**](DebugMultitenantApi.md#testtenantdatabaseisolationapiv1debugisolationtestdatabaseseparationpost) | **POST** /api/v1/debug/isolation/test-database-separation | Test Tenant Database Isolation
 [**verifyCrossTenantAccessPreventionApiV1DebugIsolationVerifyCrossTenantAccessGet**](DebugMultitenantApi.md#verifycrosstenantaccesspreventionapiv1debugisolationverifycrosstenantaccessget) | **GET** /api/v1/debug/isolation/verify-cross-tenant-access | Verify Cross Tenant Access Prevention
 
+
+# **addUsersToEmployeeTablesApiV1DebugAddUsersToEmployeeTablesPost**
+> Object addUsersToEmployeeTablesApiV1DebugAddUsersToEmployeeTablesPost()
+
+Add Users To Employee Tables
+
+DEBUG ENDPOINT: Add existing tenant users to their respective employee tables This is for fixing existing test organizations that were created before the employee auto-registration feature
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = DebugMultitenantApi();
+
+try {
+    final result = api_instance.addUsersToEmployeeTablesApiV1DebugAddUsersToEmployeeTablesPost();
+    print(result);
+} catch (e) {
+    print('Exception when calling DebugMultitenantApi->addUsersToEmployeeTablesApiV1DebugAddUsersToEmployeeTablesPost: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **debugAddUserToTenantApiV1DebugUserUserIdTenantTenantIdMembershipPost**
 > Object debugAddUserToTenantApiV1DebugUserUserIdTenantTenantIdMembershipPost(userId, tenantId, role)
@@ -74,7 +117,46 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**|  | 
  **tenantId** | **String**|  | 
- **role** | [**MembershipRole**](.md)|  | [optional] [default to user]
+ **role** | [**MembershipRole**](.md)|  | [optional] [default to Admin]
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **debugCleanupOrphanedDatabasesApiV1DebugDatabaseCleanupOrphanedPost**
+> Object debugCleanupOrphanedDatabasesApiV1DebugDatabaseCleanupOrphanedPost()
+
+Debug Cleanup Orphaned Databases
+
+Find and optionally clean up orphaned tenant databases
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = DebugMultitenantApi();
+
+try {
+    final result = api_instance.debugCleanupOrphanedDatabasesApiV1DebugDatabaseCleanupOrphanedPost();
+    print(result);
+} catch (e) {
+    print('Exception when calling DebugMultitenantApi->debugCleanupOrphanedDatabasesApiV1DebugDatabaseCleanupOrphanedPost: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -148,6 +230,45 @@ try {
     print(result);
 } catch (e) {
     print('Exception when calling DebugMultitenantApi->debugCreateProfessionalTierApiV1DebugSubscriptionTiersCreateProfessionalPost: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **debugCreateStarterTierApiV1DebugSubscriptionTiersCreateStarterPost**
+> Object debugCreateStarterTierApiV1DebugSubscriptionTiersCreateStarterPost()
+
+Debug Create Starter Tier
+
+Create the missing 'starter' subscription tier
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = DebugMultitenantApi();
+
+try {
+    final result = api_instance.debugCreateStarterTierApiV1DebugSubscriptionTiersCreateStarterPost();
+    print(result);
+} catch (e) {
+    print('Exception when calling DebugMultitenantApi->debugCreateStarterTierApiV1DebugSubscriptionTiersCreateStarterPost: $e\n');
 }
 ```
 
@@ -368,6 +489,49 @@ try {
 
 ### Parameters
 This endpoint does not need any parameter.
+
+### Return type
+
+[**Object**](Object.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **debugDropTenantDatabaseApiV1DebugDatabaseDropDatabaseNameDelete**
+> Object debugDropTenantDatabaseApiV1DebugDatabaseDropDatabaseNameDelete(databaseName)
+
+Debug Drop Tenant Database
+
+Drop a tenant database by name (DANGEROUS - USE WITH CAUTION)
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = DebugMultitenantApi();
+final databaseName = databaseName_example; // String | 
+
+try {
+    final result = api_instance.debugDropTenantDatabaseApiV1DebugDatabaseDropDatabaseNameDelete(databaseName);
+    print(result);
+} catch (e) {
+    print('Exception when calling DebugMultitenantApi->debugDropTenantDatabaseApiV1DebugDatabaseDropDatabaseNameDelete: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **databaseName** | **String**|  | 
 
 ### Return type
 

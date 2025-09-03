@@ -21,8 +21,6 @@ Method | HTTP request | Description
 
 Get User Context
 
-Get user's current context including selected tenant and available tenants. Uses the new user-based multi-tenant system.
-
 ### Example
 ```dart
 import 'package:openapi/api.dart';
@@ -60,7 +58,7 @@ No authorization required
 
 Health Check
 
-Health check endpoint
+Simple health check endpoint for auto-initialization architecture
 
 ### Example
 ```dart
@@ -99,7 +97,7 @@ No authorization required
 
 Login User
 
-User login for multi-tenant system. Handles users that can belong to multiple tenants.
+User login using DI-compliant auth service with multi-tenant support.
 
 ### Example
 ```dart
@@ -142,8 +140,6 @@ No authorization required
 
 Ping
 
-Endpoint to check if the server is running.  Returns:     MessageResponse: A message indicating that the server is running.
-
 ### Example
 ```dart
 import 'package:openapi/api.dart';
@@ -181,7 +177,7 @@ No authorization required
 
 Refresh Access Token
 
-Refresh access token using the new user-based authentication system.
+Refresh access token using DI-based auth service.
 
 ### Example
 ```dart

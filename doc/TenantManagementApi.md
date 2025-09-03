@@ -69,7 +69,7 @@ No authorization required
 
 Create Tenant
 
-Create a new tenant organization. The creator becomes the super admin of the tenant.
+Create a new tenant organization using the normalized tenant service. The creator becomes the super admin of the tenant.
 
 ### Example
 ```dart

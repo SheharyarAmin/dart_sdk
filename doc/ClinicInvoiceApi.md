@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **createClinicInvoiceApiV1ClinicInvoiceClinicidPost**
-> ClinicInvoice createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate, session)
+> ClinicInvoice createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate)
 
 Create Clinic Invoice
 
@@ -32,10 +32,9 @@ final api_instance = ClinicInvoiceApi();
 final clinicid = clinicid_example; // String | 
 final date = date_example; // String | 
 final taxrate = 8.14; // num | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate, session);
+    final result = api_instance.createClinicInvoiceApiV1ClinicInvoiceClinicidPost(clinicid, date, taxrate);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicInvoiceApi->createClinicInvoiceApiV1ClinicInvoiceClinicidPost: $e\n');
@@ -49,7 +48,6 @@ Name | Type | Description  | Notes
  **clinicid** | **String**|  | 
  **date** | **String**|  | [optional] 
  **taxrate** | **num**|  | [optional] 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -67,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete**
-> Map<String, String> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber, session)
+> Map<String, String> deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber)
 
 Delete Clinic Invoice
 
@@ -82,10 +80,9 @@ import 'package:openapi/api.dart';
 final api_instance = ClinicInvoiceApi();
 final clinicid = clinicid_example; // String | 
 final invoiceNumber = invoiceNumber_example; // String | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber, session);
+    final result = api_instance.deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete(clinicid, invoiceNumber);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicInvoiceApi->deleteClinicInvoiceApiV1ClinicInvoiceClinicidInvoiceNumberDelete: $e\n');
@@ -98,7 +95,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicid** | **String**|  | 
  **invoiceNumber** | **String**|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 

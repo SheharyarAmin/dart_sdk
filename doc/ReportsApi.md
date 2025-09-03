@@ -13,9 +13,11 @@ Method | HTTP request | Description
 
 
 # **generateReportApiV1ReportsGenerateReportPost**
-> generateReportApiV1ReportsGenerateReportPost(requestBody)
+> generateReportApiV1ReportsGenerateReportPost(body)
 
 Generate Report
+
+Generate healthcare reports with DI Container compliance.  This endpoint maintains tenant isolation and audit trails through domain service delegation. All database operations use proper CRUD abstractions and session management.  Args:     data: Report parameters including entity, report_type, filters, etc.     report_service: DI-injected report service (domain router)     log_service: DI-injected log service for audit trail     user: Current authenticated user      Returns:     StreamingResponse: PDF report with proper headers      Raises:     HTTPException: For validation or generation errors
 
 ### Example
 ```dart
@@ -24,10 +26,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ReportsApi();
-final requestBody = Map<String, String>(); // Map<String, String> | 
+final body = Object(); // Object | 
 
 try {
-    api_instance.generateReportApiV1ReportsGenerateReportPost(requestBody);
+    api_instance.generateReportApiV1ReportsGenerateReportPost(body);
 } catch (e) {
     print('Exception when calling ReportsApi->generateReportApiV1ReportsGenerateReportPost: $e\n');
 }
@@ -37,7 +39,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**Map<String, String>**](String.md)|  | 
+ **body** | **Object**|  | 
 
 ### Return type
 

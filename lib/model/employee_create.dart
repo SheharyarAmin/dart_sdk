@@ -26,6 +26,7 @@ class EmployeeCreate {
     this.managerid,
     this.managername,
     this.assignedpatients,
+    this.globalUserId,
   });
 
   String name;
@@ -54,6 +55,8 @@ class EmployeeCreate {
 
   int? assignedpatients;
 
+  String? globalUserId;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is EmployeeCreate &&
     other.name == name &&
@@ -68,7 +71,8 @@ class EmployeeCreate {
     other.payperhour == payperhour &&
     other.managerid == managerid &&
     other.managername == managername &&
-    other.assignedpatients == assignedpatients;
+    other.assignedpatients == assignedpatients &&
+    other.globalUserId == globalUserId;
 
   @override
   int get hashCode =>
@@ -85,10 +89,11 @@ class EmployeeCreate {
     (payperhour.hashCode) +
     (managerid == null ? 0 : managerid!.hashCode) +
     (managername == null ? 0 : managername!.hashCode) +
-    (assignedpatients == null ? 0 : assignedpatients!.hashCode);
+    (assignedpatients == null ? 0 : assignedpatients!.hashCode) +
+    (globalUserId == null ? 0 : globalUserId!.hashCode);
 
   @override
-  String toString() => 'EmployeeCreate[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername, assignedpatients=$assignedpatients]';
+  String toString() => 'EmployeeCreate[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername, assignedpatients=$assignedpatients, globalUserId=$globalUserId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -120,6 +125,11 @@ class EmployeeCreate {
       json[r'assignedpatients'] = this.assignedpatients;
     } else {
       json[r'assignedpatients'] = null;
+    }
+    if (this.globalUserId != null) {
+      json[r'global_user_id'] = this.globalUserId;
+    } else {
+      json[r'global_user_id'] = null;
     }
     return json;
   }
@@ -156,6 +166,7 @@ class EmployeeCreate {
         managerid: mapValueOfType<String>(json, r'managerid'),
         managername: mapValueOfType<String>(json, r'managername'),
         assignedpatients: mapValueOfType<int>(json, r'assignedpatients'),
+        globalUserId: mapValueOfType<String>(json, r'global_user_id'),
       );
     }
     return null;

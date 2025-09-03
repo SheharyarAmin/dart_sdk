@@ -23,19 +23,23 @@ class MembershipRole {
 
   String toJson() => value;
 
-  static const superAdmin = MembershipRole._(r'super_admin');
-  static const admin = MembershipRole._(r'admin');
-  static const manager = MembershipRole._(r'manager');
-  static const user = MembershipRole._(r'user');
-  static const viewer = MembershipRole._(r'viewer');
+  static const owner = MembershipRole._(r'Owner');
+  static const admin = MembershipRole._(r'Admin');
+  static const manager = MembershipRole._(r'Manager');
+  static const financeManager = MembershipRole._(r'Finance Manager');
+  static const processor = MembershipRole._(r'Processor');
+  static const patientAssignerAndProcessor = MembershipRole._(r'Patient Assigner and Processor');
+  static const patientAssigner = MembershipRole._(r'Patient Assigner');
 
   /// List of all possible values in this [enum][MembershipRole].
   static const values = <MembershipRole>[
-    superAdmin,
+    owner,
     admin,
     manager,
-    user,
-    viewer,
+    financeManager,
+    processor,
+    patientAssignerAndProcessor,
+    patientAssigner,
   ];
 
   static MembershipRole? fromJson(dynamic value) => MembershipRoleTypeTransformer().decode(value);
@@ -74,11 +78,13 @@ class MembershipRoleTypeTransformer {
   MembershipRole? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'super_admin': return MembershipRole.superAdmin;
-        case r'admin': return MembershipRole.admin;
-        case r'manager': return MembershipRole.manager;
-        case r'user': return MembershipRole.user;
-        case r'viewer': return MembershipRole.viewer;
+        case r'Owner': return MembershipRole.owner;
+        case r'Admin': return MembershipRole.admin;
+        case r'Manager': return MembershipRole.manager;
+        case r'Finance Manager': return MembershipRole.financeManager;
+        case r'Processor': return MembershipRole.processor;
+        case r'Patient Assigner and Processor': return MembershipRole.patientAssignerAndProcessor;
+        case r'Patient Assigner': return MembershipRole.patientAssigner;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

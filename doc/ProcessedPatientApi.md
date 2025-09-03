@@ -19,6 +19,8 @@ Method | HTTP request | Description
 
 Create Processed Patient Entry
 
+Create processed patient entry with healthcare-grade audit trails
+
 ### Example
 ```dart
 import 'package:openapi/api.dart';
@@ -61,6 +63,8 @@ Name | Type | Description  | Notes
 > AssignedPatientScreenResponse readProcessedPatientEntriesForMonthyearEmpidApiV1ProcessedPatientProcessYearMonthEmpidPortalGet(year, month, empid, portal, clinicid, patientName, payerName, status, hospital, action)
 
 Read Processed Patient Entries For Monthyear Empid
+
+Get processed patient entries for employee by month/year with filtering
 
 ### Example
 ```dart
@@ -122,6 +126,8 @@ Name | Type | Description  | Notes
 > ProcessedPatientEntry readProcessedPatientEntryForPatientInMonthyearApiV1ProcessedPatientYearMonthPatientIdPortalGet(year, month, patientId, portal)
 
 Read Processed Patient Entry For Patient In Monthyear
+
+Get processed patient entry for specific patient in month/year
 
 ### Example
 ```dart

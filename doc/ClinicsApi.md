@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut**
-> Map<String, String> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(clinicId, session)
+> Map<String, String> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(clinicId)
 
 Change Active Status
 
@@ -32,10 +32,9 @@ import 'package:openapi/api.dart';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(clinicId, session);
+    final result = api_instance.changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(clinicId);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut: $e\n');
@@ -47,7 +46,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -65,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut**
-> Map<String, String> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId, session)
+> Map<String, String> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId)
 
 Change Deleted Status
 
@@ -77,10 +75,9 @@ import 'package:openapi/api.dart';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId, session);
+    final result = api_instance.changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(clinicId);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut: $e\n');
@@ -92,7 +89,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -110,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createClinicApiV1ClinicsPost**
-> ClinicRead createClinicApiV1ClinicsPost(clinicCreate, session)
+> ClinicRead createClinicApiV1ClinicsPost(clinicCreate)
 
 Create Clinic
 
@@ -122,10 +118,9 @@ import 'package:openapi/api.dart';
 
 final api_instance = ClinicsApi();
 final clinicCreate = ClinicCreate(); // ClinicCreate | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.createClinicApiV1ClinicsPost(clinicCreate, session);
+    final result = api_instance.createClinicApiV1ClinicsPost(clinicCreate);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->createClinicApiV1ClinicsPost: $e\n');
@@ -137,7 +132,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicCreate** | [**ClinicCreate**](ClinicCreate.md)|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -155,7 +149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteClinicApiV1ClinicsClinicIdDelete**
-> Map<String, String> deleteClinicApiV1ClinicsClinicIdDelete(clinicId, session)
+> Map<String, String> deleteClinicApiV1ClinicsClinicIdDelete(clinicId)
 
 Delete Clinic
 
@@ -167,10 +161,9 @@ import 'package:openapi/api.dart';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.deleteClinicApiV1ClinicsClinicIdDelete(clinicId, session);
+    final result = api_instance.deleteClinicApiV1ClinicsClinicIdDelete(clinicId);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->deleteClinicApiV1ClinicsClinicIdDelete: $e\n');
@@ -182,7 +175,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -200,7 +192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getClinicStatementApiV1ClinicsClinicStatementPost**
-> getClinicStatementApiV1ClinicsClinicStatementPost(requestBody, session)
+> getClinicStatementApiV1ClinicsClinicStatementPost(requestBody)
 
 Get Clinic Statement
 
@@ -212,10 +204,9 @@ import 'package:openapi/api.dart';
 
 final api_instance = ClinicsApi();
 final requestBody = Map<String, String>(); // Map<String, String> | 
-final session = ; // Object | 
 
 try {
-    api_instance.getClinicStatementApiV1ClinicsClinicStatementPost(requestBody, session);
+    api_instance.getClinicStatementApiV1ClinicsClinicStatementPost(requestBody);
 } catch (e) {
     print('Exception when calling ClinicsApi->getClinicStatementApiV1ClinicsClinicStatementPost: $e\n');
 }
@@ -226,7 +217,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestBody** | [**Map<String, String>**](String.md)|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -244,7 +234,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readClinicApiV1ClinicsClinicIdGet**
-> ClinicRead readClinicApiV1ClinicsClinicIdGet(clinicId, session)
+> ClinicRead readClinicApiV1ClinicsClinicIdGet(clinicId)
 
 Read Clinic
 
@@ -256,10 +246,9 @@ import 'package:openapi/api.dart';
 
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.readClinicApiV1ClinicsClinicIdGet(clinicId, session);
+    final result = api_instance.readClinicApiV1ClinicsClinicIdGet(clinicId);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->readClinicApiV1ClinicsClinicIdGet: $e\n');
@@ -271,7 +260,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -289,19 +277,20 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **readClinicsApiV1ClinicsGet**
-> Map<String, ClinicRead> readClinicsApiV1ClinicsGet(session)
+> Map<String, ClinicRead> readClinicsApiV1ClinicsGet()
 
 Read Clinics
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
+// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
+//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api_instance = ClinicsApi();
-final session = ; // Object | 
 
 try {
-    final result = api_instance.readClinicsApiV1ClinicsGet(session);
+    final result = api_instance.readClinicsApiV1ClinicsGet();
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->readClinicsApiV1ClinicsGet: $e\n');
@@ -309,10 +298,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **session** | [**Object**](.md)|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -320,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -330,7 +316,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateClinicApiV1ClinicsClinicIdPut**
-> ClinicRead updateClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate, session)
+> ClinicRead updateClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate)
 
 Update Clinic
 
@@ -343,10 +329,9 @@ import 'package:openapi/api.dart';
 final api_instance = ClinicsApi();
 final clinicId = clinicId_example; // String | 
 final clinicUpdate = ClinicUpdate(); // ClinicUpdate | 
-final session = ; // Object | 
 
 try {
-    final result = api_instance.updateClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate, session);
+    final result = api_instance.updateClinicApiV1ClinicsClinicIdPut(clinicId, clinicUpdate);
     print(result);
 } catch (e) {
     print('Exception when calling ClinicsApi->updateClinicApiV1ClinicsClinicIdPut: $e\n');
@@ -359,7 +344,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clinicId** | **String**|  | 
  **clinicUpdate** | [**ClinicUpdate**](ClinicUpdate.md)|  | 
- **session** | [**Object**](.md)|  | [optional] 
 
 ### Return type
 

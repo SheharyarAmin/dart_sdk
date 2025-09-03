@@ -30,7 +30,7 @@ class ReportsApi {
     final path = r'/api/v1/reports/generate-report';
 
     // ignore: prefer_final_locals
-    Object? postBody = body;
+    Object? postBody = requestBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -62,5 +62,6 @@ class ReportsApi {
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    return response.bodyBytes;
   }
 }

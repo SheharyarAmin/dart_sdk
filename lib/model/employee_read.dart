@@ -26,6 +26,7 @@ class EmployeeRead {
     this.managerid,
     this.managername,
     this.assignedpatients,
+    this.globalUserId,
     required this.id,
     this.canbedeleted = true,
   });
@@ -56,6 +57,8 @@ class EmployeeRead {
 
   int? assignedpatients;
 
+  String? globalUserId;
+
   String id;
 
   bool canbedeleted;
@@ -75,6 +78,7 @@ class EmployeeRead {
     other.managerid == managerid &&
     other.managername == managername &&
     other.assignedpatients == assignedpatients &&
+    other.globalUserId == globalUserId &&
     other.id == id &&
     other.canbedeleted == canbedeleted;
 
@@ -94,11 +98,12 @@ class EmployeeRead {
     (managerid == null ? 0 : managerid!.hashCode) +
     (managername == null ? 0 : managername!.hashCode) +
     (assignedpatients == null ? 0 : assignedpatients!.hashCode) +
+    (globalUserId == null ? 0 : globalUserId!.hashCode) +
     (id.hashCode) +
     (canbedeleted.hashCode);
 
   @override
-  String toString() => 'EmployeeRead[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername, assignedpatients=$assignedpatients, id=$id, canbedeleted=$canbedeleted]';
+  String toString() => 'EmployeeRead[name=$name, role=$role, portal=$portal, region=$region, status=$status, email=$email, address=$address, patientspermonth=$patientspermonth, payperccm=$payperccm, payperhour=$payperhour, managerid=$managerid, managername=$managername, assignedpatients=$assignedpatients, globalUserId=$globalUserId, id=$id, canbedeleted=$canbedeleted]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -130,6 +135,11 @@ class EmployeeRead {
       json[r'assignedpatients'] = this.assignedpatients;
     } else {
       json[r'assignedpatients'] = null;
+    }
+    if (this.globalUserId != null) {
+      json[r'global_user_id'] = this.globalUserId;
+    } else {
+      json[r'global_user_id'] = null;
     }
       json[r'id'] = this.id;
       json[r'canbedeleted'] = this.canbedeleted;
@@ -168,6 +178,7 @@ class EmployeeRead {
         managerid: mapValueOfType<String>(json, r'managerid'),
         managername: mapValueOfType<String>(json, r'managername'),
         assignedpatients: mapValueOfType<int>(json, r'assignedpatients'),
+        globalUserId: mapValueOfType<String>(json, r'global_user_id'),
         id: mapValueOfType<String>(json, r'id')!,
         canbedeleted: mapValueOfType<bool>(json, r'canbedeleted') ?? true,
       );

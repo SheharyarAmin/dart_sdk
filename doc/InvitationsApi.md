@@ -369,7 +369,7 @@ No authorization required
 
 Resend Invitation
 
-Resend an invitation email. Only admins can resend invitations.
+Resend an invitation email. Only admins can resend invitations. Now using DI Container compliant service layer.
 
 ### Example
 ```dart

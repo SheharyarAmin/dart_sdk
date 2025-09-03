@@ -40,17 +40,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:openapi/api.dart';
 
-// TODO Configure OAuth2 access token for authorization: OAuth2PasswordBearer
-//defaultApiClient.getAuthentication<OAuth>('OAuth2PasswordBearer').accessToken = 'YOUR_ACCESS_TOKEN';
 
-final api_instance = AllergiesApi();
-final allergyCreate = AllergyCreate(); // AllergyCreate | 
+final api_instance = AdminAccessControlApi();
+final membershipId = membershipId_example; // String | 
+final reason = reason_example; // String | 
 
 try {
-    final result = api_instance.createAllergyApiV1AllergiesAllergiesPost(allergyCreate);
+    final result = api_instance.activateMembershipApiV1AdminAccessControlMembershipsMembershipIdActivatePost(membershipId, reason);
     print(result);
 } catch (e) {
-    print('Exception when calling AllergiesApi->createAllergyApiV1AllergiesAllergiesPost: $e\n');
+    print('Exception when calling AdminAccessControlApi->activateMembershipApiV1AdminAccessControlMembershipsMembershipIdActivatePost: $e\n');
 }
 
 ```
@@ -61,6 +60,40 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdminAccessControlApi* | [**activateMembershipApiV1AdminAccessControlMembershipsMembershipIdActivatePost**](doc//AdminAccessControlApi.md#activatemembershipapiv1adminaccesscontrolmembershipsmembershipidactivatepost) | **POST** /api/v1/admin/access-control/memberships/{membership_id}/activate | Activate Membership
+*AdminAccessControlApi* | [**activateMembershipApiV1AdminAccessControlMembershipsMembershipIdActivatePost_0**](doc//AdminAccessControlApi.md#activatemembershipapiv1adminaccesscontrolmembershipsmembershipidactivatepost_0) | **POST** /api/v1/admin/access-control/memberships/{membership_id}/activate | Activate Membership
+*AdminAccessControlApi* | [**activateTenantApiV1AdminAccessControlTenantsTenantIdActivatePost**](doc//AdminAccessControlApi.md#activatetenantapiv1adminaccesscontroltenantstenantidactivatepost) | **POST** /api/v1/admin/access-control/tenants/{tenant_id}/activate | Activate Tenant
+*AdminAccessControlApi* | [**activateTenantApiV1AdminAccessControlTenantsTenantIdActivatePost_0**](doc//AdminAccessControlApi.md#activatetenantapiv1adminaccesscontroltenantstenantidactivatepost_0) | **POST** /api/v1/admin/access-control/tenants/{tenant_id}/activate | Activate Tenant
+*AdminAccessControlApi* | [**activateUserApiV1AdminAccessControlUsersUserIdActivatePost**](doc//AdminAccessControlApi.md#activateuserapiv1adminaccesscontrolusersuseridactivatepost) | **POST** /api/v1/admin/access-control/users/{user_id}/activate | Activate User
+*AdminAccessControlApi* | [**activateUserApiV1AdminAccessControlUsersUserIdActivatePost_0**](doc//AdminAccessControlApi.md#activateuserapiv1adminaccesscontrolusersuseridactivatepost_0) | **POST** /api/v1/admin/access-control/users/{user_id}/activate | Activate User
+*AdminAccessControlApi* | [**bulkSuspendTenantUsersApiV1AdminAccessControlBulkSuspendTenantUsersTenantIdPost**](doc//AdminAccessControlApi.md#bulksuspendtenantusersapiv1adminaccesscontrolbulksuspendtenantuserstenantidpost) | **POST** /api/v1/admin/access-control/bulk/suspend-tenant-users/{tenant_id} | Bulk Suspend Tenant Users
+*AdminAccessControlApi* | [**bulkSuspendTenantUsersApiV1AdminAccessControlBulkSuspendTenantUsersTenantIdPost_0**](doc//AdminAccessControlApi.md#bulksuspendtenantusersapiv1adminaccesscontrolbulksuspendtenantuserstenantidpost_0) | **POST** /api/v1/admin/access-control/bulk/suspend-tenant-users/{tenant_id} | Bulk Suspend Tenant Users
+*AdminAccessControlApi* | [**getRecentAccessChangesApiV1AdminAccessControlAuditRecentChangesGet**](doc//AdminAccessControlApi.md#getrecentaccesschangesapiv1adminaccesscontrolauditrecentchangesget) | **GET** /api/v1/admin/access-control/audit/recent-changes | Get Recent Access Changes
+*AdminAccessControlApi* | [**getRecentAccessChangesApiV1AdminAccessControlAuditRecentChangesGet_0**](doc//AdminAccessControlApi.md#getrecentaccesschangesapiv1adminaccesscontrolauditrecentchangesget_0) | **GET** /api/v1/admin/access-control/audit/recent-changes | Get Recent Access Changes
+*AdminAccessControlApi* | [**listAllMembershipsApiV1AdminAccessControlMembershipsGet**](doc//AdminAccessControlApi.md#listallmembershipsapiv1adminaccesscontrolmembershipsget) | **GET** /api/v1/admin/access-control/memberships | List All Memberships
+*AdminAccessControlApi* | [**listAllMembershipsApiV1AdminAccessControlMembershipsGet_0**](doc//AdminAccessControlApi.md#listallmembershipsapiv1adminaccesscontrolmembershipsget_0) | **GET** /api/v1/admin/access-control/memberships | List All Memberships
+*AdminAccessControlApi* | [**listAllTenantsApiV1AdminAccessControlTenantsGet**](doc//AdminAccessControlApi.md#listalltenantsapiv1adminaccesscontroltenantsget) | **GET** /api/v1/admin/access-control/tenants | List All Tenants
+*AdminAccessControlApi* | [**listAllTenantsApiV1AdminAccessControlTenantsGet_0**](doc//AdminAccessControlApi.md#listalltenantsapiv1adminaccesscontroltenantsget_0) | **GET** /api/v1/admin/access-control/tenants | List All Tenants
+*AdminAccessControlApi* | [**listAllUsersApiV1AdminAccessControlUsersGet**](doc//AdminAccessControlApi.md#listallusersapiv1adminaccesscontrolusersget) | **GET** /api/v1/admin/access-control/users | List All Users
+*AdminAccessControlApi* | [**listAllUsersApiV1AdminAccessControlUsersGet_0**](doc//AdminAccessControlApi.md#listallusersapiv1adminaccesscontrolusersget_0) | **GET** /api/v1/admin/access-control/users | List All Users
+*AdminAccessControlApi* | [**revokeMembershipApiV1AdminAccessControlMembershipsMembershipIdRevokePost**](doc//AdminAccessControlApi.md#revokemembershipapiv1adminaccesscontrolmembershipsmembershipidrevokepost) | **POST** /api/v1/admin/access-control/memberships/{membership_id}/revoke | Revoke Membership
+*AdminAccessControlApi* | [**revokeMembershipApiV1AdminAccessControlMembershipsMembershipIdRevokePost_0**](doc//AdminAccessControlApi.md#revokemembershipapiv1adminaccesscontrolmembershipsmembershipidrevokepost_0) | **POST** /api/v1/admin/access-control/memberships/{membership_id}/revoke | Revoke Membership
+*AdminAccessControlApi* | [**suspendMembershipApiV1AdminAccessControlMembershipsMembershipIdSuspendPost**](doc//AdminAccessControlApi.md#suspendmembershipapiv1adminaccesscontrolmembershipsmembershipidsuspendpost) | **POST** /api/v1/admin/access-control/memberships/{membership_id}/suspend | Suspend Membership
+*AdminAccessControlApi* | [**suspendMembershipApiV1AdminAccessControlMembershipsMembershipIdSuspendPost_0**](doc//AdminAccessControlApi.md#suspendmembershipapiv1adminaccesscontrolmembershipsmembershipidsuspendpost_0) | **POST** /api/v1/admin/access-control/memberships/{membership_id}/suspend | Suspend Membership
+*AdminAccessControlApi* | [**suspendTenantApiV1AdminAccessControlTenantsTenantIdSuspendPost**](doc//AdminAccessControlApi.md#suspendtenantapiv1adminaccesscontroltenantstenantidsuspendpost) | **POST** /api/v1/admin/access-control/tenants/{tenant_id}/suspend | Suspend Tenant
+*AdminAccessControlApi* | [**suspendTenantApiV1AdminAccessControlTenantsTenantIdSuspendPost_0**](doc//AdminAccessControlApi.md#suspendtenantapiv1adminaccesscontroltenantstenantidsuspendpost_0) | **POST** /api/v1/admin/access-control/tenants/{tenant_id}/suspend | Suspend Tenant
+*AdminAccessControlApi* | [**suspendUserApiV1AdminAccessControlUsersUserIdSuspendPost**](doc//AdminAccessControlApi.md#suspenduserapiv1adminaccesscontrolusersuseridsuspendpost) | **POST** /api/v1/admin/access-control/users/{user_id}/suspend | Suspend User
+*AdminAccessControlApi* | [**suspendUserApiV1AdminAccessControlUsersUserIdSuspendPost_0**](doc//AdminAccessControlApi.md#suspenduserapiv1adminaccesscontrolusersuseridsuspendpost_0) | **POST** /api/v1/admin/access-control/users/{user_id}/suspend | Suspend User
+*AdminAccessControlApi* | [**terminateTenantApiV1AdminAccessControlTenantsTenantIdTerminatePost**](doc//AdminAccessControlApi.md#terminatetenantapiv1adminaccesscontroltenantstenantidterminatepost) | **POST** /api/v1/admin/access-control/tenants/{tenant_id}/terminate | Terminate Tenant
+*AdminAccessControlApi* | [**terminateTenantApiV1AdminAccessControlTenantsTenantIdTerminatePost_0**](doc//AdminAccessControlApi.md#terminatetenantapiv1adminaccesscontroltenantstenantidterminatepost_0) | **POST** /api/v1/admin/access-control/tenants/{tenant_id}/terminate | Terminate Tenant
+*AdminAccessControlApi* | [**updateMembershipStatusApiV1AdminAccessControlMembershipsMembershipIdStatusPut**](doc//AdminAccessControlApi.md#updatemembershipstatusapiv1adminaccesscontrolmembershipsmembershipidstatusput) | **PUT** /api/v1/admin/access-control/memberships/{membership_id}/status | Update Membership Status
+*AdminAccessControlApi* | [**updateMembershipStatusApiV1AdminAccessControlMembershipsMembershipIdStatusPut_0**](doc//AdminAccessControlApi.md#updatemembershipstatusapiv1adminaccesscontrolmembershipsmembershipidstatusput_0) | **PUT** /api/v1/admin/access-control/memberships/{membership_id}/status | Update Membership Status
+*AdminAccessControlApi* | [**updateTenantStatusApiV1AdminAccessControlTenantsTenantIdStatusPut**](doc//AdminAccessControlApi.md#updatetenantstatusapiv1adminaccesscontroltenantstenantidstatusput) | **PUT** /api/v1/admin/access-control/tenants/{tenant_id}/status | Update Tenant Status
+*AdminAccessControlApi* | [**updateTenantStatusApiV1AdminAccessControlTenantsTenantIdStatusPut_0**](doc//AdminAccessControlApi.md#updatetenantstatusapiv1adminaccesscontroltenantstenantidstatusput_0) | **PUT** /api/v1/admin/access-control/tenants/{tenant_id}/status | Update Tenant Status
+*AdminAccessControlApi* | [**updateUserStatusApiV1AdminAccessControlUsersUserIdStatusPut**](doc//AdminAccessControlApi.md#updateuserstatusapiv1adminaccesscontrolusersuseridstatusput) | **PUT** /api/v1/admin/access-control/users/{user_id}/status | Update User Status
+*AdminAccessControlApi* | [**updateUserStatusApiV1AdminAccessControlUsersUserIdStatusPut_0**](doc//AdminAccessControlApi.md#updateuserstatusapiv1adminaccesscontrolusersuseridstatusput_0) | **PUT** /api/v1/admin/access-control/users/{user_id}/status | Update User Status
+*AdminAccessControlApi* | [**validateUserTenantAccessApiV1AdminAccessControlValidateTenantTenantIdUserUserIdGet**](doc//AdminAccessControlApi.md#validateusertenantaccessapiv1adminaccesscontrolvalidatetenanttenantiduseruseridget) | **GET** /api/v1/admin/access-control/validate/tenant/{tenant_id}/user/{user_id} | Validate User Tenant Access
+*AdminAccessControlApi* | [**validateUserTenantAccessApiV1AdminAccessControlValidateTenantTenantIdUserUserIdGet_0**](doc//AdminAccessControlApi.md#validateusertenantaccessapiv1adminaccesscontrolvalidatetenanttenantiduseruseridget_0) | **GET** /api/v1/admin/access-control/validate/tenant/{tenant_id}/user/{user_id} | Validate User Tenant Access
 *AllergiesApi* | [**createAllergyApiV1AllergiesAllergiesPost**](doc//AllergiesApi.md#createallergyapiv1allergiesallergiespost) | **POST** /api/v1/allergies/allergies | Create a new allergy
 *AllergiesApi* | [**getAllergiesApiV1AllergiesAllergiesGet**](doc//AllergiesApi.md#getallergiesapiv1allergiesallergiesget) | **GET** /api/v1/allergies/allergies | Get all allergies
 *AllergiesApi* | [**getAllergyApiV1AllergiesAllergiesAllergyIdGet**](doc//AllergiesApi.md#getallergyapiv1allergiesallergiesallergyidget) | **GET** /api/v1/allergies/allergies/{allergy_id} | Get allergy by ID
@@ -95,72 +128,6 @@ Class | Method | HTTP request | Description
 *ConsultantsApi* | [**readConsultantApiV1ConsultantsConsultantIdGet**](doc//ConsultantsApi.md#readconsultantapiv1consultantsconsultantidget) | **GET** /api/v1/consultants/{consultant_id} | Read Consultant
 *ConsultantsApi* | [**readConsultantsApiV1ConsultantsGet**](doc//ConsultantsApi.md#readconsultantsapiv1consultantsget) | **GET** /api/v1/consultants/ | Read Consultants
 *ConsultantsApi* | [**updateConsultantApiV1ConsultantsConsultantIdPut**](doc//ConsultantsApi.md#updateconsultantapiv1consultantsconsultantidput) | **PUT** /api/v1/consultants/{consultant_id} | Update Consultant
-*DebugMultiTenantApi* | [**debugAddUserToTenantApiV1DebugUserUserIdTenantTenantIdMembershipPost**](doc//DebugMultiTenantApi.md#debugaddusertotenantapiv1debuguseruseridtenanttenantidmembershippost) | **POST** /api/v1/debug/user/{user_id}/tenant/{tenant_id}/membership | Debug Add User To Tenant
-*DebugMultiTenantApi* | [**debugCreateDefaultFeaturesApiV1DebugFeaturesCreateDefaultsPost**](doc//DebugMultiTenantApi.md#debugcreatedefaultfeaturesapiv1debugfeaturescreatedefaultspost) | **POST** /api/v1/debug/features/create-defaults | Debug Create Default Features
-*DebugMultiTenantApi* | [**debugCreateProfessionalTierApiV1DebugSubscriptionTiersCreateProfessionalPost**](doc//DebugMultiTenantApi.md#debugcreateprofessionaltierapiv1debugsubscriptiontierscreateprofessionalpost) | **POST** /api/v1/debug/subscription-tiers/create-professional | Debug Create Professional Tier
-*DebugMultiTenantApi* | [**debugCreateTenantApiV1DebugTenantCreatePost**](doc//DebugMultiTenantApi.md#debugcreatetenantapiv1debugtenantcreatepost) | **POST** /api/v1/debug/tenant/create | Debug Create Tenant
-*DebugMultiTenantApi* | [**debugCreateTenantTestDataApiV1DebugIsolationTenantTenantIdTestDataPost**](doc//DebugMultiTenantApi.md#debugcreatetenanttestdataapiv1debugisolationtenanttenantidtestdatapost) | **POST** /api/v1/debug/isolation/tenant/{tenant_id}/test-data | Debug Create Tenant Test Data
-*DebugMultiTenantApi* | [**debugCreateTestTokenApiV1DebugAuthCreateTestTokenPost**](doc//DebugMultiTenantApi.md#debugcreatetesttokenapiv1debugauthcreatetesttokenpost) | **POST** /api/v1/debug/auth/create-test-token | Debug Create Test Token
-*DebugMultiTenantApi* | [**debugCreateUserApiV1DebugUserCreatePost**](doc//DebugMultiTenantApi.md#debugcreateuserapiv1debugusercreatepost) | **POST** /api/v1/debug/user/create | Debug Create User
-*DebugMultiTenantApi* | [**debugDatabaseHealthApiV1DebugHealthDatabasesGet**](doc//DebugMultiTenantApi.md#debugdatabasehealthapiv1debughealthdatabasesget) | **GET** /api/v1/debug/health/databases | Debug Database Health
-*DebugMultiTenantApi* | [**debugGetTenantApiV1DebugTenantTenantIdGet**](doc//DebugMultiTenantApi.md#debuggettenantapiv1debugtenanttenantidget) | **GET** /api/v1/debug/tenant/{tenant_id} | Debug Get Tenant
-*DebugMultiTenantApi* | [**debugGetTenantTestDataApiV1DebugIsolationTenantTenantIdTestDataGet**](doc//DebugMultiTenantApi.md#debuggettenanttestdataapiv1debugisolationtenanttenantidtestdataget) | **GET** /api/v1/debug/isolation/tenant/{tenant_id}/test-data | Debug Get Tenant Test Data
-*DebugMultiTenantApi* | [**debugGetUserTenantsApiV1DebugUserUserIdTenantsGet**](doc//DebugMultiTenantApi.md#debuggetusertenantsapiv1debuguseruseridtenantsget) | **GET** /api/v1/debug/user/{user_id}/tenants | Debug Get User Tenants
-*DebugMultiTenantApi* | [**debugListFeaturesApiV1DebugFeaturesListGet**](doc//DebugMultiTenantApi.md#debuglistfeaturesapiv1debugfeatureslistget) | **GET** /api/v1/debug/features/list | Debug List Features
-*DebugMultiTenantApi* | [**debugListSubscriptionTiersApiV1DebugSubscriptionTiersListGet**](doc//DebugMultiTenantApi.md#debuglistsubscriptiontiersapiv1debugsubscriptiontierslistget) | **GET** /api/v1/debug/subscription-tiers/list | Debug List Subscription Tiers
-*DebugMultiTenantApi* | [**debugListTenantsApiV1DebugTenantsListGet**](doc//DebugMultiTenantApi.md#debuglisttenantsapiv1debugtenantslistget) | **GET** /api/v1/debug/tenants/list | Debug List Tenants
-*DebugMultiTenantApi* | [**debugRunFullTestSuiteApiV1DebugRunFullTestSuitePost**](doc//DebugMultiTenantApi.md#debugrunfulltestsuiteapiv1debugrunfulltestsuitepost) | **POST** /api/v1/debug/run-full-test-suite | Debug Run Full Test Suite
-*DebugMultiTenantApi* | [**debugSystemHealthApiV1DebugHealthSystemGet**](doc//DebugMultiTenantApi.md#debugsystemhealthapiv1debughealthsystemget) | **GET** /api/v1/debug/health/system | Debug System Health
-*DebugMultiTenantApi* | [**debugTestTenantFeaturesApiV1DebugFeaturesTenantTenantIdGet**](doc//DebugMultiTenantApi.md#debugtesttenantfeaturesapiv1debugfeaturestenanttenantidget) | **GET** /api/v1/debug/features/tenant/{tenant_id} | Debug Test Tenant Features
-*DebugMultiTenantApi* | [**debugTestTenantIsolationApiV1DebugIsolationTestCrossTenantGet**](doc//DebugMultiTenantApi.md#debugtesttenantisolationapiv1debugisolationtestcrosstenantget) | **GET** /api/v1/debug/isolation/test-cross-tenant | Debug Test Tenant Isolation
-*DebugMultiTenantApi* | [**generateTestJwtTokenApiV1DebugAuthGenerateTestTokenTenantIdPost**](doc//DebugMultiTenantApi.md#generatetestjwttokenapiv1debugauthgeneratetesttokentenantidpost) | **POST** /api/v1/debug/auth/generate-test-token/{tenant_id} | Generate Test Jwt Token
-*DebugMultiTenantApi* | [**getSystemPerformanceMetricsApiV1DebugPerformanceSystemMetricsGet**](doc//DebugMultiTenantApi.md#getsystemperformancemetricsapiv1debugperformancesystemmetricsget) | **GET** /api/v1/debug/performance/system-metrics | Get System Performance Metrics
-*DebugMultiTenantApi* | [**testAuthContextApiV1DebugAuthTestContextGet**](doc//DebugMultiTenantApi.md#testauthcontextapiv1debugauthtestcontextget) | **GET** /api/v1/debug/auth/test-context | Test Auth Context
-*DebugMultiTenantApi* | [**testCheckSubscriptionLimitsApiV1DebugSubscriptionCheckLimitsTenantIdGet**](doc//DebugMultiTenantApi.md#testchecksubscriptionlimitsapiv1debugsubscriptionchecklimitstenantidget) | **GET** /api/v1/debug/subscription/check-limits/{tenant_id} | Test Check Subscription Limits
-*DebugMultiTenantApi* | [**testCompleteTenantOnboardingApiV1DebugWorkflowsCompleteOnboardingPost**](doc//DebugMultiTenantApi.md#testcompletetenantonboardingapiv1debugworkflowscompleteonboardingpost) | **POST** /api/v1/debug/workflows/complete-onboarding | Test Complete Tenant Onboarding
-*DebugMultiTenantApi* | [**testDatabaseOptimizationApiV1DebugPerformanceDatabaseOptimizationTestPost**](doc//DebugMultiTenantApi.md#testdatabaseoptimizationapiv1debugperformancedatabaseoptimizationtestpost) | **POST** /api/v1/debug/performance/database-optimization-test | Test Database Optimization
-*DebugMultiTenantApi* | [**testDeepDatabaseIsolationApiV1DebugIsolationDeepDatabaseTestPost**](doc//DebugMultiTenantApi.md#testdeepdatabaseisolationapiv1debugisolationdeepdatabasetestpost) | **POST** /api/v1/debug/isolation/deep-database-test | Test Deep Database Isolation
-*DebugMultiTenantApi* | [**testInviteUserToTenantApiV1DebugMembershipInviteUserPost**](doc//DebugMultiTenantApi.md#testinviteusertotenantapiv1debugmembershipinviteuserpost) | **POST** /api/v1/debug/membership/invite-user | Test Invite User To Tenant
-*DebugMultiTenantApi* | [**testListTenantMembersApiV1DebugMembershipListTenantIdGet**](doc//DebugMultiTenantApi.md#testlisttenantmembersapiv1debugmembershiplisttenantidget) | **GET** /api/v1/debug/membership/list/{tenant_id} | Test List Tenant Members
-*DebugMultiTenantApi* | [**testMultiTenantLoadApiV1DebugPerformanceLoadTestTenantsPost**](doc//DebugMultiTenantApi.md#testmultitenantloadapiv1debugperformanceloadtesttenantspost) | **POST** /api/v1/debug/performance/load-test-tenants | Test Multi Tenant Load
-*DebugMultiTenantApi* | [**testOptimizedMultiTenantLoadApiV1DebugPerformanceOptimizedLoadTestPost**](doc//DebugMultiTenantApi.md#testoptimizedmultitenantloadapiv1debugperformanceoptimizedloadtestpost) | **POST** /api/v1/debug/performance/optimized-load-test | Test Optimized Multi Tenant Load
-*DebugMultiTenantApi* | [**testSimulateFeatureUsageApiV1DebugSubscriptionSimulateUsageTenantIdPost**](doc//DebugMultiTenantApi.md#testsimulatefeatureusageapiv1debugsubscriptionsimulateusagetenantidpost) | **POST** /api/v1/debug/subscription/simulate-usage/{tenant_id} | Test Simulate Feature Usage
-*DebugMultiTenantApi* | [**testSqlInjectionPreventionApiV1DebugSecurityTestInjectionPreventionPost**](doc//DebugMultiTenantApi.md#testsqlinjectionpreventionapiv1debugsecuritytestinjectionpreventionpost) | **POST** /api/v1/debug/security/test-injection-prevention | Test Sql Injection Prevention
-*DebugMultiTenantApi* | [**testTenantDatabaseIsolationApiV1DebugIsolationTestDatabaseSeparationPost**](doc//DebugMultiTenantApi.md#testtenantdatabaseisolationapiv1debugisolationtestdatabaseseparationpost) | **POST** /api/v1/debug/isolation/test-database-separation | Test Tenant Database Isolation
-*DebugMultiTenantApi* | [**verifyCrossTenantAccessPreventionApiV1DebugIsolationVerifyCrossTenantAccessGet**](doc//DebugMultiTenantApi.md#verifycrosstenantaccesspreventionapiv1debugisolationverifycrosstenantaccessget) | **GET** /api/v1/debug/isolation/verify-cross-tenant-access | Verify Cross Tenant Access Prevention
-*DebugMultitenantApi* | [**debugAddUserToTenantApiV1DebugUserUserIdTenantTenantIdMembershipPost**](doc//DebugMultitenantApi.md#debugaddusertotenantapiv1debuguseruseridtenanttenantidmembershippost) | **POST** /api/v1/debug/user/{user_id}/tenant/{tenant_id}/membership | Debug Add User To Tenant
-*DebugMultitenantApi* | [**debugCreateDefaultFeaturesApiV1DebugFeaturesCreateDefaultsPost**](doc//DebugMultitenantApi.md#debugcreatedefaultfeaturesapiv1debugfeaturescreatedefaultspost) | **POST** /api/v1/debug/features/create-defaults | Debug Create Default Features
-*DebugMultitenantApi* | [**debugCreateProfessionalTierApiV1DebugSubscriptionTiersCreateProfessionalPost**](doc//DebugMultitenantApi.md#debugcreateprofessionaltierapiv1debugsubscriptiontierscreateprofessionalpost) | **POST** /api/v1/debug/subscription-tiers/create-professional | Debug Create Professional Tier
-*DebugMultitenantApi* | [**debugCreateTenantApiV1DebugTenantCreatePost**](doc//DebugMultitenantApi.md#debugcreatetenantapiv1debugtenantcreatepost) | **POST** /api/v1/debug/tenant/create | Debug Create Tenant
-*DebugMultitenantApi* | [**debugCreateTenantTestDataApiV1DebugIsolationTenantTenantIdTestDataPost**](doc//DebugMultitenantApi.md#debugcreatetenanttestdataapiv1debugisolationtenanttenantidtestdatapost) | **POST** /api/v1/debug/isolation/tenant/{tenant_id}/test-data | Debug Create Tenant Test Data
-*DebugMultitenantApi* | [**debugCreateTestTokenApiV1DebugAuthCreateTestTokenPost**](doc//DebugMultitenantApi.md#debugcreatetesttokenapiv1debugauthcreatetesttokenpost) | **POST** /api/v1/debug/auth/create-test-token | Debug Create Test Token
-*DebugMultitenantApi* | [**debugCreateUserApiV1DebugUserCreatePost**](doc//DebugMultitenantApi.md#debugcreateuserapiv1debugusercreatepost) | **POST** /api/v1/debug/user/create | Debug Create User
-*DebugMultitenantApi* | [**debugDatabaseHealthApiV1DebugHealthDatabasesGet**](doc//DebugMultitenantApi.md#debugdatabasehealthapiv1debughealthdatabasesget) | **GET** /api/v1/debug/health/databases | Debug Database Health
-*DebugMultitenantApi* | [**debugGetTenantApiV1DebugTenantTenantIdGet**](doc//DebugMultitenantApi.md#debuggettenantapiv1debugtenanttenantidget) | **GET** /api/v1/debug/tenant/{tenant_id} | Debug Get Tenant
-*DebugMultitenantApi* | [**debugGetTenantTestDataApiV1DebugIsolationTenantTenantIdTestDataGet**](doc//DebugMultitenantApi.md#debuggettenanttestdataapiv1debugisolationtenanttenantidtestdataget) | **GET** /api/v1/debug/isolation/tenant/{tenant_id}/test-data | Debug Get Tenant Test Data
-*DebugMultitenantApi* | [**debugGetUserTenantsApiV1DebugUserUserIdTenantsGet**](doc//DebugMultitenantApi.md#debuggetusertenantsapiv1debuguseruseridtenantsget) | **GET** /api/v1/debug/user/{user_id}/tenants | Debug Get User Tenants
-*DebugMultitenantApi* | [**debugListFeaturesApiV1DebugFeaturesListGet**](doc//DebugMultitenantApi.md#debuglistfeaturesapiv1debugfeatureslistget) | **GET** /api/v1/debug/features/list | Debug List Features
-*DebugMultitenantApi* | [**debugListSubscriptionTiersApiV1DebugSubscriptionTiersListGet**](doc//DebugMultitenantApi.md#debuglistsubscriptiontiersapiv1debugsubscriptiontierslistget) | **GET** /api/v1/debug/subscription-tiers/list | Debug List Subscription Tiers
-*DebugMultitenantApi* | [**debugListTenantsApiV1DebugTenantsListGet**](doc//DebugMultitenantApi.md#debuglisttenantsapiv1debugtenantslistget) | **GET** /api/v1/debug/tenants/list | Debug List Tenants
-*DebugMultitenantApi* | [**debugRunFullTestSuiteApiV1DebugRunFullTestSuitePost**](doc//DebugMultitenantApi.md#debugrunfulltestsuiteapiv1debugrunfulltestsuitepost) | **POST** /api/v1/debug/run-full-test-suite | Debug Run Full Test Suite
-*DebugMultitenantApi* | [**debugSystemHealthApiV1DebugHealthSystemGet**](doc//DebugMultitenantApi.md#debugsystemhealthapiv1debughealthsystemget) | **GET** /api/v1/debug/health/system | Debug System Health
-*DebugMultitenantApi* | [**debugTestTenantFeaturesApiV1DebugFeaturesTenantTenantIdGet**](doc//DebugMultitenantApi.md#debugtesttenantfeaturesapiv1debugfeaturestenanttenantidget) | **GET** /api/v1/debug/features/tenant/{tenant_id} | Debug Test Tenant Features
-*DebugMultitenantApi* | [**debugTestTenantIsolationApiV1DebugIsolationTestCrossTenantGet**](doc//DebugMultitenantApi.md#debugtesttenantisolationapiv1debugisolationtestcrosstenantget) | **GET** /api/v1/debug/isolation/test-cross-tenant | Debug Test Tenant Isolation
-*DebugMultitenantApi* | [**generateTestJwtTokenApiV1DebugAuthGenerateTestTokenTenantIdPost**](doc//DebugMultitenantApi.md#generatetestjwttokenapiv1debugauthgeneratetesttokentenantidpost) | **POST** /api/v1/debug/auth/generate-test-token/{tenant_id} | Generate Test Jwt Token
-*DebugMultitenantApi* | [**getSystemPerformanceMetricsApiV1DebugPerformanceSystemMetricsGet**](doc//DebugMultitenantApi.md#getsystemperformancemetricsapiv1debugperformancesystemmetricsget) | **GET** /api/v1/debug/performance/system-metrics | Get System Performance Metrics
-*DebugMultitenantApi* | [**testAuthContextApiV1DebugAuthTestContextGet**](doc//DebugMultitenantApi.md#testauthcontextapiv1debugauthtestcontextget) | **GET** /api/v1/debug/auth/test-context | Test Auth Context
-*DebugMultitenantApi* | [**testCheckSubscriptionLimitsApiV1DebugSubscriptionCheckLimitsTenantIdGet**](doc//DebugMultitenantApi.md#testchecksubscriptionlimitsapiv1debugsubscriptionchecklimitstenantidget) | **GET** /api/v1/debug/subscription/check-limits/{tenant_id} | Test Check Subscription Limits
-*DebugMultitenantApi* | [**testCompleteTenantOnboardingApiV1DebugWorkflowsCompleteOnboardingPost**](doc//DebugMultitenantApi.md#testcompletetenantonboardingapiv1debugworkflowscompleteonboardingpost) | **POST** /api/v1/debug/workflows/complete-onboarding | Test Complete Tenant Onboarding
-*DebugMultitenantApi* | [**testDatabaseOptimizationApiV1DebugPerformanceDatabaseOptimizationTestPost**](doc//DebugMultitenantApi.md#testdatabaseoptimizationapiv1debugperformancedatabaseoptimizationtestpost) | **POST** /api/v1/debug/performance/database-optimization-test | Test Database Optimization
-*DebugMultitenantApi* | [**testDeepDatabaseIsolationApiV1DebugIsolationDeepDatabaseTestPost**](doc//DebugMultitenantApi.md#testdeepdatabaseisolationapiv1debugisolationdeepdatabasetestpost) | **POST** /api/v1/debug/isolation/deep-database-test | Test Deep Database Isolation
-*DebugMultitenantApi* | [**testInviteUserToTenantApiV1DebugMembershipInviteUserPost**](doc//DebugMultitenantApi.md#testinviteusertotenantapiv1debugmembershipinviteuserpost) | **POST** /api/v1/debug/membership/invite-user | Test Invite User To Tenant
-*DebugMultitenantApi* | [**testListTenantMembersApiV1DebugMembershipListTenantIdGet**](doc//DebugMultitenantApi.md#testlisttenantmembersapiv1debugmembershiplisttenantidget) | **GET** /api/v1/debug/membership/list/{tenant_id} | Test List Tenant Members
-*DebugMultitenantApi* | [**testMultiTenantLoadApiV1DebugPerformanceLoadTestTenantsPost**](doc//DebugMultitenantApi.md#testmultitenantloadapiv1debugperformanceloadtesttenantspost) | **POST** /api/v1/debug/performance/load-test-tenants | Test Multi Tenant Load
-*DebugMultitenantApi* | [**testOptimizedMultiTenantLoadApiV1DebugPerformanceOptimizedLoadTestPost**](doc//DebugMultitenantApi.md#testoptimizedmultitenantloadapiv1debugperformanceoptimizedloadtestpost) | **POST** /api/v1/debug/performance/optimized-load-test | Test Optimized Multi Tenant Load
-*DebugMultitenantApi* | [**testSimulateFeatureUsageApiV1DebugSubscriptionSimulateUsageTenantIdPost**](doc//DebugMultitenantApi.md#testsimulatefeatureusageapiv1debugsubscriptionsimulateusagetenantidpost) | **POST** /api/v1/debug/subscription/simulate-usage/{tenant_id} | Test Simulate Feature Usage
-*DebugMultitenantApi* | [**testSqlInjectionPreventionApiV1DebugSecurityTestInjectionPreventionPost**](doc//DebugMultitenantApi.md#testsqlinjectionpreventionapiv1debugsecuritytestinjectionpreventionpost) | **POST** /api/v1/debug/security/test-injection-prevention | Test Sql Injection Prevention
-*DebugMultitenantApi* | [**testTenantDatabaseIsolationApiV1DebugIsolationTestDatabaseSeparationPost**](doc//DebugMultitenantApi.md#testtenantdatabaseisolationapiv1debugisolationtestdatabaseseparationpost) | **POST** /api/v1/debug/isolation/test-database-separation | Test Tenant Database Isolation
-*DebugMultitenantApi* | [**verifyCrossTenantAccessPreventionApiV1DebugIsolationVerifyCrossTenantAccessGet**](doc//DebugMultitenantApi.md#verifycrosstenantaccesspreventionapiv1debugisolationverifycrosstenantaccessget) | **GET** /api/v1/debug/isolation/verify-cross-tenant-access | Verify Cross Tenant Access Prevention
 *DefaultApi* | [**getUserContextAuthUserContextGet**](doc//DefaultApi.md#getusercontextauthusercontextget) | **GET** /auth/user-context | Get User Context
 *DefaultApi* | [**healthCheckHealthGet**](doc//DefaultApi.md#healthcheckhealthget) | **GET** /health | Health Check
 *DefaultApi* | [**loginUserAuthLoginPost**](doc//DefaultApi.md#loginuserauthloginpost) | **POST** /auth/login | Login User
@@ -216,15 +183,7 @@ Class | Method | HTTP request | Description
 *MedicationsApi* | [**getMedicationsApiV1MedicationsMedicationsGet**](doc//MedicationsApi.md#getmedicationsapiv1medicationsmedicationsget) | **GET** /api/v1/medications/medications | Get all medications
 *MedicationsApi* | [**reactivateMedicationApiV1MedicationsMedicationsMedicationIdReactivatePost**](doc//MedicationsApi.md#reactivatemedicationapiv1medicationsmedicationsmedicationidreactivatepost) | **POST** /api/v1/medications/medications/{medication_id}/reactivate | Reactivate medication
 *MedicationsApi* | [**softDeleteMedicationApiV1MedicationsMedicationsMedicationIdDelete**](doc//MedicationsApi.md#softdeletemedicationapiv1medicationsmedicationsmedicationiddelete) | **DELETE** /api/v1/medications/medications/{medication_id} | Soft delete medication
-*MedicationsApi* | [**softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDelete**](doc//MedicationsApi.md#softdeletemedicationapiv1medicationsmedicationsmedicationidharddelete) | **DELETE** /api/v1/medications/medications/{medication_id}/hard | Hard delete medication
 *MedicationsApi* | [**updateMedicationApiV1MedicationsMedicationsMedicationIdPut**](doc//MedicationsApi.md#updatemedicationapiv1medicationsmedicationsmedicationidput) | **PUT** /api/v1/medications/medications/{medication_id} | Update medication
-*MrnMigrationApi* | [**checkMigrationStatusApiV1MrnMigrationMigrationStatusGet**](doc//MrnMigrationApi.md#checkmigrationstatusapiv1mrnmigrationmigrationstatusget) | **GET** /api/v1/mrn-migration/migration-status | Check Migration Status
-*MrnMigrationApi* | [**migrateMrnDataApiV1MrnMigrationMigrateMrnPost**](doc//MrnMigrationApi.md#migratemrndataapiv1mrnmigrationmigratemrnpost) | **POST** /api/v1/mrn-migration/migrate-mrn | Migrate Mrn Data
-*NotificationsApi* | [**deleteAllNotificationsApiV1NotificationsDeleteEmployeeIdDelete**](doc//NotificationsApi.md#deleteallnotificationsapiv1notificationsdeleteemployeeiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id} | Delete All Notifications
-*NotificationsApi* | [**deleteNotificationApiV1NotificationsDeleteEmployeeIdNotificationIdDelete**](doc//NotificationsApi.md#deletenotificationapiv1notificationsdeleteemployeeidnotificationiddelete) | **DELETE** /api/v1/notifications/delete/{employee_id}/{notification_id} | Delete Notification
-*NotificationsApi* | [**markAllNotificationsAsReadApiV1NotificationsReadEmployeeIdPut**](doc//NotificationsApi.md#markallnotificationsasreadapiv1notificationsreademployeeidput) | **PUT** /api/v1/notifications/read/{employee_id} | Mark All Notifications As Read
-*NotificationsApi* | [**markNotificationAsReadApiV1NotificationsReadEmployeeIdNotificationIdPut**](doc//NotificationsApi.md#marknotificationasreadapiv1notificationsreademployeeidnotificationidput) | **PUT** /api/v1/notifications/read/{employee_id}/{notification_id} | Mark Notification As Read
-*NotificationsApi* | [**readNotificationsByEmpidApiV1NotificationsEmployeeIdGet**](doc//NotificationsApi.md#readnotificationsbyempidapiv1notificationsemployeeidget) | **GET** /api/v1/notifications/{employee_id} | Read Notifications By Empid
 *PatientAssignmentsApi* | [**assignPatientsToEmployeeApiV1PatientAssignmentsEmployeesAssignPost**](doc//PatientAssignmentsApi.md#assignpatientstoemployeeapiv1patientassignmentsemployeesassignpost) | **POST** /api/v1/patient-assignments/employees/assign | Assign Patients To Employee
 *PatientAssignmentsApi* | [**getAssignmentHistoryByPatientApiV1PatientAssignmentsPatientsPatientIdHistoryPortalGet**](doc//PatientAssignmentsApi.md#getassignmenthistorybypatientapiv1patientassignmentspatientspatientidhistoryportalget) | **GET** /api/v1/patient-assignments/patients/{patient_id}/history/{portal} | Get Assignment History By Patient
 *PatientAssignmentsApi* | [**getEmployeeAssignmentStatsApiV1PatientAssignmentsEmployeesEmployeeIdAssignmentStatsGet**](doc//PatientAssignmentsApi.md#getemployeeassignmentstatsapiv1patientassignmentsemployeesemployeeidassignmentstatsget) | **GET** /api/v1/patient-assignments/employees/{employee_id}/assignment-stats | Get Employee Assignment Stats
@@ -275,10 +234,6 @@ Class | Method | HTTP request | Description
 *PsychosocialStressorsApi* | [**updatePsychosocialStressorApiV1PsychosocialStressorsPsychosocialStressorsStressorIdPut**](doc//PsychosocialStressorsApi.md#updatepsychosocialstressorapiv1psychosocialstressorspsychosocialstressorsstressoridput) | **PUT** /api/v1/psychosocial-stressors/psychosocial-stressors/{stressor_id} | Update psychosocial stressor
 *ReportsApi* | [**generateReportApiV1ReportsGenerateReportPost**](doc//ReportsApi.md#generatereportapiv1reportsgeneratereportpost) | **POST** /api/v1/reports/generate-report | Generate Report
 *RpmApi* | [**sendMultiplePatientsToRpmApiV1RpmSendMultipleToRpmPost**](doc//RpmApi.md#sendmultiplepatientstorpmapiv1rpmsendmultipletorpmpost) | **POST** /api/v1/rpm/send-multiple-to-rpm | Send Multiple Patients To Rpm
-*TempAssignmentsApi* | [**assignPatientsBackToOriginalRouteApiV1TempAssignmentsAssignBackEmpidPortalDelete**](doc//TempAssignmentsApi.md#assignpatientsbacktooriginalrouteapiv1tempassignmentsassignbackempidportaldelete) | **DELETE** /api/v1/temp-assignments/assign-back/{empid}/{portal} | Assign Patients Back To Original Route
-*TempAssignmentsApi* | [**createTempAssignmentRouteApiV1TempAssignmentsPost**](doc//TempAssignmentsApi.md#createtempassignmentrouteapiv1tempassignmentspost) | **POST** /api/v1/temp-assignments/ | Create Temp Assignment Route
-*TempAssignmentsApi* | [**fetchAllFromEmpIdsRouteApiV1TempAssignmentsAllEmployeesGet**](doc//TempAssignmentsApi.md#fetchallfromempidsrouteapiv1tempassignmentsallemployeesget) | **GET** /api/v1/temp-assignments/all-employees | Fetch All From Emp Ids Route
-*TempAssignmentsApi* | [**updateTempAssignmentRouteApiV1TempAssignmentsUpdatePortalPut**](doc//TempAssignmentsApi.md#updatetempassignmentrouteapiv1tempassignmentsupdateportalput) | **PUT** /api/v1/temp-assignments/update/{portal} | Update Temp Assignment Route
 *TenantManagementApi* | [**checkFeatureAccessApiV1TenantFeaturesFeatureCheckGet**](doc//TenantManagementApi.md#checkfeatureaccessapiv1tenantfeaturesfeaturecheckget) | **GET** /api/v1/tenant/features/{feature}/check | Check Feature Access
 *TenantManagementApi* | [**createTenantApiV1TenantCreatePost**](doc//TenantManagementApi.md#createtenantapiv1tenantcreatepost) | **POST** /api/v1/tenant/create | Create Tenant
 *TenantManagementApi* | [**getAvailableSubscriptionTiersApiV1TenantSubscriptionTiersGet**](doc//TenantManagementApi.md#getavailablesubscriptiontiersapiv1tenantsubscriptiontiersget) | **GET** /api/v1/tenant/subscription-tiers | Get Available Subscription Tiers
@@ -296,6 +251,9 @@ Class | Method | HTTP request | Description
 *UserAuthApi* | [**refreshAccessTokenApiV1AuthRefreshPost**](doc//UserAuthApi.md#refreshaccesstokenapiv1authrefreshpost) | **POST** /api/v1/auth/refresh | Refresh Access Token
 *UserAuthApi* | [**selectTenantApiV1AuthSelectTenantPost**](doc//UserAuthApi.md#selecttenantapiv1authselecttenantpost) | **POST** /api/v1/auth/select-tenant | Select Tenant
 *UserAuthApi* | [**switchTenantApiV1AuthSwitchTenantPost**](doc//UserAuthApi.md#switchtenantapiv1authswitchtenantpost) | **POST** /api/v1/auth/switch-tenant | Switch Tenant
+*UserAuthApi* | [**testJwtTokenApiV1AuthTestJwtTokenGet**](doc//UserAuthApi.md#testjwttokenapiv1authtestjwttokenget) | **GET** /api/v1/auth/test-jwt-token | Test Jwt Token
+*UserAuthApi* | [**testLoginResponseApiV1AuthTestLoginResponseGet**](doc//UserAuthApi.md#testloginresponseapiv1authtestloginresponseget) | **GET** /api/v1/auth/test-login-response | Test Login Response
+*UserAuthApi* | [**testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet**](doc//UserAuthApi.md#testusertenantsdirectapiv1authtestusertenantsuseremailget) | **GET** /api/v1/auth/test-user-tenants/{user_email} | Test User Tenants Direct
 
 
 ## Documentation For Models
@@ -348,7 +306,6 @@ Class | Method | HTTP request | Description
  - [DietCreate](doc//DietCreate.md)
  - [DietRead](doc//DietRead.md)
  - [DietUpdate](doc//DietUpdate.md)
- - [Employee](doc//Employee.md)
  - [EmployeeAssignmentStats](doc//EmployeeAssignmentStats.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)
@@ -390,11 +347,12 @@ Class | Method | HTTP request | Description
  - [MedicationCreate](doc//MedicationCreate.md)
  - [MedicationRead](doc//MedicationRead.md)
  - [MedicationUpdate](doc//MedicationUpdate.md)
+ - [MembershipAccessInfo](doc//MembershipAccessInfo.md)
+ - [MembershipAccessUpdate](doc//MembershipAccessUpdate.md)
  - [MembershipRole](doc//MembershipRole.md)
  - [MembershipStatus](doc//MembershipStatus.md)
  - [MessageResponse](doc//MessageResponse.md)
  - [MonthlyTrend](doc//MonthlyTrend.md)
- - [Notification](doc//Notification.md)
  - [OperationalInsights](doc//OperationalInsights.md)
  - [OptInEmployeeLogEntry](doc//OptInEmployeeLogEntry.md)
  - [OptInEmployeeLogEntryBase](doc//OptInEmployeeLogEntryBase.md)
@@ -458,9 +416,7 @@ Class | Method | HTTP request | Description
  - [TeamComparison](doc//TeamComparison.md)
  - [TeamPerformanceSummary](doc//TeamPerformanceSummary.md)
  - [TeamStats](doc//TeamStats.md)
- - [TempAssignment](doc//TempAssignment.md)
- - [TempAssignmentCreate](doc//TempAssignmentCreate.md)
- - [TempAssignmentEmpLists](doc//TempAssignmentEmpLists.md)
+ - [TenantAccessInfo](doc//TenantAccessInfo.md)
  - [TenantContextData](doc//TenantContextData.md)
  - [TenantCreate](doc//TenantCreate.md)
  - [TenantInvitationCreate](doc//TenantInvitationCreate.md)
@@ -471,10 +427,8 @@ Class | Method | HTTP request | Description
  - [TenantRead](doc//TenantRead.md)
  - [TenantSelectionRequest](doc//TenantSelectionRequest.md)
  - [TenantStatus](doc//TenantStatus.md)
+ - [TenantStatusUpdate](doc//TenantStatusUpdate.md)
  - [TenantUpdate](doc//TenantUpdate.md)
- - [TestDataCreate](doc//TestDataCreate.md)
- - [TestTenantCreate](doc//TestTenantCreate.md)
- - [TestUserCreate](doc//TestUserCreate.md)
  - [Token](doc//Token.md)
  - [TopPerformer](doc//TopPerformer.md)
  - [TopPerformerInfo](doc//TopPerformerInfo.md)
@@ -482,6 +436,8 @@ Class | Method | HTTP request | Description
  - [UnderAssignedEmployee](doc//UnderAssignedEmployee.md)
  - [UnderPerformerDetail](doc//UnderPerformerDetail.md)
  - [UpdateFeaturesRequest](doc//UpdateFeaturesRequest.md)
+ - [UserAccessInfo](doc//UserAccessInfo.md)
+ - [UserAccessUpdate](doc//UserAccessUpdate.md)
  - [UserContextResponse](doc//UserContextResponse.md)
  - [UserContextUser](doc//UserContextUser.md)
  - [UserStatus](doc//UserStatus.md)

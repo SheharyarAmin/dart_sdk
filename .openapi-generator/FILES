@@ -5,6 +5,7 @@ analysis_options.yaml
 doc/ActorType.md
 doc/AddEmployeeToIgnoreRequest.md
 doc/AddPatientToIgnoreRequest.md
+doc/AdminAccessControlApi.md
 doc/AllergiesApi.md
 doc/AllergyCreate.md
 doc/AllergyRead.md
@@ -50,8 +51,6 @@ doc/ConsultantRead.md
 doc/ConsultantUpdate.md
 doc/ConsultantsApi.md
 doc/DailyCompletionRate.md
-doc/DebugMultiTenantApi.md
-doc/DebugMultitenant0Api.md
 doc/DefaultApi.md
 doc/DiagnosesApi.md
 doc/DiagnosisCreate.md
@@ -62,7 +61,6 @@ doc/DietRead.md
 doc/DietUpdate.md
 doc/DietsApi.md
 doc/EmplogApi.md
-doc/Employee.md
 doc/EmployeeAssignmentStats.md
 doc/EmployeeByProcessedPatients.md
 doc/EmployeeCreate.md
@@ -110,13 +108,12 @@ doc/MedicationCreate.md
 doc/MedicationRead.md
 doc/MedicationUpdate.md
 doc/MedicationsApi.md
+doc/MembershipAccessInfo.md
+doc/MembershipAccessUpdate.md
 doc/MembershipRole.md
 doc/MembershipStatus.md
 doc/MessageResponse.md
 doc/MonthlyTrend.md
-doc/MrnMigrationApi.md
-doc/Notification.md
-doc/NotificationsApi.md
 doc/OperationalInsights.md
 doc/OptInEmployeeLogEntry.md
 doc/OptInEmployeeLogEntryBase.md
@@ -190,10 +187,7 @@ doc/TeamAnalytics.md
 doc/TeamComparison.md
 doc/TeamPerformanceSummary.md
 doc/TeamStats.md
-doc/TempAssignment.md
-doc/TempAssignmentCreate.md
-doc/TempAssignmentEmpLists.md
-doc/TempAssignmentsApi.md
+doc/TenantAccessInfo.md
 doc/TenantContextData.md
 doc/TenantCreate.md
 doc/TenantInvitationCreate.md
@@ -205,10 +199,8 @@ doc/TenantMemberUpdate.md
 doc/TenantRead.md
 doc/TenantSelectionRequest.md
 doc/TenantStatus.md
+doc/TenantStatusUpdate.md
 doc/TenantUpdate.md
-doc/TestDataCreate.md
-doc/TestTenantCreate.md
-doc/TestUserCreate.md
 doc/Token.md
 doc/TopPerformer.md
 doc/TopPerformerInfo.md
@@ -216,6 +208,8 @@ doc/TrainingNeed.md
 doc/UnderAssignedEmployee.md
 doc/UnderPerformerDetail.md
 doc/UpdateFeaturesRequest.md
+doc/UserAccessInfo.md
+doc/UserAccessUpdate.md
 doc/UserAuthApi.md
 doc/UserContextResponse.md
 doc/UserContextUser.md
@@ -231,14 +225,13 @@ doc/WorkloadDistributionCounts.md
 doc/WorkloadOptimization.md
 git_push.sh
 lib/api.dart
+lib/api/admin_access_control_api.dart
 lib/api/allergies_api.dart
 lib/api/care_calls_api.dart
 lib/api/careplans_api.dart
 lib/api/clinic_invoice_api.dart
 lib/api/clinics_api.dart
 lib/api/consultants_api.dart
-lib/api/debug_multi_tenant_api.dart
-lib/api/debug_multitenant0_api.dart
 lib/api/default_api.dart
 lib/api/diagnoses_api.dart
 lib/api/diets_api.dart
@@ -249,8 +242,6 @@ lib/api/invitations_api.dart
 lib/api/logs_api.dart
 lib/api/manager_api.dart
 lib/api/medications_api.dart
-lib/api/mrn_migration_api.dart
-lib/api/notifications_api.dart
 lib/api/patient_assignments_api.dart
 lib/api/patients_api.dart
 lib/api/payment_details_api.dart
@@ -261,7 +252,6 @@ lib/api/providers_api.dart
 lib/api/psychosocial_stressors_api.dart
 lib/api/reports_api.dart
 lib/api/rpm_api.dart
-lib/api/temp_assignments_api.dart
 lib/api/tenant_management_api.dart
 lib/api/user_auth_api.dart
 lib/api_client.dart
@@ -320,7 +310,6 @@ lib/model/diagnosis_update.dart
 lib/model/diet_create.dart
 lib/model/diet_read.dart
 lib/model/diet_update.dart
-lib/model/employee.dart
 lib/model/employee_assignment_stats.dart
 lib/model/employee_by_processed_patients.dart
 lib/model/employee_create.dart
@@ -362,11 +351,12 @@ lib/model/manager_team_performance.dart
 lib/model/medication_create.dart
 lib/model/medication_read.dart
 lib/model/medication_update.dart
+lib/model/membership_access_info.dart
+lib/model/membership_access_update.dart
 lib/model/membership_role.dart
 lib/model/membership_status.dart
 lib/model/message_response.dart
 lib/model/monthly_trend.dart
-lib/model/notification.dart
 lib/model/operational_insights.dart
 lib/model/opt_in_employee_log_entry.dart
 lib/model/opt_in_employee_log_entry_base.dart
@@ -430,9 +420,7 @@ lib/model/team_analytics.dart
 lib/model/team_comparison.dart
 lib/model/team_performance_summary.dart
 lib/model/team_stats.dart
-lib/model/temp_assignment.dart
-lib/model/temp_assignment_create.dart
-lib/model/temp_assignment_emp_lists.dart
+lib/model/tenant_access_info.dart
 lib/model/tenant_context_data.dart
 lib/model/tenant_create.dart
 lib/model/tenant_invitation_create.dart
@@ -443,10 +431,8 @@ lib/model/tenant_member_update.dart
 lib/model/tenant_read.dart
 lib/model/tenant_selection_request.dart
 lib/model/tenant_status.dart
+lib/model/tenant_status_update.dart
 lib/model/tenant_update.dart
-lib/model/test_data_create.dart
-lib/model/test_tenant_create.dart
-lib/model/test_user_create.dart
 lib/model/token.dart
 lib/model/top_performer.dart
 lib/model/top_performer_info.dart
@@ -454,6 +440,8 @@ lib/model/training_need.dart
 lib/model/under_assigned_employee.dart
 lib/model/under_performer_detail.dart
 lib/model/update_features_request.dart
+lib/model/user_access_info.dart
+lib/model/user_access_update.dart
 lib/model/user_context_response.dart
 lib/model/user_context_user.dart
 lib/model/user_status.dart
@@ -467,5 +455,3 @@ lib/model/workload_distribution.dart
 lib/model/workload_distribution_counts.dart
 lib/model/workload_optimization.dart
 pubspec.yaml
-test/auth_user_context_response_test.dart
-test/user_context_user_test.dart

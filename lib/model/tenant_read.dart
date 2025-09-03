@@ -33,11 +33,19 @@ class TenantRead {
     this.region = 'US',
     this.hipaaBaaSigned = false,
     this.dataRetentionDays = 2555,
+    this.emailDomain,
     this.googleWorkspaceEnabled = true,
     this.emailPasswordEnabled = true,
     this.requireEmailVerification = true,
     this.ssoEnabled = false,
     this.ssoProvider,
+    this.googleWorkspaceRequired = false,
+    this.autoProvisionUsers = true,
+    this.domainVerificationRequired = false,
+    this.domainVerified = false,
+    this.domainVerificationToken,
+    this.allowedEmailPatterns,
+    this.defaultUserRole = 'user',
     this.requireAdminApproval = false,
     this.welcomeEmailEnabled = true,
     this.allowUserRegistration = false,
@@ -94,6 +102,8 @@ class TenantRead {
 
   int dataRetentionDays;
 
+  String? emailDomain;
+
   bool googleWorkspaceEnabled;
 
   bool emailPasswordEnabled;
@@ -103,6 +113,22 @@ class TenantRead {
   bool ssoEnabled;
 
   String? ssoProvider;
+
+  /// Require Google Workspace login
+  bool googleWorkspaceRequired;
+
+  /// Auto-create users on first login
+  bool autoProvisionUsers;
+
+  bool domainVerificationRequired;
+
+  bool domainVerified;
+
+  String? domainVerificationToken;
+
+  String? allowedEmailPatterns;
+
+  String defaultUserRole;
 
   bool requireAdminApproval;
 
@@ -144,11 +170,19 @@ class TenantRead {
     other.region == region &&
     other.hipaaBaaSigned == hipaaBaaSigned &&
     other.dataRetentionDays == dataRetentionDays &&
+    other.emailDomain == emailDomain &&
     other.googleWorkspaceEnabled == googleWorkspaceEnabled &&
     other.emailPasswordEnabled == emailPasswordEnabled &&
     other.requireEmailVerification == requireEmailVerification &&
     other.ssoEnabled == ssoEnabled &&
     other.ssoProvider == ssoProvider &&
+    other.googleWorkspaceRequired == googleWorkspaceRequired &&
+    other.autoProvisionUsers == autoProvisionUsers &&
+    other.domainVerificationRequired == domainVerificationRequired &&
+    other.domainVerified == domainVerified &&
+    other.domainVerificationToken == domainVerificationToken &&
+    other.allowedEmailPatterns == allowedEmailPatterns &&
+    other.defaultUserRole == defaultUserRole &&
     other.requireAdminApproval == requireAdminApproval &&
     other.welcomeEmailEnabled == welcomeEmailEnabled &&
     other.allowUserRegistration == allowUserRegistration &&
@@ -182,11 +216,19 @@ class TenantRead {
     (region.hashCode) +
     (hipaaBaaSigned.hashCode) +
     (dataRetentionDays.hashCode) +
+    (emailDomain == null ? 0 : emailDomain!.hashCode) +
     (googleWorkspaceEnabled.hashCode) +
     (emailPasswordEnabled.hashCode) +
     (requireEmailVerification.hashCode) +
     (ssoEnabled.hashCode) +
     (ssoProvider == null ? 0 : ssoProvider!.hashCode) +
+    (googleWorkspaceRequired.hashCode) +
+    (autoProvisionUsers.hashCode) +
+    (domainVerificationRequired.hashCode) +
+    (domainVerified.hashCode) +
+    (domainVerificationToken == null ? 0 : domainVerificationToken!.hashCode) +
+    (allowedEmailPatterns == null ? 0 : allowedEmailPatterns!.hashCode) +
+    (defaultUserRole.hashCode) +
     (requireAdminApproval.hashCode) +
     (welcomeEmailEnabled.hashCode) +
     (allowUserRegistration.hashCode) +
@@ -198,7 +240,7 @@ class TenantRead {
     (customLimits.hashCode);
 
   @override
-  String toString() => 'TenantRead[name=$name, subdomain=$subdomain, databaseName=$databaseName, status=$status, subscriptionTierId=$subscriptionTierId, subscriptionActive=$subscriptionActive, billingCycle=$billingCycle, trialEndsAt=$trialEndsAt, adminEmail=$adminEmail, billingEmail=$billingEmail, supportEmail=$supportEmail, phone=$phone, address=$address, logoUrl=$logoUrl, primaryColor=$primaryColor, customDomain=$customDomain, encryptionKeyId=$encryptionKeyId, region=$region, hipaaBaaSigned=$hipaaBaaSigned, dataRetentionDays=$dataRetentionDays, googleWorkspaceEnabled=$googleWorkspaceEnabled, emailPasswordEnabled=$emailPasswordEnabled, requireEmailVerification=$requireEmailVerification, ssoEnabled=$ssoEnabled, ssoProvider=$ssoProvider, requireAdminApproval=$requireAdminApproval, welcomeEmailEnabled=$welcomeEmailEnabled, allowUserRegistration=$allowUserRegistration, createdAt=$createdAt, updatedAt=$updatedAt, id=$id, subscriptionTier=$subscriptionTier, enabledFeatures=$enabledFeatures, customLimits=$customLimits]';
+  String toString() => 'TenantRead[name=$name, subdomain=$subdomain, databaseName=$databaseName, status=$status, subscriptionTierId=$subscriptionTierId, subscriptionActive=$subscriptionActive, billingCycle=$billingCycle, trialEndsAt=$trialEndsAt, adminEmail=$adminEmail, billingEmail=$billingEmail, supportEmail=$supportEmail, phone=$phone, address=$address, logoUrl=$logoUrl, primaryColor=$primaryColor, customDomain=$customDomain, encryptionKeyId=$encryptionKeyId, region=$region, hipaaBaaSigned=$hipaaBaaSigned, dataRetentionDays=$dataRetentionDays, emailDomain=$emailDomain, googleWorkspaceEnabled=$googleWorkspaceEnabled, emailPasswordEnabled=$emailPasswordEnabled, requireEmailVerification=$requireEmailVerification, ssoEnabled=$ssoEnabled, ssoProvider=$ssoProvider, googleWorkspaceRequired=$googleWorkspaceRequired, autoProvisionUsers=$autoProvisionUsers, domainVerificationRequired=$domainVerificationRequired, domainVerified=$domainVerified, domainVerificationToken=$domainVerificationToken, allowedEmailPatterns=$allowedEmailPatterns, defaultUserRole=$defaultUserRole, requireAdminApproval=$requireAdminApproval, welcomeEmailEnabled=$welcomeEmailEnabled, allowUserRegistration=$allowUserRegistration, createdAt=$createdAt, updatedAt=$updatedAt, id=$id, subscriptionTier=$subscriptionTier, enabledFeatures=$enabledFeatures, customLimits=$customLimits]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -254,6 +296,11 @@ class TenantRead {
       json[r'region'] = this.region;
       json[r'hipaa_baa_signed'] = this.hipaaBaaSigned;
       json[r'data_retention_days'] = this.dataRetentionDays;
+    if (this.emailDomain != null) {
+      json[r'email_domain'] = this.emailDomain;
+    } else {
+      json[r'email_domain'] = null;
+    }
       json[r'google_workspace_enabled'] = this.googleWorkspaceEnabled;
       json[r'email_password_enabled'] = this.emailPasswordEnabled;
       json[r'require_email_verification'] = this.requireEmailVerification;
@@ -263,6 +310,21 @@ class TenantRead {
     } else {
       json[r'sso_provider'] = null;
     }
+      json[r'google_workspace_required'] = this.googleWorkspaceRequired;
+      json[r'auto_provision_users'] = this.autoProvisionUsers;
+      json[r'domain_verification_required'] = this.domainVerificationRequired;
+      json[r'domain_verified'] = this.domainVerified;
+    if (this.domainVerificationToken != null) {
+      json[r'domain_verification_token'] = this.domainVerificationToken;
+    } else {
+      json[r'domain_verification_token'] = null;
+    }
+    if (this.allowedEmailPatterns != null) {
+      json[r'allowed_email_patterns'] = this.allowedEmailPatterns;
+    } else {
+      json[r'allowed_email_patterns'] = null;
+    }
+      json[r'default_user_role'] = this.defaultUserRole;
       json[r'require_admin_approval'] = this.requireAdminApproval;
       json[r'welcome_email_enabled'] = this.welcomeEmailEnabled;
       json[r'allow_user_registration'] = this.allowUserRegistration;
@@ -314,11 +376,19 @@ class TenantRead {
         region: mapValueOfType<String>(json, r'region') ?? 'US',
         hipaaBaaSigned: mapValueOfType<bool>(json, r'hipaa_baa_signed') ?? false,
         dataRetentionDays: mapValueOfType<int>(json, r'data_retention_days') ?? 2555,
+        emailDomain: mapValueOfType<String>(json, r'email_domain'),
         googleWorkspaceEnabled: mapValueOfType<bool>(json, r'google_workspace_enabled') ?? true,
         emailPasswordEnabled: mapValueOfType<bool>(json, r'email_password_enabled') ?? true,
         requireEmailVerification: mapValueOfType<bool>(json, r'require_email_verification') ?? true,
         ssoEnabled: mapValueOfType<bool>(json, r'sso_enabled') ?? false,
         ssoProvider: mapValueOfType<String>(json, r'sso_provider'),
+        googleWorkspaceRequired: mapValueOfType<bool>(json, r'google_workspace_required') ?? false,
+        autoProvisionUsers: mapValueOfType<bool>(json, r'auto_provision_users') ?? true,
+        domainVerificationRequired: mapValueOfType<bool>(json, r'domain_verification_required') ?? false,
+        domainVerified: mapValueOfType<bool>(json, r'domain_verified') ?? false,
+        domainVerificationToken: mapValueOfType<String>(json, r'domain_verification_token'),
+        allowedEmailPatterns: mapValueOfType<String>(json, r'allowed_email_patterns'),
+        defaultUserRole: mapValueOfType<String>(json, r'default_user_role') ?? 'user',
         requireAdminApproval: mapValueOfType<bool>(json, r'require_admin_approval') ?? false,
         welcomeEmailEnabled: mapValueOfType<bool>(json, r'welcome_email_enabled') ?? true,
         allowUserRegistration: mapValueOfType<bool>(json, r'allow_user_registration') ?? false,

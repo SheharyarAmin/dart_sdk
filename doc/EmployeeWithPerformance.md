@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **managerid** | **String** |  | [optional] 
 **managername** | **String** |  | [optional] 
 **assignedpatients** | **int** |  | [optional] 
+**globalUserId** | **String** |  | [optional] 
 **id** | **String** |  | 
 **canbedeleted** | **bool** |  | [optional] [default to true]
 **performanceSummary** | [**EmployeePerformanceSummary**](EmployeePerformanceSummary.md) |  | [optional] 

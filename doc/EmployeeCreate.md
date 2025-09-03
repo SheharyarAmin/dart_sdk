@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **managerid** | **String** |  | [optional] 
 **managername** | **String** |  | [optional] 
 **assignedpatients** | **int** |  | [optional] 
+**globalUserId** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
