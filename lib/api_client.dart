@@ -446,8 +446,6 @@ class ApiClient {
           return DietRead.fromJson(value);
         case 'DietUpdate':
           return DietUpdate.fromJson(value);
-        case 'Employee':
-          return Employee.fromJson(value);
         case 'EmployeeAssignmentStats':
           return EmployeeAssignmentStats.fromJson(value);
         case 'EmployeeByProcessedPatients':
@@ -530,6 +528,10 @@ class ApiClient {
           return MedicationRead.fromJson(value);
         case 'MedicationUpdate':
           return MedicationUpdate.fromJson(value);
+        case 'MembershipAccessInfo':
+          return MembershipAccessInfo.fromJson(value);
+        case 'MembershipAccessUpdate':
+          return MembershipAccessUpdate.fromJson(value);
         case 'MembershipRole':
           return MembershipRoleTypeTransformer().decode(value);
         case 'MembershipStatus':
@@ -538,8 +540,6 @@ class ApiClient {
           return MessageResponse.fromJson(value);
         case 'MonthlyTrend':
           return MonthlyTrend.fromJson(value);
-        case 'Notification':
-          return Notification.fromJson(value);
         case 'Object':
           // Handle Object type to return Map<dynamic, dynamic>
           if (value is Map) {
@@ -672,12 +672,8 @@ class ApiClient {
           return TeamPerformanceSummary.fromJson(value);
         case 'TeamStats':
           return TeamStats.fromJson(value);
-        case 'TempAssignment':
-          return TempAssignment.fromJson(value);
-        case 'TempAssignmentCreate':
-          return TempAssignmentCreate.fromJson(value);
-        case 'TempAssignmentEmpLists':
-          return TempAssignmentEmpLists.fromJson(value);
+        case 'TenantAccessInfo':
+          return TenantAccessInfo.fromJson(value);
         case 'TenantContextData':
           return TenantContextData.fromJson(value);
         case 'TenantCreate':
@@ -698,14 +694,10 @@ class ApiClient {
           return TenantSelectionRequest.fromJson(value);
         case 'TenantStatus':
           return TenantStatusTypeTransformer().decode(value);
+        case 'TenantStatusUpdate':
+          return TenantStatusUpdate.fromJson(value);
         case 'TenantUpdate':
           return TenantUpdate.fromJson(value);
-        case 'TestDataCreate':
-          return TestDataCreate.fromJson(value);
-        case 'TestTenantCreate':
-          return TestTenantCreate.fromJson(value);
-        case 'TestUserCreate':
-          return TestUserCreate.fromJson(value);
         case 'Token':
           return Token.fromJson(value);
         case 'TopPerformer':
@@ -720,6 +712,10 @@ class ApiClient {
           return UnderPerformerDetail.fromJson(value);
         case 'UpdateFeaturesRequest':
           return UpdateFeaturesRequest.fromJson(value);
+        case 'UserAccessInfo':
+          return UserAccessInfo.fromJson(value);
+        case 'UserAccessUpdate':
+          return UserAccessUpdate.fromJson(value);
         case 'UserContextResponse':
           return UserContextResponse.fromJson(value);
         case 'UserContextUser':

@@ -23,9 +23,7 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Response> changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPutWithHttpInfo(String providerId, { bool? usePostgres, }) async {
+  Future<Response> changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPutWithHttpInfo(String providerId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}/change-active-status'
       .replaceAll('{provider_id}', providerId);
@@ -36,10 +34,6 @@ class ProvidersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (usePostgres != null) {
-      queryParams.addAll(_queryParams('', 'use_postgres', usePostgres));
-    }
 
     const contentTypes = <String>[];
 
@@ -60,10 +54,8 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Map<String, String>?> changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut(String providerId, { bool? usePostgres, }) async {
-    final response = await changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPutWithHttpInfo(providerId,  usePostgres: usePostgres, );
+  Future<Map<String, String>?> changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPut(String providerId,) async {
+    final response = await changeActiveStatusApiV1ProvidersProviderIdChangeActiveStatusPutWithHttpInfo(providerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -84,9 +76,7 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Response> changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPutWithHttpInfo(String providerId, { bool? usePostgres, }) async {
+  Future<Response> changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPutWithHttpInfo(String providerId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}/change-deleted-status'
       .replaceAll('{provider_id}', providerId);
@@ -97,10 +87,6 @@ class ProvidersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (usePostgres != null) {
-      queryParams.addAll(_queryParams('', 'use_postgres', usePostgres));
-    }
 
     const contentTypes = <String>[];
 
@@ -121,10 +107,8 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Map<String, String>?> changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut(String providerId, { bool? usePostgres, }) async {
-    final response = await changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPutWithHttpInfo(providerId,  usePostgres: usePostgres, );
+  Future<Map<String, String>?> changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPut(String providerId,) async {
+    final response = await changeDeletedStatusApiV1ProvidersProviderIdChangeDeletedStatusPutWithHttpInfo(providerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -145,9 +129,7 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [ProviderCreate] providerCreate (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Response> createProviderApiV1ProvidersPostWithHttpInfo(ProviderCreate providerCreate, { bool? usePostgres, }) async {
+  Future<Response> createProviderApiV1ProvidersPostWithHttpInfo(ProviderCreate providerCreate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/';
 
@@ -157,10 +139,6 @@ class ProvidersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (usePostgres != null) {
-      queryParams.addAll(_queryParams('', 'use_postgres', usePostgres));
-    }
 
     const contentTypes = <String>['application/json'];
 
@@ -181,10 +159,8 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [ProviderCreate] providerCreate (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<ProviderRead?> createProviderApiV1ProvidersPost(ProviderCreate providerCreate, { bool? usePostgres, }) async {
-    final response = await createProviderApiV1ProvidersPostWithHttpInfo(providerCreate,  usePostgres: usePostgres, );
+  Future<ProviderRead?> createProviderApiV1ProvidersPost(ProviderCreate providerCreate,) async {
+    final response = await createProviderApiV1ProvidersPostWithHttpInfo(providerCreate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -205,9 +181,7 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Response> deleteProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(String providerId, { bool? usePostgres, }) async {
+  Future<Response> deleteProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(String providerId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}'
       .replaceAll('{provider_id}', providerId);
@@ -218,10 +192,6 @@ class ProvidersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (usePostgres != null) {
-      queryParams.addAll(_queryParams('', 'use_postgres', usePostgres));
-    }
 
     const contentTypes = <String>[];
 
@@ -242,10 +212,8 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Map<String, String>?> deleteProviderApiV1ProvidersProviderIdDelete(String providerId, { bool? usePostgres, }) async {
-    final response = await deleteProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(providerId,  usePostgres: usePostgres, );
+  Future<Map<String, String>?> deleteProviderApiV1ProvidersProviderIdDelete(String providerId,) async {
+    final response = await deleteProviderApiV1ProvidersProviderIdDeleteWithHttpInfo(providerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -266,9 +234,7 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Response> readProviderApiV1ProvidersProviderIdGetWithHttpInfo(String providerId, { bool? usePostgres, }) async {
+  Future<Response> readProviderApiV1ProvidersProviderIdGetWithHttpInfo(String providerId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}'
       .replaceAll('{provider_id}', providerId);
@@ -279,10 +245,6 @@ class ProvidersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (usePostgres != null) {
-      queryParams.addAll(_queryParams('', 'use_postgres', usePostgres));
-    }
 
     const contentTypes = <String>[];
 
@@ -303,10 +265,8 @@ class ProvidersApi {
   /// Parameters:
   ///
   /// * [String] providerId (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<ProviderRead?> readProviderApiV1ProvidersProviderIdGet(String providerId, { bool? usePostgres, }) async {
-    final response = await readProviderApiV1ProvidersProviderIdGetWithHttpInfo(providerId,  usePostgres: usePostgres, );
+  Future<ProviderRead?> readProviderApiV1ProvidersProviderIdGet(String providerId,) async {
+    final response = await readProviderApiV1ProvidersProviderIdGetWithHttpInfo(providerId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -323,11 +283,7 @@ class ProvidersApi {
   /// Read Providers
   ///
   /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [bool] usePostgres:
-  Future<Response> readProvidersApiV1ProvidersGetWithHttpInfo({ bool? usePostgres, }) async {
+  Future<Response> readProvidersApiV1ProvidersGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/';
 
@@ -337,10 +293,6 @@ class ProvidersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (usePostgres != null) {
-      queryParams.addAll(_queryParams('', 'use_postgres', usePostgres));
-    }
 
     const contentTypes = <String>[];
 
@@ -357,12 +309,8 @@ class ProvidersApi {
   }
 
   /// Read Providers
-  ///
-  /// Parameters:
-  ///
-  /// * [bool] usePostgres:
-  Future<List<ProviderRead>?> readProvidersApiV1ProvidersGet({ bool? usePostgres, }) async {
-    final response = await readProvidersApiV1ProvidersGetWithHttpInfo( usePostgres: usePostgres, );
+  Future<List<ProviderRead>?> readProvidersApiV1ProvidersGet() async {
+    final response = await readProvidersApiV1ProvidersGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -388,9 +336,7 @@ class ProvidersApi {
   /// * [String] providerId (required):
   ///
   /// * [ProviderUpdate] providerUpdate (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<Response> updateProviderApiV1ProvidersProviderIdPutWithHttpInfo(String providerId, ProviderUpdate providerUpdate, { bool? usePostgres, }) async {
+  Future<Response> updateProviderApiV1ProvidersProviderIdPutWithHttpInfo(String providerId, ProviderUpdate providerUpdate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/providers/{provider_id}'
       .replaceAll('{provider_id}', providerId);
@@ -401,10 +347,6 @@ class ProvidersApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (usePostgres != null) {
-      queryParams.addAll(_queryParams('', 'use_postgres', usePostgres));
-    }
 
     const contentTypes = <String>['application/json'];
 
@@ -427,10 +369,8 @@ class ProvidersApi {
   /// * [String] providerId (required):
   ///
   /// * [ProviderUpdate] providerUpdate (required):
-  ///
-  /// * [bool] usePostgres:
-  Future<ProviderRead?> updateProviderApiV1ProvidersProviderIdPut(String providerId, ProviderUpdate providerUpdate, { bool? usePostgres, }) async {
-    final response = await updateProviderApiV1ProvidersProviderIdPutWithHttpInfo(providerId, providerUpdate,  usePostgres: usePostgres, );
+  Future<ProviderRead?> updateProviderApiV1ProvidersProviderIdPut(String providerId, ProviderUpdate providerUpdate,) async {
+    final response = await updateProviderApiV1ProvidersProviderIdPutWithHttpInfo(providerId, providerUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

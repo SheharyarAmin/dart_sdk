@@ -23,9 +23,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<Response> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPutWithHttpInfo(String clinicId, { Object? session, }) async {
+  Future<Response> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPutWithHttpInfo(String clinicId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}/change-active-status'
       .replaceAll('{clinic_id}', clinicId);
@@ -36,10 +34,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>[];
 
@@ -60,10 +54,8 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<Map<String, String>?> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(String clinicId, { Object? session, }) async {
-    final response = await changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPutWithHttpInfo(clinicId,  session: session, );
+  Future<Map<String, String>?> changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPut(String clinicId,) async {
+    final response = await changeActiveStatusApiV1ClinicsClinicIdChangeActiveStatusPutWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -84,9 +76,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<Response> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(String clinicId, { Object? session, }) async {
+  Future<Response> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(String clinicId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}/change-deleted-status'
       .replaceAll('{clinic_id}', clinicId);
@@ -97,10 +87,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>[];
 
@@ -121,10 +107,8 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<Map<String, String>?> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(String clinicId, { Object? session, }) async {
-    final response = await changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(clinicId,  session: session, );
+  Future<Map<String, String>?> changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPut(String clinicId,) async {
+    final response = await changeDeletedStatusApiV1ClinicsClinicIdChangeDeletedStatusPutWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -145,9 +129,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [ClinicCreate] clinicCreate (required):
-  ///
-  /// * [Object] session:
-  Future<Response> createClinicApiV1ClinicsPostWithHttpInfo(ClinicCreate clinicCreate, { Object? session, }) async {
+  Future<Response> createClinicApiV1ClinicsPostWithHttpInfo(ClinicCreate clinicCreate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/';
 
@@ -157,10 +139,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>['application/json'];
 
@@ -181,10 +159,8 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [ClinicCreate] clinicCreate (required):
-  ///
-  /// * [Object] session:
-  Future<ClinicRead?> createClinicApiV1ClinicsPost(ClinicCreate clinicCreate, { Object? session, }) async {
-    final response = await createClinicApiV1ClinicsPostWithHttpInfo(clinicCreate,  session: session, );
+  Future<ClinicRead?> createClinicApiV1ClinicsPost(ClinicCreate clinicCreate,) async {
+    final response = await createClinicApiV1ClinicsPostWithHttpInfo(clinicCreate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -205,9 +181,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<Response> deleteClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(String clinicId, { Object? session, }) async {
+  Future<Response> deleteClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(String clinicId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}'
       .replaceAll('{clinic_id}', clinicId);
@@ -218,10 +192,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>[];
 
@@ -242,10 +212,8 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<Map<String, String>?> deleteClinicApiV1ClinicsClinicIdDelete(String clinicId, { Object? session, }) async {
-    final response = await deleteClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(clinicId,  session: session, );
+  Future<Map<String, String>?> deleteClinicApiV1ClinicsClinicIdDelete(String clinicId,) async {
+    final response = await deleteClinicApiV1ClinicsClinicIdDeleteWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -266,9 +234,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  ///
-  /// * [Object] session:
-  Future<Response> getClinicStatementApiV1ClinicsClinicStatementPostWithHttpInfo(Map<String, String> requestBody, { Object? session, }) async {
+  Future<Response> getClinicStatementApiV1ClinicsClinicStatementPostWithHttpInfo(Map<String, String> requestBody,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/clinic-statement';
 
@@ -278,10 +244,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>['application/json'];
 
@@ -302,13 +264,8 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
-  Future<Uint8List> getClinicStatementApiV1ClinicsClinicStatementPost(
-    Map<String, String> requestBody,
-  ) async {
-    final response =
-        await getClinicStatementApiV1ClinicsClinicStatementPostWithHttpInfo(
-      requestBody,
-    );
+  Future<Uint8List> getClinicStatementApiV1ClinicsClinicStatementPost(Map<String, String> requestBody,) async {
+    final response = await getClinicStatementApiV1ClinicsClinicStatementPostWithHttpInfo(requestBody,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -322,9 +279,7 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<Response> readClinicApiV1ClinicsClinicIdGetWithHttpInfo(String clinicId, { Object? session, }) async {
+  Future<Response> readClinicApiV1ClinicsClinicIdGetWithHttpInfo(String clinicId,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}'
       .replaceAll('{clinic_id}', clinicId);
@@ -335,10 +290,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>[];
 
@@ -359,10 +310,8 @@ class ClinicsApi {
   /// Parameters:
   ///
   /// * [String] clinicId (required):
-  ///
-  /// * [Object] session:
-  Future<ClinicRead?> readClinicApiV1ClinicsClinicIdGet(String clinicId, { Object? session, }) async {
-    final response = await readClinicApiV1ClinicsClinicIdGetWithHttpInfo(clinicId,  session: session, );
+  Future<ClinicRead?> readClinicApiV1ClinicsClinicIdGet(String clinicId,) async {
+    final response = await readClinicApiV1ClinicsClinicIdGetWithHttpInfo(clinicId,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -379,11 +328,7 @@ class ClinicsApi {
   /// Read Clinics
   ///
   /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [Object] session:
-  Future<Response> readClinicsApiV1ClinicsGetWithHttpInfo({ Object? session, }) async {
+  Future<Response> readClinicsApiV1ClinicsGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/';
 
@@ -393,10 +338,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>[];
 
@@ -413,12 +354,8 @@ class ClinicsApi {
   }
 
   /// Read Clinics
-  ///
-  /// Parameters:
-  ///
-  /// * [Object] session:
-  Future<Map<String, ClinicRead>?> readClinicsApiV1ClinicsGet({ Object? session, }) async {
-    final response = await readClinicsApiV1ClinicsGetWithHttpInfo( session: session, );
+  Future<Map<String, ClinicRead>?> readClinicsApiV1ClinicsGet() async {
+    final response = await readClinicsApiV1ClinicsGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -441,9 +378,7 @@ class ClinicsApi {
   /// * [String] clinicId (required):
   ///
   /// * [ClinicUpdate] clinicUpdate (required):
-  ///
-  /// * [Object] session:
-  Future<Response> updateClinicApiV1ClinicsClinicIdPutWithHttpInfo(String clinicId, ClinicUpdate clinicUpdate, { Object? session, }) async {
+  Future<Response> updateClinicApiV1ClinicsClinicIdPutWithHttpInfo(String clinicId, ClinicUpdate clinicUpdate,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/clinics/{clinic_id}'
       .replaceAll('{clinic_id}', clinicId);
@@ -454,10 +389,6 @@ class ClinicsApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (session != null) {
-      queryParams.addAll(_queryParams('', 'session', session));
-    }
 
     const contentTypes = <String>['application/json'];
 
@@ -480,10 +411,8 @@ class ClinicsApi {
   /// * [String] clinicId (required):
   ///
   /// * [ClinicUpdate] clinicUpdate (required):
-  ///
-  /// * [Object] session:
-  Future<ClinicRead?> updateClinicApiV1ClinicsClinicIdPut(String clinicId, ClinicUpdate clinicUpdate, { Object? session, }) async {
-    final response = await updateClinicApiV1ClinicsClinicIdPutWithHttpInfo(clinicId, clinicUpdate,  session: session, );
+  Future<ClinicRead?> updateClinicApiV1ClinicsClinicIdPut(String clinicId, ClinicUpdate clinicUpdate,) async {
+    final response = await updateClinicApiV1ClinicsClinicIdPutWithHttpInfo(clinicId, clinicUpdate,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -18,6 +18,8 @@ class ReportsApi {
 
   /// Generate Report
   ///
+  /// Generate healthcare reports with DI Container compliance.  This endpoint maintains tenant isolation and audit trails through domain service delegation. All database operations use proper CRUD abstractions and session management.  Args:     data: Report parameters including entity, report_type, filters, etc.     report_service: DI-injected report service (domain router)     log_service: DI-injected log service for audit trail     user: Current authenticated user      Returns:     StreamingResponse: PDF report with proper headers      Raises:     HTTPException: For validation or generation errors
+  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -28,7 +30,7 @@ class ReportsApi {
     final path = r'/api/v1/reports/generate-report';
 
     // ignore: prefer_final_locals
-    Object? postBody = requestBody;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -50,6 +52,8 @@ class ReportsApi {
 
   /// Generate Report
   ///
+  /// Generate healthcare reports with DI Container compliance.  This endpoint maintains tenant isolation and audit trails through domain service delegation. All database operations use proper CRUD abstractions and session management.  Args:     data: Report parameters including entity, report_type, filters, etc.     report_service: DI-injected report service (domain router)     log_service: DI-injected log service for audit trail     user: Current authenticated user      Returns:     StreamingResponse: PDF report with proper headers      Raises:     HTTPException: For validation or generation errors
+  ///
   /// Parameters:
   ///
   /// * [Map<String, String>] requestBody (required):
@@ -58,6 +62,5 @@ class ReportsApi {
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    return response.bodyBytes;
   }
 }

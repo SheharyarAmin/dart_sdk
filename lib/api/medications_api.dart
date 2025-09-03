@@ -337,57 +337,6 @@ class MedicationsApi {
     return null;
   }
 
-  /// Hard delete medication
-  ///
-  /// Mark a medication as inactive (soft delete).  This preserves its relationships with existing care calls.  - **medication_id**: ID of the medication to deactivate
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [int] medicationId (required):
-  ///   The ID of the medication
-  Future<Response> softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDeleteWithHttpInfo(int medicationId,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/medications/medications/{medication_id}/hard'
-      .replaceAll('{medication_id}', medicationId.toString());
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'DELETE',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Hard delete medication
-  ///
-  /// Mark a medication as inactive (soft delete).  This preserves its relationships with existing care calls.  - **medication_id**: ID of the medication to deactivate
-  ///
-  /// Parameters:
-  ///
-  /// * [int] medicationId (required):
-  ///   The ID of the medication
-  Future<void> softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDelete(int medicationId,) async {
-    final response = await softDeleteMedicationApiV1MedicationsMedicationsMedicationIdHardDeleteWithHttpInfo(medicationId,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-  }
-
   /// Update medication
   ///
   /// Update a medication.  - **medication_id**: ID of the medication to update - **name**: New name for the medication (optional) - **active**: Active status (optional)

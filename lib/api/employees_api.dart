@@ -488,7 +488,7 @@ class EmployeesApi {
 
   /// Read Employee
   ///
-  /// Get basic employee data by ID
+  /// Get basic employee data by ID - TESTING: includes refresh all assigned patients
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -523,7 +523,7 @@ class EmployeesApi {
 
   /// Read Employee
   ///
-  /// Get basic employee data by ID
+  /// Get basic employee data by ID - TESTING: includes refresh all assigned patients
   ///
   /// Parameters:
   ///
@@ -587,6 +587,68 @@ class EmployeesApi {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return Map<String, EmployeeRead>.from(await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Map<String, EmployeeRead>'),);
 
+    }
+    return null;
+  }
+
+  /// Refresh All Assigned Patients Count
+  ///
+  /// Refresh assigned patients count for ALL employees at once.  This endpoint: - Recalculates real-time assigned patient counts for all active employees - Uses batch processing for optimal performance - Excludes deceased patients, opted-out patients, and ignored patients - Returns detailed breakdown by employee with CCM/PCM counts - Requires Admin/Owner permissions
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [Portal] portal:
+  ///   Filter by portal (CCM/PCM), or None for all portals
+  Future<Response> refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPostWithHttpInfo({ Portal? portal, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/employees/refresh-all-assigned-patients';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (portal != null) {
+      queryParams.addAll(_queryParams('', 'portal', portal));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Refresh All Assigned Patients Count
+  ///
+  /// Refresh assigned patients count for ALL employees at once.  This endpoint: - Recalculates real-time assigned patient counts for all active employees - Uses batch processing for optimal performance - Excludes deceased patients, opted-out patients, and ignored patients - Returns detailed breakdown by employee with CCM/PCM counts - Requires Admin/Owner permissions
+  ///
+  /// Parameters:
+  ///
+  /// * [Portal] portal:
+  ///   Filter by portal (CCM/PCM), or None for all portals
+  Future<BatchAssignedPatientsResponse?> refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPost({ Portal? portal, }) async {
+    final response = await refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPostWithHttpInfo( portal: portal, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'BatchAssignedPatientsResponse',) as BatchAssignedPatientsResponse;
+    
     }
     return null;
   }

@@ -18,6 +18,8 @@ class ProcessedPatientApi {
 
   /// Create Processed Patient Entry
   ///
+  /// Create processed patient entry with healthcare-grade audit trails
+  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -50,6 +52,8 @@ class ProcessedPatientApi {
 
   /// Create Processed Patient Entry
   ///
+  /// Create processed patient entry with healthcare-grade audit trails
+  ///
   /// Parameters:
   ///
   /// * [ProcessedPatientEntryFromFrontEnd] processedPatientEntryFromFrontEnd (required):
@@ -69,6 +73,8 @@ class ProcessedPatientApi {
   }
 
   /// Read Processed Patient Entries For Monthyear Empid
+  ///
+  /// Get processed patient entries for employee by month/year with filtering
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -143,6 +149,8 @@ class ProcessedPatientApi {
 
   /// Read Processed Patient Entries For Monthyear Empid
   ///
+  /// Get processed patient entries for employee by month/year with filtering
+  ///
   /// Parameters:
   ///
   /// * [int] year (required):
@@ -180,6 +188,8 @@ class ProcessedPatientApi {
   }
 
   /// Read Processed Patient Entry For Patient In Monthyear
+  ///
+  /// Get processed patient entry for specific patient in month/year
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -222,6 +232,8 @@ class ProcessedPatientApi {
   }
 
   /// Read Processed Patient Entry For Patient In Monthyear
+  ///
+  /// Get processed patient entry for specific patient in month/year
   ///
   /// Parameters:
   ///

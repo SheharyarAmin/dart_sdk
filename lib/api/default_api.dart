@@ -18,8 +18,6 @@ class DefaultApi {
 
   /// Get User Context
   ///
-  /// Get user's current context including selected tenant and available tenants. Uses the new user-based multi-tenant system.
-  ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getUserContextAuthUserContextGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
@@ -47,8 +45,6 @@ class DefaultApi {
   }
 
   /// Get User Context
-  ///
-  /// Get user's current context including selected tenant and available tenants. Uses the new user-based multi-tenant system.
   Future<AuthUserContextResponse?> getUserContextAuthUserContextGet() async {
     final response = await getUserContextAuthUserContextGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -66,7 +62,7 @@ class DefaultApi {
 
   /// Health Check
   ///
-  /// Health check endpoint
+  /// Simple health check endpoint for auto-initialization architecture
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> healthCheckHealthGetWithHttpInfo() async {
@@ -96,7 +92,7 @@ class DefaultApi {
 
   /// Health Check
   ///
-  /// Health check endpoint
+  /// Simple health check endpoint for auto-initialization architecture
   Future<Object?> healthCheckHealthGet() async {
     final response = await healthCheckHealthGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -114,7 +110,7 @@ class DefaultApi {
 
   /// Login User
   ///
-  /// User login for multi-tenant system. Handles users that can belong to multiple tenants.
+  /// User login using DI-compliant auth service with multi-tenant support.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -148,7 +144,7 @@ class DefaultApi {
 
   /// Login User
   ///
-  /// User login for multi-tenant system. Handles users that can belong to multiple tenants.
+  /// User login using DI-compliant auth service with multi-tenant support.
   ///
   /// Parameters:
   ///
@@ -169,8 +165,6 @@ class DefaultApi {
   }
 
   /// Ping
-  ///
-  /// Endpoint to check if the server is running.  Returns:     MessageResponse: A message indicating that the server is running.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> pingAuthPingGetWithHttpInfo() async {
@@ -199,8 +193,6 @@ class DefaultApi {
   }
 
   /// Ping
-  ///
-  /// Endpoint to check if the server is running.  Returns:     MessageResponse: A message indicating that the server is running.
   Future<MessageResponse?> pingAuthPingGet() async {
     final response = await pingAuthPingGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -218,7 +210,7 @@ class DefaultApi {
 
   /// Refresh Access Token
   ///
-  /// Refresh access token using the new user-based authentication system.
+  /// Refresh access token using DI-based auth service.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -254,7 +246,7 @@ class DefaultApi {
 
   /// Refresh Access Token
   ///
-  /// Refresh access token using the new user-based authentication system.
+  /// Refresh access token using DI-based auth service.
   ///
   /// Parameters:
   ///
