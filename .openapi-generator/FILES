@@ -16,7 +16,6 @@ doc/AssignedPatientScreenResponse.md
 doc/AssignedPatientsResponse.md
 doc/AssignmentAction.md
 doc/AssignmentResponse.md
-doc/AuthUserContextResponse.md
 doc/AuthenticationToken.md
 doc/AvailableTenant.md
 doc/BatchAssignedPatientsResponse.md
@@ -212,7 +211,6 @@ doc/UserAccessInfo.md
 doc/UserAccessUpdate.md
 doc/UserAuthApi.md
 doc/UserContextResponse.md
-doc/UserContextUser.md
 doc/UserStatus.md
 doc/UserTenant.md
 doc/UserTenantsResponse.md
@@ -274,7 +272,6 @@ lib/model/assigned_patient_screen_response.dart
 lib/model/assigned_patients_response.dart
 lib/model/assignment_action.dart
 lib/model/assignment_response.dart
-lib/model/auth_user_context_response.dart
 lib/model/authentication_token.dart
 lib/model/available_tenant.dart
 lib/model/batch_assigned_patients_response.dart
@@ -443,7 +440,6 @@ lib/model/update_features_request.dart
 lib/model/user_access_info.dart
 lib/model/user_access_update.dart
 lib/model/user_context_response.dart
-lib/model/user_context_user.dart
 lib/model/user_status.dart
 lib/model/user_tenant.dart
 lib/model/user_tenants_response.dart

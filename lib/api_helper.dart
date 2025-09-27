@@ -100,6 +100,9 @@ T? mapValueOfType<T>(dynamic map, String key) {
   if (T == double && value is int) {
     return value.toDouble() as T;
   }
+  if (T == int && value is num) {
+    return value.toInt() as T;
+  }
   return value is T ? value : null;
 }
 
@@ -129,3 +132,4 @@ DateTime? mapDateTime(dynamic map, String key, [String? pattern]) {
   }
   return null;
 }
+

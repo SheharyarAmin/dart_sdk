@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenantId** | **String** |  | 
 **name** | **String** |  | 
-**subdomain** | **String** |  | 
 **status** | [**TenantStatus**](TenantStatus.md) |  | 
 **adminEmail** | **String** |  | 
 **createdAt** | [**DateTime**](DateTime.md) |  | 

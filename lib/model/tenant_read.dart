@@ -14,62 +14,37 @@ class TenantRead {
   /// Returns a new [TenantRead] instance.
   TenantRead({
     required this.name,
-    required this.subdomain,
     required this.databaseName,
     this.status = TenantStatus.provisioning,
-    required this.subscriptionTierId,
+    this.subscriptionTierId,
     this.subscriptionActive = true,
     this.billingCycle = 'monthly',
     this.trialEndsAt,
     required this.adminEmail,
-    this.billingEmail,
-    this.supportEmail,
     this.phone,
     this.address,
-    this.logoUrl,
-    this.primaryColor = '#1f2937',
-    this.customDomain,
-    this.encryptionKeyId,
-    this.region = 'US',
     this.hipaaBaaSigned = false,
+    this.region = 'US',
     this.dataRetentionDays = 2555,
-    this.emailDomain,
-    this.googleWorkspaceEnabled = true,
-    this.emailPasswordEnabled = true,
-    this.requireEmailVerification = true,
-    this.ssoEnabled = false,
-    this.ssoProvider,
-    this.googleWorkspaceRequired = false,
-    this.autoProvisionUsers = true,
-    this.domainVerificationRequired = false,
-    this.domainVerified = false,
-    this.domainVerificationToken,
-    this.allowedEmailPatterns,
-    this.defaultUserRole = 'user',
-    this.requireAdminApproval = false,
-    this.welcomeEmailEnabled = true,
-    this.allowUserRegistration = false,
     required this.createdAt,
     required this.updatedAt,
     required this.id,
-    required this.subscriptionTier,
+    this.subscriptionTier,
     this.enabledFeatures = const [],
     this.customLimits = const [],
   });
 
-  /// Organization name
+  /// Organization/clinic name
   String name;
 
-  /// Unique subdomain
-  String subdomain;
-
-  /// Tenant database name
+  /// Tenant-specific database
   String databaseName;
 
   TenantStatus status;
 
-  String subscriptionTierId;
+  String? subscriptionTierId;
 
+  /// Quick access control check
   bool subscriptionActive;
 
   /// monthly or annually
@@ -77,64 +52,21 @@ class TenantRead {
 
   DateTime? trialEndsAt;
 
-  /// Primary admin email
+  /// Primary contact for all purposes
   String adminEmail;
-
-  String? billingEmail;
-
-  String? supportEmail;
 
   String? phone;
 
   String? address;
 
-  String? logoUrl;
-
-  String primaryColor;
-
-  String? customDomain;
-
-  String? encryptionKeyId;
-
-  String region;
-
+  /// Legal requirement for healthcare
   bool hipaaBaaSigned;
 
+  /// Data residency compliance
+  String region;
+
+  /// HIPAA requires 7 years
   int dataRetentionDays;
-
-  String? emailDomain;
-
-  bool googleWorkspaceEnabled;
-
-  bool emailPasswordEnabled;
-
-  bool requireEmailVerification;
-
-  bool ssoEnabled;
-
-  String? ssoProvider;
-
-  /// Require Google Workspace login
-  bool googleWorkspaceRequired;
-
-  /// Auto-create users on first login
-  bool autoProvisionUsers;
-
-  bool domainVerificationRequired;
-
-  bool domainVerified;
-
-  String? domainVerificationToken;
-
-  String? allowedEmailPatterns;
-
-  String defaultUserRole;
-
-  bool requireAdminApproval;
-
-  bool welcomeEmailEnabled;
-
-  bool allowUserRegistration;
 
   DateTime createdAt;
 
@@ -142,7 +74,7 @@ class TenantRead {
 
   String id;
 
-  SubscriptionTier subscriptionTier;
+  SubscriptionTier? subscriptionTier;
 
   List<Feature> enabledFeatures;
 
@@ -151,7 +83,6 @@ class TenantRead {
   @override
   bool operator ==(Object other) => identical(this, other) || other is TenantRead &&
     other.name == name &&
-    other.subdomain == subdomain &&
     other.databaseName == databaseName &&
     other.status == status &&
     other.subscriptionTierId == subscriptionTierId &&
@@ -159,33 +90,11 @@ class TenantRead {
     other.billingCycle == billingCycle &&
     other.trialEndsAt == trialEndsAt &&
     other.adminEmail == adminEmail &&
-    other.billingEmail == billingEmail &&
-    other.supportEmail == supportEmail &&
     other.phone == phone &&
     other.address == address &&
-    other.logoUrl == logoUrl &&
-    other.primaryColor == primaryColor &&
-    other.customDomain == customDomain &&
-    other.encryptionKeyId == encryptionKeyId &&
-    other.region == region &&
     other.hipaaBaaSigned == hipaaBaaSigned &&
+    other.region == region &&
     other.dataRetentionDays == dataRetentionDays &&
-    other.emailDomain == emailDomain &&
-    other.googleWorkspaceEnabled == googleWorkspaceEnabled &&
-    other.emailPasswordEnabled == emailPasswordEnabled &&
-    other.requireEmailVerification == requireEmailVerification &&
-    other.ssoEnabled == ssoEnabled &&
-    other.ssoProvider == ssoProvider &&
-    other.googleWorkspaceRequired == googleWorkspaceRequired &&
-    other.autoProvisionUsers == autoProvisionUsers &&
-    other.domainVerificationRequired == domainVerificationRequired &&
-    other.domainVerified == domainVerified &&
-    other.domainVerificationToken == domainVerificationToken &&
-    other.allowedEmailPatterns == allowedEmailPatterns &&
-    other.defaultUserRole == defaultUserRole &&
-    other.requireAdminApproval == requireAdminApproval &&
-    other.welcomeEmailEnabled == welcomeEmailEnabled &&
-    other.allowUserRegistration == allowUserRegistration &&
     other.createdAt == createdAt &&
     other.updatedAt == updatedAt &&
     other.id == id &&
@@ -197,58 +106,38 @@ class TenantRead {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (name.hashCode) +
-    (subdomain.hashCode) +
     (databaseName.hashCode) +
     (status.hashCode) +
-    (subscriptionTierId.hashCode) +
+    (subscriptionTierId == null ? 0 : subscriptionTierId!.hashCode) +
     (subscriptionActive.hashCode) +
     (billingCycle.hashCode) +
     (trialEndsAt == null ? 0 : trialEndsAt!.hashCode) +
     (adminEmail.hashCode) +
-    (billingEmail == null ? 0 : billingEmail!.hashCode) +
-    (supportEmail == null ? 0 : supportEmail!.hashCode) +
     (phone == null ? 0 : phone!.hashCode) +
     (address == null ? 0 : address!.hashCode) +
-    (logoUrl == null ? 0 : logoUrl!.hashCode) +
-    (primaryColor.hashCode) +
-    (customDomain == null ? 0 : customDomain!.hashCode) +
-    (encryptionKeyId == null ? 0 : encryptionKeyId!.hashCode) +
-    (region.hashCode) +
     (hipaaBaaSigned.hashCode) +
+    (region.hashCode) +
     (dataRetentionDays.hashCode) +
-    (emailDomain == null ? 0 : emailDomain!.hashCode) +
-    (googleWorkspaceEnabled.hashCode) +
-    (emailPasswordEnabled.hashCode) +
-    (requireEmailVerification.hashCode) +
-    (ssoEnabled.hashCode) +
-    (ssoProvider == null ? 0 : ssoProvider!.hashCode) +
-    (googleWorkspaceRequired.hashCode) +
-    (autoProvisionUsers.hashCode) +
-    (domainVerificationRequired.hashCode) +
-    (domainVerified.hashCode) +
-    (domainVerificationToken == null ? 0 : domainVerificationToken!.hashCode) +
-    (allowedEmailPatterns == null ? 0 : allowedEmailPatterns!.hashCode) +
-    (defaultUserRole.hashCode) +
-    (requireAdminApproval.hashCode) +
-    (welcomeEmailEnabled.hashCode) +
-    (allowUserRegistration.hashCode) +
     (createdAt.hashCode) +
     (updatedAt.hashCode) +
     (id.hashCode) +
-    (subscriptionTier.hashCode) +
+    (subscriptionTier == null ? 0 : subscriptionTier!.hashCode) +
     (enabledFeatures.hashCode) +
     (customLimits.hashCode);
 
   @override
-  String toString() => 'TenantRead[name=$name, subdomain=$subdomain, databaseName=$databaseName, status=$status, subscriptionTierId=$subscriptionTierId, subscriptionActive=$subscriptionActive, billingCycle=$billingCycle, trialEndsAt=$trialEndsAt, adminEmail=$adminEmail, billingEmail=$billingEmail, supportEmail=$supportEmail, phone=$phone, address=$address, logoUrl=$logoUrl, primaryColor=$primaryColor, customDomain=$customDomain, encryptionKeyId=$encryptionKeyId, region=$region, hipaaBaaSigned=$hipaaBaaSigned, dataRetentionDays=$dataRetentionDays, emailDomain=$emailDomain, googleWorkspaceEnabled=$googleWorkspaceEnabled, emailPasswordEnabled=$emailPasswordEnabled, requireEmailVerification=$requireEmailVerification, ssoEnabled=$ssoEnabled, ssoProvider=$ssoProvider, googleWorkspaceRequired=$googleWorkspaceRequired, autoProvisionUsers=$autoProvisionUsers, domainVerificationRequired=$domainVerificationRequired, domainVerified=$domainVerified, domainVerificationToken=$domainVerificationToken, allowedEmailPatterns=$allowedEmailPatterns, defaultUserRole=$defaultUserRole, requireAdminApproval=$requireAdminApproval, welcomeEmailEnabled=$welcomeEmailEnabled, allowUserRegistration=$allowUserRegistration, createdAt=$createdAt, updatedAt=$updatedAt, id=$id, subscriptionTier=$subscriptionTier, enabledFeatures=$enabledFeatures, customLimits=$customLimits]';
+  String toString() => 'TenantRead[name=$name, databaseName=$databaseName, status=$status, subscriptionTierId=$subscriptionTierId, subscriptionActive=$subscriptionActive, billingCycle=$billingCycle, trialEndsAt=$trialEndsAt, adminEmail=$adminEmail, phone=$phone, address=$address, hipaaBaaSigned=$hipaaBaaSigned, region=$region, dataRetentionDays=$dataRetentionDays, createdAt=$createdAt, updatedAt=$updatedAt, id=$id, subscriptionTier=$subscriptionTier, enabledFeatures=$enabledFeatures, customLimits=$customLimits]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'name'] = this.name;
-      json[r'subdomain'] = this.subdomain;
       json[r'database_name'] = this.databaseName;
       json[r'status'] = this.status;
+    if (this.subscriptionTierId != null) {
       json[r'subscription_tier_id'] = this.subscriptionTierId;
+    } else {
+      json[r'subscription_tier_id'] = null;
+    }
       json[r'subscription_active'] = this.subscriptionActive;
       json[r'billing_cycle'] = this.billingCycle;
     if (this.trialEndsAt != null) {
@@ -257,16 +146,6 @@ class TenantRead {
       json[r'trial_ends_at'] = null;
     }
       json[r'admin_email'] = this.adminEmail;
-    if (this.billingEmail != null) {
-      json[r'billing_email'] = this.billingEmail;
-    } else {
-      json[r'billing_email'] = null;
-    }
-    if (this.supportEmail != null) {
-      json[r'support_email'] = this.supportEmail;
-    } else {
-      json[r'support_email'] = null;
-    }
     if (this.phone != null) {
       json[r'phone'] = this.phone;
     } else {
@@ -277,61 +156,17 @@ class TenantRead {
     } else {
       json[r'address'] = null;
     }
-    if (this.logoUrl != null) {
-      json[r'logo_url'] = this.logoUrl;
-    } else {
-      json[r'logo_url'] = null;
-    }
-      json[r'primary_color'] = this.primaryColor;
-    if (this.customDomain != null) {
-      json[r'custom_domain'] = this.customDomain;
-    } else {
-      json[r'custom_domain'] = null;
-    }
-    if (this.encryptionKeyId != null) {
-      json[r'encryption_key_id'] = this.encryptionKeyId;
-    } else {
-      json[r'encryption_key_id'] = null;
-    }
-      json[r'region'] = this.region;
       json[r'hipaa_baa_signed'] = this.hipaaBaaSigned;
+      json[r'region'] = this.region;
       json[r'data_retention_days'] = this.dataRetentionDays;
-    if (this.emailDomain != null) {
-      json[r'email_domain'] = this.emailDomain;
-    } else {
-      json[r'email_domain'] = null;
-    }
-      json[r'google_workspace_enabled'] = this.googleWorkspaceEnabled;
-      json[r'email_password_enabled'] = this.emailPasswordEnabled;
-      json[r'require_email_verification'] = this.requireEmailVerification;
-      json[r'sso_enabled'] = this.ssoEnabled;
-    if (this.ssoProvider != null) {
-      json[r'sso_provider'] = this.ssoProvider;
-    } else {
-      json[r'sso_provider'] = null;
-    }
-      json[r'google_workspace_required'] = this.googleWorkspaceRequired;
-      json[r'auto_provision_users'] = this.autoProvisionUsers;
-      json[r'domain_verification_required'] = this.domainVerificationRequired;
-      json[r'domain_verified'] = this.domainVerified;
-    if (this.domainVerificationToken != null) {
-      json[r'domain_verification_token'] = this.domainVerificationToken;
-    } else {
-      json[r'domain_verification_token'] = null;
-    }
-    if (this.allowedEmailPatterns != null) {
-      json[r'allowed_email_patterns'] = this.allowedEmailPatterns;
-    } else {
-      json[r'allowed_email_patterns'] = null;
-    }
-      json[r'default_user_role'] = this.defaultUserRole;
-      json[r'require_admin_approval'] = this.requireAdminApproval;
-      json[r'welcome_email_enabled'] = this.welcomeEmailEnabled;
-      json[r'allow_user_registration'] = this.allowUserRegistration;
       json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
       json[r'updated_at'] = this.updatedAt.toUtc().toIso8601String();
       json[r'id'] = this.id;
+    if (this.subscriptionTier != null) {
       json[r'subscription_tier'] = this.subscriptionTier;
+    } else {
+      json[r'subscription_tier'] = null;
+    }
       json[r'enabled_features'] = this.enabledFeatures;
       json[r'custom_limits'] = this.customLimits;
     return json;
@@ -357,45 +192,22 @@ class TenantRead {
 
       return TenantRead(
         name: mapValueOfType<String>(json, r'name')!,
-        subdomain: mapValueOfType<String>(json, r'subdomain')!,
         databaseName: mapValueOfType<String>(json, r'database_name')!,
         status: TenantStatus.fromJson(json[r'status']) ?? TenantStatus.provisioning,
-        subscriptionTierId: mapValueOfType<String>(json, r'subscription_tier_id')!,
+        subscriptionTierId: mapValueOfType<String>(json, r'subscription_tier_id'),
         subscriptionActive: mapValueOfType<bool>(json, r'subscription_active') ?? true,
         billingCycle: mapValueOfType<String>(json, r'billing_cycle') ?? 'monthly',
         trialEndsAt: mapDateTime(json, r'trial_ends_at', r''),
         adminEmail: mapValueOfType<String>(json, r'admin_email')!,
-        billingEmail: mapValueOfType<String>(json, r'billing_email'),
-        supportEmail: mapValueOfType<String>(json, r'support_email'),
         phone: mapValueOfType<String>(json, r'phone'),
         address: mapValueOfType<String>(json, r'address'),
-        logoUrl: mapValueOfType<String>(json, r'logo_url'),
-        primaryColor: mapValueOfType<String>(json, r'primary_color') ?? '#1f2937',
-        customDomain: mapValueOfType<String>(json, r'custom_domain'),
-        encryptionKeyId: mapValueOfType<String>(json, r'encryption_key_id'),
-        region: mapValueOfType<String>(json, r'region') ?? 'US',
         hipaaBaaSigned: mapValueOfType<bool>(json, r'hipaa_baa_signed') ?? false,
+        region: mapValueOfType<String>(json, r'region') ?? 'US',
         dataRetentionDays: mapValueOfType<int>(json, r'data_retention_days') ?? 2555,
-        emailDomain: mapValueOfType<String>(json, r'email_domain'),
-        googleWorkspaceEnabled: mapValueOfType<bool>(json, r'google_workspace_enabled') ?? true,
-        emailPasswordEnabled: mapValueOfType<bool>(json, r'email_password_enabled') ?? true,
-        requireEmailVerification: mapValueOfType<bool>(json, r'require_email_verification') ?? true,
-        ssoEnabled: mapValueOfType<bool>(json, r'sso_enabled') ?? false,
-        ssoProvider: mapValueOfType<String>(json, r'sso_provider'),
-        googleWorkspaceRequired: mapValueOfType<bool>(json, r'google_workspace_required') ?? false,
-        autoProvisionUsers: mapValueOfType<bool>(json, r'auto_provision_users') ?? true,
-        domainVerificationRequired: mapValueOfType<bool>(json, r'domain_verification_required') ?? false,
-        domainVerified: mapValueOfType<bool>(json, r'domain_verified') ?? false,
-        domainVerificationToken: mapValueOfType<String>(json, r'domain_verification_token'),
-        allowedEmailPatterns: mapValueOfType<String>(json, r'allowed_email_patterns'),
-        defaultUserRole: mapValueOfType<String>(json, r'default_user_role') ?? 'user',
-        requireAdminApproval: mapValueOfType<bool>(json, r'require_admin_approval') ?? false,
-        welcomeEmailEnabled: mapValueOfType<bool>(json, r'welcome_email_enabled') ?? true,
-        allowUserRegistration: mapValueOfType<bool>(json, r'allow_user_registration') ?? false,
         createdAt: mapDateTime(json, r'created_at', r'')!,
         updatedAt: mapDateTime(json, r'updated_at', r'')!,
         id: mapValueOfType<String>(json, r'id')!,
-        subscriptionTier: SubscriptionTier.fromJson(json[r'subscription_tier'])!,
+        subscriptionTier: SubscriptionTier.fromJson(json[r'subscription_tier']),
         enabledFeatures: Feature.listFromJson(json[r'enabled_features']),
         customLimits: TenantLimit.listFromJson(json[r'custom_limits']),
       );
@@ -446,14 +258,11 @@ class TenantRead {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'name',
-    'subdomain',
     'database_name',
-    'subscription_tier_id',
     'admin_email',
     'created_at',
     'updated_at',
     'id',
-    'subscription_tier',
   };
 }
 

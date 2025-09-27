@@ -15,7 +15,6 @@ class TenantContextData {
   TenantContextData({
     required this.tenantId,
     required this.tenantName,
-    required this.tenantSubdomain,
     required this.role,
     required this.databaseName,
   });
@@ -23,8 +22,6 @@ class TenantContextData {
   String tenantId;
 
   String tenantName;
-
-  String tenantSubdomain;
 
   MembershipRole role;
 
@@ -34,7 +31,6 @@ class TenantContextData {
   bool operator ==(Object other) => identical(this, other) || other is TenantContextData &&
     other.tenantId == tenantId &&
     other.tenantName == tenantName &&
-    other.tenantSubdomain == tenantSubdomain &&
     other.role == role &&
     other.databaseName == databaseName;
 
@@ -43,18 +39,16 @@ class TenantContextData {
     // ignore: unnecessary_parenthesis
     (tenantId.hashCode) +
     (tenantName.hashCode) +
-    (tenantSubdomain.hashCode) +
     (role.hashCode) +
     (databaseName.hashCode);
 
   @override
-  String toString() => 'TenantContextData[tenantId=$tenantId, tenantName=$tenantName, tenantSubdomain=$tenantSubdomain, role=$role, databaseName=$databaseName]';
+  String toString() => 'TenantContextData[tenantId=$tenantId, tenantName=$tenantName, role=$role, databaseName=$databaseName]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'tenant_id'] = this.tenantId;
       json[r'tenant_name'] = this.tenantName;
-      json[r'tenant_subdomain'] = this.tenantSubdomain;
       json[r'role'] = this.role;
       json[r'database_name'] = this.databaseName;
     return json;
@@ -81,7 +75,6 @@ class TenantContextData {
       return TenantContextData(
         tenantId: mapValueOfType<String>(json, r'tenant_id')!,
         tenantName: mapValueOfType<String>(json, r'tenant_name')!,
-        tenantSubdomain: mapValueOfType<String>(json, r'tenant_subdomain')!,
         role: MembershipRole.fromJson(json[r'role'])!,
         databaseName: mapValueOfType<String>(json, r'database_name')!,
       );
@@ -133,7 +126,6 @@ class TenantContextData {
   static const requiredKeys = <String>{
     'tenant_id',
     'tenant_name',
-    'tenant_subdomain',
     'role',
     'database_name',
   };

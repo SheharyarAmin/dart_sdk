@@ -9,49 +9,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUserContextAuthUserContextGet**](DefaultApi.md#getusercontextauthusercontextget) | **GET** /auth/user-context | Get User Context
 [**healthCheckHealthGet**](DefaultApi.md#healthcheckhealthget) | **GET** /health | Health Check
 [**loginUserAuthLoginPost**](DefaultApi.md#loginuserauthloginpost) | **POST** /auth/login | Login User
 [**pingAuthPingGet**](DefaultApi.md#pingauthpingget) | **GET** /auth/ping | Ping
 [**refreshAccessTokenAuthRefreshPost**](DefaultApi.md#refreshaccesstokenauthrefreshpost) | **POST** /auth/refresh | Refresh Access Token
 
-
-# **getUserContextAuthUserContextGet**
-> AuthUserContextResponse getUserContextAuthUserContextGet()
-
-Get User Context
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-
-final api_instance = DefaultApi();
-
-try {
-    final result = api_instance.getUserContextAuthUserContextGet();
-    print(result);
-} catch (e) {
-    print('Exception when calling DefaultApi->getUserContextAuthUserContextGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AuthUserContextResponse**](AuthUserContextResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **healthCheckHealthGet**
 > Object healthCheckHealthGet()

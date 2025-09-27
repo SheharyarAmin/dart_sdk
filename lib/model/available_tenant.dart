@@ -15,7 +15,6 @@ class AvailableTenant {
   AvailableTenant({
     required this.tenantId,
     required this.tenantName,
-    required this.tenantSubdomain,
     required this.role,
   });
 
@@ -23,15 +22,12 @@ class AvailableTenant {
 
   String tenantName;
 
-  String tenantSubdomain;
-
   String role;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AvailableTenant &&
     other.tenantId == tenantId &&
     other.tenantName == tenantName &&
-    other.tenantSubdomain == tenantSubdomain &&
     other.role == role;
 
   @override
@@ -39,17 +35,15 @@ class AvailableTenant {
     // ignore: unnecessary_parenthesis
     (tenantId.hashCode) +
     (tenantName.hashCode) +
-    (tenantSubdomain.hashCode) +
     (role.hashCode);
 
   @override
-  String toString() => 'AvailableTenant[tenantId=$tenantId, tenantName=$tenantName, tenantSubdomain=$tenantSubdomain, role=$role]';
+  String toString() => 'AvailableTenant[tenantId=$tenantId, tenantName=$tenantName, role=$role]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'tenant_id'] = this.tenantId;
       json[r'tenant_name'] = this.tenantName;
-      json[r'tenant_subdomain'] = this.tenantSubdomain;
       json[r'role'] = this.role;
     return json;
   }
@@ -75,7 +69,6 @@ class AvailableTenant {
       return AvailableTenant(
         tenantId: mapValueOfType<String>(json, r'tenant_id')!,
         tenantName: mapValueOfType<String>(json, r'tenant_name')!,
-        tenantSubdomain: mapValueOfType<String>(json, r'tenant_subdomain')!,
         role: mapValueOfType<String>(json, r'role')!,
       );
     }
@@ -126,7 +119,6 @@ class AvailableTenant {
   static const requiredKeys = <String>{
     'tenant_id',
     'tenant_name',
-    'tenant_subdomain',
     'role',
   };
 }

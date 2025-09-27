@@ -15,7 +15,6 @@ class UserTenant {
   UserTenant({
     required this.tenantId,
     required this.tenantName,
-    required this.tenantSubdomain,
     required this.role,
     this.lastAccessed,
     required this.memberSince,
@@ -24,8 +23,6 @@ class UserTenant {
   String tenantId;
 
   String tenantName;
-
-  String tenantSubdomain;
 
   String role;
 
@@ -37,7 +34,6 @@ class UserTenant {
   bool operator ==(Object other) => identical(this, other) || other is UserTenant &&
     other.tenantId == tenantId &&
     other.tenantName == tenantName &&
-    other.tenantSubdomain == tenantSubdomain &&
     other.role == role &&
     other.lastAccessed == lastAccessed &&
     other.memberSince == memberSince;
@@ -47,19 +43,17 @@ class UserTenant {
     // ignore: unnecessary_parenthesis
     (tenantId.hashCode) +
     (tenantName.hashCode) +
-    (tenantSubdomain.hashCode) +
     (role.hashCode) +
     (lastAccessed == null ? 0 : lastAccessed!.hashCode) +
     (memberSince.hashCode);
 
   @override
-  String toString() => 'UserTenant[tenantId=$tenantId, tenantName=$tenantName, tenantSubdomain=$tenantSubdomain, role=$role, lastAccessed=$lastAccessed, memberSince=$memberSince]';
+  String toString() => 'UserTenant[tenantId=$tenantId, tenantName=$tenantName, role=$role, lastAccessed=$lastAccessed, memberSince=$memberSince]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'tenant_id'] = this.tenantId;
       json[r'tenant_name'] = this.tenantName;
-      json[r'tenant_subdomain'] = this.tenantSubdomain;
       json[r'role'] = this.role;
     if (this.lastAccessed != null) {
       json[r'last_accessed'] = this.lastAccessed;
@@ -91,7 +85,6 @@ class UserTenant {
       return UserTenant(
         tenantId: mapValueOfType<String>(json, r'tenant_id')!,
         tenantName: mapValueOfType<String>(json, r'tenant_name')!,
-        tenantSubdomain: mapValueOfType<String>(json, r'tenant_subdomain')!,
         role: mapValueOfType<String>(json, r'role')!,
         lastAccessed: mapValueOfType<String>(json, r'last_accessed'),
         memberSince: mapValueOfType<String>(json, r'member_since')!,
@@ -144,7 +137,6 @@ class UserTenant {
   static const requiredKeys = <String>{
     'tenant_id',
     'tenant_name',
-    'tenant_subdomain',
     'role',
     'member_since',
   };

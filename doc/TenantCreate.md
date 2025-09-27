@@ -8,32 +8,18 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**adminEmail** | **String** |  | 
-**interestedFeatures** | **List<String>** | Feature codes user is interested in | [optional] [default to const []]
-**subscriptionTierCode** | **String** | Subscription tier code | [optional] [default to 'starter']
-**subdomain** | **String** |  | [optional] 
-**databaseName** | **String** |  | [optional] 
-**logoUrl** | **String** |  | [optional] 
-**primaryColor** | **String** |  | [optional] [default to '#1f2937']
-**billingEmail** | **String** |  | [optional] 
+**name** | **String** | Organization/clinic name | 
+**adminEmail** | **String** | Primary admin contact | 
 **phone** | **String** |  | [optional] 
 **address** | **String** |  | [optional] 
-**estimatedUsers** | **int** |  | [optional] [default to 10]
-**maxUsers** | **int** |  | [optional] 
-**maxPatients** | **int** |  | [optional] 
-**customLimits** | [**List<TenantLimit>**](TenantLimit.md) |  | [optional] [default to const []]
-**googleWorkspaceEnabled** | **bool** |  | [optional] [default to true]
-**emailPasswordEnabled** | **bool** |  | [optional] [default to true]
-**requireAdminApproval** | **bool** |  | [optional] [default to false]
-**requireEmailVerification** | **bool** |  | [optional] [default to true]
-**welcomeEmailEnabled** | **bool** |  | [optional] [default to true]
-**domainVerificationRequired** | **bool** |  | [optional] [default to false]
-**hipaaBaaSigned** | **bool** |  | [optional] [default to false]
-**region** | **String** |  | [optional] [default to 'US']
-**startTrial** | **bool** |  | [optional] [default to true]
-**trialDurationDays** | **int** |  | [optional] [default to 30]
-**settings** | [**Object**](.md) |  | [optional] 
+**subscriptionTierCode** | **String** | Subscription tier selection | [optional] [default to 'starter']
+**trialDurationDays** | **int** | Trial period in days | [optional] [default to 30]
+**hipaaBaaSigned** | **bool** | Must explicitly accept HIPAA BAA | [optional] [default to false]
+**region** | **String** | Data residency location | [optional] [default to 'US']
+**interestedFeatures** | **List<String>** | Feature codes: CCM, PCM, etc. | [optional] [default to const []]
+**estimatedUsers** | **int** | Expected number of users | [optional] [default to 10]
+**estimatedPatients** | **int** | Expected patient count | [optional] [default to 100]
+**customLimits** | [**Object**](.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

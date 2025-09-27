@@ -16,10 +16,10 @@ class TenantUpdate {
     this.name,
     this.status,
     this.subscriptionActive,
-    this.logoUrl,
-    this.primaryColor,
     this.phone,
     this.address,
+    this.adminEmail,
+    this.hipaaBaaSigned,
   });
 
   String? name;
@@ -28,23 +28,23 @@ class TenantUpdate {
 
   bool? subscriptionActive;
 
-  String? logoUrl;
-
-  String? primaryColor;
-
   String? phone;
 
   String? address;
+
+  String? adminEmail;
+
+  bool? hipaaBaaSigned;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TenantUpdate &&
     other.name == name &&
     other.status == status &&
     other.subscriptionActive == subscriptionActive &&
-    other.logoUrl == logoUrl &&
-    other.primaryColor == primaryColor &&
     other.phone == phone &&
-    other.address == address;
+    other.address == address &&
+    other.adminEmail == adminEmail &&
+    other.hipaaBaaSigned == hipaaBaaSigned;
 
   @override
   int get hashCode =>
@@ -52,13 +52,13 @@ class TenantUpdate {
     (name == null ? 0 : name!.hashCode) +
     (status == null ? 0 : status!.hashCode) +
     (subscriptionActive == null ? 0 : subscriptionActive!.hashCode) +
-    (logoUrl == null ? 0 : logoUrl!.hashCode) +
-    (primaryColor == null ? 0 : primaryColor!.hashCode) +
     (phone == null ? 0 : phone!.hashCode) +
-    (address == null ? 0 : address!.hashCode);
+    (address == null ? 0 : address!.hashCode) +
+    (adminEmail == null ? 0 : adminEmail!.hashCode) +
+    (hipaaBaaSigned == null ? 0 : hipaaBaaSigned!.hashCode);
 
   @override
-  String toString() => 'TenantUpdate[name=$name, status=$status, subscriptionActive=$subscriptionActive, logoUrl=$logoUrl, primaryColor=$primaryColor, phone=$phone, address=$address]';
+  String toString() => 'TenantUpdate[name=$name, status=$status, subscriptionActive=$subscriptionActive, phone=$phone, address=$address, adminEmail=$adminEmail, hipaaBaaSigned=$hipaaBaaSigned]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -77,16 +77,6 @@ class TenantUpdate {
     } else {
       json[r'subscription_active'] = null;
     }
-    if (this.logoUrl != null) {
-      json[r'logo_url'] = this.logoUrl;
-    } else {
-      json[r'logo_url'] = null;
-    }
-    if (this.primaryColor != null) {
-      json[r'primary_color'] = this.primaryColor;
-    } else {
-      json[r'primary_color'] = null;
-    }
     if (this.phone != null) {
       json[r'phone'] = this.phone;
     } else {
@@ -96,6 +86,16 @@ class TenantUpdate {
       json[r'address'] = this.address;
     } else {
       json[r'address'] = null;
+    }
+    if (this.adminEmail != null) {
+      json[r'admin_email'] = this.adminEmail;
+    } else {
+      json[r'admin_email'] = null;
+    }
+    if (this.hipaaBaaSigned != null) {
+      json[r'hipaa_baa_signed'] = this.hipaaBaaSigned;
+    } else {
+      json[r'hipaa_baa_signed'] = null;
     }
     return json;
   }
@@ -122,10 +122,10 @@ class TenantUpdate {
         name: mapValueOfType<String>(json, r'name'),
         status: TenantStatus.fromJson(json[r'status']),
         subscriptionActive: mapValueOfType<bool>(json, r'subscription_active'),
-        logoUrl: mapValueOfType<String>(json, r'logo_url'),
-        primaryColor: mapValueOfType<String>(json, r'primary_color'),
         phone: mapValueOfType<String>(json, r'phone'),
         address: mapValueOfType<String>(json, r'address'),
+        adminEmail: mapValueOfType<String>(json, r'admin_email'),
+        hipaaBaaSigned: mapValueOfType<bool>(json, r'hipaa_baa_signed'),
       );
     }
     return null;

@@ -15,7 +15,6 @@ class TenantAccessInfo {
   TenantAccessInfo({
     required this.tenantId,
     required this.name,
-    required this.subdomain,
     required this.status,
     required this.adminEmail,
     required this.createdAt,
@@ -28,8 +27,6 @@ class TenantAccessInfo {
   String tenantId;
 
   String name;
-
-  String subdomain;
 
   TenantStatus status;
 
@@ -49,7 +46,6 @@ class TenantAccessInfo {
   bool operator ==(Object other) => identical(this, other) || other is TenantAccessInfo &&
     other.tenantId == tenantId &&
     other.name == name &&
-    other.subdomain == subdomain &&
     other.status == status &&
     other.adminEmail == adminEmail &&
     other.createdAt == createdAt &&
@@ -63,7 +59,6 @@ class TenantAccessInfo {
     // ignore: unnecessary_parenthesis
     (tenantId.hashCode) +
     (name.hashCode) +
-    (subdomain.hashCode) +
     (status.hashCode) +
     (adminEmail.hashCode) +
     (createdAt.hashCode) +
@@ -73,13 +68,12 @@ class TenantAccessInfo {
     (databaseName.hashCode);
 
   @override
-  String toString() => 'TenantAccessInfo[tenantId=$tenantId, name=$name, subdomain=$subdomain, status=$status, adminEmail=$adminEmail, createdAt=$createdAt, lastActivity=$lastActivity, activeUsers=$activeUsers, totalUsers=$totalUsers, databaseName=$databaseName]';
+  String toString() => 'TenantAccessInfo[tenantId=$tenantId, name=$name, status=$status, adminEmail=$adminEmail, createdAt=$createdAt, lastActivity=$lastActivity, activeUsers=$activeUsers, totalUsers=$totalUsers, databaseName=$databaseName]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'tenant_id'] = this.tenantId;
       json[r'name'] = this.name;
-      json[r'subdomain'] = this.subdomain;
       json[r'status'] = this.status;
       json[r'admin_email'] = this.adminEmail;
       json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
@@ -115,7 +109,6 @@ class TenantAccessInfo {
       return TenantAccessInfo(
         tenantId: mapValueOfType<String>(json, r'tenant_id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        subdomain: mapValueOfType<String>(json, r'subdomain')!,
         status: TenantStatus.fromJson(json[r'status'])!,
         adminEmail: mapValueOfType<String>(json, r'admin_email')!,
         createdAt: mapDateTime(json, r'created_at', r'')!,
@@ -172,7 +165,6 @@ class TenantAccessInfo {
   static const requiredKeys = <String>{
     'tenant_id',
     'name',
-    'subdomain',
     'status',
     'admin_email',
     'created_at',

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenantId** | **String** |  | 
 **tenantName** | **String** |  | 
-**tenantSubdomain** | **String** |  | 
 **role** | **String** |  | 
 **lastAccessed** | **String** |  | [optional] 
 **memberSince** | **String** |  | 
