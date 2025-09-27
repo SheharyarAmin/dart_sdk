@@ -374,8 +374,6 @@ class ApiClient {
           return AssignmentActionTypeTransformer().decode(value);
         case 'AssignmentResponse':
           return AssignmentResponse.fromJson(value);
-        case 'AuthUserContextResponse':
-          return AuthUserContextResponse.fromJson(value);
         case 'AuthenticationToken':
           return AuthenticationToken.fromJson(value);
         case 'AvailableTenant':
@@ -718,8 +716,6 @@ class ApiClient {
           return UserAccessUpdate.fromJson(value);
         case 'UserContextResponse':
           return UserContextResponse.fromJson(value);
-        case 'UserContextUser':
-          return UserContextUser.fromJson(value);
         case 'UserStatus':
           return UserStatusTypeTransformer().decode(value);
         case 'UserTenant':

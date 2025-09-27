@@ -24,13 +24,13 @@ class ReportsApi {
   ///
   /// Parameters:
   ///
-  /// * [Map<String, String>] requestBody (required):
-  Future<Response> generateReportApiV1ReportsGenerateReportPostWithHttpInfo(Map<String, String> requestBody,) async {
+  /// * [Object] body (required):
+  Future<Response> generateReportApiV1ReportsGenerateReportPostWithHttpInfo(Object body,) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/reports/generate-report';
 
     // ignore: prefer_final_locals
-    Object? postBody = requestBody;
+    Object? postBody = body;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
