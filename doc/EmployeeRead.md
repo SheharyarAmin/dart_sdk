@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **email** | **String** |  | 
 **address** | **String** |  | 
 **patientspermonth** | **int** |  | [optional] 
-**payperccm** | **num** |  | [optional] [default to 0]
-**payperhour** | **num** |  | [optional] [default to 0]
+**payperccm** | **num** |  | [optional] [default to 0.0]
+**payperhour** | **num** |  | [optional] [default to 0.0]
 **managerid** | **String** |  | [optional] 
 **managername** | **String** |  | [optional] 
 **assignedpatients** | **int** |  | [optional] 

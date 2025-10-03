@@ -21,7 +21,7 @@ class AssignedPatientScreenResponse {
     this.timeSpent = '00:00:00',
     this.inHospital = 0,
     this.daysLeft = 0,
-    this.averagePerDay = 0,
+    this.averagePerDay = 0.0,
     this.dayNeeded = 0,
   });
 

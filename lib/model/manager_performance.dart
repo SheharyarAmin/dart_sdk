@@ -18,8 +18,8 @@ class ManagerPerformance {
     required this.teamSize,
     required this.teamAverageScore,
     required this.teamPerformanceDistribution,
-    this.teamImprovementRate = 0,
-    this.teamRetentionScore = 0,
+    this.teamImprovementRate = 0.0,
+    this.teamRetentionScore = 0.0,
     this.managementEffectiveness = 'effective',
   });
 

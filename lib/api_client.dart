@@ -716,6 +716,10 @@ class ApiClient {
           return UserAccessUpdate.fromJson(value);
         case 'UserContextResponse':
           return UserContextResponse.fromJson(value);
+        case 'UserRegistrationRequest':
+          return UserRegistrationRequest.fromJson(value);
+        case 'UserRegistrationResponse':
+          return UserRegistrationResponse.fromJson(value);
         case 'UserStatus':
           return UserStatusTypeTransformer().decode(value);
         case 'UserTenant':

@@ -211,6 +211,8 @@ doc/UserAccessInfo.md
 doc/UserAccessUpdate.md
 doc/UserAuthApi.md
 doc/UserContextResponse.md
+doc/UserRegistrationRequest.md
+doc/UserRegistrationResponse.md
 doc/UserStatus.md
 doc/UserTenant.md
 doc/UserTenantsResponse.md
@@ -440,6 +442,8 @@ lib/model/update_features_request.dart
 lib/model/user_access_info.dart
 lib/model/user_access_update.dart
 lib/model/user_context_response.dart
+lib/model/user_registration_request.dart
+lib/model/user_registration_response.dart
 lib/model/user_status.dart
 lib/model/user_tenant.dart
 lib/model/user_tenants_response.dart
@@ -451,3 +455,5 @@ lib/model/workload_distribution.dart
 lib/model/workload_distribution_counts.dart
 lib/model/workload_optimization.dart
 pubspec.yaml
+test/user_registration_request_test.dart
+test/user_registration_response_test.dart

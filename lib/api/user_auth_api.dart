@@ -286,6 +286,62 @@ class UserAuthApi {
     return null;
   }
 
+  /// Register User
+  ///
+  /// Register a new user in the global users system using DI Container compliant auth service. Creates a global user record independent of any tenant connections. HEALTHCARE DI: Uses auth service factory for proper DI container compliance.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [UserRegistrationRequest] userRegistrationRequest (required):
+  Future<Response> registerUserApiV1AuthRegisterPostWithHttpInfo(UserRegistrationRequest userRegistrationRequest,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/auth/register';
+
+    // ignore: prefer_final_locals
+    Object? postBody = userRegistrationRequest;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Register User
+  ///
+  /// Register a new user in the global users system using DI Container compliant auth service. Creates a global user record independent of any tenant connections. HEALTHCARE DI: Uses auth service factory for proper DI container compliance.
+  ///
+  /// Parameters:
+  ///
+  /// * [UserRegistrationRequest] userRegistrationRequest (required):
+  Future<UserRegistrationResponse?> registerUserApiV1AuthRegisterPost(UserRegistrationRequest userRegistrationRequest,) async {
+    final response = await registerUserApiV1AuthRegisterPostWithHttpInfo(userRegistrationRequest,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserRegistrationResponse',) as UserRegistrationResponse;
+    
+    }
+    return null;
+  }
+
   /// Select Tenant
   ///
   /// Select a specific tenant for a user who has multiple tenant memberships.

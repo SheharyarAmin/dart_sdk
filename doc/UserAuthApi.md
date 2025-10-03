@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**loginUserApiV1AuthLoginPost**](UserAuthApi.md#loginuserapiv1authloginpost) | **POST** /api/v1/auth/login | Login User
 [**pingApiV1AuthPingGet**](UserAuthApi.md#pingapiv1authpingget) | **GET** /api/v1/auth/ping | Ping
 [**refreshAccessTokenApiV1AuthRefreshPost**](UserAuthApi.md#refreshaccesstokenapiv1authrefreshpost) | **POST** /api/v1/auth/refresh | Refresh Access Token
+[**registerUserApiV1AuthRegisterPost**](UserAuthApi.md#registeruserapiv1authregisterpost) | **POST** /api/v1/auth/register | Register User
 [**selectTenantApiV1AuthSelectTenantPost**](UserAuthApi.md#selecttenantapiv1authselecttenantpost) | **POST** /api/v1/auth/select-tenant | Select Tenant
 [**switchTenantApiV1AuthSwitchTenantPost**](UserAuthApi.md#switchtenantapiv1authswitchtenantpost) | **POST** /api/v1/auth/switch-tenant | Switch Tenant
 [**testJwtTokenApiV1AuthTestJwtTokenGet**](UserAuthApi.md#testjwttokenapiv1authtestjwttokenget) | **GET** /api/v1/auth/test-jwt-token | Test Jwt Token
@@ -224,6 +225,49 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **registerUserApiV1AuthRegisterPost**
+> UserRegistrationResponse registerUserApiV1AuthRegisterPost(userRegistrationRequest)
+
+Register User
+
+Register a new user in the global users system using DI Container compliant auth service. Creates a global user record independent of any tenant connections. HEALTHCARE DI: Uses auth service factory for proper DI container compliance.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserAuthApi();
+final userRegistrationRequest = UserRegistrationRequest(); // UserRegistrationRequest | 
+
+try {
+    final result = api_instance.registerUserApiV1AuthRegisterPost(userRegistrationRequest);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserAuthApi->registerUserApiV1AuthRegisterPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userRegistrationRequest** | [**UserRegistrationRequest**](UserRegistrationRequest.md)|  | 
+
+### Return type
+
+[**UserRegistrationResponse**](UserRegistrationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

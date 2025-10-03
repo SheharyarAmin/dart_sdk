@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **consultantId** | **String** |  | 
 **providerId** | **String** |  | 
 **payCode** | **String** |  | 
-**rate** | **num** |  | [optional] [default to 0]
+**rate** | **num** |  | [optional] [default to 0.0]
 **effectiveDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **consultantName** | **String** |  | 
 

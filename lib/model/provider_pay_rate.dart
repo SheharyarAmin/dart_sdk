@@ -15,7 +15,7 @@ class ProviderPayRate {
   ProviderPayRate({
     required this.providerid,
     required this.paycode,
-    this.rate = 0,
+    this.rate = 0.0,
     this.effectiveDate,
     required this.id,
   });

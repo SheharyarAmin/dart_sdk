@@ -20,7 +20,7 @@ class WorkloadDistribution {
     this.totalEmployees = 0,
     this.totalCapacity = 0,
     this.totalAssigned = 0,
-    this.organizationUtilization = 0,
+    this.organizationUtilization = 0.0,
     this.availableCapacity = 0,
   });
 

@@ -240,6 +240,8 @@ part 'model/update_features_request.dart';
 part 'model/user_access_info.dart';
 part 'model/user_access_update.dart';
 part 'model/user_context_response.dart';
+part 'model/user_registration_request.dart';
+part 'model/user_registration_response.dart';
 part 'model/user_status.dart';
 part 'model/user_tenant.dart';
 part 'model/user_tenants_response.dart';

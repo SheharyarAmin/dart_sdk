@@ -13,9 +13,9 @@ part of openapi.api;
 class PerformanceMetricsBreakdown {
   /// Returns a new [PerformanceMetricsBreakdown] instance.
   PerformanceMetricsBreakdown({
-    this.avgProcessingEfficiency = 0,
-    this.avgQualityMetrics = 0,
-    this.avgEngagementConsistency = 0,
+    this.avgProcessingEfficiency = 0.0,
+    this.avgQualityMetrics = 0.0,
+    this.avgEngagementConsistency = 0.0,
     required this.componentPerformance,
     this.primaryBottlenecks = const [],
     required this.improvementPotential,

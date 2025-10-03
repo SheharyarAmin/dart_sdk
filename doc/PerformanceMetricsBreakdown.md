@@ -8,9 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**avgProcessingEfficiency** | **num** |  | [optional] [default to 0]
-**avgQualityMetrics** | **num** |  | [optional] [default to 0]
-**avgEngagementConsistency** | **num** |  | [optional] [default to 0]
+**avgProcessingEfficiency** | **num** |  | [optional] [default to 0.0]
+**avgQualityMetrics** | **num** |  | [optional] [default to 0.0]
+**avgEngagementConsistency** | **num** |  | [optional] [default to 0.0]
 **componentPerformance** | [**ComponentPerformance**](ComponentPerformance.md) |  | 
 **primaryBottlenecks** | **List<String>** |  | [optional] [default to const []]
 **improvementPotential** | [**ImprovementPotential**](ImprovementPotential.md) |  | 

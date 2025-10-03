@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **consultantId** | **String** |  | 
 **providerId** | **String** |  | 
 **payCode** | **String** |  | 
-**rate** | **num** |  | [optional] [default to 0]
+**rate** | **num** |  | [optional] [default to 0.0]
 **effectiveDate** | [**DateTime**](DateTime.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

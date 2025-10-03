@@ -1,4 +1,4 @@
-# openapi.model.ProviderPayRate
+# openapi.model.UserRegistrationRequest
 
 ## Load the model package
 ```dart
@@ -8,11 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**providerid** | **String** |  | 
-**paycode** | **String** |  | 
-**rate** | **num** |  | [optional] [default to 0.0]
-**effectiveDate** | [**DateTime**](DateTime.md) |  | [optional] 
-**id** | **String** |  | 
+**firebaseIdToken** | **String** | Firebase ID token for user authentication | 
+**name** | **String** |  | [optional] 
+**phone** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

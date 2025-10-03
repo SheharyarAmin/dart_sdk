@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **teamSize** | **int** |  | 
 **teamAverageScore** | **num** |  | 
 **teamPerformanceDistribution** | [**PerformanceDistribution**](PerformanceDistribution.md) |  | 
-**teamImprovementRate** | **num** |  | [optional] [default to 0]
-**teamRetentionScore** | **num** |  | [optional] [default to 0]
+**teamImprovementRate** | **num** |  | [optional] [default to 0.0]
+**teamRetentionScore** | **num** |  | [optional] [default to 0.0]
 **managementEffectiveness** | **String** |  | [optional] [default to 'effective']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
