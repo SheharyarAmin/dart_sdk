@@ -18,10 +18,14 @@ class UserAuthApi {
 
   /// Get User Context
   ///
-  /// Get current user's context including selected tenant and available tenants.
+  /// Get current user's context including selected tenant and available tenants. Supports both JWT tokens (for authenticated users with selected tenant) and Firebase ID tokens (for tenant selection phase).  Token can be provided in three ways: 1. Authorization header: \"Bearer <jwt_or_firebase_token>\" 2. Query parameter: ?firebase_token=<token> 3. Via middleware state (if JWT was already validated)
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getUserContextApiV1AuthUserContextGetWithHttpInfo() async {
+  ///
+  /// Parameters:
+  ///
+  /// * [String] firebaseToken:
+  Future<Response> getUserContextApiV1AuthUserContextGetWithHttpInfo({ String? firebaseToken, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/auth/user-context';
 
@@ -31,6 +35,10 @@ class UserAuthApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (firebaseToken != null) {
+      queryParams.addAll(_queryParams('', 'firebase_token', firebaseToken));
+    }
 
     const contentTypes = <String>[];
 
@@ -48,9 +56,13 @@ class UserAuthApi {
 
   /// Get User Context
   ///
-  /// Get current user's context including selected tenant and available tenants.
-  Future<UserContextResponse?> getUserContextApiV1AuthUserContextGet() async {
-    final response = await getUserContextApiV1AuthUserContextGetWithHttpInfo();
+  /// Get current user's context including selected tenant and available tenants. Supports both JWT tokens (for authenticated users with selected tenant) and Firebase ID tokens (for tenant selection phase).  Token can be provided in three ways: 1. Authorization header: \"Bearer <jwt_or_firebase_token>\" 2. Query parameter: ?firebase_token=<token> 3. Via middleware state (if JWT was already validated)
+  ///
+  /// Parameters:
+  ///
+  /// * [String] firebaseToken:
+  Future<UserContextResponse?> getUserContextApiV1AuthUserContextGet({ String? firebaseToken, }) async {
+    final response = await getUserContextApiV1AuthUserContextGetWithHttpInfo( firebaseToken: firebaseToken, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -66,14 +78,16 @@ class UserAuthApi {
 
   /// Get User Tenants
   ///
-  /// Get all tenants that the current user has access to. Supports both JWT tokens (for authenticated users) and Firebase ID tokens (for tenant selection).
+  /// Get all tenants that the current user has access to. Supports both JWT tokens (for authenticated users) and Firebase ID tokens (for tenant selection).  Token can be provided in three ways: 1. Authorization header: \"Bearer <jwt_or_firebase_token>\" 2. Query parameter: ?firebase_token=<token> 3. Via middleware state (if JWT was already validated)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
+  /// * [String] firebaseToken:
+  ///
   /// * [String] currentUserId:
-  Future<Response> getUserTenantsApiV1AuthUserTenantsGetWithHttpInfo({ String? currentUserId, }) async {
+  Future<Response> getUserTenantsApiV1AuthUserTenantsGetWithHttpInfo({ String? firebaseToken, String? currentUserId, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/auth/user-tenants';
 
@@ -84,6 +98,9 @@ class UserAuthApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
+    if (firebaseToken != null) {
+      queryParams.addAll(_queryParams('', 'firebase_token', firebaseToken));
+    }
     if (currentUserId != null) {
       queryParams.addAll(_queryParams('', 'current_user_id', currentUserId));
     }
@@ -104,13 +121,15 @@ class UserAuthApi {
 
   /// Get User Tenants
   ///
-  /// Get all tenants that the current user has access to. Supports both JWT tokens (for authenticated users) and Firebase ID tokens (for tenant selection).
+  /// Get all tenants that the current user has access to. Supports both JWT tokens (for authenticated users) and Firebase ID tokens (for tenant selection).  Token can be provided in three ways: 1. Authorization header: \"Bearer <jwt_or_firebase_token>\" 2. Query parameter: ?firebase_token=<token> 3. Via middleware state (if JWT was already validated)
   ///
   /// Parameters:
   ///
+  /// * [String] firebaseToken:
+  ///
   /// * [String] currentUserId:
-  Future<UserTenantsResponse?> getUserTenantsApiV1AuthUserTenantsGet({ String? currentUserId, }) async {
-    final response = await getUserTenantsApiV1AuthUserTenantsGetWithHttpInfo( currentUserId: currentUserId, );
+  Future<UserTenantsResponse?> getUserTenantsApiV1AuthUserTenantsGet({ String? firebaseToken, String? currentUserId, }) async {
+    final response = await getUserTenantsApiV1AuthUserTenantsGetWithHttpInfo( firebaseToken: firebaseToken, currentUserId: currentUserId, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -175,54 +194,6 @@ class UserAuthApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'LoginResponse',) as LoginResponse;
-    
-    }
-    return null;
-  }
-
-  /// Ping
-  ///
-  /// Health check endpoint
-  ///
-  /// Note: This method returns the HTTP [Response].
-  Future<Response> pingApiV1AuthPingGetWithHttpInfo() async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/auth/ping';
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Ping
-  ///
-  /// Health check endpoint
-  Future<MessageResponse?> pingApiV1AuthPingGet() async {
-    final response = await pingApiV1AuthPingGetWithHttpInfo();
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageResponse',) as MessageResponse;
     
     }
     return null;
@@ -449,159 +420,6 @@ class UserAuthApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Token',) as Token;
-    
-    }
-    return null;
-  }
-
-  /// Test Jwt Token
-  ///
-  /// Test endpoint to create a JWT token for testing purposes
-  ///
-  /// Note: This method returns the HTTP [Response].
-  Future<Response> testJwtTokenApiV1AuthTestJwtTokenGetWithHttpInfo() async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/auth/test-jwt-token';
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Test Jwt Token
-  ///
-  /// Test endpoint to create a JWT token for testing purposes
-  Future<MessageResponse?> testJwtTokenApiV1AuthTestJwtTokenGet() async {
-    final response = await testJwtTokenApiV1AuthTestJwtTokenGetWithHttpInfo();
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MessageResponse',) as MessageResponse;
-    
-    }
-    return null;
-  }
-
-  /// Test Login Response
-  ///
-  /// Test endpoint to verify LoginResponse structure works correctly
-  ///
-  /// Note: This method returns the HTTP [Response].
-  Future<Response> testLoginResponseApiV1AuthTestLoginResponseGetWithHttpInfo() async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/auth/test-login-response';
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Test Login Response
-  ///
-  /// Test endpoint to verify LoginResponse structure works correctly
-  Future<LoginResponse?> testLoginResponseApiV1AuthTestLoginResponseGet() async {
-    final response = await testLoginResponseApiV1AuthTestLoginResponseGetWithHttpInfo();
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'LoginResponse',) as LoginResponse;
-    
-    }
-    return null;
-  }
-
-  /// Test User Tenants Direct
-  ///
-  /// Test endpoint to check what tenants a specific user has access to
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] userEmail (required):
-  Future<Response> testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGetWithHttpInfo(String userEmail,) async {
-    // ignore: prefer_const_declarations
-    final path = r'/api/v1/auth/test-user-tenants/{user_email}'
-      .replaceAll('{user_email}', userEmail);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-
-    return apiClient.invokeAPI(
-      path,
-      'GET',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Test User Tenants Direct
-  ///
-  /// Test endpoint to check what tenants a specific user has access to
-  ///
-  /// Parameters:
-  ///
-  /// * [String] userEmail (required):
-  Future<LoginResponse?> testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet(String userEmail,) async {
-    final response = await testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGetWithHttpInfo(userEmail,);
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'LoginResponse',) as LoginResponse;
     
     }
     return null;
