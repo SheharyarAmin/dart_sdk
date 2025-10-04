@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **tenantName** | **String** |  | 
 **role** | [**MembershipRole**](MembershipRole.md) |  | 
 **databaseName** | **String** |  | 
+**employeeId** | **String** |  | [optional] 
+**globalUserId** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

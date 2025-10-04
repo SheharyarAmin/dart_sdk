@@ -21,6 +21,8 @@ class LoginUser {
     required this.status,
     required this.createdAt,
     required this.updatedAt,
+    this.globalUserId,
+    this.employeeId,
   });
 
   String id;
@@ -39,6 +41,10 @@ class LoginUser {
 
   String updatedAt;
 
+  String? globalUserId;
+
+  String? employeeId;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is LoginUser &&
     other.id == id &&
@@ -48,7 +54,9 @@ class LoginUser {
     other.emailVerified == emailVerified &&
     other.status == status &&
     other.createdAt == createdAt &&
-    other.updatedAt == updatedAt;
+    other.updatedAt == updatedAt &&
+    other.globalUserId == globalUserId &&
+    other.employeeId == employeeId;
 
   @override
   int get hashCode =>
@@ -60,10 +68,12 @@ class LoginUser {
     (emailVerified.hashCode) +
     (status.hashCode) +
     (createdAt.hashCode) +
-    (updatedAt.hashCode);
+    (updatedAt.hashCode) +
+    (globalUserId == null ? 0 : globalUserId!.hashCode) +
+    (employeeId == null ? 0 : employeeId!.hashCode);
 
   @override
-  String toString() => 'LoginUser[id=$id, email=$email, name=$name, firebaseUid=$firebaseUid, emailVerified=$emailVerified, status=$status, createdAt=$createdAt, updatedAt=$updatedAt]';
+  String toString() => 'LoginUser[id=$id, email=$email, name=$name, firebaseUid=$firebaseUid, emailVerified=$emailVerified, status=$status, createdAt=$createdAt, updatedAt=$updatedAt, globalUserId=$globalUserId, employeeId=$employeeId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -75,6 +85,16 @@ class LoginUser {
       json[r'status'] = this.status;
       json[r'created_at'] = this.createdAt;
       json[r'updated_at'] = this.updatedAt;
+    if (this.globalUserId != null) {
+      json[r'global_user_id'] = this.globalUserId;
+    } else {
+      json[r'global_user_id'] = null;
+    }
+    if (this.employeeId != null) {
+      json[r'employee_id'] = this.employeeId;
+    } else {
+      json[r'employee_id'] = null;
+    }
     return json;
   }
 
@@ -105,6 +125,8 @@ class LoginUser {
         status: mapValueOfType<String>(json, r'status')!,
         createdAt: mapValueOfType<String>(json, r'created_at')!,
         updatedAt: mapValueOfType<String>(json, r'updated_at')!,
+        globalUserId: mapValueOfType<String>(json, r'global_user_id'),
+        employeeId: mapValueOfType<String>(json, r'employee_id'),
       );
     }
     return null;

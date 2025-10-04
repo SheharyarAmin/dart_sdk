@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **providerid** | **String** |  | 
 **paycode** | **String** |  | 
-**rate** | **num** |  | [optional] [default to 0.0]
+**rate** | **num** |  | [optional] [default to 0]
 **effectiveDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **id** | **String** |  | 
 

@@ -16,7 +16,7 @@ class ConsultantProviderPayRate {
     required this.consultantId,
     required this.providerId,
     required this.payCode,
-    this.rate = 0.0,
+    this.rate = 0,
     this.effectiveDate,
   });
 

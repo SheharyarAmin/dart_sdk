@@ -26,6 +26,7 @@ class PCMPatientCreate {
     this.pcmoptindate,
     this.pcmoptoutdate,
     this.optoutremarks,
+    this.patientId,
   });
 
   String? iv;
@@ -54,6 +55,8 @@ class PCMPatientCreate {
 
   String? optoutremarks;
 
+  String? patientId;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is PCMPatientCreate &&
     other.iv == iv &&
@@ -68,7 +71,8 @@ class PCMPatientCreate {
     other.pcmcpsigndate == pcmcpsigndate &&
     other.pcmoptindate == pcmoptindate &&
     other.pcmoptoutdate == pcmoptoutdate &&
-    other.optoutremarks == optoutremarks;
+    other.optoutremarks == optoutremarks &&
+    other.patientId == patientId;
 
   @override
   int get hashCode =>
@@ -85,10 +89,11 @@ class PCMPatientCreate {
     (pcmcpsigndate == null ? 0 : pcmcpsigndate!.hashCode) +
     (pcmoptindate == null ? 0 : pcmoptindate!.hashCode) +
     (pcmoptoutdate == null ? 0 : pcmoptoutdate!.hashCode) +
-    (optoutremarks == null ? 0 : optoutremarks!.hashCode);
+    (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
+    (patientId == null ? 0 : patientId!.hashCode);
 
   @override
-  String toString() => 'PCMPatientCreate[iv=$iv, pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, homeEmployeeId=$homeEmployeeId, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'PCMPatientCreate[iv=$iv, pcmclinicid=$pcmclinicid, pcmproviderid=$pcmproviderid, pcmemployeeid=$pcmemployeeid, pcmregempid=$pcmregempid, homeEmployeeId=$homeEmployeeId, pcmfinnumber=$pcmfinnumber, pcmmrnnumber=$pcmmrnnumber, lastprocessedpcm=$lastprocessedpcm, pcmcpsigndate=$pcmcpsigndate, pcmoptindate=$pcmoptindate, pcmoptoutdate=$pcmoptoutdate, optoutremarks=$optoutremarks, patientId=$patientId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -157,6 +162,11 @@ class PCMPatientCreate {
     } else {
       json[r'optoutremarks'] = null;
     }
+    if (this.patientId != null) {
+      json[r'patient_id'] = this.patientId;
+    } else {
+      json[r'patient_id'] = null;
+    }
     return json;
   }
 
@@ -192,6 +202,7 @@ class PCMPatientCreate {
         pcmoptindate: mapDateTime(json, r'pcmoptindate', r''),
         pcmoptoutdate: mapDateTime(json, r'pcmoptoutdate', r''),
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
+        patientId: mapValueOfType<String>(json, r'patient_id'),
       );
     }
     return null;

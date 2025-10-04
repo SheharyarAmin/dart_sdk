@@ -149,20 +149,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCurrentTenantApiV1TenantCurrentGet**
-> TenantRead getCurrentTenantApiV1TenantCurrentGet()
+> TenantRead getCurrentTenantApiV1TenantCurrentGet(firebaseToken)
 
 Get Current Tenant
 
-Get current tenant details
+Get current tenant details.  Supports multiple authentication methods: 1. JWT token with tenant already selected (via Authorization header) 2. Firebase token with auto-selection if user has only one tenant 3. Query parameter: ?firebase_token=<token>
 
 ### Example
 ```dart
 import 'package:openapi/api.dart';
 
 final api_instance = TenantManagementApi();
+final firebaseToken = firebaseToken_example; // String | 
 
 try {
-    final result = api_instance.getCurrentTenantApiV1TenantCurrentGet();
+    final result = api_instance.getCurrentTenantApiV1TenantCurrentGet(firebaseToken);
     print(result);
 } catch (e) {
     print('Exception when calling TenantManagementApi->getCurrentTenantApiV1TenantCurrentGet: $e\n');
@@ -170,7 +171,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **firebaseToken** | **String**|  | [optional] 
 
 ### Return type
 

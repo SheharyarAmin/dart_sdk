@@ -455,5 +455,3 @@ lib/model/workload_distribution.dart
 lib/model/workload_distribution_counts.dart
 lib/model/workload_optimization.dart
 pubspec.yaml
-test/user_registration_request_test.dart
-test/user_registration_response_test.dart

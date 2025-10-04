@@ -246,14 +246,10 @@ Class | Method | HTTP request | Description
 *UserAuthApi* | [**getUserContextApiV1AuthUserContextGet**](doc//UserAuthApi.md#getusercontextapiv1authusercontextget) | **GET** /api/v1/auth/user-context | Get User Context
 *UserAuthApi* | [**getUserTenantsApiV1AuthUserTenantsGet**](doc//UserAuthApi.md#getusertenantsapiv1authusertenantsget) | **GET** /api/v1/auth/user-tenants | Get User Tenants
 *UserAuthApi* | [**loginUserApiV1AuthLoginPost**](doc//UserAuthApi.md#loginuserapiv1authloginpost) | **POST** /api/v1/auth/login | Login User
-*UserAuthApi* | [**pingApiV1AuthPingGet**](doc//UserAuthApi.md#pingapiv1authpingget) | **GET** /api/v1/auth/ping | Ping
 *UserAuthApi* | [**refreshAccessTokenApiV1AuthRefreshPost**](doc//UserAuthApi.md#refreshaccesstokenapiv1authrefreshpost) | **POST** /api/v1/auth/refresh | Refresh Access Token
 *UserAuthApi* | [**registerUserApiV1AuthRegisterPost**](doc//UserAuthApi.md#registeruserapiv1authregisterpost) | **POST** /api/v1/auth/register | Register User
 *UserAuthApi* | [**selectTenantApiV1AuthSelectTenantPost**](doc//UserAuthApi.md#selecttenantapiv1authselecttenantpost) | **POST** /api/v1/auth/select-tenant | Select Tenant
 *UserAuthApi* | [**switchTenantApiV1AuthSwitchTenantPost**](doc//UserAuthApi.md#switchtenantapiv1authswitchtenantpost) | **POST** /api/v1/auth/switch-tenant | Switch Tenant
-*UserAuthApi* | [**testJwtTokenApiV1AuthTestJwtTokenGet**](doc//UserAuthApi.md#testjwttokenapiv1authtestjwttokenget) | **GET** /api/v1/auth/test-jwt-token | Test Jwt Token
-*UserAuthApi* | [**testLoginResponseApiV1AuthTestLoginResponseGet**](doc//UserAuthApi.md#testloginresponseapiv1authtestloginresponseget) | **GET** /api/v1/auth/test-login-response | Test Login Response
-*UserAuthApi* | [**testUserTenantsDirectApiV1AuthTestUserTenantsUserEmailGet**](doc//UserAuthApi.md#testusertenantsdirectapiv1authtestusertenantsuseremailget) | **GET** /api/v1/auth/test-user-tenants/{user_email} | Test User Tenants Direct
 
 
 ## Documentation For Models

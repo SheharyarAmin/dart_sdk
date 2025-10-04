@@ -16,6 +16,7 @@ class SelectedTenant {
     required this.tenantId,
     required this.tenantName,
     required this.role,
+    this.employeeId,
   });
 
   String tenantId;
@@ -24,27 +25,36 @@ class SelectedTenant {
 
   String role;
 
+  String? employeeId;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is SelectedTenant &&
     other.tenantId == tenantId &&
     other.tenantName == tenantName &&
-    other.role == role;
+    other.role == role &&
+    other.employeeId == employeeId;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (tenantId.hashCode) +
     (tenantName.hashCode) +
-    (role.hashCode);
+    (role.hashCode) +
+    (employeeId == null ? 0 : employeeId!.hashCode);
 
   @override
-  String toString() => 'SelectedTenant[tenantId=$tenantId, tenantName=$tenantName, role=$role]';
+  String toString() => 'SelectedTenant[tenantId=$tenantId, tenantName=$tenantName, role=$role, employeeId=$employeeId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'tenant_id'] = this.tenantId;
       json[r'tenant_name'] = this.tenantName;
       json[r'role'] = this.role;
+    if (this.employeeId != null) {
+      json[r'employee_id'] = this.employeeId;
+    } else {
+      json[r'employee_id'] = null;
+    }
     return json;
   }
 
@@ -70,6 +80,7 @@ class SelectedTenant {
         tenantId: mapValueOfType<String>(json, r'tenant_id')!,
         tenantName: mapValueOfType<String>(json, r'tenant_name')!,
         role: mapValueOfType<String>(json, r'role')!,
+        employeeId: mapValueOfType<String>(json, r'employee_id'),
       );
     }
     return null;

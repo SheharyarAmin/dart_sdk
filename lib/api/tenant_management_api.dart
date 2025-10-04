@@ -185,10 +185,14 @@ class TenantManagementApi {
 
   /// Get Current Tenant
   ///
-  /// Get current tenant details
+  /// Get current tenant details.  Supports multiple authentication methods: 1. JWT token with tenant already selected (via Authorization header) 2. Firebase token with auto-selection if user has only one tenant 3. Query parameter: ?firebase_token=<token>
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getCurrentTenantApiV1TenantCurrentGetWithHttpInfo() async {
+  ///
+  /// Parameters:
+  ///
+  /// * [String] firebaseToken:
+  Future<Response> getCurrentTenantApiV1TenantCurrentGetWithHttpInfo({ String? firebaseToken, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/tenant/current';
 
@@ -198,6 +202,10 @@ class TenantManagementApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (firebaseToken != null) {
+      queryParams.addAll(_queryParams('', 'firebase_token', firebaseToken));
+    }
 
     const contentTypes = <String>[];
 
@@ -215,9 +223,13 @@ class TenantManagementApi {
 
   /// Get Current Tenant
   ///
-  /// Get current tenant details
-  Future<TenantRead?> getCurrentTenantApiV1TenantCurrentGet() async {
-    final response = await getCurrentTenantApiV1TenantCurrentGetWithHttpInfo();
+  /// Get current tenant details.  Supports multiple authentication methods: 1. JWT token with tenant already selected (via Authorization header) 2. Firebase token with auto-selection if user has only one tenant 3. Query parameter: ?firebase_token=<token>
+  ///
+  /// Parameters:
+  ///
+  /// * [String] firebaseToken:
+  Future<TenantRead?> getCurrentTenantApiV1TenantCurrentGet({ String? firebaseToken, }) async {
+    final response = await getCurrentTenantApiV1TenantCurrentGetWithHttpInfo( firebaseToken: firebaseToken, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

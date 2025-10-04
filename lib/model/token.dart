@@ -16,6 +16,8 @@ class Token {
     required this.accessToken,
     required this.refreshToken,
     required this.tokenType,
+    this.user,
+    this.selectedTenant,
   });
 
   String accessToken;
@@ -24,27 +26,45 @@ class Token {
 
   String tokenType;
 
+  LoginUser? user;
+
+  SelectedTenant? selectedTenant;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is Token &&
     other.accessToken == accessToken &&
     other.refreshToken == refreshToken &&
-    other.tokenType == tokenType;
+    other.tokenType == tokenType &&
+    other.user == user &&
+    other.selectedTenant == selectedTenant;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (accessToken.hashCode) +
     (refreshToken.hashCode) +
-    (tokenType.hashCode);
+    (tokenType.hashCode) +
+    (user == null ? 0 : user!.hashCode) +
+    (selectedTenant == null ? 0 : selectedTenant!.hashCode);
 
   @override
-  String toString() => 'Token[accessToken=$accessToken, refreshToken=$refreshToken, tokenType=$tokenType]';
+  String toString() => 'Token[accessToken=$accessToken, refreshToken=$refreshToken, tokenType=$tokenType, user=$user, selectedTenant=$selectedTenant]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'access_token'] = this.accessToken;
       json[r'refresh_token'] = this.refreshToken;
       json[r'token_type'] = this.tokenType;
+    if (this.user != null) {
+      json[r'user'] = this.user;
+    } else {
+      json[r'user'] = null;
+    }
+    if (this.selectedTenant != null) {
+      json[r'selected_tenant'] = this.selectedTenant;
+    } else {
+      json[r'selected_tenant'] = null;
+    }
     return json;
   }
 
@@ -70,6 +90,8 @@ class Token {
         accessToken: mapValueOfType<String>(json, r'access_token')!,
         refreshToken: mapValueOfType<String>(json, r'refresh_token')!,
         tokenType: mapValueOfType<String>(json, r'token_type')!,
+        user: LoginUser.fromJson(json[r'user']),
+        selectedTenant: SelectedTenant.fromJson(json[r'selected_tenant']),
       );
     }
     return null;

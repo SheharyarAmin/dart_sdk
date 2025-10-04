@@ -26,6 +26,7 @@ class CCMPatientCreate {
     this.optindate,
     this.optoutdate,
     this.optoutremarks,
+    this.patientId,
   });
 
   String? iv;
@@ -54,6 +55,8 @@ class CCMPatientCreate {
 
   String? optoutremarks;
 
+  String? patientId;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is CCMPatientCreate &&
     other.iv == iv &&
@@ -68,7 +71,8 @@ class CCMPatientCreate {
     other.cpsigndate == cpsigndate &&
     other.optindate == optindate &&
     other.optoutdate == optoutdate &&
-    other.optoutremarks == optoutremarks;
+    other.optoutremarks == optoutremarks &&
+    other.patientId == patientId;
 
   @override
   int get hashCode =>
@@ -85,10 +89,11 @@ class CCMPatientCreate {
     (cpsigndate == null ? 0 : cpsigndate!.hashCode) +
     (optindate == null ? 0 : optindate!.hashCode) +
     (optoutdate == null ? 0 : optoutdate!.hashCode) +
-    (optoutremarks == null ? 0 : optoutremarks!.hashCode);
+    (optoutremarks == null ? 0 : optoutremarks!.hashCode) +
+    (patientId == null ? 0 : patientId!.hashCode);
 
   @override
-  String toString() => 'CCMPatientCreate[iv=$iv, clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, homeEmployeeId=$homeEmployeeId, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks]';
+  String toString() => 'CCMPatientCreate[iv=$iv, clinicid=$clinicid, providerid=$providerid, employeeid=$employeeid, regempid=$regempid, homeEmployeeId=$homeEmployeeId, finnumber=$finnumber, mrnnumber=$mrnnumber, lastprocessed=$lastprocessed, cpsigndate=$cpsigndate, optindate=$optindate, optoutdate=$optoutdate, optoutremarks=$optoutremarks, patientId=$patientId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -157,6 +162,11 @@ class CCMPatientCreate {
     } else {
       json[r'optoutremarks'] = null;
     }
+    if (this.patientId != null) {
+      json[r'patient_id'] = this.patientId;
+    } else {
+      json[r'patient_id'] = null;
+    }
     return json;
   }
 
@@ -192,6 +202,7 @@ class CCMPatientCreate {
         optindate: mapDateTime(json, r'optindate', r''),
         optoutdate: mapDateTime(json, r'optoutdate', r''),
         optoutremarks: mapValueOfType<String>(json, r'optoutremarks'),
+        patientId: mapValueOfType<String>(json, r'patient_id'),
       );
     }
     return null;

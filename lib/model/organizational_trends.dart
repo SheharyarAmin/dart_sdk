@@ -16,12 +16,12 @@ class OrganizationalTrends {
     required this.periodStart,
     required this.periodEnd,
     this.averageScoreTrend = 'stable',
-    this.scoreChangePercentage = 0.0,
+    this.scoreChangePercentage = 0,
     this.employeesImproved = 0,
     this.employeesDeclined = 0,
     this.newHighPerformers = 0,
     this.capacityUtilizationTrend = 'stable',
-    this.capacityChangePercentage = 0.0,
+    this.capacityChangePercentage = 0,
   });
 
   DateTime periodStart;

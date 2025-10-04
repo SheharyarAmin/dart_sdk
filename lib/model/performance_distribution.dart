@@ -19,8 +19,8 @@ class PerformanceDistribution {
     this.criticalCases = 0,
     this.noData = 0,
     this.totalEmployees = 0,
-    this.highPerformerPercentage = 0.0,
-    this.underPerformerPercentage = 0.0,
+    this.highPerformerPercentage = 0,
+    this.underPerformerPercentage = 0,
   });
 
   int highPerformers;

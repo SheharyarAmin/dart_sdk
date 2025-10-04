@@ -17,6 +17,8 @@ class TenantContextData {
     required this.tenantName,
     required this.role,
     required this.databaseName,
+    this.employeeId,
+    this.globalUserId,
   });
 
   String tenantId;
@@ -27,12 +29,18 @@ class TenantContextData {
 
   String databaseName;
 
+  String? employeeId;
+
+  String? globalUserId;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is TenantContextData &&
     other.tenantId == tenantId &&
     other.tenantName == tenantName &&
     other.role == role &&
-    other.databaseName == databaseName;
+    other.databaseName == databaseName &&
+    other.employeeId == employeeId &&
+    other.globalUserId == globalUserId;
 
   @override
   int get hashCode =>
@@ -40,10 +48,12 @@ class TenantContextData {
     (tenantId.hashCode) +
     (tenantName.hashCode) +
     (role.hashCode) +
-    (databaseName.hashCode);
+    (databaseName.hashCode) +
+    (employeeId == null ? 0 : employeeId!.hashCode) +
+    (globalUserId == null ? 0 : globalUserId!.hashCode);
 
   @override
-  String toString() => 'TenantContextData[tenantId=$tenantId, tenantName=$tenantName, role=$role, databaseName=$databaseName]';
+  String toString() => 'TenantContextData[tenantId=$tenantId, tenantName=$tenantName, role=$role, databaseName=$databaseName, employeeId=$employeeId, globalUserId=$globalUserId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -51,6 +61,16 @@ class TenantContextData {
       json[r'tenant_name'] = this.tenantName;
       json[r'role'] = this.role;
       json[r'database_name'] = this.databaseName;
+    if (this.employeeId != null) {
+      json[r'employee_id'] = this.employeeId;
+    } else {
+      json[r'employee_id'] = null;
+    }
+    if (this.globalUserId != null) {
+      json[r'global_user_id'] = this.globalUserId;
+    } else {
+      json[r'global_user_id'] = null;
+    }
     return json;
   }
 
@@ -77,6 +97,8 @@ class TenantContextData {
         tenantName: mapValueOfType<String>(json, r'tenant_name')!,
         role: MembershipRole.fromJson(json[r'role'])!,
         databaseName: mapValueOfType<String>(json, r'database_name')!,
+        employeeId: mapValueOfType<String>(json, r'employee_id'),
+        globalUserId: mapValueOfType<String>(json, r'global_user_id'),
       );
     }
     return null;
