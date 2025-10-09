@@ -448,6 +448,12 @@ class ApiClient {
           return EmployeeAssignmentStats.fromJson(value);
         case 'EmployeeByProcessedPatients':
           return EmployeeByProcessedPatients.fromJson(value);
+        case 'EmployeeContext':
+          return EmployeeContext.fromJson(value);
+        case 'EmployeeContextFlags':
+          return EmployeeContextFlags.fromJson(value);
+        case 'EmployeeContextList':
+          return EmployeeContextList.fromJson(value);
         case 'EmployeeCreate':
           return EmployeeCreate.fromJson(value);
         case 'EmployeeDetail':
@@ -458,6 +464,8 @@ class ApiClient {
           return EmployeeNeedsAttention.fromJson(value);
         case 'EmployeePerformanceAnalytics':
           return EmployeePerformanceAnalytics.fromJson(value);
+        case 'EmployeePerformanceContext':
+          return EmployeePerformanceContext.fromJson(value);
         case 'EmployeePerformanceDashboard':
           return EmployeePerformanceDashboard.fromJson(value);
         case 'EmployeePerformanceDetail':
@@ -486,6 +494,10 @@ class ApiClient {
           return FailedInvitation.fromJson(value);
         case 'Feature':
           return Feature.fromJson(value);
+        case 'FeatureAccessResponse':
+          return FeatureAccessResponse.fromJson(value);
+        case 'FeatureSummary':
+          return FeatureSummary.fromJson(value);
         case 'GlobalUserRead':
           return GlobalUserRead.fromJson(value);
         case 'HTTPValidationError':
@@ -660,6 +672,10 @@ class ApiClient {
           return SelectedTenant.fromJson(value);
         case 'SubscriptionTier':
           return SubscriptionTier.fromJson(value);
+        case 'SubscriptionTierSummary':
+          return SubscriptionTierSummary.fromJson(value);
+        case 'SubscriptionTiersResponse':
+          return SubscriptionTiersResponse.fromJson(value);
         case 'SuccessfulInvitation':
           return SuccessfulInvitation.fromJson(value);
         case 'TeamAnalytics':
@@ -696,6 +712,8 @@ class ApiClient {
           return TenantStatusUpdate.fromJson(value);
         case 'TenantUpdate':
           return TenantUpdate.fromJson(value);
+        case 'TierLimitEntry':
+          return TierLimitEntry.fromJson(value);
         case 'Token':
           return Token.fromJson(value);
         case 'TopPerformer':
@@ -724,6 +742,8 @@ class ApiClient {
           return UserStatusTypeTransformer().decode(value);
         case 'UserTenant':
           return UserTenant.fromJson(value);
+        case 'UserTenantMembershipRead':
+          return UserTenantMembershipRead.fromJson(value);
         case 'UserTenantsResponse':
           return UserTenantsResponse.fromJson(value);
         case 'ValidationError':

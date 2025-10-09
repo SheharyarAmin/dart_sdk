@@ -58,7 +58,7 @@ class TenantManagementApi {
   /// Parameters:
   ///
   /// * [String] feature (required):
-  Future<Object?> checkFeatureAccessApiV1TenantFeaturesFeatureCheckGet(String feature,) async {
+  Future<FeatureAccessResponse?> checkFeatureAccessApiV1TenantFeaturesFeatureCheckGet(String feature,) async {
     final response = await checkFeatureAccessApiV1TenantFeaturesFeatureCheckGetWithHttpInfo(feature,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -67,7 +67,7 @@ class TenantManagementApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'FeatureAccessResponse',) as FeatureAccessResponse;
     
     }
     return null;
@@ -168,7 +168,7 @@ class TenantManagementApi {
   /// Get Available Subscription Tiers
   ///
   /// Get information about available subscription tiers
-  Future<Object?> getAvailableSubscriptionTiersApiV1TenantSubscriptionTiersGet() async {
+  Future<SubscriptionTiersResponse?> getAvailableSubscriptionTiersApiV1TenantSubscriptionTiersGet() async {
     final response = await getAvailableSubscriptionTiersApiV1TenantSubscriptionTiersGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -177,7 +177,7 @@ class TenantManagementApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'SubscriptionTiersResponse',) as SubscriptionTiersResponse;
     
     }
     return null;
@@ -276,7 +276,7 @@ class TenantManagementApi {
   /// Get Tenant Features
   ///
   /// Get all feature access information for current tenant
-  Future<Object?> getTenantFeaturesApiV1TenantFeaturesGet() async {
+  Future<TenantRead?> getTenantFeaturesApiV1TenantFeaturesGet() async {
     final response = await getTenantFeaturesApiV1TenantFeaturesGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -285,7 +285,7 @@ class TenantManagementApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TenantRead',) as TenantRead;
     
     }
     return null;
@@ -557,7 +557,7 @@ class TenantManagementApi {
   /// Parameters:
   ///
   /// * [UpdateFeaturesRequest] updateFeaturesRequest (required):
-  Future<Object?> updateTenantFeaturesApiV1TenantFeaturesPut(UpdateFeaturesRequest updateFeaturesRequest,) async {
+  Future<TenantRead?> updateTenantFeaturesApiV1TenantFeaturesPut(UpdateFeaturesRequest updateFeaturesRequest,) async {
     final response = await updateTenantFeaturesApiV1TenantFeaturesPutWithHttpInfo(updateFeaturesRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -566,7 +566,7 @@ class TenantManagementApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Object',) as Object;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TenantRead',) as TenantRead;
     
     }
     return null;

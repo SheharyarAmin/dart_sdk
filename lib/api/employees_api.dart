@@ -239,6 +239,73 @@ class EmployeesApi {
     return null;
   }
 
+  /// Get Employee Context Detail
+  ///
+  /// Return a unified view of a single employee across tenant and master databases.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] employeeId (required):
+  ///
+  /// * [bool] includePerformance:
+  ///   Include performance summary
+  Future<Response> getEmployeeContextDetailApiV1EmployeesEmployeeIdContextGetWithHttpInfo(String employeeId, { bool? includePerformance, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/employees/{employee_id}/context'
+      .replaceAll('{employee_id}', employeeId);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (includePerformance != null) {
+      queryParams.addAll(_queryParams('', 'include_performance', includePerformance));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Employee Context Detail
+  ///
+  /// Return a unified view of a single employee across tenant and master databases.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] employeeId (required):
+  ///
+  /// * [bool] includePerformance:
+  ///   Include performance summary
+  Future<EmployeeContext?> getEmployeeContextDetailApiV1EmployeesEmployeeIdContextGet(String employeeId, { bool? includePerformance, }) async {
+    final response = await getEmployeeContextDetailApiV1EmployeesEmployeeIdContextGetWithHttpInfo(employeeId,  includePerformance: includePerformance, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeContext',) as EmployeeContext;
+    
+    }
+    return null;
+  }
+
   /// Get Employee Performance Detail
   ///
   /// Get detailed performance view for a specific employee. This replaces/enhances the employee detail view with performance data.
@@ -481,6 +548,95 @@ class EmployeesApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeListWithPerformance',) as EmployeeListWithPerformance;
+    
+    }
+    return null;
+  }
+
+  /// List Employee Contexts
+  ///
+  /// Return unified employee contexts with performance, membership, and invite status.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [Portal] portal:
+  ///   Filter by portal
+  ///
+  /// * [int] limit:
+  ///   Number of employees to return
+  ///
+  /// * [int] offset:
+  ///   Offset for pagination
+  ///
+  /// * [bool] includePerformance:
+  ///   Include performance summary
+  Future<Response> listEmployeeContextsApiV1EmployeesContextGetWithHttpInfo({ Portal? portal, int? limit, int? offset, bool? includePerformance, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v1/employees/context';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (portal != null) {
+      queryParams.addAll(_queryParams('', 'portal', portal));
+    }
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
+    }
+    if (includePerformance != null) {
+      queryParams.addAll(_queryParams('', 'include_performance', includePerformance));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// List Employee Contexts
+  ///
+  /// Return unified employee contexts with performance, membership, and invite status.
+  ///
+  /// Parameters:
+  ///
+  /// * [Portal] portal:
+  ///   Filter by portal
+  ///
+  /// * [int] limit:
+  ///   Number of employees to return
+  ///
+  /// * [int] offset:
+  ///   Offset for pagination
+  ///
+  /// * [bool] includePerformance:
+  ///   Include performance summary
+  Future<EmployeeContextList?> listEmployeeContextsApiV1EmployeesContextGet({ Portal? portal, int? limit, int? offset, bool? includePerformance, }) async {
+    final response = await listEmployeeContextsApiV1EmployeesContextGetWithHttpInfo( portal: portal, limit: limit, offset: offset, includePerformance: includePerformance, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EmployeeContextList',) as EmployeeContextList;
     
     }
     return null;

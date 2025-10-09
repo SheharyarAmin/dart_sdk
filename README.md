@@ -149,9 +149,11 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**changeDeletedStatusApiV1EmployeesEmployeeIdChangeDeletedStatusPut**](doc//EmployeesApi.md#changedeletedstatusapiv1employeesemployeeidchangedeletedstatusput) | **PUT** /api/v1/employees/{employee_id}/change-deleted-status | Change Deleted Status
 *EmployeesApi* | [**createEmployeeApiV1EmployeesPost**](doc//EmployeesApi.md#createemployeeapiv1employeespost) | **POST** /api/v1/employees/ | Create Employee
 *EmployeesApi* | [**deleteEmployeeApiV1EmployeesEmployeeIdDelete**](doc//EmployeesApi.md#deleteemployeeapiv1employeesemployeeiddelete) | **DELETE** /api/v1/employees/{employee_id} | Delete Employee
+*EmployeesApi* | [**getEmployeeContextDetailApiV1EmployeesEmployeeIdContextGet**](doc//EmployeesApi.md#getemployeecontextdetailapiv1employeesemployeeidcontextget) | **GET** /api/v1/employees/{employee_id}/context | Get Employee Context Detail
 *EmployeesApi* | [**getEmployeePerformanceDetailApiV1EmployeesEmployeeIdPerformanceGet**](doc//EmployeesApi.md#getemployeeperformancedetailapiv1employeesemployeeidperformanceget) | **GET** /api/v1/employees/{employee_id}/performance | Get Employee Performance Detail
 *EmployeesApi* | [**getEmployeeRoleApiV1EmployeesRoleEmailGet**](doc//EmployeesApi.md#getemployeeroleapiv1employeesroleemailget) | **GET** /api/v1/employees/role/{email} | Get Employee Role
 *EmployeesApi* | [**getEmployeesWithPerformanceApiV1EmployeesWithPerformanceGet**](doc//EmployeesApi.md#getemployeeswithperformanceapiv1employeeswithperformanceget) | **GET** /api/v1/employees/with-performance | Get Employees With Performance
+*EmployeesApi* | [**listEmployeeContextsApiV1EmployeesContextGet**](doc//EmployeesApi.md#listemployeecontextsapiv1employeescontextget) | **GET** /api/v1/employees/context | List Employee Contexts
 *EmployeesApi* | [**readEmployeeApiV1EmployeesEmployeeIdGet**](doc//EmployeesApi.md#reademployeeapiv1employeesemployeeidget) | **GET** /api/v1/employees/{employee_id} | Read Employee
 *EmployeesApi* | [**readEmployeesApiV1EmployeesGet**](doc//EmployeesApi.md#reademployeesapiv1employeesget) | **GET** /api/v1/employees/ | Read Employees
 *EmployeesApi* | [**refreshAllAssignedPatientsCountApiV1EmployeesRefreshAllAssignedPatientsPost**](doc//EmployeesApi.md#refreshallassignedpatientscountapiv1employeesrefreshallassignedpatientspost) | **POST** /api/v1/employees/refresh-all-assigned-patients | Refresh All Assigned Patients Count
@@ -303,11 +305,15 @@ Class | Method | HTTP request | Description
  - [DietUpdate](doc//DietUpdate.md)
  - [EmployeeAssignmentStats](doc//EmployeeAssignmentStats.md)
  - [EmployeeByProcessedPatients](doc//EmployeeByProcessedPatients.md)
+ - [EmployeeContext](doc//EmployeeContext.md)
+ - [EmployeeContextFlags](doc//EmployeeContextFlags.md)
+ - [EmployeeContextList](doc//EmployeeContextList.md)
  - [EmployeeCreate](doc//EmployeeCreate.md)
  - [EmployeeDetail](doc//EmployeeDetail.md)
  - [EmployeeListWithPerformance](doc//EmployeeListWithPerformance.md)
  - [EmployeeNeedsAttention](doc//EmployeeNeedsAttention.md)
  - [EmployeePerformanceAnalytics](doc//EmployeePerformanceAnalytics.md)
+ - [EmployeePerformanceContext](doc//EmployeePerformanceContext.md)
  - [EmployeePerformanceDashboard](doc//EmployeePerformanceDashboard.md)
  - [EmployeePerformanceDetail](doc//EmployeePerformanceDetail.md)
  - [EmployeePerformanceScoreEmployee](doc//EmployeePerformanceScoreEmployee.md)
@@ -322,6 +328,8 @@ Class | Method | HTTP request | Description
  - [ExpansionOpportunity](doc//ExpansionOpportunity.md)
  - [FailedInvitation](doc//FailedInvitation.md)
  - [Feature](doc//Feature.md)
+ - [FeatureAccessResponse](doc//FeatureAccessResponse.md)
+ - [FeatureSummary](doc//FeatureSummary.md)
  - [GlobalUserRead](doc//GlobalUserRead.md)
  - [HTTPValidationError](doc//HTTPValidationError.md)
  - [HighPerformerDetail](doc//HighPerformerDetail.md)
@@ -406,6 +414,8 @@ Class | Method | HTTP request | Description
  - [ScoreDistribution](doc//ScoreDistribution.md)
  - [SelectedTenant](doc//SelectedTenant.md)
  - [SubscriptionTier](doc//SubscriptionTier.md)
+ - [SubscriptionTierSummary](doc//SubscriptionTierSummary.md)
+ - [SubscriptionTiersResponse](doc//SubscriptionTiersResponse.md)
  - [SuccessfulInvitation](doc//SuccessfulInvitation.md)
  - [TeamAnalytics](doc//TeamAnalytics.md)
  - [TeamComparison](doc//TeamComparison.md)
@@ -424,6 +434,7 @@ Class | Method | HTTP request | Description
  - [TenantStatus](doc//TenantStatus.md)
  - [TenantStatusUpdate](doc//TenantStatusUpdate.md)
  - [TenantUpdate](doc//TenantUpdate.md)
+ - [TierLimitEntry](doc//TierLimitEntry.md)
  - [Token](doc//Token.md)
  - [TopPerformer](doc//TopPerformer.md)
  - [TopPerformerInfo](doc//TopPerformerInfo.md)
@@ -438,6 +449,7 @@ Class | Method | HTTP request | Description
  - [UserRegistrationResponse](doc//UserRegistrationResponse.md)
  - [UserStatus](doc//UserStatus.md)
  - [UserTenant](doc//UserTenant.md)
+ - [UserTenantMembershipRead](doc//UserTenantMembershipRead.md)
  - [UserTenantsResponse](doc//UserTenantsResponse.md)
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)

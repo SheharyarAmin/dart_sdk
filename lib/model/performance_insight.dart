@@ -87,12 +87,12 @@ class PerformanceInsight {
       }());
 
       return PerformanceInsight(
-        metricName: mapValueOfType<String>(json, r'metric_name')!,
+        metricName: json[r'metric_name'].toString(),
         currentValue: num.parse('${json[r'current_value']}'),
         previousValue: json[r'previous_value'] == null
             ? null
             : num.parse('${json[r'previous_value']}'),
-        trend: mapValueOfType<String>(json, r'trend')!,
+        trend: json[r'trend'].toString(),
         percentageChange: json[r'percentage_change'] == null
             ? null
             : num.parse('${json[r'percentage_change']}'),
